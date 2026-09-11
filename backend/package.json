@@ -1,0 +1,26 @@
+{
+  "name": "platform-backend",
+  "version": "1.0.0",
+  "description": "Hono API for the endangered species conservation reporting platform",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "ingest": "tsx src/ingestion/cli.ts"
+  },
+  "type": "module",
+  "dependencies": {
+    "@hono/node-server": "^2.1.1",
+    "@supabase/supabase-js": "^2.112.4",
+    "dotenv": "^17.4.2",
+    "hono": "^4.13.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  },
+  "private": true
+}

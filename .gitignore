@@ -1,0 +1,73 @@
+# ========================
+# Node.js / Dependencies
+# ========================
+node_modules/
+.pnp
+.pnp.js
+
+# ========================
+# Build Outputs
+# ========================
+dist/
+dist-ssr/
+.output/
+.nuxt/
+.nitro/
+.data/
+.cache/
+*.local
+
+# ========================
+# Environment Variables
+# ========================
+.env
+.env.*
+!.env.example
+
+# ========================
+# Logs
+# ========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ========================
+# macOS
+# ========================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ========================
+# Editor / IDE
+# ========================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.fleet/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ========================
+# Misc
+# ========================
+*.bak
+*.tmp
+
+# ========================
+# Ingestion data
+# ========================
+# Canonical records are derived: `npm run ingest -- adapt` rebuilds them from a frozen
+# snapshot in under a second and with no network traffic, so they are not worth versioning.
+backend/data/canonical/
+
+# Frozen snapshots are deliberately NOT ignored. They are the reproducibility anchor the
+# methodology rests on — the raw evidence of what a source returned at a point in time, which
+# cannot be regenerated once the source moves on. ~5MB per Stage 1 run; if that becomes
+# unwieldy, move them to storage that versions large files rather than dropping them.
