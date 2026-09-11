@@ -10,6 +10,8 @@ import type {
   RecordList,
   SchemaResponse,
   SourceComparison,
+  TextOverview,
+  TextRows,
 } from "./corpusTypes";
 
 const base = (harvestKey: string, runId: string) => `/corpus/${harvestKey}/${runId}`;
@@ -60,6 +62,25 @@ export const listRecordsAPI = async (
   params: ListRecordsParams = {},
 ): Promise<RecordList> =>
   (await apiClient.get(`${base(harvestKey, runId)}/records`, { params })).data;
+
+export const getTextAPI = async (harvestKey: string, runId: string): Promise<TextOverview> =>
+  (await apiClient.get(`${base(harvestKey, runId)}/text`)).data;
+
+export interface ListTextRowsParams {
+  classifier?: "keyword" | "llm";
+  limit?: number;
+  offset?: number;
+  subject?: string;
+  condition?: string;
+  event?: string;
+}
+
+export const listTextRowsAPI = async (
+  harvestKey: string,
+  runId: string,
+  params: ListTextRowsParams = {},
+): Promise<TextRows> =>
+  (await apiClient.get(`${base(harvestKey, runId)}/text/rows`, { params })).data;
 
 export const getRecordAPI = async (
   harvestKey: string,

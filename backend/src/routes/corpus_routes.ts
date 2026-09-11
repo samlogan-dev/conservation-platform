@@ -8,9 +8,11 @@ import {
   getRawPage,
   getRecordDetail,
   getSchema,
+  getTextOverview,
   listHarvests,
   listPages,
   listRecords,
+  listTextRows,
   resolveRunId,
 } from "../ingestion/corpusService.ts";
 
@@ -97,6 +99,30 @@ corpusRoutes.get("/:harvestKey/:runId/family", async (c) => {
 corpusRoutes.get("/:harvestKey/:runId/schema", async (c) => {
   const { harvestKey, runId } = c.req.param();
   return c.json(await withRun(harvestKey, runId, (r) => getSchema(harvestKey, r)));
+});
+
+/** What the free text says: the taxonomy and one summary per classifier that has run. */
+corpusRoutes.get("/:harvestKey/:runId/text", async (c) => {
+  const { harvestKey, runId } = c.req.param();
+  return c.json(await withRun(harvestKey, runId, (r) => getTextOverview(harvestKey, r)));
+});
+
+corpusRoutes.get("/:harvestKey/:runId/text/rows", async (c) => {
+  const { harvestKey, runId } = c.req.param();
+  const q = c.req.query();
+  const classifier = q["classifier"];
+  return c.json(
+    await withRun(harvestKey, runId, (r) =>
+      listTextRows(harvestKey, r, {
+        classifier: classifier === "llm" || classifier === "keyword" ? classifier : undefined,
+        limit: intParam(q["limit"], 100, 500),
+        offset: intParam(q["offset"], 0, Number.MAX_SAFE_INTEGER),
+        subject: q["subject"] ?? undefined,
+        condition: q["condition"] ?? undefined,
+        event: q["event"] ?? undefined,
+      }),
+    ),
+  );
 });
 
 corpusRoutes.get("/:harvestKey/:runId/records", async (c) => {

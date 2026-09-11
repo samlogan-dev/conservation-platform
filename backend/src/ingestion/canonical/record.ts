@@ -184,3 +184,20 @@ export interface AdaptedRecord {
   record: CanonicalRecord;
   trace: MappingTrace;
 }
+
+/**
+ * What the store keeps per record: the record and the two counts the list view needs.
+ *
+ * The full trace is not stored. At ~10 KB per record it was the bulk of the canonical file,
+ * and a 77,000-record year would have produced a JSON document too large for Node to parse.
+ * Adapting is deterministic and the raw page is frozen, so the trace for any one record is
+ * regenerated on demand by re-adapting the page it came from — which is exactly what the
+ * record inspector does.
+ */
+export interface StoredRecord {
+  record: CanonicalRecord;
+  /** Semantic validation issues on this record; the trace carries the detail. */
+  issueCount: number;
+  /** Source fields nothing accounted for; the trace carries which. */
+  unmappedCount: number;
+}

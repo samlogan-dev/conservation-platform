@@ -1,22 +1,32 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useRoute } from 'vue-router'
 import { Table2 } from 'lucide-vue-next'
 import { useCorpusStore } from '@/stores/corpusStore'
-import { getRecordAPI, getSchemaAPI, listPagesAPI, listRecordsAPI } from '@/apis/corpusAPI'
+import { getRecordAPI, getSchemaAPI, listPagesAPI, listRecordsAPI, listTextRowsAPI } from '@/apis/corpusAPI'
 import type {
+  ClassifierKey,
   PagesResponse,
   RecordDetail,
   RecordList,
   RecordRow,
   SchemaResponse,
   SnapshotPageMeta,
+  TextRow,
+  TextRows,
 } from '@/apis/corpusTypes'
 import type { CellState, GridColumn } from '@/lib/grid'
 import DataGrid from '@/components/corpus/DataGrid.vue'
 import RecordInspector from '@/components/corpus/RecordInspector.vue'
 import SourcePanel from '@/components/corpus/SourcePanel.vue'
-import { excludedFieldsComment, harvestRunsDdl, sightingsDdl, snapshotPagesDdl } from '@/lib/ddl'
+import {
+  excludedFieldsComment,
+  harvestRunsDdl,
+  sightingsDdl,
+  snapshotPagesDdl,
+  textClassificationsDdl,
+} from '@/lib/ddl'
 import { num } from '@/lib/format'
 
 /**
@@ -37,13 +47,18 @@ import { num } from '@/lib/format'
 const store = useCorpusStore()
 const { harvestKey, runId, ready, harvests, analysis, manifest } = storeToRefs(store)
 
-type TableKey = 'sightings' | 'snapshot_pages' | 'harvest_runs'
+type TableKey = 'sightings' | 'text_classifications' | 'snapshot_pages' | 'harvest_runs'
 
 const TABLES: { key: TableKey; description: string }[] = [
   {
     key: 'sightings',
     description:
       'One row per canonical record. Every source lands here in the same columns — that is what makes records from different sources comparable. Click a row to open it.',
+  },
+  {
+    key: 'text_classifications',
+    description:
+      'One row per labelled remark: what a classifier says the free text states about the animal. text_classifications.recordId points at sightings. A claim, not a fact — the classifier, model and prompt version are on every row.',
   },
   {
     key: 'snapshot_pages',
@@ -57,7 +72,12 @@ const TABLES: { key: TableKey; description: string }[] = [
   },
 ]
 
-const activeTable = ref<TableKey>('sightings')
+/** `?table=text_classifications` opens the page on that table. */
+const route = useRoute()
+const requestedTable = String(route.query.table ?? '')
+const activeTable = ref<TableKey>(
+  TABLES.some((t) => t.key === requestedTable) ? (requestedTable as TableKey) : 'sightings',
+)
 const mode = ref<'data' | 'definition'>('data')
 
 const activeDescription = computed(
@@ -187,12 +207,76 @@ const datasets = computed(() =>
     .map((r) => ({ uid: r.dataResourceUid!, name: r.dataResourceName, records: r.records })),
 )
 
-const pageCount = computed(() => Math.max(1, Math.ceil((list.value?.total ?? 0) / limit.value)))
+// ---------------------------------------------------------------- text_classifications
+
+const textRows = ref<TextRows | null>(null)
+const textClassifier = ref<ClassifierKey | ''>('')
+const textCondition = ref('')
+const textEvent = ref('')
+const textOffset = ref(0)
+const textLoading = ref(false)
+
+const CONDITION_OPTIONS = ['alive_healthy', 'alive_unwell', 'dead', 'unknown']
+const EVENT_OPTIONS = ['vehicle_strike', 'dog_attack', 'disease', 'injury', 'fire', 'rescue_or_care', 'with_joey']
+
+async function loadTextRows() {
+  if (!harvestKey.value || !runId.value) return
+  textLoading.value = true
+  try {
+    textRows.value = await listTextRowsAPI(harvestKey.value, runId.value, {
+      classifier: textClassifier.value || undefined,
+      condition: textCondition.value || undefined,
+      event: textEvent.value || undefined,
+      limit: limit.value,
+      offset: textOffset.value,
+    })
+  } finally {
+    textLoading.value = false
+  }
+}
+
+const TEXT_COLUMNS: GridColumn[] = [
+  { key: 'recordId', label: 'recordId', type: 'string', width: 250, required: true, primary: true, mono: true, group: 'Key', description: 'Which sighting the label is about. Foreign key to sightings.' },
+  { key: 'field', label: 'field', type: 'string', width: 150, required: true, mono: true, group: 'Key', description: 'Which remark field was read.' },
+  { key: 'classifier', label: 'classifier', type: 'string', width: 100, required: true, mono: true, group: 'Key', description: 'keyword baseline or llm.' },
+  { key: 'subject', label: 'subject', type: 'string', width: 110, required: true, group: 'Label', description: 'Is the text about a koala at all.' },
+  { key: 'condition', label: 'condition', type: 'string', width: 130, required: true, group: 'Label', description: 'The animal\'s state as the text states it.' },
+  { key: 'events', label: 'events', type: 'string[]', width: 260, required: true, group: 'Label', description: 'Every event the text states. Empty is a valid answer.' },
+  { key: 'confidence', label: 'confidence', type: 'number', width: 110, required: true, group: 'Label', description: 'The classifier\'s own certainty, 0 to 1. Rules report a fixed value.' },
+  { key: 'evidence', label: 'evidence', type: 'string', width: 320, group: 'Label', description: 'A short quote from the remark supporting the label. Withheld wherever the remark itself is.' },
+  { key: 'model', label: 'model', type: 'string', width: 170, mono: true, group: 'Provenance', description: 'Model id for llm rows; null for the keyword baseline.' },
+  { key: 'promptVersion', label: 'promptVersion', type: 'string', width: 130, mono: true, group: 'Provenance', description: 'Prompt version the label was produced under.' },
+  { key: 'dataResourceName', label: 'dataResourceName', type: 'string', width: 200, group: 'Sighting', description: 'The contributing dataset, from the sighting.' },
+  { key: 'eventDate', label: 'eventDate', type: 'iso8601', width: 180, group: 'Sighting', description: 'When the sighting happened, from the sighting.' },
+]
+
+function textCellState(row: TextRow, column: GridColumn): CellState | undefined {
+  if (column.key === 'evidence' && row.textWithheld) {
+    return { kind: 'withheld', title: 'The licence does not permit redistribution of the remark, so its quote is withheld too. The label stands.' }
+  }
+  return undefined
+}
+
+// ---------------------------------------------------------------- paging (sightings and text rows)
+
+/** Which table is paged, its total and its current offset. Null for the small tables. */
+const paging = computed(() => {
+  if (activeTable.value === 'sightings') {
+    return { total: list.value?.total ?? 0, offset: offset.value, corpusTotal: list.value?.corpusTotal ?? null }
+  }
+  if (activeTable.value === 'text_classifications') {
+    return { total: textRows.value?.total ?? 0, offset: textOffset.value, corpusTotal: null }
+  }
+  return null
+})
+const pageCount = computed(() => Math.max(1, Math.ceil((paging.value?.total ?? 0) / limit.value)))
 const page = computed({
-  get: () => Math.floor(offset.value / limit.value) + 1,
+  get: () => Math.floor((paging.value?.offset ?? 0) / limit.value) + 1,
   set: (value: number) => {
     const clamped = Math.min(Math.max(1, Math.trunc(value) || 1), pageCount.value)
-    offset.value = (clamped - 1) * limit.value
+    const next = (clamped - 1) * limit.value
+    if (activeTable.value === 'text_classifications') textOffset.value = next
+    else offset.value = next
   },
 })
 
@@ -297,6 +381,8 @@ const ddlLines = computed<string[]>(() => {
             ...excludedFieldsComment(manifest.value?.source ?? 'the source', analysis.value?.excludedSourceFields ?? []),
           ]
         : []
+    case 'text_classifications':
+      return textClassificationsDdl()
     case 'snapshot_pages':
       return snapshotPagesDdl()
     case 'harvest_runs':
@@ -324,6 +410,7 @@ watch(
   [harvestKey, runId],
   async () => {
     offset.value = 0
+    textOffset.value = 0
     close()
     if (!harvestKey.value || !runId.value) return
     const [s, p] = await Promise.all([
@@ -333,6 +420,7 @@ watch(
     schema.value = s
     pages.value = p
     void loadList()
+    void loadTextRows()
   },
   { immediate: true },
 )
@@ -342,6 +430,12 @@ watch([search, invalidOnly, dataResourceUid, limit], () => {
   void loadList()
 })
 watch(offset, () => void loadList())
+
+watch([textClassifier, textCondition, textEvent, limit], () => {
+  textOffset.value = 0
+  void loadTextRows()
+})
+watch(textOffset, () => void loadTextRows())
 
 function onKey(event: KeyboardEvent) {
   if (event.key === 'Escape') close()
@@ -400,6 +494,27 @@ const showInspector = computed(
       </label>
     </div>
 
+    <div
+      v-else-if="activeTable === 'text_classifications' && mode === 'data'"
+      class="flex flex-wrap items-center gap-3 border-b border-border px-3 py-2 text-xs"
+    >
+      <select v-model="textClassifier" class="rounded border border-border bg-background px-1.5 py-1">
+        <option value="">best available classifier</option>
+        <option v-for="c in textRows?.available ?? []" :key="c" :value="c">{{ c }}</option>
+      </select>
+      <select v-model="textCondition" class="rounded border border-border bg-background px-1.5 py-1">
+        <option value="">any condition</option>
+        <option v-for="c in CONDITION_OPTIONS" :key="c" :value="c">{{ c }}</option>
+      </select>
+      <select v-model="textEvent" class="rounded border border-border bg-background px-1.5 py-1">
+        <option value="">any event</option>
+        <option v-for="e in EVENT_OPTIONS" :key="e" :value="e">{{ e }}</option>
+      </select>
+      <span v-if="textRows && textRows.available.length" class="ml-auto text-muted-foreground">
+        labels from <span class="font-mono text-foreground">{{ textRows.classifier }}</span>
+      </span>
+    </div>
+
     <!-- Grid, with the inspector beside it when a row is open -->
     <div
       class="grid min-h-0 flex-1"
@@ -428,6 +543,17 @@ const showInspector = computed(
         />
 
         <DataGrid
+          v-else-if="activeTable === 'text_classifications'"
+          :columns="TEXT_COLUMNS"
+          :rows="textRows?.items ?? []"
+          :row-key="(r: TextRow) => `${r.recordId}:${r.field}`"
+          :cell-state="textCellState"
+          :start-index="textOffset"
+          :loading="textLoading"
+          empty-message="No classifier has labelled this run yet. From backend: npm run ingest -- classify <harvest> --classifier keyword"
+        />
+
+        <DataGrid
           v-else-if="activeTable === 'snapshot_pages'"
           :columns="PAGE_COLUMNS"
           :rows="pageRows"
@@ -450,7 +576,7 @@ const showInspector = computed(
 
     <!-- Footer: paging and the Data / Definition switch -->
     <div class="flex flex-wrap items-center gap-3 border-t border-border px-3 py-1.5 text-xs">
-      <template v-if="activeTable === 'sightings'">
+      <template v-if="paging">
         <button class="pager" :disabled="page <= 1" @click="page--">‹</button>
         <span class="flex items-center gap-1.5 text-muted-foreground">
           Page
@@ -473,7 +599,7 @@ const showInspector = computed(
         </select>
 
         <span class="text-muted-foreground">
-          {{ num(list?.total ?? 0) }} records<template v-if="list && list.total !== list.corpusTotal"> of {{ num(list.corpusTotal) }}</template>
+          {{ num(paging.total) }} records<template v-if="paging.corpusTotal !== null && paging.total !== paging.corpusTotal"> of {{ num(paging.corpusTotal) }}</template>
         </span>
       </template>
       <span v-else class="text-muted-foreground">{{ num(activeRowCount) }} records</span>

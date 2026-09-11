@@ -1,0 +1,58 @@
+{
+  "runId": "2026-09-11T05-14-55-993Z",
+  "harvestKey": "koala-nsw-2016-inat",
+  "description": "Koala observations in New South Wales, 2016, via iNaturalist",
+  "source": "inaturalist",
+  "baseUrl": "https://api.inaturalist.org/v1",
+  "query": {
+    "q": "taxon_id:42983",
+    "fq": [
+      "place_id:6825",
+      "observed:[2016-01-01 TO 2016-12-31]"
+    ]
+  },
+  "requestedFields": [],
+  "politeness": {
+    "userAgent": "ConservationReportingPlatform/0.1 (UTS Honours research; +mailto:sam@samlogan.com.au)",
+    "minRequestIntervalMs": 1100
+  },
+  "startedAt": "2026-09-11T05:14:55.993Z",
+  "finishedAt": "2026-09-11T05:14:58.768Z",
+  "durationMs": 2775,
+  "expectedRecords": 80,
+  "retrievedRecords": 80,
+  "complete": true,
+  "slices": [
+    {
+      "sliceKey": "2016-01-01_2016-12-31",
+      "filters": [
+        "taxon_id=42983",
+        "place_id=6825",
+        "d1=2016-01-01",
+        "d2=2016-12-31"
+      ],
+      "expectedRecords": 80,
+      "retrievedRecords": 80,
+      "pages": 1
+    }
+  ],
+  "pages": [
+    {
+      "sliceKey": "2016-01-01_2016-12-31",
+      "startIndex": 0,
+      "pageSize": 200,
+      "recordCount": 80,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2016-01-01&d2=2016-12-31&per_page=200&order_by=id&order=asc&id_above=0",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:14:58.481Z",
+      "durationMs": 1386,
+      "attempts": 1,
+      "file": "2016-01-01_2016-12-31--000000.json",
+      "contentHash": "0d52de987081872651c8903c0e156cf4f4385465ec3c90a0044af96ab404fa20",
+      "bytes": 10398620
+    }
+  ],
+  "corpusHash": "23f1e41caf18f95cef7ae9486e114a981db81737145cb9abe8376d5395d3081b",
+  "requestCount": 3,
+  "warnings": []
+}

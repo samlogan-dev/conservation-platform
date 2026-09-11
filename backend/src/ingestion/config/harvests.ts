@@ -59,4 +59,37 @@ export const HARVESTS: Record<string, HarvestDefinition> = {
   },
 };
 
+/**
+ * Backfill (11 Sep 2026): koala x NSW, one harvest per calendar year from 2015, per source.
+ *
+ * One run per year rather than one ten-year run so a failure stays small and re-runnable, and
+ * so each year is its own family for the cross-source pages. 2015 is where iNaturalist starts
+ * to carry a signal (58 NSW koala observations that year); ALA's counts by year, taken live on
+ * 11 Sep 2026, run from ~5,000 in 2015 to 77,576 in 2024, the latter almost entirely a BioNet
+ * survey-programme load. Historical years are frozen once and never re-run; the current year
+ * is re-run on demand, and the difference between its runs is the publication lag.
+ */
+const BACKFILL_FROM = 2015;
+const BACKFILL_TO = 2026;
+
+for (let year = BACKFILL_FROM; year <= BACKFILL_TO; year++) {
+  const window = { startDate: `${year}-01-01`, endDate: `${year}-12-31` };
+  HARVESTS[`koala-nsw-${year}`] = {
+    key: `koala-nsw-${year}`,
+    description: `Koala occurrences in New South Wales, ${year}, via ALA`,
+    source: "ala",
+    speciesKey: "koala",
+    regionKey: "nsw",
+    ...window,
+  };
+  HARVESTS[`koala-nsw-${year}-inat`] = {
+    key: `koala-nsw-${year}-inat`,
+    description: `Koala observations in New South Wales, ${year}, via iNaturalist`,
+    source: "inaturalist",
+    speciesKey: "koala",
+    regionKey: "nsw",
+    ...window,
+  };
+}
+
 export const DEFAULT_HARVEST = "koala-nsw-2025h1";

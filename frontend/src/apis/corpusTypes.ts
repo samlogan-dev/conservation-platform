@@ -169,6 +169,94 @@ export interface SourceComparison {
   unexplainedShortfall: number;
 }
 
+// ---- Threat and condition extraction from free text
+
+export type TextSubject = "koala" | "not_koala" | "unclear";
+export type TextCondition = "alive_healthy" | "alive_unwell" | "dead" | "unknown";
+export type TextEvent =
+  | "vehicle_strike"
+  | "dog_attack"
+  | "disease"
+  | "injury"
+  | "fire"
+  | "rescue_or_care"
+  | "with_joey";
+export type ClassifierKey = "keyword" | "llm";
+
+/** What one classifier's pass over one run says, as counts. */
+export interface TextSummary {
+  classifier: ClassifierKey;
+  model: string | null;
+  promptVersion: string | null;
+  taxonomyVersion: string;
+  finishedAt: string;
+  uniqueTexts: number;
+  labelledTexts: number;
+  recordsCovered: number;
+  koalaRecords: number;
+  usage: { requests: number; inputTokens: number; outputTokens: number };
+  bySubject: Record<TextSubject, number>;
+  byCondition: Record<TextCondition, number>;
+  byEvent: Record<TextEvent, number>;
+  byDataset: {
+    dataResourceUid: string | null;
+    dataResourceName: string;
+    records: number;
+    dead: number;
+    unwell: number;
+    events: Record<TextEvent, number>;
+  }[];
+  byMonth: {
+    month: string;
+    records: number;
+    dead: number;
+    unwell: number;
+    vehicle_strike: number;
+    dog_attack: number;
+    disease: number;
+    fire: number;
+  }[];
+  agreement: { with: ClassifierKey; texts: number; subject: number; condition: number; events: number } | null;
+}
+
+export interface TextOverview {
+  taxonomy: {
+    version: string;
+    subjects: Record<TextSubject, string>;
+    conditions: Record<TextCondition, string>;
+    events: Record<TextEvent, string>;
+  };
+  summaries: TextSummary[];
+}
+
+/** One labelled remark, joined to the record it describes. */
+export interface TextRow {
+  recordId: string;
+  field: "occurrenceRemarks" | "eventRemarks";
+  source: string;
+  dataResourceName: string | null;
+  eventDate: string | null;
+  subject: TextSubject;
+  condition: TextCondition;
+  events: TextEvent[];
+  confidence: number;
+  evidence: string | null;
+  textWithheld: boolean;
+  textHash: string;
+  classifier: ClassifierKey;
+  model: string | null;
+  promptVersion: string | null;
+}
+
+export interface TextRows {
+  classifier: ClassifierKey;
+  available: ClassifierKey[];
+  total: number;
+  offset: number;
+  limit: number;
+  items: TextRow[];
+}
+
 /** One source's newest run for a species, region and window. */
 export interface FamilyMember {
   harvestKey: string;
@@ -176,6 +264,8 @@ export interface FamilyMember {
   source: string;
   manifest: Manifest;
   analysis: Analysis;
+  /** One summary per classifier that has labelled this run's text. */
+  text: TextSummary[];
 }
 
 /** Every source fetched for the same species, region and window, plus the pairwise joins. */

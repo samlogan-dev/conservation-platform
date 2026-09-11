@@ -1,8 +1,8 @@
-import { analyseCorpus, type CorpusAnalysis } from "./analysis/coverage.ts";
+import type { CorpusAnalysis } from "./analysis/coverage.ts";
 import { CANONICAL_SCHEMA, checkAgainstSchema } from "./canonical/schema.ts";
 import { compareSources, type SourceComparison } from "./analysis/compare.ts";
 import { INGESTION } from "./config/ingestion.ts";
-import type { AdaptedRecord } from "./canonical/record.ts";
+import type { StoredRecord } from "./canonical/record.ts";
 import { HARVESTS } from "./config/harvests.ts";
 import { toPublicCoordinates } from "./privacy/coordinates.ts";
 import {
@@ -14,6 +14,10 @@ import {
 } from "./snapshot/store.ts";
 import { recordStore } from "./store/recordStore.ts";
 import { getSource } from "./sources/registry.ts";
+import { listClassificationRuns, readClassificationRun } from "./text/store.ts";
+import { summariseText, type TextSummary } from "./analysis/text.ts";
+import { CONDITIONS, EVENTS, SUBJECTS, TAXONOMY_VERSION } from "./text/taxonomy.ts";
+import type { ClassificationRun, ClassifierKey } from "./text/types.ts";
 
 /**
  * Read layer over harvested runs, and the single place where ethics pillars 2 and 4 are
@@ -23,14 +27,14 @@ import { getSource } from "./sources/registry.ts";
 
 interface CachedRun {
   manifest: SnapshotManifest;
-  records: AdaptedRecord[];
+  records: StoredRecord[];
   analysis: CorpusAnalysis;
-  byId: Map<string, AdaptedRecord>;
+  byId: Map<string, StoredRecord>;
 }
 
-// The canonical file for a Stage 1 run is tens of megabytes once traces are included, so it is
-// parsed once per process rather than per request. Runs are immutable, so the cache never
-// needs invalidating — a new harvest is a new runId.
+// A year of koala records is tens of megabytes on disk, so a run is parsed once per process
+// rather than per request. Runs are immutable, so the cache never needs invalidating — a new
+// harvest is a new runId. The analysis was computed at adapt time and is read, not recomputed.
 const cache = new Map<string, Promise<CachedRun>>();
 
 async function loadRun(harvestKey: string, runId: string): Promise<CachedRun> {
@@ -38,14 +42,15 @@ async function loadRun(harvestKey: string, runId: string): Promise<CachedRun> {
   let entry = cache.get(key);
   if (!entry) {
     entry = (async () => {
-      const [manifest, records] = await Promise.all([
+      const [manifest, records, analysis] = await Promise.all([
         readManifest(harvestKey, runId),
         recordStore.load(harvestKey, runId),
+        recordStore.loadAnalysis(harvestKey, runId),
       ]);
       return {
         manifest,
         records,
-        analysis: analyseCorpus(harvestKey, runId, records),
+        analysis,
         byId: new Map(records.map((r) => [r.record.recordId, r])),
       };
     })();
@@ -101,7 +106,7 @@ export async function getAnalysis(harvestKey: string, runId: string) {
  * boundary. The observer pseudonym is already irreversible by the time it is stored, so it
  * passes through as-is.
  */
-function toPublicRecord(record: AdaptedRecord["record"]) {
+function toPublicRecord(record: StoredRecord["record"]) {
   const coords = toPublicCoordinates(record.decimalLatitude, record.decimalLongitude);
 
   // Ethics pillar 3, and a licensing obligation rather than a preference. A contributor who
@@ -142,7 +147,7 @@ export async function listRecords(harvestKey: string, runId: string, query: Reco
     items = items.filter((r) => r.record.provenance.dataResourceUid === query.dataResourceUid);
   }
   if (query.invalidOnly) {
-    items = items.filter((r) => !r.record.isValid || r.trace.validationIssues.length > 0);
+    items = items.filter((r) => !r.record.isValid || r.issueCount > 0);
   }
   if (query.withText) {
     items = items.filter((r) => (r.record.occurrenceRemarks ?? "").trim().length >= 20);
@@ -174,8 +179,8 @@ export async function listRecords(harvestKey: string, runId: string, query: Reco
     // that need colouring are sent.
     items: items.slice(query.offset, query.offset + query.limit).map((r) => ({
       ...toPublicRecord(r.record),
-      issueCount: r.trace.validationIssues.length,
-      unmappedCount: r.trace.unmappedSourceFields.length,
+      issueCount: r.issueCount,
+      unmappedCount: r.unmappedCount,
       schemaProblems: checkAgainstSchema(r.record)
         .filter((c) => c.status === "missing_required" || c.status === "type_mismatch")
         .map((c) => ({ path: c.path, status: c.status })),
@@ -323,6 +328,109 @@ export async function getComparisons(
   return results;
 }
 
+// ---------------------------------------------------------------- text classifications
+
+// Classification files are rewritten whenever a classifier is re-run while the server is up,
+// so unlike runs they are cached by modification time rather than forever.
+const classificationCache = new Map<string, { modifiedAt: number; run: ClassificationRun }>();
+
+async function loadClassifications(harvestKey: string, runId: string): Promise<ClassificationRun[]> {
+  const runs: ClassificationRun[] = [];
+  for (const { classifier, modifiedAt } of await listClassificationRuns(harvestKey, runId)) {
+    const key = `${harvestKey}/${runId}/${classifier}`;
+    const cached = classificationCache.get(key);
+    if (cached && cached.modifiedAt === modifiedAt) {
+      runs.push(cached.run);
+      continue;
+    }
+    const run = await readClassificationRun(harvestKey, runId, classifier);
+    if (run) {
+      classificationCache.set(key, { modifiedAt, run });
+      runs.push(run);
+    }
+  }
+  return runs;
+}
+
+/** One summary per classifier that has labelled this run, each scored against the other where one exists. */
+export async function getTextSummaries(harvestKey: string, runId: string): Promise<TextSummary[]> {
+  const run = await loadRun(harvestKey, runId);
+  const runs = await loadClassifications(harvestKey, runId);
+  return runs.map((r) =>
+    summariseText(run.records, r, runs.find((o) => o.classifier !== r.classifier) ?? null),
+  );
+}
+
+export async function getTextOverview(harvestKey: string, runId: string) {
+  return {
+    taxonomy: { version: TAXONOMY_VERSION, subjects: SUBJECTS, conditions: CONDITIONS, events: EVENTS },
+    summaries: await getTextSummaries(harvestKey, runId),
+  };
+}
+
+export interface TextRowQuery {
+  classifier?: ClassifierKey;
+  limit: number;
+  offset: number;
+  subject?: string;
+  condition?: string;
+  event?: string;
+}
+
+/**
+ * The classification table: one row per labelled record field, joined to the record it
+ * describes. The model's evidence quote is a fragment of the contributor's text and is
+ * withheld under exactly the rule that withholds the text itself.
+ */
+export async function listTextRows(harvestKey: string, runId: string, query: TextRowQuery) {
+  const run = await loadRun(harvestKey, runId);
+  const runs = await loadClassifications(harvestKey, runId);
+  const wanted = query.classifier ?? (runs.some((r) => r.classifier === "llm") ? "llm" : "keyword");
+  const chosen = runs.find((r) => r.classifier === wanted);
+  if (!chosen) {
+    return { classifier: wanted, available: runs.map((r) => r.classifier), total: 0, offset: query.offset, limit: query.limit, items: [] };
+  }
+
+  let rows = chosen.items.flatMap((item) => {
+    const label = chosen.labels[item.textHash];
+    const stored = run.byId.get(item.recordId);
+    if (!label || !stored) return [];
+    const redistributable = stored.record.provenance.contentRedistributable;
+    return [
+      {
+        recordId: item.recordId,
+        field: item.field,
+        source: stored.record.provenance.source,
+        dataResourceName: stored.record.provenance.dataResourceName,
+        eventDate: stored.record.eventDate,
+        subject: label.subject,
+        condition: label.condition,
+        events: label.events,
+        confidence: label.confidence,
+        evidence: redistributable ? label.evidence : null,
+        textWithheld: !redistributable,
+        textHash: item.textHash,
+        classifier: chosen.classifier,
+        model: chosen.model,
+        promptVersion: chosen.promptVersion,
+      },
+    ];
+  });
+
+  if (query.subject) rows = rows.filter((r) => r.subject === query.subject);
+  if (query.condition) rows = rows.filter((r) => r.condition === query.condition);
+  if (query.event) rows = rows.filter((r) => r.events.includes(query.event as never));
+
+  return {
+    classifier: chosen.classifier,
+    available: runs.map((r) => r.classifier),
+    total: rows.length,
+    offset: query.offset,
+    limit: query.limit,
+    items: rows.slice(query.offset, query.offset + query.limit),
+  };
+}
+
 /**
  * Every source fetched for the same species, region and window: this run plus the newest run
  * of each sibling harvest, with the pairwise comparisons. The cross-source pages read this
@@ -355,13 +463,16 @@ export async function getFamily(harvestKey: string, runId: string) {
     regionKey: self.regionKey,
     startDate: self.startDate,
     endDate: self.endDate,
-    members: runs.map((r) => ({
-      harvestKey: r.harvestKey,
-      runId: r.runId,
-      source: r.run.manifest.source,
-      manifest: r.run.manifest,
-      analysis: r.run.analysis,
-    })),
+    members: await Promise.all(
+      runs.map(async (r) => ({
+        harvestKey: r.harvestKey,
+        runId: r.runId,
+        source: r.run.manifest.source,
+        manifest: r.run.manifest,
+        analysis: r.run.analysis,
+        text: await getTextSummaries(r.harvestKey, r.runId),
+      })),
+    ),
     comparisons: await getComparisons(harvestKey, runId),
   };
 }
@@ -433,13 +544,25 @@ export async function getSchema(harvestKey: string, runId: string) {
 /** The record, its trace, and the raw source record it was built from. */
 export async function getRecordDetail(harvestKey: string, runId: string, recordId: string) {
   const run = await loadRun(harvestKey, runId);
-  const adapted = run.byId.get(recordId);
-  if (!adapted) return null;
+  const stored = run.byId.get(recordId);
+  if (!stored) return null;
 
   // Recover the raw record from the frozen page, so the inspector shows the actual source
-  // bytes rather than a reconstruction from the canonical form.
+  // bytes rather than a reconstruction from the canonical form — and re-adapt that page to
+  // regenerate the trace, which the store deliberately does not keep (see StoredRecord).
   const source = getSource(run.manifest.source);
-  const body = await readPageBody(harvestKey, runId, adapted.record.provenance.snapshotPage);
+  const snapshotPage = stored.record.provenance.snapshotPage;
+  const pageMeta = run.manifest.pages.find((p) => p.file === snapshotPage);
+  const body = await readPageBody(harvestKey, runId, snapshotPage);
+  const adapted = source
+    .adaptPage(body, {
+      harvestId: `${harvestKey}/${runId}`,
+      snapshotPage,
+      fetchedAt: pageMeta?.fetchedAt ?? stored.record.provenance.fetchedAt,
+    })
+    .find((a) => a.record.recordId === recordId);
+  if (!adapted) return null;
+
   const page = JSON.parse(body) as Record<string, unknown>;
   const rawRecords = page[source.recordsKey];
   const wanted = adapted.record.provenance.sourceRecordId;

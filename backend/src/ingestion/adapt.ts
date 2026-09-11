@@ -1,7 +1,8 @@
 import { readManifest, readPageBody } from "./snapshot/store.ts";
 import { getSource } from "./sources/registry.ts";
 import { recordStore } from "./store/recordStore.ts";
-import type { AdaptedRecord } from "./canonical/record.ts";
+import { CorpusAnalyser } from "./analysis/coverage.ts";
+import type { StoredRecord } from "./canonical/record.ts";
 
 /**
  * Re-adapt a frozen snapshot into canonical records.
@@ -11,6 +12,10 @@ import type { AdaptedRecord } from "./canonical/record.ts";
  * schema is re-derived from disk in seconds, with no network traffic and no new load on ALA.
  * The corpus stays byte-identical across schema revisions, so a change in the output is
  * attributable to the adapter rather than to the source having moved underneath it.
+ *
+ * Pages are processed one at a time and only the slim record is kept; the trace feeds the
+ * corpus analysis as it goes and is then dropped. That is what lets a 77,000-record year be
+ * adapted in a bounded amount of memory.
  */
 export interface AdaptSummary {
   harvestKey: string;
@@ -26,13 +31,17 @@ export interface AdaptSummary {
 export async function adaptRun(
   harvestKey: string,
   runId: string,
-): Promise<{ summary: AdaptSummary; records: AdaptedRecord[] }> {
+  options: { onProgress?: (message: string) => void } = {},
+): Promise<{ summary: AdaptSummary; records: StoredRecord[] }> {
+  const log = options.onProgress ?? (() => {});
   const manifest = await readManifest(harvestKey, runId);
   const source = getSource(manifest.source);
 
-  const records: AdaptedRecord[] = [];
+  const stored: StoredRecord[] = [];
+  const analyser = new CorpusAnalyser();
   const seen = new Set<string>();
   let duplicates = 0;
+  let pagesRead = 0;
 
   for (const page of manifest.pages) {
     const body = await readPageBody(harvestKey, runId, page.file);
@@ -51,21 +60,29 @@ export async function adaptRun(
         continue;
       }
       seen.add(item.record.recordId);
-      records.push(item);
+      analyser.add(item);
+      stored.push({
+        record: item.record,
+        issueCount: item.trace.validationIssues.length,
+        unmappedCount: item.trace.unmappedSourceFields.length,
+      });
     }
+
+    pagesRead++;
+    if (pagesRead % 100 === 0) log(`  adapted ${pagesRead}/${manifest.pages.length} pages, ${stored.length} records`);
   }
 
-  await recordStore.save(harvestKey, runId, records);
+  await recordStore.save(harvestKey, runId, stored, analyser.finish(harvestKey, runId));
 
   const summary: AdaptSummary = {
     harvestKey,
     runId,
-    pagesRead: manifest.pages.length,
-    recordsAdapted: records.length,
-    recordsValid: records.filter((r) => r.record.isValid).length,
-    recordsWithErrors: records.filter((r) => !r.record.isValid).length,
+    pagesRead,
+    recordsAdapted: stored.length,
+    recordsValid: stored.filter((r) => r.record.isValid).length,
+    recordsWithErrors: stored.filter((r) => !r.record.isValid).length,
     duplicates,
   };
 
-  return { summary, records };
+  return { summary, records: stored };
 }

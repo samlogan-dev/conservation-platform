@@ -171,6 +171,44 @@ an assumption: set `INGESTION_SERVE_RAW=false` and the route returns 404 with th
 Ports: backend `8000`, frontend `5173`. The frontend's `VITE_API_BASE_URL` and the backend's
 `ALLOWED_ORIGINS` must agree or every request fails CORS.
 
+## Threat and condition extraction from free text
+
+The first research product the platform generates: every substantive remark on a koala record
+is read by a classifier and labelled with what it states — the animal's **condition**
+(healthy, unwell, dead, not stated), the **events** it names (vehicle strike, dog attack,
+disease, injury, fire, rescue or care, with joey) and whether it is about a koala at all. The
+taxonomy is declared as data in `ingestion/text/taxonomy.ts` and versioned; so is the prompt.
+
+Two classifiers implement one interface, so the same inputs and the same scorer run against
+both — the Week 3 direction that an LLM has to be shown to be worth paying for:
+
+- **keyword** — regular expressions with simple negation handling. Needs nothing.
+- **llm** — Anthropic, cheap tier by default (`claude-haiku-4-5`), temperature 0, output
+  forced through a tool schema, model id and prompt version written into every result. Needs
+  `ANTHROPIC_API_KEY` in `backend/.env`.
+
+Texts are scrubbed of emails, phone numbers, links and handles before either classifier sees
+them, and de-duplicated by hash so "Reported to hotline" is classified once, not hundreds of
+times. Runs are resumable; `--limit` caps how many new texts one invocation will spend on.
+
+```bash
+cd backend
+npm run ingest -- classify koala-nsw-2025h1 --classifier keyword
+npm run ingest -- classify koala-nsw-2025h1 --classifier llm --limit 200   # needs the key
+npm run ingest -- evaluate --classifier keyword                           # synthetic corpus
+npm run ingest -- evaluate --classifier llm
+```
+
+`evaluate` runs the Tier 1 synthetic corpus in `ingestion/text/synthetic.ts` — 48 authored
+remarks with labels known by construction, spanning negation, typos, vernacular, confusable
+species, mortality versus live, boilerplate and traps — and writes a report to
+`data/evaluations/`. Results land as their own table (`text_classifications` on the Schema
+page), as a section on Statistics, and as cards on Insights.
+
+**Backfill.** Koala × NSW is defined one harvest per year from 2015 for both sources
+(`config/harvests.ts`); `npm run ingest -- harvest koala-nsw-2024` fetches, freezes and adapts
+one year. Backfill snapshot pages stay on disk and out of git; their manifests are tracked.
+
 ## Backend Setup
 
 ```bash

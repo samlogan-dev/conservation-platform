@@ -1,0 +1,256 @@
+{
+  "classifier": "keyword",
+  "model": null,
+  "promptVersion": null,
+  "taxonomyVersion": "1.0",
+  "evaluatedAt": "2026-09-11T05:19:51.572Z",
+  "cases": 48,
+  "passed": 41,
+  "passRate": 0.8541666666666666,
+  "byCaseType": {
+    "plain": {
+      "cases": 10,
+      "passed": 9,
+      "passRate": 0.9
+    },
+    "negation": {
+      "cases": 6,
+      "passed": 6,
+      "passRate": 1
+    },
+    "typo": {
+      "cases": 5,
+      "passed": 4,
+      "passRate": 0.8
+    },
+    "vernacular": {
+      "cases": 5,
+      "passed": 5,
+      "passRate": 1
+    },
+    "confusable_species": {
+      "cases": 4,
+      "passed": 4,
+      "passRate": 1
+    },
+    "mortality": {
+      "cases": 4,
+      "passed": 1,
+      "passRate": 0.25
+    },
+    "boilerplate": {
+      "cases": 5,
+      "passed": 5,
+      "passRate": 1
+    },
+    "trap": {
+      "cases": 6,
+      "passed": 4,
+      "passRate": 0.6666666666666666
+    },
+    "compound": {
+      "cases": 3,
+      "passed": 3,
+      "passRate": 1
+    }
+  },
+  "byComponent": {
+    "subject": 48,
+    "condition": 44,
+    "events": 45
+  },
+  "eventScores": {
+    "vehicle_strike": {
+      "precision": 1,
+      "recall": 0.8571428571428571,
+      "tp": 6,
+      "fp": 0,
+      "fn": 1
+    },
+    "dog_attack": {
+      "precision": 1,
+      "recall": 1,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "disease": {
+      "precision": 1,
+      "recall": 0.75,
+      "tp": 3,
+      "fp": 0,
+      "fn": 1
+    },
+    "injury": {
+      "precision": 1,
+      "recall": 1,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "fire": {
+      "precision": 1,
+      "recall": 1,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "rescue_or_care": {
+      "precision": 0.9230769230769231,
+      "recall": 1,
+      "tp": 12,
+      "fp": 1,
+      "fn": 0
+    },
+    "with_joey": {
+      "precision": 1,
+      "recall": 1,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    }
+  },
+  "failures": [
+    {
+      "id": "p10",
+      "caseType": "plain",
+      "text": "Released back into the reserve fully recovered after six weeks of treatment for chlamydia.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": [
+          "rescue_or_care",
+          "disease"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "disease",
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "chlamydia"
+      }
+    },
+    {
+      "id": "t05",
+      "caseType": "typo",
+      "text": "Conjuntivitis both eyes, very thin, needs a carer.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "disease",
+          "rescue_or_care"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "very thin"
+      }
+    },
+    {
+      "id": "m01",
+      "caseType": "mortality",
+      "text": "Alive but barely, hit overnight, euthanised at the clinic.",
+      "expected": {
+        "subject": "koala",
+        "condition": "dead",
+        "events": [
+          "vehicle_strike",
+          "rescue_or_care"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "dead",
+        "events": [
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "euthanised"
+      }
+    },
+    {
+      "id": "m02",
+      "caseType": "mortality",
+      "text": "Found alive on the road, transported to hospital, survived.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "rescue_or_care"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": [
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "survived"
+      }
+    },
+    {
+      "id": "m04",
+      "caseType": "mortality",
+      "text": "Looked dead from a distance but was just asleep, moved when we got close.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "dead",
+        "events": [],
+        "confidence": 0.6,
+        "evidence": "dead"
+      }
+    },
+    {
+      "id": "x04",
+      "caseType": "trap",
+      "text": "Crossed the road slowly, traffic stopped, reached the other side.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "x05",
+      "caseType": "trap",
+      "text": "Koala Hospital volunteers ran a talk here last week; this animal was wild and healthy.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": [
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "healthy"
+      }
+    }
+  ]
+}

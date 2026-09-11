@@ -67,7 +67,17 @@ pnpm-debug.log*
 # snapshot in under a second and with no network traffic, so they are not worth versioning.
 backend/data/canonical/
 
-# Frozen snapshots are deliberately NOT ignored. They are the reproducibility anchor the
-# methodology rests on — the raw evidence of what a source returned at a point in time, which
-# cannot be regenerated once the source moves on. ~5MB per Stage 1 run; if that becomes
-# unwieldy, move them to storage that versions large files rather than dropping them.
+# Frozen snapshots are the reproducibility anchor the methodology rests on — the raw evidence
+# of what a source returned at a point in time, which cannot be regenerated once the source
+# moves on. The two Stage 1/2 worked examples are tracked in full (~76 MB). The 2015–2026
+# backfill is ~1 GB raw, so only its manifests are tracked: a manifest carries the sha256 of
+# every page, which is enough to verify a re-fetch or an archived copy byte for byte.
+backend/data/snapshots/*/*/pages/
+!backend/data/snapshots/koala-nsw-2025h1/**
+!backend/data/snapshots/koala-nsw-2025h1-inat/**
+
+# Text classifications are derived from the canonical records plus a classifier; the worked
+# examples are tracked as evidence, the backfill's are regenerable.
+backend/data/classifications/*
+!backend/data/classifications/koala-nsw-2025h1/
+!backend/data/classifications/koala-nsw-2025h1-inat/

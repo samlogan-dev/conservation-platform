@@ -122,6 +122,30 @@ export function harvestRunsDdl(): string[] {
   ];
 }
 
+export function textClassificationsDdl(): string[] {
+  return [
+    "-- text_classifications — one row per labelled remark: a claim about a sighting, made by",
+    "-- a named classifier under a versioned prompt and taxonomy. Separate from sightings",
+    "-- because it is regenerable, can be wrong, and two classifiers can disagree about the",
+    "-- same record. The evidence quote is withheld wherever the text itself is.",
+    "create table text_classifications (",
+    column("record_id", "text", ["not null", "references sightings (record_id)"]),
+    column("field", "text", ["not null"]) + "   -- occurrenceRemarks | eventRemarks",
+    column("text_hash", "text", ["not null"]) + "   -- sha256 of the scrubbed text; identical remarks share a label",
+    column("classifier", "text", ["not null"]) + "   -- keyword | llm",
+    column("model", "text") + "   -- model id, for llm rows",
+    column("prompt_version", "text"),
+    column("taxonomy_version", "text", ["not null"]),
+    column("subject", "text", ["not null"]) + "   -- koala | not_koala | unclear",
+    column("condition", "text", ["not null"]) + "   -- alive_healthy | alive_unwell | dead | unknown",
+    column("events", "text[]", ["not null"]) + "   -- vehicle_strike, dog_attack, disease, injury, fire, rescue_or_care, with_joey",
+    column("confidence", "double precision", ["not null"]),
+    column("evidence", "text") + "   -- short quote supporting the label",
+    "  primary key (record_id, field, classifier)",
+    ");",
+  ];
+}
+
 export function snapshotPagesDdl(): string[] {
   return [
     "-- snapshot_pages — one row per frozen API response, the bytes page 1 shows.",

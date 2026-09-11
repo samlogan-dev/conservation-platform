@@ -1,0 +1,142 @@
+{
+  "runId": "2026-09-11T05-16-09-542Z",
+  "harvestKey": "koala-nsw-2025-inat",
+  "description": "Koala observations in New South Wales, 2025, via iNaturalist",
+  "source": "inaturalist",
+  "baseUrl": "https://api.inaturalist.org/v1",
+  "query": {
+    "q": "taxon_id:42983",
+    "fq": [
+      "place_id:6825",
+      "observed:[2025-01-01 TO 2025-12-31]"
+    ]
+  },
+  "requestedFields": [],
+  "politeness": {
+    "userAgent": "ConservationReportingPlatform/0.1 (UTS Honours research; +mailto:sam@samlogan.com.au)",
+    "minRequestIntervalMs": 1100
+  },
+  "startedAt": "2026-09-11T05:16:09.542Z",
+  "finishedAt": "2026-09-11T05:16:27.122Z",
+  "durationMs": 17580,
+  "expectedRecords": 1256,
+  "retrievedRecords": 1256,
+  "complete": true,
+  "slices": [
+    {
+      "sliceKey": "2025-01-01_2025-12-31",
+      "filters": [
+        "taxon_id=42983",
+        "place_id=6825",
+        "d1=2025-01-01",
+        "d2=2025-12-31"
+      ],
+      "expectedRecords": 1256,
+      "retrievedRecords": 1256,
+      "pages": 7
+    }
+  ],
+  "pages": [
+    {
+      "sliceKey": "2025-01-01_2025-12-31",
+      "startIndex": 0,
+      "pageSize": 200,
+      "recordCount": 200,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2025-01-01&d2=2025-12-31&per_page=200&order_by=id&order=asc&id_above=0",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:16:12.979Z",
+      "durationMs": 2334,
+      "attempts": 1,
+      "file": "2025-01-01_2025-12-31--000000.json",
+      "contentHash": "f56f29d6d4e5c53e8c03046052fd0e4c3967e3c337c9853b9c670256aaaf004d",
+      "bytes": 21821262
+    },
+    {
+      "sliceKey": "2025-01-01_2025-12-31",
+      "startIndex": 261701096,
+      "pageSize": 200,
+      "recordCount": 200,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2025-01-01&d2=2025-12-31&per_page=200&order_by=id&order=asc&id_above=261701096",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:16:15.027Z",
+      "durationMs": 1935,
+      "attempts": 1,
+      "file": "2025-01-01_2025-12-31--261701096.json",
+      "contentHash": "95691401f423bb1d4a2ac11ab31ea11c5c937af8f2c6812c0710f41ed1d40531",
+      "bytes": 18383735
+    },
+    {
+      "sliceKey": "2025-01-01_2025-12-31",
+      "startIndex": 268759015,
+      "pageSize": 200,
+      "recordCount": 200,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2025-01-01&d2=2025-12-31&per_page=200&order_by=id&order=asc&id_above=268759015",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:16:17.523Z",
+      "durationMs": 2408,
+      "attempts": 1,
+      "file": "2025-01-01_2025-12-31--268759015.json",
+      "contentHash": "73df4b4052956d6bfaa38816e6f0c22b0666b33b4935d70991d37c4154b1c822",
+      "bytes": 18029222
+    },
+    {
+      "sliceKey": "2025-01-01_2025-12-31",
+      "startIndex": 282028167,
+      "pageSize": 200,
+      "recordCount": 200,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2025-01-01&d2=2025-12-31&per_page=200&order_by=id&order=asc&id_above=282028167",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:16:19.888Z",
+      "durationMs": 2269,
+      "attempts": 1,
+      "file": "2025-01-01_2025-12-31--282028167.json",
+      "contentHash": "de10a2aaec1b8362ea981c99cb3b5c21e5cad2b8339d643b82805bedfd83c99e",
+      "bytes": 18038127
+    },
+    {
+      "sliceKey": "2025-01-01_2025-12-31",
+      "startIndex": 308632825,
+      "pageSize": 200,
+      "recordCount": 200,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2025-01-01&d2=2025-12-31&per_page=200&order_by=id&order=asc&id_above=308632825",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:16:22.647Z",
+      "durationMs": 2664,
+      "attempts": 1,
+      "file": "2025-01-01_2025-12-31--308632825.json",
+      "contentHash": "73c4057b3639eed081d58ffaf80712a06de89ab3e1301a55c91fc79d43e7d486",
+      "bytes": 18555715
+    },
+    {
+      "sliceKey": "2025-01-01_2025-12-31",
+      "startIndex": 323430278,
+      "pageSize": 200,
+      "recordCount": 200,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2025-01-01&d2=2025-12-31&per_page=200&order_by=id&order=asc&id_above=323430278",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:16:25.670Z",
+      "durationMs": 2923,
+      "attempts": 1,
+      "file": "2025-01-01_2025-12-31--323430278.json",
+      "contentHash": "c8d37be8adcd4e895adcc14dfae36db41f2295023bf2d87ea1e26cfad89f2c35",
+      "bytes": 20544314
+    },
+    {
+      "sliceKey": "2025-01-01_2025-12-31",
+      "startIndex": 335695821,
+      "pageSize": 200,
+      "recordCount": 56,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2025-01-01&d2=2025-12-31&per_page=200&order_by=id&order=asc&id_above=335695821",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:16:26.877Z",
+      "durationMs": 1105,
+      "attempts": 1,
+      "file": "2025-01-01_2025-12-31--335695821.json",
+      "contentHash": "73861ceb7b20c1027bc86dfb4e025af9b69ce12803ae60ef25217fd422e1db6d",
+      "bytes": 4640092
+    }
+  ],
+  "corpusHash": "306c1da88d276c432c595e393840d75aa3abf663cb3fab73d32bb531c8db4965",
+  "requestCount": 9,
+  "warnings": []
+}

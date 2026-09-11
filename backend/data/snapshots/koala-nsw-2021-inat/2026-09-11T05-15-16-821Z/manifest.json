@@ -1,0 +1,72 @@
+{
+  "runId": "2026-09-11T05-15-16-821Z",
+  "harvestKey": "koala-nsw-2021-inat",
+  "description": "Koala observations in New South Wales, 2021, via iNaturalist",
+  "source": "inaturalist",
+  "baseUrl": "https://api.inaturalist.org/v1",
+  "query": {
+    "q": "taxon_id:42983",
+    "fq": [
+      "place_id:6825",
+      "observed:[2021-01-01 TO 2021-12-31]"
+    ]
+  },
+  "requestedFields": [],
+  "politeness": {
+    "userAgent": "ConservationReportingPlatform/0.1 (UTS Honours research; +mailto:sam@samlogan.com.au)",
+    "minRequestIntervalMs": 1100
+  },
+  "startedAt": "2026-09-11T05:15:16.821Z",
+  "finishedAt": "2026-09-11T05:15:23.780Z",
+  "durationMs": 6959,
+  "expectedRecords": 383,
+  "retrievedRecords": 383,
+  "complete": true,
+  "slices": [
+    {
+      "sliceKey": "2021-01-01_2021-12-31",
+      "filters": [
+        "taxon_id=42983",
+        "place_id=6825",
+        "d1=2021-01-01",
+        "d2=2021-12-31"
+      ],
+      "expectedRecords": 383,
+      "retrievedRecords": 383,
+      "pages": 2
+    }
+  ],
+  "pages": [
+    {
+      "sliceKey": "2021-01-01_2021-12-31",
+      "startIndex": 0,
+      "pageSize": 200,
+      "recordCount": 200,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2021-01-01&d2=2021-12-31&per_page=200&order_by=id&order=asc&id_above=0",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:15:20.268Z",
+      "durationMs": 2345,
+      "attempts": 1,
+      "file": "2021-01-01_2021-12-31--000000.json",
+      "contentHash": "9a3a0f02fe1010fccba8190ef828ffc2e1c0171768fbb3194e3d8c2e49f01076",
+      "bytes": 18149398
+    },
+    {
+      "sliceKey": "2021-01-01_2021-12-31",
+      "startIndex": 96563378,
+      "pageSize": 200,
+      "recordCount": 183,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2021-01-01&d2=2021-12-31&per_page=200&order_by=id&order=asc&id_above=96563378",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:15:22.818Z",
+      "durationMs": 2454,
+      "attempts": 1,
+      "file": "2021-01-01_2021-12-31--96563378.json",
+      "contentHash": "5707fe0f2733fcfaee0e38626ee5f7cd9d8c703c3b45de39373020034c7514e7",
+      "bytes": 18958185
+    }
+  ],
+  "corpusHash": "af2d92d7b84494ccfef2d662c67a1fe6444f9752a5abb81438cf0fb5ad78c35d",
+  "requestCount": 4,
+  "warnings": []
+}

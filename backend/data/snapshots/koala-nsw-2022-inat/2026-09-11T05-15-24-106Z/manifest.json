@@ -1,0 +1,86 @@
+{
+  "runId": "2026-09-11T05-15-24-106Z",
+  "harvestKey": "koala-nsw-2022-inat",
+  "description": "Koala observations in New South Wales, 2022, via iNaturalist",
+  "source": "inaturalist",
+  "baseUrl": "https://api.inaturalist.org/v1",
+  "query": {
+    "q": "taxon_id:42983",
+    "fq": [
+      "place_id:6825",
+      "observed:[2022-01-01 TO 2022-12-31]"
+    ]
+  },
+  "requestedFields": [],
+  "politeness": {
+    "userAgent": "ConservationReportingPlatform/0.1 (UTS Honours research; +mailto:sam@samlogan.com.au)",
+    "minRequestIntervalMs": 1100
+  },
+  "startedAt": "2026-09-11T05:15:24.106Z",
+  "finishedAt": "2026-09-11T05:15:31.569Z",
+  "durationMs": 7463,
+  "expectedRecords": 457,
+  "retrievedRecords": 457,
+  "complete": true,
+  "slices": [
+    {
+      "sliceKey": "2022-01-01_2022-12-31",
+      "filters": [
+        "taxon_id=42983",
+        "place_id=6825",
+        "d1=2022-01-01",
+        "d2=2022-12-31"
+      ],
+      "expectedRecords": 457,
+      "retrievedRecords": 457,
+      "pages": 3
+    }
+  ],
+  "pages": [
+    {
+      "sliceKey": "2022-01-01_2022-12-31",
+      "startIndex": 0,
+      "pageSize": 200,
+      "recordCount": 200,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2022-01-01&d2=2022-12-31&per_page=200&order_by=id&order=asc&id_above=0",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:15:27.361Z",
+      "durationMs": 2153,
+      "attempts": 1,
+      "file": "2022-01-01_2022-12-31--000000.json",
+      "contentHash": "89b0a3c82fdf6cc7bf9a4ce947794f7a333f62895ec2399e81d2bd6f9f22f917",
+      "bytes": 19965951
+    },
+    {
+      "sliceKey": "2022-01-01_2022-12-31",
+      "startIndex": 126139076,
+      "pageSize": 200,
+      "recordCount": 200,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2022-01-01&d2=2022-12-31&per_page=200&order_by=id&order=asc&id_above=126139076",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:15:29.540Z",
+      "durationMs": 2075,
+      "attempts": 1,
+      "file": "2022-01-01_2022-12-31--126139076.json",
+      "contentHash": "42381411f471c1d207d74a4fa179e1fb1ec2b6ccf62b90f468cdb4432ebdaa1a",
+      "bytes": 24700084
+    },
+    {
+      "sliceKey": "2022-01-01_2022-12-31",
+      "startIndex": 144768776,
+      "pageSize": 200,
+      "recordCount": 57,
+      "url": "https://api.inaturalist.org/v1/observations?taxon_id=42983&place_id=6825&d1=2022-01-01&d2=2022-12-31&per_page=200&order_by=id&order=asc&id_above=144768776",
+      "status": 200,
+      "fetchedAt": "2026-09-11T05:15:31.308Z",
+      "durationMs": 1643,
+      "attempts": 1,
+      "file": "2022-01-01_2022-12-31--144768776.json",
+      "contentHash": "7df317607e36954f8de2e6e86ee7365d3bafdc0b94d167c676bf613d4d46404f",
+      "bytes": 7140569
+    }
+  ],
+  "corpusHash": "2c8db8e340c84219779af3f60c78461956c3ff31771fabc2d6020fd069ea75db",
+  "requestCount": 5,
+  "warnings": []
+}

@@ -1,0 +1,617 @@
+{
+  "classifier": "keyword",
+  "model": null,
+  "promptVersion": null,
+  "taxonomyVersion": "1.0",
+  "evaluatedAt": "2026-09-11T05:18:28.583Z",
+  "cases": 48,
+  "passed": 22,
+  "passRate": 0.4583333333333333,
+  "byCaseType": {
+    "plain": {
+      "cases": 10,
+      "passed": 6,
+      "passRate": 0.6
+    },
+    "negation": {
+      "cases": 6,
+      "passed": 2,
+      "passRate": 0.3333333333333333
+    },
+    "typo": {
+      "cases": 5,
+      "passed": 2,
+      "passRate": 0.4
+    },
+    "vernacular": {
+      "cases": 5,
+      "passed": 3,
+      "passRate": 0.6
+    },
+    "confusable_species": {
+      "cases": 4,
+      "passed": 3,
+      "passRate": 0.75
+    },
+    "mortality": {
+      "cases": 4,
+      "passed": 1,
+      "passRate": 0.25
+    },
+    "boilerplate": {
+      "cases": 5,
+      "passed": 2,
+      "passRate": 0.4
+    },
+    "trap": {
+      "cases": 6,
+      "passed": 1,
+      "passRate": 0.16666666666666666
+    },
+    "compound": {
+      "cases": 3,
+      "passed": 2,
+      "passRate": 0.6666666666666666
+    }
+  },
+  "byComponent": {
+    "subject": 45,
+    "condition": 28,
+    "events": 43
+  },
+  "eventScores": {
+    "vehicle_strike": {
+      "precision": 1,
+      "recall": 0.8571428571428571,
+      "tp": 6,
+      "fp": 0,
+      "fn": 1
+    },
+    "dog_attack": {
+      "precision": 1,
+      "recall": 1,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "disease": {
+      "precision": 1,
+      "recall": 0.75,
+      "tp": 3,
+      "fp": 0,
+      "fn": 1
+    },
+    "injury": {
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "tp": 2,
+      "fp": 1,
+      "fn": 1
+    },
+    "fire": {
+      "precision": 1,
+      "recall": 1,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "rescue_or_care": {
+      "precision": 0.9166666666666666,
+      "recall": 0.9166666666666666,
+      "tp": 11,
+      "fp": 1,
+      "fn": 1
+    },
+    "with_joey": {
+      "precision": 1,
+      "recall": 1,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    }
+  },
+  "failures": [
+    {
+      "id": "p04",
+      "caseType": "plain",
+      "text": "Female with a joey on her back moving between trees at dusk.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": [
+          "with_joey"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [
+          "with_joey"
+        ],
+        "confidence": 0.6,
+        "evidence": "joey"
+      }
+    },
+    {
+      "id": "p05",
+      "caseType": "plain",
+      "text": "Koala hit by a car on the Pacific Highway near the school, taken to the vet.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "vehicle_strike",
+          "rescue_or_care"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [
+          "vehicle_strike",
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "hit by a car"
+      }
+    },
+    {
+      "id": "p06",
+      "caseType": "plain",
+      "text": "Attacked by two dogs in a backyard, rescued by WIRES and now in care.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "dog_attack",
+          "rescue_or_care"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [
+          "dog_attack",
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "Attacked by two dogs"
+      }
+    },
+    {
+      "id": "p10",
+      "caseType": "plain",
+      "text": "Released back into the reserve after six weeks of treatment for chlamydia.",
+      "expected": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [
+          "rescue_or_care",
+          "disease"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "disease",
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "chlamydia"
+      }
+    },
+    {
+      "id": "n01",
+      "caseType": "negation",
+      "text": "Koala on the ground but no sign of injury, climbed away when approached.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "n02",
+      "caseType": "negation",
+      "text": "Checked closely, not sick, eyes clear, just resting low in the tree.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "n03",
+      "caseType": "negation",
+      "text": "No dog attack this time, the fence held, koala moved on unharmed.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "n04",
+      "caseType": "negation",
+      "text": "Wasn't hit by the car, driver stopped in time and it crossed safely.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "t01",
+      "caseType": "typo",
+      "text": "Kaola hit by car near servo, still breatheing, wires notified.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "vehicle_strike",
+          "rescue_or_care"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [
+          "vehicle_strike",
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "hit by car"
+      }
+    },
+    {
+      "id": "t04",
+      "caseType": "typo",
+      "text": "Mum w/ joey on bak, both fine.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": [
+          "with_joey"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [
+          "with_joey"
+        ],
+        "confidence": 0.6,
+        "evidence": "joey"
+      }
+    },
+    {
+      "id": "t05",
+      "caseType": "typo",
+      "text": "Conjuntivitis both eyes, very thin, needs a carer.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "disease",
+          "rescue_or_care"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "very thin"
+      }
+    },
+    {
+      "id": "v04",
+      "caseType": "vernacular",
+      "text": "Back young riding along, mum looked in good nick.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": [
+          "with_joey"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [
+          "with_joey"
+        ],
+        "confidence": 0.6,
+        "evidence": "Back young"
+      }
+    },
+    {
+      "id": "v05",
+      "caseType": "vernacular",
+      "text": "Fireground survivor, fur scorched on one side, otherwise mobile.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "fire",
+          "injury"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [
+          "fire"
+        ],
+        "confidence": 0.6,
+        "evidence": "Fireground"
+      }
+    },
+    {
+      "id": "s02",
+      "caseType": "confusable_species",
+      "text": "Grey lump in the tree, definitely a koala not a possum this time, awake and looking around.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "m01",
+      "caseType": "mortality",
+      "text": "Alive but barely, hit overnight, euthanised at the clinic.",
+      "expected": {
+        "subject": "koala",
+        "condition": "dead",
+        "events": [
+          "vehicle_strike",
+          "rescue_or_care"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "m02",
+      "caseType": "mortality",
+      "text": "Found alive on the road, transported to hospital, survived.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "rescue_or_care"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "hospital"
+      }
+    },
+    {
+      "id": "m04",
+      "caseType": "mortality",
+      "text": "Looked dead from a distance but was just asleep, moved when we got close.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "dead",
+        "events": [],
+        "confidence": 0.6,
+        "evidence": "dead"
+      }
+    },
+    {
+      "id": "b01",
+      "caseType": "boilerplate",
+      "text": "Reported to hotline.",
+      "expected": {
+        "subject": "unclear",
+        "condition": "unknown",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "b04",
+      "caseType": "boilerplate",
+      "text": "See attached photo.",
+      "expected": {
+        "subject": "unclear",
+        "condition": "unknown",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "b05",
+      "caseType": "boilerplate",
+      "text": "Lot 12 DP 123456, property boundary.",
+      "expected": {
+        "subject": "unclear",
+        "condition": "unknown",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "x02",
+      "caseType": "trap",
+      "text": "Our dog was barking at it for an hour; koala stayed up the tree, unbothered.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "x03",
+      "caseType": "trap",
+      "text": "Sitting in a dead tree on the ridge, looked fine.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "dead",
+        "events": [],
+        "confidence": 0.6,
+        "evidence": "dead"
+      }
+    },
+    {
+      "id": "x04",
+      "caseType": "trap",
+      "text": "Crossed the road slowly, traffic stopped, reached the other side.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "unknown",
+        "events": [],
+        "confidence": 0.3,
+        "evidence": ""
+      }
+    },
+    {
+      "id": "x05",
+      "caseType": "trap",
+      "text": "Koala Hospital volunteers ran a talk here last week; this animal was wild and healthy.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": [
+          "rescue_or_care"
+        ],
+        "confidence": 0.6,
+        "evidence": "healthy"
+      }
+    },
+    {
+      "id": "x06",
+      "caseType": "trap",
+      "text": "Dead end street, koala in the last gum on the left, awake.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_healthy",
+        "events": []
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "dead",
+        "events": [],
+        "confidence": 0.6,
+        "evidence": "Dead"
+      }
+    },
+    {
+      "id": "c03",
+      "caseType": "compound",
+      "text": "Post-fire survey: one live koala, thin and dehydrated, in a burnt patch of forest.",
+      "expected": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "fire"
+        ]
+      },
+      "actual": {
+        "subject": "koala",
+        "condition": "alive_unwell",
+        "events": [
+          "injury",
+          "fire"
+        ],
+        "confidence": 0.6,
+        "evidence": "dehydrated"
+      }
+    }
+  ]
+}

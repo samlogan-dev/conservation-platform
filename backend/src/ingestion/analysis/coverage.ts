@@ -130,178 +130,200 @@ const median = (values: number[]): number => {
   return sorted.length % 2 === 0 ? (sorted[mid - 1]! + sorted[mid]!) / 2 : sorted[mid]!;
 };
 
-export function analyseCorpus(
-  harvestKey: string,
-  runId: string,
-  records: AdaptedRecord[],
-): CorpusAnalysis {
-  const total = records.length;
-  const safeShare = (n: number) => (total === 0 ? 0 : n / total);
+/**
+ * Incremental corpus analysis: records are added one at a time as they are adapted and the
+ * summary is produced at the end. Accumulating rather than taking the whole corpus at once is
+ * what lets a year of 77,000 records be analysed without ever holding its traces in memory.
+ */
+export class CorpusAnalyser {
+  private total = 0;
+  private valid = 0;
+  private readonly fieldMap = new Map<string, FieldCoverage>();
+  private readonly text = new Map<
+    (typeof FREE_TEXT_FIELDS)[number],
+    { bands: Record<TextBand, number>; lengths: number[]; samples: Map<TextBand, string> }
+  >();
+  private readonly unmappedMap = new Map<string, { records: number; exampleValue: unknown }>();
+  private readonly excludedMap = new Map<string, { reason: string; records: number; exampleValue: unknown }>();
+  private readonly resourceMap = new Map<
+    string,
+    { uid: string | null; name: string; records: number; substantive: number; uncertainties: number[] }
+  >();
+  private readonly validationMap = new Map<string, ValidationSummary>();
+  private readonly assertionMap = new Map<string, number>();
 
-  // --- Field coverage, read off the traces rather than off the records ---
-  // Reading the trace means a field that was present-but-rejected is distinguishable from one
-  // the source never sent, which is the distinction that makes the table actionable.
-  const fieldMap = new Map<string, FieldCoverage>();
-  for (const { trace } of records) {
+  constructor() {
+    for (const field of FREE_TEXT_FIELDS) {
+      this.text.set(field, {
+        bands: { absent: 0, trivial: 0, short: 0, substantive: 0 },
+        lengths: [],
+        samples: new Map(),
+      });
+    }
+  }
+
+  add({ record, trace }: AdaptedRecord): void {
+    this.total++;
+    if (record.isValid) this.valid++;
+
+    // --- Field coverage, read off the trace rather than off the record ---
+    // Reading the trace means a field that was present-but-rejected is distinguishable from
+    // one the source never sent, which is the distinction that makes the table actionable.
     for (const f of trace.fields) {
-      let entry = fieldMap.get(f.canonicalField);
+      let entry = this.fieldMap.get(f.canonicalField);
       if (!entry) {
         entry = {
           canonicalField: f.canonicalField,
           sourceFields: f.sourceFields,
-          counts: {
-            mapped: 0,
-            derived: 0,
-            empty_in_source: 0,
-            absent_from_source: 0,
-            rejected: 0,
-          },
+          counts: { mapped: 0, derived: 0, empty_in_source: 0, absent_from_source: 0, rejected: 0 },
           populated: 0,
           total: 0,
           coverage: 0,
         };
-        fieldMap.set(f.canonicalField, entry);
+        this.fieldMap.set(f.canonicalField, entry);
       }
       entry.counts[f.status]++;
       entry.total++;
       if (f.status === "mapped" || f.status === "derived") entry.populated++;
     }
-  }
-  const fields = [...fieldMap.values()]
-    .map((f) => ({ ...f, coverage: f.total === 0 ? 0 : f.populated / f.total }))
-    .sort((a, b) => b.coverage - a.coverage || a.canonicalField.localeCompare(b.canonicalField));
 
-  // --- Free-text substance ---
-  const freeText: FreeTextCoverage[] = FREE_TEXT_FIELDS.map((field) => {
-    const bands: Record<TextBand, number> = { absent: 0, trivial: 0, short: 0, substantive: 0 };
-    const lengths: number[] = [];
-    const samples = new Map<TextBand, string>();
-
-    for (const { record } of records) {
-      const value = record[field] as string | null;
+    // --- Free-text substance ---
+    for (const field of FREE_TEXT_FIELDS) {
+      const t = this.text.get(field)!;
+      const value = record[field];
       const band = bandText(value);
-      bands[band]++;
+      t.bands[band]++;
       if (value) {
-        lengths.push(value.trim().length);
-        if (!samples.has(band)) samples.set(band, value.trim().slice(0, 160));
+        t.lengths.push(value.trim().length);
+        if (!t.samples.has(band)) t.samples.set(band, value.trim().slice(0, 160));
       }
     }
 
-    return {
-      canonicalField: field,
-      total,
-      bands,
-      substantiveShare: safeShare(bands.substantive),
-      medianLength: median(lengths),
-      maxLength: lengths.length > 0 ? Math.max(...lengths) : 0,
-      samples: (["trivial", "short", "substantive"] as TextBand[])
-        .filter((b) => samples.has(b))
-        .map((b) => ({ band: b, value: samples.get(b)! })),
-    };
-  });
-
-  // --- Source fields nothing consumed: the schema's blind spot ---
-  const unmappedMap = new Map<string, { records: number; exampleValue: unknown }>();
-  for (const { trace } of records) {
+    // --- Source fields nothing consumed: the schema's blind spot ---
     for (const u of trace.unmappedSourceFields) {
-      const entry = unmappedMap.get(u.field) ?? { records: 0, exampleValue: u.value };
+      const entry = this.unmappedMap.get(u.field) ?? { records: 0, exampleValue: u.value };
       entry.records++;
-      unmappedMap.set(u.field, entry);
+      this.unmappedMap.set(u.field, entry);
     }
-  }
-  const unmappedSourceFields = [...unmappedMap.entries()]
-    .map(([field, v]) => ({ field, records: v.records, share: safeShare(v.records), exampleValue: v.exampleValue }))
-    .sort((a, b) => b.records - a.records);
 
-  // --- Deliberately excluded fields: the menu for widening the record later ---
-  const excludedMap = new Map<string, { reason: string; records: number; exampleValue: unknown }>();
-  for (const { trace } of records) {
+    // --- Deliberately excluded fields: the menu for widening the record later ---
     for (const e of trace.excludedSourceFields) {
       const entry =
-        excludedMap.get(e.field) ?? { reason: e.reason, records: 0, exampleValue: e.value };
+        this.excludedMap.get(e.field) ?? { reason: e.reason, records: 0, exampleValue: e.value };
       entry.records++;
-      excludedMap.set(e.field, entry);
+      this.excludedMap.set(e.field, entry);
     }
-  }
-  const excludedSourceFields: ExcludedFieldSummary[] = [...excludedMap.entries()]
-    .map(([field, v]) => ({
-      field,
-      reason: v.reason,
-      records: v.records,
-      share: safeShare(v.records),
-      exampleValue: v.exampleValue,
-    }))
-    .sort((a, b) => b.records - a.records);
 
-  // --- Contributing data resources: a fragmentation measurement in its own right ---
-  const resourceMap = new Map<
-    string,
-    { uid: string | null; name: string; records: number; substantive: number; uncertainties: number[] }
-  >();
-  for (const { record } of records) {
+    // --- Contributing data resources: a fragmentation measurement in its own right ---
     const name = record.provenance.dataResourceName ?? "(unattributed)";
     const key = record.provenance.dataResourceUid ?? name;
-    const entry =
-      resourceMap.get(key) ??
+    const resource =
+      this.resourceMap.get(key) ??
       { uid: record.provenance.dataResourceUid, name, records: 0, substantive: 0, uncertainties: [] };
-    entry.records++;
-    if (bandText(record.occurrenceRemarks) === "substantive") entry.substantive++;
+    resource.records++;
+    if (bandText(record.occurrenceRemarks) === "substantive") resource.substantive++;
     if (record.coordinateUncertaintyInMeters !== null) {
-      entry.uncertainties.push(record.coordinateUncertaintyInMeters);
+      resource.uncertainties.push(record.coordinateUncertaintyInMeters);
     }
-    resourceMap.set(key, entry);
-  }
-  const resources: ResourceBreakdown[] = [...resourceMap.values()]
-    .map((r) => ({
-      dataResourceUid: r.uid,
-      dataResourceName: r.name,
-      records: r.records,
-      share: safeShare(r.records),
-      substantiveRemarks: r.substantive,
-      meanCoordinateUncertainty:
-        r.uncertainties.length === 0
-          ? null
-          : r.uncertainties.reduce((a, b) => a + b, 0) / r.uncertainties.length,
-      medianCoordinateUncertainty: r.uncertainties.length === 0 ? null : median(r.uncertainties),
-      obscuredRecords: r.uncertainties.filter((u) => u > 10_000).length,
-    }))
-    .sort((a, b) => b.records - a.records);
+    this.resourceMap.set(key, resource);
 
-  // --- Validation issues ---
-  const validationMap = new Map<string, ValidationSummary>();
-  for (const { trace } of records) {
+    // --- Validation issues ---
     for (const issue of trace.validationIssues) {
       const entry =
-        validationMap.get(issue.code) ??
+        this.validationMap.get(issue.code) ??
         { code: issue.code, severity: issue.severity, count: 0, message: issue.message };
       entry.count++;
-      validationMap.set(issue.code, entry);
+      this.validationMap.set(issue.code, entry);
     }
-  }
-  const validation = [...validationMap.values()].sort((a, b) => b.count - a.count);
 
-  // --- Source-supplied assertions: ALA's own view of its data quality ---
-  const assertionMap = new Map<string, number>();
-  for (const { record } of records) {
+    // --- Source-supplied assertions: the source's own view of its data quality ---
     for (const a of record.sourceAssertions) {
-      assertionMap.set(a, (assertionMap.get(a) ?? 0) + 1);
+      this.assertionMap.set(a, (this.assertionMap.get(a) ?? 0) + 1);
     }
   }
-  const sourceAssertions = [...assertionMap.entries()]
-    .map(([assertion, count]) => ({ assertion, count, share: safeShare(count) }))
-    .sort((a, b) => b.count - a.count);
 
-  return {
-    harvestKey,
-    runId,
-    totalRecords: total,
-    validRecords: records.filter((r) => r.record.isValid).length,
-    fields,
-    freeText,
-    unmappedSourceFields,
-    excludedSourceFields,
-    resources,
-    validation,
-    sourceAssertions,
-  };
+  finish(harvestKey: string, runId: string): CorpusAnalysis {
+    const total = this.total;
+    const safeShare = (n: number) => (total === 0 ? 0 : n / total);
+
+    const fields = [...this.fieldMap.values()]
+      .map((f) => ({ ...f, coverage: f.total === 0 ? 0 : f.populated / f.total }))
+      .sort((a, b) => b.coverage - a.coverage || a.canonicalField.localeCompare(b.canonicalField));
+
+    const freeText: FreeTextCoverage[] = FREE_TEXT_FIELDS.map((field) => {
+      const t = this.text.get(field)!;
+      return {
+        canonicalField: field,
+        total,
+        bands: t.bands,
+        substantiveShare: safeShare(t.bands.substantive),
+        medianLength: median(t.lengths),
+        maxLength: t.lengths.length > 0 ? Math.max(...t.lengths) : 0,
+        samples: (["trivial", "short", "substantive"] as TextBand[])
+          .filter((b) => t.samples.has(b))
+          .map((b) => ({ band: b, value: t.samples.get(b)! })),
+      };
+    });
+
+    const unmappedSourceFields = [...this.unmappedMap.entries()]
+      .map(([field, v]) => ({ field, records: v.records, share: safeShare(v.records), exampleValue: v.exampleValue }))
+      .sort((a, b) => b.records - a.records);
+
+    const excludedSourceFields: ExcludedFieldSummary[] = [...this.excludedMap.entries()]
+      .map(([field, v]) => ({
+        field,
+        reason: v.reason,
+        records: v.records,
+        share: safeShare(v.records),
+        exampleValue: v.exampleValue,
+      }))
+      .sort((a, b) => b.records - a.records);
+
+    const resources: ResourceBreakdown[] = [...this.resourceMap.values()]
+      .map((r) => ({
+        dataResourceUid: r.uid,
+        dataResourceName: r.name,
+        records: r.records,
+        share: safeShare(r.records),
+        substantiveRemarks: r.substantive,
+        meanCoordinateUncertainty:
+          r.uncertainties.length === 0
+            ? null
+            : r.uncertainties.reduce((a, b) => a + b, 0) / r.uncertainties.length,
+        medianCoordinateUncertainty: r.uncertainties.length === 0 ? null : median(r.uncertainties),
+        obscuredRecords: r.uncertainties.filter((u) => u > 10_000).length,
+      }))
+      .sort((a, b) => b.records - a.records);
+
+    const validation = [...this.validationMap.values()].sort((a, b) => b.count - a.count);
+
+    const sourceAssertions = [...this.assertionMap.entries()]
+      .map(([assertion, count]) => ({ assertion, count, share: safeShare(count) }))
+      .sort((a, b) => b.count - a.count);
+
+    return {
+      harvestKey,
+      runId,
+      totalRecords: total,
+      validRecords: this.valid,
+      fields,
+      freeText,
+      unmappedSourceFields,
+      excludedSourceFields,
+      resources,
+      validation,
+      sourceAssertions,
+    };
+  }
+}
+
+/** Whole-corpus convenience over the accumulator, for callers that already hold every record. */
+export function analyseCorpus(
+  harvestKey: string,
+  runId: string,
+  records: AdaptedRecord[],
+): CorpusAnalysis {
+  const analyser = new CorpusAnalyser();
+  for (const r of records) analyser.add(r);
+  return analyser.finish(harvestKey, runId);
 }

@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { INGESTION } from "../config/ingestion.ts";
 
@@ -171,17 +171,28 @@ export async function readPageBody(
   return readFile(resolved, "utf8");
 }
 
-/** Run ids for a harvest, newest first. */
+/**
+ * Run ids for a harvest, newest first.
+ *
+ * A run exists once its manifest does. The manifest is written last, so a harvest still in
+ * progress — or one that died mid-way — has a directory of pages and no manifest, and must
+ * not be offered to readers as a run.
+ */
 export async function listRuns(harvestKey: string): Promise<string[]> {
   try {
-    const entries = await readdir(path.join(snapshotsRoot(), harvestKey), {
-      withFileTypes: true,
-    });
-    return entries
-      .filter((e) => e.isDirectory())
-      .map((e) => e.name)
-      .sort()
-      .reverse();
+    const dir = path.join(snapshotsRoot(), harvestKey);
+    const entries = await readdir(dir, { withFileTypes: true });
+    const finished: string[] = [];
+    for (const e of entries) {
+      if (!e.isDirectory()) continue;
+      try {
+        await access(path.join(dir, e.name, "manifest.json"));
+        finished.push(e.name);
+      } catch {
+        // No manifest yet: in progress, or abandoned.
+      }
+    }
+    return finished.sort().reverse();
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
     throw error;

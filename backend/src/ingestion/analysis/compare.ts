@@ -1,5 +1,8 @@
-import type { AdaptedRecord } from "../canonical/record.ts";
+import type { CanonicalRecord } from "../canonical/record.ts";
 import { bandText } from "./coverage.ts";
+
+/** Anything carrying a canonical record; the comparison never needs the trace. */
+type AdaptedRecord = { record: CanonicalRecord };
 
 /**
  * Cross-source comparison.

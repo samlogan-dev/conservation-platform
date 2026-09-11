@@ -79,6 +79,12 @@ const datasets = computed(() =>
 )
 const maxDatasetRecords = computed(() => Math.max(1, ...datasets.value.map((d) => d.records)))
 
+/** What the text says: one row per source and classifier that has read it. */
+const textRows = computed(() =>
+  members.value.flatMap((m) => m.text.map((t) => ({ source: m.source, t }))),
+)
+const TEXT_EVENTS = ['vehicle_strike', 'dog_attack', 'disease', 'injury', 'fire', 'rescue_or_care', 'with_joey'] as const
+
 /** Free text per field: one row per source and a combined row. */
 const textFields = computed(() => {
   const fields = [...new Set(members.value.flatMap((m) => m.analysis.freeText.map((f) => f.canonicalField)))]
@@ -293,6 +299,51 @@ const textFields = computed(() => {
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- What the text says -->
+    <section v-if="textRows.length">
+      <h2 class="text-base font-semibold">What the text says</h2>
+      <p class="mt-1 max-w-3xl text-xs text-muted-foreground">
+        Every substantive remark, read by a classifier and labelled with the animal's condition
+        and the events the text names. One row per source and classifier. Counts are records
+        whose remark was judged to be about a koala; the full rows are on the Schema page under
+        text_classifications.
+      </p>
+
+      <div class="mt-4 overflow-x-auto rounded border border-border">
+        <table class="w-full min-w-[72rem] text-xs">
+          <thead class="bg-muted/50 text-left text-muted-foreground">
+            <tr>
+              <th class="px-3 py-2 font-medium">Source</th>
+              <th class="px-3 py-2 font-medium">Classifier</th>
+              <th class="px-3 py-2 text-right font-medium">Remarks read</th>
+              <th class="px-3 py-2 text-right font-medium">Healthy</th>
+              <th class="px-3 py-2 text-right font-medium">Unwell</th>
+              <th class="px-3 py-2 text-right font-medium">Dead</th>
+              <th class="px-3 py-2 text-right font-medium">Not stated</th>
+              <th v-for="e in TEXT_EVENTS" :key="e" class="px-3 py-2 text-right font-medium">{{ e.replace(/_/g, ' ') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="row in textRows" :key="`${row.source}-${row.t.classifier}`" class="border-t border-border">
+              <td class="px-3 py-1.5 font-mono">{{ row.source }}</td>
+              <td class="px-3 py-1.5">
+                <span class="font-mono">{{ row.t.classifier }}</span>
+                <span v-if="row.t.model" class="ml-2 font-mono text-[11px] text-muted-foreground">{{ row.t.model }} · prompt {{ row.t.promptVersion }}</span>
+              </td>
+              <td class="px-3 py-1.5 text-right font-mono">{{ num(row.t.koalaRecords) }}</td>
+              <td class="px-3 py-1.5 text-right font-mono">{{ num(row.t.byCondition.alive_healthy) }}</td>
+              <td class="px-3 py-1.5 text-right font-mono text-amber-700 dark:text-amber-400">{{ num(row.t.byCondition.alive_unwell) }}</td>
+              <td class="px-3 py-1.5 text-right font-mono text-rose-700 dark:text-rose-400">{{ num(row.t.byCondition.dead) }}</td>
+              <td class="px-3 py-1.5 text-right font-mono text-muted-foreground">{{ num(row.t.byCondition.unknown) }}</td>
+              <td v-for="e in TEXT_EVENTS" :key="e" class="px-3 py-1.5 text-right font-mono" :class="row.t.byEvent[e] ? '' : 'text-muted-foreground'">
+                {{ num(row.t.byEvent[e]) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 

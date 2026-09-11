@@ -2,7 +2,22 @@
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useCorpusStore } from '@/stores/corpusStore'
+import type { TextEvent, TextSummary } from '@/apis/corpusTypes'
 import { num, pct, sourceLabel } from '@/lib/format'
+
+const EVENT_LABEL: Record<TextEvent, string> = {
+  vehicle_strike: 'Vehicle strike',
+  dog_attack: 'Dog attack',
+  disease: 'Disease',
+  injury: 'Injury',
+  fire: 'Fire',
+  rescue_or_care: 'Rescue or care',
+  with_joey: 'With joey',
+}
+const EVENT_KEYS = Object.keys(EVENT_LABEL) as TextEvent[]
+
+const describeClassifier = (s: TextSummary) =>
+  s.classifier === 'llm' ? `${s.model} (prompt ${s.promptVersion})` : 'the keyword baseline'
 
 /**
  * Page 4 — what the statistics mean, across every source.
@@ -163,6 +178,68 @@ const findings = computed<Finding[]>(() => {
         'Deliberate obscuring for a threatened species is a privacy mechanism, not an error. A range or precision rule that fires on it is producing false positives.',
       ],
     })
+  }
+
+  // ---- What the remarks say, from the best classifier that has read each source.
+  const read = members.flatMap((m) => {
+    const s = m.text.find((t) => t.classifier === 'llm') ?? m.text.find((t) => t.classifier === 'keyword')
+    return s ? [{ label: sourceLabel(m.source), s }] : []
+  })
+  if (read.length) {
+    const sum = (pick: (s: TextSummary) => number) => read.reduce((acc, r) => acc + pick(r.s), 0)
+    const koala = sum((s) => s.koalaRecords)
+    const dead = sum((s) => s.byCondition.dead)
+    const unwell = sum((s) => s.byCondition.alive_unwell)
+    const harm = koala === 0 ? 0 : (dead + unwell) / koala
+    const classifiers = [...new Set(read.map((r) => describeClassifier(r.s)))].join(' and ')
+
+    out.push({
+      key: 'text-condition',
+      question: 'What do the remarks say about the animals\' condition?',
+      verdict: `${pct(harm)} describe a sick, injured or dead koala`,
+      tone: harm > 0.2 ? 'warn' : 'neutral',
+      evidence: [
+        ...read.map((r) => {
+          const c = r.s.byCondition
+          return `${r.label}: ${num(r.s.koalaRecords)} remarks about a koala. ${num(c.dead)} dead, ${num(c.alive_unwell)} unwell, ${num(c.alive_healthy)} healthy, ${num(c.unknown)} say nothing about condition.`
+        }),
+        `Labels from ${classifiers}. A remark is read only when it has at least three words; ${num(sum((s) => s.recordsCovered))} records did.`,
+      ],
+    })
+
+    const eventTotals = Object.fromEntries(EVENT_KEYS.map((e) => [e, sum((s) => s.byEvent[e])])) as Record<TextEvent, number>
+    const ranked = EVENT_KEYS.filter((e) => e !== 'with_joey').sort((a, b) => eventTotals[b] - eventTotals[a])
+    const top = ranked[0]!
+    out.push({
+      key: 'text-threats',
+      question: 'What threats do the remarks name?',
+      verdict: eventTotals[top] ? `${EVENT_LABEL[top]} is named most: ${num(eventTotals[top])} remarks` : 'No threat is named',
+      tone: 'neutral',
+      evidence: [
+        ...ranked
+          .filter((e) => eventTotals[e] > 0)
+          .slice(0, 5)
+          .map((e) => `${EVENT_LABEL[e]}: ${num(eventTotals[e])} (${read.map((r) => `${r.label} ${num(r.s.byEvent[e])}`).join(', ')}).`),
+        `${num(eventTotals.with_joey)} remarks mention a joey, a breeding signal rather than a threat.`,
+        'Named only when the text states it: a road nearby is not a strike, a dog present is not an attack.',
+      ],
+    })
+
+    const agreeing = read.filter((r) => r.s.agreement && r.s.agreement.texts > 0)
+    if (agreeing.length) {
+      const texts = agreeing.reduce((acc, r) => acc + r.s.agreement!.texts, 0)
+      const condition = agreeing.reduce((acc, r) => acc + r.s.agreement!.condition, 0) / Math.max(1, texts)
+      out.push({
+        key: 'text-agreement',
+        question: 'Do the model and the keyword baseline agree?',
+        verdict: `${pct(condition)} agreement on condition`,
+        tone: condition >= 0.8 ? 'good' : 'warn',
+        evidence: agreeing.map((r) => {
+          const a = r.s.agreement!
+          return `${r.label}: ${num(a.texts)} texts labelled by both. Subject ${pct(a.subject / a.texts)}, condition ${pct(a.condition / a.texts)}, events ${pct(a.events / a.texts)}.`
+        }),
+      })
+    }
   }
 
   // ---- Are the quality flags a baseline worth measuring against? One card per vocabulary.
