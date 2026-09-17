@@ -79,6 +79,7 @@ export class KeywordClassifier implements TextClassifier {
   readonly key = "keyword" as const;
   readonly model = null;
   readonly promptVersion = null;
+  readonly temperature = null;
   private requests = 0;
 
   async classify(items: TextItem[]): Promise<Map<string, TextLabel>> {

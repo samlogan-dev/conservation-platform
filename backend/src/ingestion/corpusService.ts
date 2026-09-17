@@ -18,6 +18,8 @@ import { listClassificationRuns, readClassificationRun } from "./text/store.ts";
 import { summariseText, type TextSummary } from "./analysis/text.ts";
 import { CONDITIONS, EVENTS, SUBJECTS, TAXONOMY_VERSION } from "./text/taxonomy.ts";
 import type { ClassificationRun, ClassifierKey } from "./text/types.ts";
+import { getSynthesisStatus, synthesiseFamily } from "./synthesis/job.ts";
+import type { Synthesis, SynthesisStatus } from "./synthesis/types.ts";
 
 /**
  * Read layer over harvested runs, and the single place where ethics pillars 2 and 4 are
@@ -475,6 +477,23 @@ export async function getFamily(harvestKey: string, runId: string) {
     ),
     comparisons: await getComparisons(harvestKey, runId),
   };
+}
+
+// ---------------------------------------------------------------- AI analysis (page 5)
+
+/** The evidence the model would be given for this run's family, and the stored synthesis if any. */
+export async function getSynthesis(harvestKey: string, runId: string): Promise<SynthesisStatus> {
+  return getSynthesisStatus(await getFamily(harvestKey, runId));
+}
+
+/**
+ * Generate (or regenerate) the synthesis for this run's family. The one write behind the API,
+ * and the one thing here that costs money: a single model call over aggregates. It never
+ * touches a source system, and a call already in flight for the family is joined, not doubled.
+ */
+export async function runSynthesis(harvestKey: string, runId: string, force: boolean): Promise<Synthesis> {
+  const family = await getFamily(harvestKey, runId);
+  return synthesiseFamily(family, { triggeredBy: { harvestKey, runId }, force, onProgress: (m) => console.log(m) });
 }
 
 /** The frozen API calls that make up a run, grouped for navigation. */

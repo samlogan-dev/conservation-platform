@@ -8,6 +8,8 @@ import { classifyRun, makeClassifier } from "./text/job.ts";
 import { evaluateClassifier } from "./text/synthetic.ts";
 import { summariseText } from "./analysis/text.ts";
 import type { ClassifierKey } from "./text/types.ts";
+import { getFamily } from "./corpusService.ts";
+import { synthesiseFamily } from "./synthesis/job.ts";
 
 /**
  * Ingestion CLI.
@@ -21,6 +23,7 @@ import type { ClassifierKey } from "./text/types.ts";
  *   npm run ingest -- runs     [harvestKey]
  *   npm run ingest -- classify [harvestKey] [runId] [--classifier keyword|llm] [--limit N] [--force]
  *   npm run ingest -- evaluate [--classifier keyword|llm]
+ *   npm run ingest -- synthesise [harvestKey] [runId] [--force]
  */
 
 const log = (m: string) => console.log(m);
@@ -174,6 +177,33 @@ async function main(): Promise<void> {
       }
       break;
     }
+    case "synthesise":
+    case "synthesize": {
+      const key = arg1 ?? DEFAULT_HARVEST;
+      const runId = await resolveRun(key, arg2);
+      const family = await getFamily(key, runId);
+      const s = await synthesiseFamily(family, {
+        triggeredBy: { harvestKey: key, runId },
+        force: flags.get("force") === "true",
+        onProgress: log,
+      });
+      log(`\n=== ${s.familyKey} · ${s.model} · prompt ${s.promptVersion} · evidence ${s.evidenceHash.slice(0, 12)} (${s.metricCount} metrics) ===`);
+      log(`\n${s.report.headline}\n`);
+      for (const i of s.report.insights) {
+        log(`[${i.kind} · value ${i.value}/5 · ${i.confidence}] ${i.title}`);
+        log(`  ${i.essence}`);
+        log(`  ${i.detail}`);
+        if (i.caveat) log(`  caveat: ${i.caveat}`);
+        log(`  evidence: ${i.evidence.join(", ")}`);
+        if (i.checks.unknownCitations.length) log(`  !! unknown citations: ${i.checks.unknownCitations.join(", ")}`);
+        if (i.checks.unverifiedNumbers.length) log(`  !! unverified numbers: ${i.checks.unverifiedNumbers.join(", ")}`);
+        log("");
+      }
+      if (s.report.limitations.length) log(`limitations:\n  - ${s.report.limitations.join("\n  - ")}`);
+      if (s.report.nextQuestions.length) log(`next questions:\n  - ${s.report.nextQuestions.join("\n  - ")}`);
+      log(`\nusage: ${s.usage.inputTokens} in / ${s.usage.outputTokens} out tokens`);
+      break;
+    }
     case "harvest": {
       const key = arg1 ?? DEFAULT_HARVEST;
       const harvest = HARVESTS[key];
@@ -209,7 +239,7 @@ async function main(): Promise<void> {
       break;
     }
     default:
-      throw new Error(`unknown command "${command}" — use harvest | adapt | report | runs | classify | evaluate`);
+      throw new Error(`unknown command "${command}" — use harvest | adapt | report | runs | classify | evaluate | synthesise`);
   }
 }
 

@@ -16,6 +16,7 @@ const NAV = [
   { to: '/schema', label: '2 · Schema', hint: 'The records as the database holds them, checked against the schema' },
   { to: '/statistics', label: '3 · Statistics', hint: 'What was fetched, and which sightings each source holds' },
   { to: '/insights', label: '4 · Insights', hint: 'What the numbers mean' },
+  { to: '/analysis', label: '5 · AI analysis', hint: 'What the model finds most worth knowing, checked against the numbers' },
 ]
 </script>
 

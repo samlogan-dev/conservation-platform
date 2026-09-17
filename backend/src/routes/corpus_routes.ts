@@ -8,20 +8,26 @@ import {
   getRawPage,
   getRecordDetail,
   getSchema,
+  getSynthesis,
   getTextOverview,
   listHarvests,
   listPages,
   listRecords,
   listTextRows,
   resolveRunId,
+  runSynthesis,
 } from "../ingestion/corpusService.ts";
+import { anthropicConfigured } from "../ingestion/config/anthropic.ts";
 
 /**
- * Read-only API over harvested runs.
+ * Read-only API over harvested runs, with one exception.
  *
  * Harvesting is deliberately not exposed over HTTP — it is a batch job with a rate-limited
  * network footprint against someone else's service, and it belongs behind the CLI where it
  * cannot be triggered by a page refresh.
+ *
+ * The exception is `POST …/synthesis`: it makes one model call over aggregates the server
+ * already holds. No source system is touched, and it runs only on an explicit button press.
  */
 export const corpusRoutes = new Hono({ strict: false });
 
@@ -123,6 +129,23 @@ corpusRoutes.get("/:harvestKey/:runId/text/rows", async (c) => {
       }),
     ),
   );
+});
+
+/** Page 5: the evidence pack for this run's family and the stored synthesis, if any. */
+corpusRoutes.get("/:harvestKey/:runId/synthesis", async (c) => {
+  const { harvestKey, runId } = c.req.param();
+  return c.json(await withRun(harvestKey, runId, (r) => getSynthesis(harvestKey, r)));
+});
+
+corpusRoutes.post("/:harvestKey/:runId/synthesis", async (c) => {
+  const { harvestKey, runId } = c.req.param();
+  if (!anthropicConfigured()) {
+    throw new HTTPException(503, {
+      message: "No Anthropic key configured. Put CLAUDE_API_KEY in backend/.env and restart the server.",
+    });
+  }
+  const force = c.req.query("force") === "true";
+  return c.json(await withRun(harvestKey, runId, (r) => runSynthesis(harvestKey, r, force)));
 });
 
 corpusRoutes.get("/:harvestKey/:runId/records", async (c) => {

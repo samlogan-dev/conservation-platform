@@ -52,6 +52,8 @@ export interface TextClassifier {
   /** Model id for model-backed classifiers, logged with every run. Null for rules. */
   model: string | null;
   promptVersion: string | null;
+  /** 0 where the model accepted it, null where it rejects the parameter or there is no model. */
+  readonly temperature: number | null;
   classify(
     items: TextItem[],
     onProgress?: (message: string) => void,
@@ -66,6 +68,8 @@ export interface ClassificationRun {
   classifier: ClassifierKey;
   model: string | null;
   promptVersion: string | null;
+  /** Absent on runs written before it was recorded. */
+  temperature?: number | null;
   taxonomyVersion: string;
   startedAt: string;
   finishedAt: string;

@@ -1,4 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk";
+import type Anthropic from "@anthropic-ai/sdk";
+import { createDeterministic, makeAnthropic } from "../config/anthropic.ts";
 import { CONDITION_CODES, EVENT_CODES, SUBJECT_CODES } from "./taxonomy.ts";
 import { CLASSIFICATION_TOOL, PROMPT_VERSION, SYSTEM_PROMPT, buildUserMessage } from "./prompt.ts";
 import type {
@@ -32,17 +33,15 @@ export class AnthropicClassifier implements TextClassifier {
   readonly key = "llm" as const;
   readonly model: string;
   readonly promptVersion = PROMPT_VERSION;
+  /** Learned from the first call: 0 if the model took it, null if it refused the parameter. */
+  temperature: number | null = 0;
   private readonly client: Anthropic;
   private readonly used: ClassifierUsage = { requests: 0, inputTokens: 0, outputTokens: 0 };
 
   constructor(model?: string) {
-    if (!process.env.ANTHROPIC_API_KEY) {
-      throw new Error(
-        "ANTHROPIC_API_KEY is not set. Put it in backend/.env (never committed) or use --classifier keyword.",
-      );
-    }
+    // Throws with the instruction if no key is configured; `--classifier keyword` needs none.
+    this.client = makeAnthropic();
     this.model = model ?? process.env.TEXT_MODEL ?? DEFAULT_MODEL;
-    this.client = new Anthropic({ maxRetries: 4 });
   }
 
   usage(): ClassifierUsage {
@@ -67,15 +66,15 @@ export class AnthropicClassifier implements TextClassifier {
   }
 
   private async classifyBatch(batch: TextItem[]): Promise<Map<string, TextLabel>> {
-    const response = await this.client.messages.create({
+    const { response, temperature } = await createDeterministic(this.client, {
       model: this.model,
       max_tokens: 4096,
-      temperature: 0,
       system: SYSTEM_PROMPT,
       tools: [CLASSIFICATION_TOOL],
       tool_choice: { type: "tool", name: CLASSIFICATION_TOOL.name },
       messages: [{ role: "user", content: buildUserMessage(batch.map((b) => b.text)) }],
     });
+    this.temperature = temperature;
 
     this.used.requests++;
     this.used.inputTokens += response.usage.input_tokens;

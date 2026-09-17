@@ -112,13 +112,13 @@ appear in both views as a menu rather than vanishing. Restoring one is an edit p
 `npm run ingest -- adapt` — about a second, no new API traffic — because the raw responses are
 frozen.
 
-### The four views
+### The five views
 
-In pipeline order — what the source sent, how it is stored, the numbers, what the numbers mean.
-Pages 1 and 2 are scoped to the run selected in the header strip. Pages 3 and 4 read across
-**every source fetched for the same species, region and window** (the run's "family"), so they
-say the same thing whichever source is selected, and the strip shows the scope and one chip per
-source instead of one run.
+In pipeline order — what the source sent, how it is stored, the numbers, what the numbers mean,
+and what the model makes of them. Pages 1 and 2 are scoped to the run selected in the header
+strip. Pages 3, 4 and 5 read across **every source fetched for the same species, region and
+window** (the run's "family"), so they say the same thing whichever source is selected, and the
+strip shows the scope and one chip per source instead of one run.
 
 1. **Raw data** (`/`) — every API call in the run, each response frozen verbatim and shown as
    read-only JSON with line numbers. Request metadata sits above it: status, size, timing,
@@ -148,6 +148,16 @@ source instead of one run.
    whether there is enough text for an LLM, which datasets carry the text, how precisely each
    source locates sightings, whether each source's own flags discriminate anything. All computed
    from the family and the joins between its members; no model output.
+5. **AI analysis** (`/analysis`) — the model's reading of pages 3 and 4. The family's numbers
+   are flattened into an *evidence pack* — a few hundred named metrics with ids, nothing per
+   record, no text, no coordinates — and a frontier-tier model is asked what matters most to a
+   practitioner and to state each insight's essence. The answer comes back through a tool
+   schema citing metric ids, and the server checks it before storing it: every cited id must
+   exist, and every number in the prose must be a value in the pack or a difference or ratio of
+   two cited values. What fails is shown on the card as unverified, not hidden. One call per
+   family, on a button press only, cached on disk with the evidence hash so a new run or a new
+   classifier pass shows as "numbers have changed" rather than as a silently stale report. The
+   whole pack the model was given is on the page. See **AI analysis** below.
 
 The schema itself is declared as data in `canonical/schema.ts`, not left implicit in the
 TypeScript types, so the platform can render it, check records against it and version it —
@@ -208,6 +218,26 @@ page), as a section on Statistics, and as cards on Insights.
 **Backfill.** Koala × NSW is defined one harvest per year from 2015 for both sources
 (`config/harvests.ts`); `npm run ingest -- harvest koala-nsw-2024` fetches, freezes and adapts
 one year. Backfill snapshot pages stay on disk and out of git; their manifests are tracked.
+All twelve years of both sources were harvested complete on 11 Sep 2026 (about 250,000 ALA
+records, 5,800 iNaturalist) and the keyword baseline has read every one of them.
+
+## AI analysis
+
+Page 5. `ingestion/synthesis/` holds it: `evidence.ts` builds the pack from the family,
+`prompt.ts` is the versioned prompt and tool schema, `verify.ts` is the fact-check run on the
+model's answer, `store.ts` keeps one file per family per model under `data/syntheses/`.
+
+```bash
+cd backend
+npm run ingest -- synthesise koala-nsw-2025h1            # prints the checked report
+npm run ingest -- synthesise koala-nsw-2025h1 --force    # regenerate even if current
+```
+
+The model defaults to `claude-opus-5` (`ANALYSIS_MODEL` overrides) — the reasoning-heavy end
+of the two-tier hypothesis, with `claude-haiku-4-5` doing the bulk classification underneath.
+Both need `CLAUDE_API_KEY` (or `ANTHROPIC_API_KEY`) in `backend/.env`. The Claude 5 tier
+rejects the `temperature` parameter; every call tries temperature 0, falls back without it,
+and the result records which applied.
 
 ## Backend Setup
 

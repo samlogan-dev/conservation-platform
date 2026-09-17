@@ -29,6 +29,8 @@ import type {
  * single invocation will spend on.
  */
 const TEXT_FIELDS: TextField[] = ["occurrenceRemarks", "eventRemarks"];
+/** Unique texts between run-file checkpoints: five model requests' worth. */
+const CHECKPOINT_EVERY = 100;
 
 export function makeClassifier(key: ClassifierKey): TextClassifier {
   return key === "llm" ? new AnthropicClassifier() : new KeywordClassifier();
@@ -96,29 +98,50 @@ export async function classifyRun(
       ` · ${redactions} identifiers scrubbed`,
   );
 
-  if (toClassify.length > 0) {
-    const fresh = await classifier.classify(toClassify, log);
-    for (const [hash, label] of fresh) labels[hash] = label;
-  }
-
-  const covered = new Set(items.filter((i) => labels[i.textHash]).map((i) => i.recordId));
-  const run: ClassificationRun = {
-    harvestKey,
-    runId,
-    classifier: classifier.key,
-    model: classifier.model,
-    promptVersion: classifier.promptVersion,
-    taxonomyVersion: TAXONOMY_VERSION,
-    startedAt,
-    finishedAt: new Date().toISOString(),
-    uniqueTexts: texts.size,
-    labelledTexts: Object.keys(labels).length,
-    recordsCovered: covered.size,
-    usage: classifier.usage(),
-    labels,
-    items,
+  // Token usage is cumulative across resumed invocations, so the run file reports what the
+  // whole pass cost rather than only the last session of it.
+  const priorUsage = previous && Object.keys(reusable).length > 0 ? previous.usage : { requests: 0, inputTokens: 0, outputTokens: 0 };
+  const buildRun = (): ClassificationRun => {
+    const used = classifier.usage();
+    const covered = new Set(items.filter((i) => labels[i.textHash]).map((i) => i.recordId));
+    return {
+      harvestKey,
+      runId,
+      classifier: classifier.key,
+      model: classifier.model,
+      promptVersion: classifier.promptVersion,
+      temperature: classifier.temperature,
+      taxonomyVersion: TAXONOMY_VERSION,
+      startedAt,
+      finishedAt: new Date().toISOString(),
+      uniqueTexts: texts.size,
+      labelledTexts: Object.keys(labels).length,
+      recordsCovered: covered.size,
+      usage: {
+        requests: priorUsage.requests + used.requests,
+        inputTokens: priorUsage.inputTokens + used.inputTokens,
+        outputTokens: priorUsage.outputTokens + used.outputTokens,
+      },
+      labels,
+      items,
+    };
   };
 
+  // Checkpoint as it goes. A model pass over a year is hundreds of requests, and a stalled
+  // connection part-way through should cost the texts since the last checkpoint, not the run.
+  if (toClassify.length > 0) {
+    for (let start = 0; start < toClassify.length; start += CHECKPOINT_EVERY) {
+      const chunk = toClassify.slice(start, start + CHECKPOINT_EVERY);
+      const fresh = await classifier.classify(chunk, log);
+      for (const [hash, label] of fresh) labels[hash] = label;
+      if (start + CHECKPOINT_EVERY < toClassify.length) {
+        await writeClassificationRun(buildRun());
+        log(`  checkpoint: ${Object.keys(labels).length}/${texts.size} texts saved`);
+      }
+    }
+  }
+
+  const run = buildRun();
   const written = await writeClassificationRun(run);
   log(`  wrote ${written}: ${run.labelledTexts}/${run.uniqueTexts} texts labelled, ${run.recordsCovered} records covered`);
   return run;

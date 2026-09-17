@@ -278,6 +278,73 @@ export interface CorpusFamily {
   comparisons: SourceComparison[];
 }
 
+// ---- AI analysis (page 5)
+
+export type MetricUnit = "count" | "share" | "metres" | "chars" | "text" | "flag";
+
+export interface EvidenceMetric {
+  id: string;
+  label: string;
+  value: number | string | boolean;
+  unit: MetricUnit;
+}
+
+/** Everything the model was given: named aggregates, nothing per record. */
+export interface EvidencePack {
+  scope: { speciesKey: string; regionKey: string; startDate: string; endDate: string; sources: string[] };
+  sections: { key: string; title: string; metrics: EvidenceMetric[] }[];
+  metricCount: number;
+  hash: string;
+}
+
+export type InsightKind = "finding" | "data_quality" | "interpretation";
+
+export interface Insight {
+  title: string;
+  essence: string;
+  detail: string;
+  kind: InsightKind;
+  value: number;
+  confidence: "high" | "medium" | "low";
+  evidence: string[];
+  caveat: string | null;
+  /** Computed by the server after the model answered, not by the model. */
+  checks: { unknownCitations: string[]; unverifiedNumbers: string[] };
+}
+
+export interface Synthesis {
+  familyKey: string;
+  scope: EvidencePack["scope"];
+  triggeredBy: { harvestKey: string; runId: string };
+  model: string;
+  promptVersion: string;
+  /** 0 where the model accepted it; null where the model rejects the parameter. */
+  temperature: number | null;
+  evidenceHash: string;
+  metricCount: number;
+  startedAt: string;
+  finishedAt: string;
+  usage: { requests: number; inputTokens: number; outputTokens: number };
+  report: {
+    headline: string;
+    insights: Insight[];
+    limitations: string[];
+    nextQuestions: string[];
+  };
+  checks: { unknownCitations: number; unverifiedNumbers: number };
+}
+
+export interface SynthesisStatus {
+  configured: boolean;
+  model: string;
+  promptVersion: string;
+  familyKey: string;
+  evidence: EvidencePack;
+  synthesis: Synthesis | null;
+  stale: boolean;
+  running: boolean;
+}
+
 /**
  * One row of the sightings table: the whole public record (coordinates fuzzed, withheld text
  * nulled) plus what the grid needs to colour it. Nested `provenance` is kept as the backend

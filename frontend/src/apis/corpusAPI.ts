@@ -10,6 +10,8 @@ import type {
   RecordList,
   SchemaResponse,
   SourceComparison,
+  Synthesis,
+  SynthesisStatus,
   TextOverview,
   TextRows,
 } from "./corpusTypes";
@@ -81,6 +83,13 @@ export const listTextRowsAPI = async (
   params: ListTextRowsParams = {},
 ): Promise<TextRows> =>
   (await apiClient.get(`${base(harvestKey, runId)}/text/rows`, { params })).data;
+
+export const getSynthesisAPI = async (harvestKey: string, runId: string): Promise<SynthesisStatus> =>
+  (await apiClient.get(`${base(harvestKey, runId)}/synthesis`)).data;
+
+/** The one write: a single model call over the family's aggregates. Only ever on a button press. */
+export const runSynthesisAPI = async (harvestKey: string, runId: string, force = false): Promise<Synthesis> =>
+  (await apiClient.post(`${base(harvestKey, runId)}/synthesis`, null, { params: force ? { force: "true" } : {} })).data;
 
 export const getRecordAPI = async (
   harvestKey: string,

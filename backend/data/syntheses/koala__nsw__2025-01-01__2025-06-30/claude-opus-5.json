@@ -1,0 +1,217 @@
+{
+  "familyKey": "koala__nsw__2025-01-01__2025-06-30",
+  "scope": {
+    "speciesKey": "koala",
+    "regionKey": "nsw",
+    "startDate": "2025-01-01",
+    "endDate": "2025-06-30",
+    "sources": [
+      "ala",
+      "inaturalist"
+    ]
+  },
+  "triggeredBy": {
+    "harvestKey": "koala-nsw-2025h1",
+    "runId": "2026-08-29T02-37-04-526Z"
+  },
+  "model": "claude-opus-5",
+  "promptVersion": "1.0",
+  "temperature": null,
+  "evidenceHash": "1866871500c696d4affa75bbd87e4de00b079175799fbeeb41393f1d60f69053",
+  "metricCount": 413,
+  "startedAt": "2026-09-11T13:31:58.362Z",
+  "finishedAt": "2026-09-11T13:32:40.579Z",
+  "usage": {
+    "requests": 1,
+    "inputTokens": 17684,
+    "outputTokens": 3741
+  },
+  "report": {
+    "headline": "Two-thirds of NSW iNaturalist koala sightings never reach the ALA, mostly for licensing reasons; ALA's own remarks carry nearly all the harm detail.",
+    "insights": [
+      {
+        "title": "Two-thirds of iNaturalist sightings never reach ALA",
+        "essence": "ALA holds only 33.3% of iNaturalist's 784 NSW koala sightings; 523 are missing, and 493 of those are all-rights-reserved.",
+        "detail": "The join restricted to iNaturalist's identifier namespace found 261 sightings in both sources, 523 only in iNaturalist and 2 only in ALA, with licensing explaining 94.3% of the gap. Anyone using ALA alone as their view of NSW koala sightings is missing most of the citizen-science record, so both sources need to be queried for a complete picture.",
+        "kind": "finding",
+        "value": 5,
+        "confidence": "high",
+        "evidence": [
+          "join.inaturalist-ala.left_corpus",
+          "join.inaturalist-ala.right_corpus",
+          "join.inaturalist-ala.matched",
+          "join.inaturalist-ala.only_left",
+          "join.inaturalist-ala.only_right",
+          "join.inaturalist-ala.coverage_of_left",
+          "join.inaturalist-ala.only_left_reserved",
+          "join.inaturalist-ala.only_left_explained_by_licence",
+          "join.inaturalist-ala.unexplained_shortfall"
+        ],
+        "caveat": "The join only covers records carrying an iNaturalist identifier, and 30 openly licensed sightings are still missing without a licence explanation.",
+        "checks": {
+          "unknownCitations": [],
+          "unverifiedNumbers": []
+        }
+      },
+      {
+        "title": "Harm detail sits almost entirely in ALA remarks",
+        "essence": "The model classifier reads 32.5% of ALA koala remarks as describing a sick, injured or dead koala, against 3.2% of iNaturalist remarks.",
+        "detail": "In ALA the model labelled 210 remarks alive_unwell and 35 dead out of 753 koala remarks, with 175 naming disease and 85 naming vehicle strike; in iNaturalist it found 5 unwell, 4 dead, no disease and 2 vehicle strike out of 285. If you want welfare and threat signal, read the ALA remarks (chiefly NSW BioNet Atlas); iNaturalist remarks are mostly plain observation notes.",
+        "kind": "finding",
+        "value": 5,
+        "confidence": "high",
+        "evidence": [
+          "text.ala.llm.harm_share",
+          "text.ala.llm.koala_records",
+          "text.ala.llm.condition.alive_unwell",
+          "text.ala.llm.condition.dead",
+          "text.ala.llm.event.disease",
+          "text.ala.llm.event.vehicle_strike",
+          "text.inaturalist.llm.harm_share",
+          "text.inaturalist.llm.koala_records",
+          "text.inaturalist.llm.condition.alive_unwell",
+          "text.inaturalist.llm.condition.dead",
+          "text.inaturalist.llm.event.disease",
+          "text.inaturalist.llm.event.vehicle_strike"
+        ],
+        "caveat": "These are classifier labels on free text, not verified welfare records, and they reflect how each source's recorders write notes as much as what happened to the animals.",
+        "checks": {
+          "unknownCitations": [],
+          "unverifiedNumbers": []
+        }
+      },
+      {
+        "title": "BioNet Atlas carries the threat remarks",
+        "essence": "All 82 model-labelled vehicle-strike remarks in ALA bar three, and 174 of 175 disease remarks, come from the NSW BioNet Atlas dataset.",
+        "detail": "BioNet Atlas supplies 2,421 of ALA's 2,865 records (84.5%) and 675 of the 753 model-judged koala remarks, including 205 unwell and 29 dead. The other four ALA datasets contribute almost no threat text at all, so a council or carer wanting road-strike or disease context should go to BioNet rather than the aggregate.",
+        "kind": "finding",
+        "value": 4,
+        "confidence": "high",
+        "evidence": [
+          "source.ala.dataset.nsw_bionet_atlas.records",
+          "source.ala.dataset.nsw_bionet_atlas.share",
+          "source.ala.records",
+          "text.ala.llm.dataset.nsw_bionet_atlas.records",
+          "text.ala.llm.dataset.nsw_bionet_atlas.vehicle_strike",
+          "text.ala.llm.dataset.nsw_bionet_atlas.disease",
+          "text.ala.llm.dataset.nsw_bionet_atlas.unwell",
+          "text.ala.llm.dataset.nsw_bionet_atlas.dead",
+          "text.ala.llm.event.vehicle_strike",
+          "text.ala.llm.event.disease",
+          "text.ala.llm.koala_records"
+        ],
+        "caveat": "Dataset differences in remark content may reflect recording protocols (agency and rescue reporting) rather than where threats actually occur.",
+        "checks": {
+          "unknownCitations": [],
+          "unverifiedNumbers": []
+        }
+      },
+      {
+        "title": "iNaturalist locations are deliberately coarse",
+        "essence": "61.6% of iNaturalist's 784 NSW sightings are obscured beyond 10 km, with a median coordinate uncertainty of 28,874 m.",
+        "detail": "iNaturalist's geoprivacy flags fire on 61.4% of records, and its median uncertainty of 28,874 m contrasts with 10 m for NSW BioNet Atlas and 17 m for iNaturalist records arriving via ALA. This is a privacy mechanism for a threatened species, not a data fault, so iNaturalist points cannot be used for site-scale work such as crossing sites or tree assessments.",
+        "kind": "data_quality",
+        "value": 4,
+        "confidence": "high",
+        "evidence": [
+          "source.inaturalist.obscured_records",
+          "source.inaturalist.obscured_share",
+          "source.inaturalist.records",
+          "source.inaturalist.dataset.inaturalist.median_uncertainty_m",
+          "source.inaturalist.flag.coordinates_obscured.share",
+          "source.inaturalist.flag.geoprivacy_obscured.share",
+          "source.ala.dataset.nsw_bionet_atlas.median_uncertainty_m",
+          "source.ala.dataset.inaturalist_australia.median_uncertainty_m"
+        ],
+        "caveat": "Median uncertainty describes the middle record only; it does not tell you which individual records are precise enough for your purpose.",
+        "checks": {
+          "unknownCitations": [],
+          "unverifiedNumbers": []
+        }
+      },
+      {
+        "title": "The two classifiers disagree on what is a koala",
+        "essence": "The keyword baseline calls all 1,446 ALA remarks koala-related while the model calls 753 koala and 692 unclear — subject agreement is only 58.8%.",
+        "detail": "The same 775 ALA texts were labelled by both passes; agreement is 58.8% on subject, 80.9% on condition and 86.6% on events. Because harm rates are quoted over the koala denominator, the keyword baseline's 19.0% and the model's 32.5% are not comparable, and the model's figures should be preferred while still being treated as labels rather than truth.",
+        "kind": "data_quality",
+        "value": 4,
+        "confidence": "high",
+        "evidence": [
+          "text.ala.keyword.koala_records",
+          "text.ala.keyword.subject.unclear",
+          "text.ala.llm.koala_records",
+          "text.ala.llm.subject.unclear",
+          "text.ala.llm.unique_texts",
+          "text.ala.keyword.agreement.llm.subject_share",
+          "text.ala.keyword.agreement.llm.condition_share",
+          "text.ala.keyword.agreement.llm.events_share",
+          "text.ala.keyword.harm_share",
+          "text.ala.llm.harm_share"
+        ],
+        "caveat": "Neither classifier is ground truth; agreement shares show consistency, not accuracy, and no human-checked sample is in the pack.",
+        "checks": {
+          "unknownCitations": [],
+          "unverifiedNumbers": []
+        }
+      },
+      {
+        "title": "June remarks carry the most death and road reports",
+        "essence": "In ALA, model-labelled dead koala remarks rose from 6 in January to 13 in June, and vehicle-strike remarks from 21 to 22, on fewer koala remarks (164 to 144).",
+        "detail": "June has the highest monthly counts of both dead (13) and vehicle strike (22) in the ALA model pass, while the number of koala remarks that month (144) is below January's 164. iNaturalist's model pass shows the same direction, with 3 of its 4 dead remarks in June. This is consistent with more harm being reported per remark in late autumn, but counts follow reporting effort, so the pattern would need road-strike or rescue intake records to confirm.",
+        "kind": "interpretation",
+        "value": 3,
+        "confidence": "medium",
+        "evidence": [
+          "text.ala.llm.month.2025-01.records",
+          "text.ala.llm.month.2025-01.dead",
+          "text.ala.llm.month.2025-01.vehicle_strike",
+          "text.ala.llm.month.2025-06.records",
+          "text.ala.llm.month.2025-06.dead",
+          "text.ala.llm.month.2025-06.vehicle_strike",
+          "text.inaturalist.llm.month.2025-06.dead",
+          "text.inaturalist.llm.condition.dead"
+        ],
+        "caveat": "Monthly counts reflect who reported and when, not how many koalas were struck or died; six months is too short to separate season from reporting patterns.",
+        "checks": {
+          "unknownCitations": [],
+          "unverifiedNumbers": []
+        }
+      },
+      {
+        "title": "Joey remarks are the strongest iNaturalist signal",
+        "essence": "The model found 78 iNaturalist koala remarks naming a joey out of 285, against 59 of 753 in ALA.",
+        "detail": "Joey mentions are the one text category where iNaturalist outweighs ALA in absolute count, and the keyword baseline agrees closely (72 versus 78). For anyone tracking breeding and dependent young, iNaturalist remarks are worth reading despite their coarse coordinates.",
+        "kind": "finding",
+        "value": 3,
+        "confidence": "medium",
+        "evidence": [
+          "text.inaturalist.llm.event.with_joey",
+          "text.inaturalist.llm.koala_records",
+          "text.ala.llm.event.with_joey",
+          "text.ala.llm.koala_records",
+          "text.inaturalist.keyword.event.with_joey"
+        ],
+        "caveat": "A joey mention is a classifier label on a note, not a confirmed breeding record, and obscured coordinates limit its use for locating family groups.",
+        "checks": {
+          "unknownCitations": [],
+          "unverifiedNumbers": []
+        }
+      }
+    ],
+    "limitations": [
+      "Counts measure reporting effort, not koala numbers or how often threats occur.",
+      "No spatial breakdown below dataset level, so no local government area or road corridor detail.",
+      "Text figures rest on classifier labels with no human-checked sample, so accuracy is unknown.",
+      "Only 39.5% of ALA and 53.3% of iNaturalist records have substantive remarks, so any text rate speaks for that subset only."
+    ],
+    "nextQuestions": [
+      "Where do the vehicle-strike and disease remarks fall geographically, once BioNet's precise coordinates are mapped by local government area?",
+      "How accurate are the model's koala, condition and event labels against a human-checked sample of the 775 ALA texts?",
+      "Can the 30 openly licensed iNaturalist sightings missing from ALA be traced to a harvest lag or a genuine pipeline fault?"
+    ]
+  },
+  "checks": {
+    "unknownCitations": 0,
+    "unverifiedNumbers": 0
+  }
+}
