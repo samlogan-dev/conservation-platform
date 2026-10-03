@@ -251,7 +251,8 @@ export class CorpusAnalyser {
         bands: t.bands,
         substantiveShare: safeShare(t.bands.substantive),
         medianLength: median(t.lengths),
-        maxLength: t.lengths.length > 0 ? Math.max(...t.lengths) : 0,
+        // A loop, not Math.max(...lengths): spreading ~1M values overflows the call stack.
+        maxLength: t.lengths.reduce((max, n) => (n > max ? n : max), 0),
         samples: (["trivial", "short", "substantive"] as TextBand[])
           .filter((b) => t.samples.has(b))
           .map((b) => ({ band: b, value: t.samples.get(b)! })),

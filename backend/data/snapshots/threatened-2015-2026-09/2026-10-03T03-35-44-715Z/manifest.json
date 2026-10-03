@@ -1,0 +1,143 @@
+{
+  "runId": "2026-10-03T03-35-44-715Z",
+  "harvestKey": "threatened-2015-2026-09",
+  "description": "Corpus \u2014 nationally threatened taxa (EPBC CR/EN/VU), Australia, Jan 2015 \u2013 Sep 2026, via ALA bulk download",
+  "source": "ala-download",
+  "baseUrl": "https://biocache-ws.ala.org.au/ws",
+  "query": {
+    "q": "*:*",
+    "fq": [
+      "countryConservation:(\"Critically Endangered\" OR \"Endangered\" OR \"Vulnerable\")",
+      "eventDate:[2015-01-01T00:00:00Z TO 2026-09-30T23:59:59Z]"
+    ]
+  },
+  "requestedFields": [
+    "id",
+    "occurrenceID",
+    "dataResourceUid",
+    "dataResourceName",
+    "dataProviderUid",
+    "dataProviderName",
+    "institutionCode",
+    "collectionCode",
+    "catalogNumber",
+    "license",
+    "rights",
+    "scientificName",
+    "raw_scientificName",
+    "vernacularName",
+    "taxonConceptID",
+    "taxonRank",
+    "kingdom",
+    "phylum",
+    "classs",
+    "order",
+    "family",
+    "genus",
+    "species",
+    "eventDate",
+    "year",
+    "month",
+    "basisOfRecord",
+    "raw_basisOfRecord",
+    "individualCount",
+    "sex",
+    "lifeStage",
+    "recordedBy",
+    "recordNumber",
+    "firstLoadedDate",
+    "decimalLatitude",
+    "decimalLongitude",
+    "coordinateUncertaintyInMeters",
+    "coordinatePrecision",
+    "stateProvince",
+    "cl1048",
+    "country",
+    "locality",
+    "raw_locality",
+    "occurrenceRemarks",
+    "raw_occurrenceRemarks",
+    "eventRemarks",
+    "habitat",
+    "identificationRemarks",
+    "dataGeneralizations",
+    "informationWithheld",
+    "spatiallyValid",
+    "sensitive",
+    "stateConservation",
+    "countryConservation"
+  ],
+  "politeness": {
+    "userAgent": "ConservationReportingPlatform/0.1 (UTS Honours research; +mailto:sam@samlogan.com.au)",
+    "minRequestIntervalMs": 1100
+  },
+  "startedAt": "2026-10-03T03:35:44.715Z",
+  "finishedAt": "2026-10-03T03:54:34.965Z",
+  "durationMs": 1130250,
+  "expectedRecords": 2108546,
+  "retrievedRecords": 2108546,
+  "complete": true,
+  "slices": [
+    {
+      "sliceKey": "all",
+      "filters": [
+        "countryConservation:(\"Critically Endangered\" OR \"Endangered\" OR \"Vulnerable\")",
+        "eventDate:[2015-01-01T00:00:00Z TO 2026-09-30T23:59:59Z]"
+      ],
+      "expectedRecords": 2108546,
+      "retrievedRecords": 2108546,
+      "pages": 1
+    }
+  ],
+  "pages": [
+    {
+      "file": "download.zip",
+      "sliceKey": "all",
+      "startIndex": 0,
+      "pageSize": 2108546,
+      "recordCount": 2108546,
+      "url": "https://biocache.ala.org.au/biocache-download/22446b2d-b1bd-3ea1-ae3c-9d5da7ed55c8/1790998546177/data.zip",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:53:23.671Z",
+      "durationMs": 29873,
+      "attempts": 1,
+      "contentHash": "18eb4db1c87ffa7e2efc6be9c36ac9dae156d8102ba77e9726174caec2a5cc9e",
+      "bytes": 410046706
+    }
+  ],
+  "corpusHash": "98fec5666903ab61e6708191c95ed725c35d6d8e6b12430e9c5deb43ff2079bc",
+  "requestCount": 37,
+  "warnings": [
+    "DOI not carried on the status response; read from ALA \"My downloads\" (doi.ala.org.au/myDownloads) on 3 Oct 2026 \u2014 2,108,546 records, 323 datasets \u2014 and verified to resolve via doi.org"
+  ],
+  "download": {
+    "params": {
+      "q": "*:*",
+      "fields": "id,occurrenceID,dataResourceUid,dataResourceName,dataProviderUid,dataProviderName,institutionCode,collectionCode,catalogNumber,license,rights,scientificName,raw_scientificName,vernacularName,taxonConceptID,taxonRank,kingdom,phylum,classs,order,family,genus,species,eventDate,year,month,basisOfRecord,raw_basisOfRecord,individualCount,sex,lifeStage,recordedBy,recordNumber,firstLoadedDate,decimalLatitude,decimalLongitude,coordinateUncertaintyInMeters,coordinatePrecision,stateProvince,cl1048,country,locality,raw_locality,occurrenceRemarks,raw_occurrenceRemarks,eventRemarks,habitat,identificationRemarks,dataGeneralizations,informationWithheld,spatiallyValid,sensitive,stateConservation,countryConservation",
+      "reasonTypeId": "4",
+      "fileType": "csv",
+      "emailNotify": "false",
+      "disableAllQualityFilters": "true",
+      "mintDoi": "true"
+    },
+    "submitResponse": {
+      "status": "inQueue",
+      "totalRecords": 2108546,
+      "queueSize": 1,
+      "statusUrl": "https://biocache-ws.ala.org.au/ws/occurrences/offline/status/22446b2d-b1bd-3ea1-ae3c-9d5da7ed55c8-1790998546177",
+      "cancelUrl": "https://biocache-ws.ala.org.au/ws/occurrences/offline/cancel/22446b2d-b1bd-3ea1-ae3c-9d5da7ed55c8-1790998546177",
+      "searchUrl": "https://biocache.ala.org.au/occurrences/search?&q=*%3A*&fq=countryConservation%3A%28%22Critically+Endangered%22+OR+%22Endangered%22+OR+%22Vulnerable%22%29&fq=eventDate%3A%5B2015-01-01T00%3A00%3A00Z+TO+2026-09-30T23%3A59%3A59Z%5D&disableAllQualityFilters=true"
+    },
+    "finalStatus": {
+      "status": "finished",
+      "totalRecords": 2108546,
+      "queueSize": 1,
+      "downloadUrl": "https://biocache.ala.org.au/biocache-download/22446b2d-b1bd-3ea1-ae3c-9d5da7ed55c8/1790998546177/data.zip",
+      "statusUrl": "https://biocache-ws.ala.org.au/ws/occurrences/offline/status/22446b2d-b1bd-3ea1-ae3c-9d5da7ed55c8-1790998546177",
+      "cancelUrl": "https://biocache-ws.ala.org.au/ws/occurrences/offline/cancel/22446b2d-b1bd-3ea1-ae3c-9d5da7ed55c8-1790998546177",
+      "searchUrl": "https://biocache.ala.org.au/occurrences/search?&q=*%3A*&fq=countryConservation%3A%28%22Critically+Endangered%22+OR+%22Endangered%22+OR+%22Vulnerable%22%29&fq=eventDate%3A%5B2015-01-01T00%3A00%3A00Z+TO+2026-09-30T23%3A59%3A59Z%5D&disableAllQualityFilters=true"
+    },
+    "doi": "10.26197/ala.40eee344-07ce-48d2-9ec2-be39574ff4c7",
+    "doiRecordedFrom": "ALA My downloads, 3 Oct 2026"
+  }
+}

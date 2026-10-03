@@ -153,7 +153,9 @@ export async function runAlaDownload(
   });
 
   const doi = typeof status.doi === "string" && status.doi ? status.doi : null;
-  if (harvest.mintDoi && !doi) warnings.push("a DOI was requested but the final status carries none — check My downloads on ALA");
+  // Verified 3 Oct 2026: ALA mints the DOI but does not return it on the status response; it is
+  // listed against the account at doi.ala.org.au/myDownloads, and is recorded from there.
+  if (harvest.mintDoi && !doi) warnings.push("DOI not on the status response — read it from doi.ala.org.au/myDownloads and record it in this manifest");
 
   const finishedAt = new Date();
   const manifest: SnapshotManifest = {
