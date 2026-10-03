@@ -9,7 +9,8 @@
     "start": "node dist/index.js",
     "typecheck": "tsc --noEmit",
     "ingest": "tsx src/ingestion/cli.ts",
-    "db:migrate": "tsx src/db/migrate.ts"
+    "db:migrate": "tsx src/db/migrate.ts",
+    "analyse": "tsx src/analysis/cli.ts"
   },
   "type": "module",
   "dependencies": {
