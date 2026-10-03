@@ -14,16 +14,30 @@ export function anthropicApiKey(): string | null {
 
 export const anthropicConfigured = (): boolean => anthropicApiKey() !== null;
 
+/**
+ * The model the AI arm runs on: Claude Opus 5.5. ANALYSIS_MODEL overrides it; whichever is in force
+ * is written into every run (analysis.runs.model), never assumed.
+ *
+ * Verified 3 Oct 2026 against the live Models API: `claude-opus-5-5`, "Claude Opus 5.5", 1M input
+ * tokens, 128K output. What that means for calls made here:
+ *  - `temperature` is rejected (400) — `createDeterministic` falls back without it;
+ *  - thinking is always adaptive and cannot be disabled; depth is set with `output_config.effort`,
+ *    whose default on this model is `medium`, so callers set it explicitly;
+ *  - forced `tool_choice` (`any` / `tool`) is rejected — use `auto` and say which tool in the prompt.
+ */
+export const AI_MODEL = process.env.ANALYSIS_MODEL?.trim() || "claude-opus-5-5";
+
 /** Models that have refused the temperature parameter this process; learned, not listed. */
 const rejectsTemperature = new Set<string>();
 
 /**
  * One message call with the deterministic settings this project commits to, as far as the
- * model allows them. Temperature 0 is sent where the model accepts it; the Claude 5 tier
- * rejects the parameter outright (verified 11 Sep 2026: "`temperature` is deprecated for this
- * model"), in which case the call is retried without it and the result says so. Determinism
- * then rests on the fixed prompt and the forced tool schema, and the run records which case
- * applied rather than claiming a setting that was never in force.
+ * model allows them. Temperature 0 is sent where the model accepts it; the Claude 5 tier,
+ * Opus 5.5 included, rejects the parameter outright (verified 11 Sep 2026 on Opus 5: "`temperature`
+ * is deprecated for this model"), in which case the call is retried without it and the result says
+ * so. Determinism then rests on the fixed prompt and tool definitions — which is why the AI arm's
+ * run-to-run consistency is measured rather than assumed — and the run records which case applied
+ * rather than claiming a setting that was never in force.
  */
 export async function createDeterministic(
   client: Anthropic,

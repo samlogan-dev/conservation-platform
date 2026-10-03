@@ -127,7 +127,10 @@ default. `npm run db:migrate` creates the role from `AI_READER_PASSWORD`.
 ### Model calls
 
 `config/anthropic.ts` is the one place the key is read (`CLAUDE_API_KEY` or `ANTHROPIC_API_KEY`
-in `backend/.env`, never committed). `createDeterministic` sends temperature 0 where the model
+in `backend/.env`, never committed) and the one place the model is chosen: `AI_MODEL`, Claude
+Opus 5.5 (`claude-opus-5-5`, verified against the Models API 3 Oct 2026), overridable with
+`ANALYSIS_MODEL`. On Opus 5.5 thinking is always adaptive (effort defaults to `medium`, so set it)
+and forced `tool_choice` is rejected. `createDeterministic` sends temperature 0 where the model
 accepts it and falls back without it where it does not — the Claude 5 tier rejects the
 parameter — and reports which applied, so a run never claims a setting that was not in force.
 
