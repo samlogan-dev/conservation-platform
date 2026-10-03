@@ -5,6 +5,7 @@ import { adaptRun } from "./adapt.ts";
 import { latestRunId, listRuns, readManifest } from "./snapshot/store.ts";
 import { recordStore } from "./store/recordStore.ts";
 import { closeDb } from "../db/pool.ts";
+import { harvestEffort, loadEffort } from "./effort.ts";
 
 /**
  * Ingestion CLI.
@@ -16,6 +17,8 @@ import { closeDb } from "../db/pool.ts";
  *   npm run ingest -- adapt    [harvestKey] [runId]
  *   npm run ingest -- report   [harvestKey] [runId]
  *   npm run ingest -- runs     [harvestKey]
+ *   npm run ingest -- effort   [fromYYYY-MM] [toYYYY-MM]   (all-taxa counts per 0.1° cell per month)
+ *   npm run ingest -- effort-load [runId]                  (re-load a frozen effort run, no network)
  */
 
 const log = (m: string) => console.log(m);
@@ -118,6 +121,14 @@ async function main(): Promise<void> {
       await report(key, runId);
       break;
     }
+    case "effort": {
+      await harvestEffort(arg1 ?? "2015-01", arg2 ?? "2026-09", { onProgress: log });
+      break;
+    }
+    case "effort-load": {
+      await loadEffort(arg1, { onProgress: log });
+      break;
+    }
     case "adapt": {
       const key = arg1 ?? DEFAULT_HARVEST;
       const runId = await resolveRun(key, arg2);
@@ -140,7 +151,7 @@ async function main(): Promise<void> {
       break;
     }
     default:
-      throw new Error(`unknown command "${command}" — use harvest | adapt | report | runs`);
+      throw new Error(`unknown command "${command}" — use harvest | adapt | report | runs | effort | effort-load`);
   }
 }
 

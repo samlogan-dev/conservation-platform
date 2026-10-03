@@ -1,0 +1,3557 @@
+{
+  "runId": "2026-10-03T03-38-21-997Z",
+  "harvestKey": "effort-point01-monthly",
+  "description": "All-taxa records per 0.1° cell per month, telemetry excluded, 2015-01 to 2026-09, via ALA facets",
+  "source": "ala-facets",
+  "baseUrl": "https://biocache-ws.ala.org.au/ws",
+  "query": {
+    "q": "*:*",
+    "fq": [
+      "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+    ]
+  },
+  "requestedFields": [
+    "point-0.1"
+  ],
+  "politeness": {
+    "userAgent": "ConservationReportingPlatform/0.1 (UTS Honours research; +mailto:sam@samlogan.com.au)",
+    "minRequestIntervalMs": 1100
+  },
+  "startedAt": "2026-10-03T03:38:21.998Z",
+  "finishedAt": "2026-10-03T03:41:00.276Z",
+  "durationMs": 158278,
+  "expectedRecords": 96726570,
+  "retrievedRecords": 96660438,
+  "complete": true,
+  "slices": [
+    {
+      "sliceKey": "2015-01",
+      "filters": [
+        "eventDate:[2015-01-01T00:00:00Z TO 2015-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-02",
+      "filters": [
+        "eventDate:[2015-02-01T00:00:00Z TO 2015-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-03",
+      "filters": [
+        "eventDate:[2015-03-01T00:00:00Z TO 2015-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-04",
+      "filters": [
+        "eventDate:[2015-04-01T00:00:00Z TO 2015-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-05",
+      "filters": [
+        "eventDate:[2015-05-01T00:00:00Z TO 2015-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-06",
+      "filters": [
+        "eventDate:[2015-06-01T00:00:00Z TO 2015-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-07",
+      "filters": [
+        "eventDate:[2015-07-01T00:00:00Z TO 2015-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-08",
+      "filters": [
+        "eventDate:[2015-08-01T00:00:00Z TO 2015-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-09",
+      "filters": [
+        "eventDate:[2015-09-01T00:00:00Z TO 2015-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-10",
+      "filters": [
+        "eventDate:[2015-10-01T00:00:00Z TO 2015-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-11",
+      "filters": [
+        "eventDate:[2015-11-01T00:00:00Z TO 2015-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-12",
+      "filters": [
+        "eventDate:[2015-12-01T00:00:00Z TO 2015-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-01",
+      "filters": [
+        "eventDate:[2016-01-01T00:00:00Z TO 2016-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-02",
+      "filters": [
+        "eventDate:[2016-02-01T00:00:00Z TO 2016-02-29T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-03",
+      "filters": [
+        "eventDate:[2016-03-01T00:00:00Z TO 2016-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-04",
+      "filters": [
+        "eventDate:[2016-04-01T00:00:00Z TO 2016-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-05",
+      "filters": [
+        "eventDate:[2016-05-01T00:00:00Z TO 2016-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-06",
+      "filters": [
+        "eventDate:[2016-06-01T00:00:00Z TO 2016-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-07",
+      "filters": [
+        "eventDate:[2016-07-01T00:00:00Z TO 2016-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-08",
+      "filters": [
+        "eventDate:[2016-08-01T00:00:00Z TO 2016-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-09",
+      "filters": [
+        "eventDate:[2016-09-01T00:00:00Z TO 2016-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-10",
+      "filters": [
+        "eventDate:[2016-10-01T00:00:00Z TO 2016-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-11",
+      "filters": [
+        "eventDate:[2016-11-01T00:00:00Z TO 2016-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-12",
+      "filters": [
+        "eventDate:[2016-12-01T00:00:00Z TO 2016-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-01",
+      "filters": [
+        "eventDate:[2017-01-01T00:00:00Z TO 2017-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-02",
+      "filters": [
+        "eventDate:[2017-02-01T00:00:00Z TO 2017-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-03",
+      "filters": [
+        "eventDate:[2017-03-01T00:00:00Z TO 2017-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-04",
+      "filters": [
+        "eventDate:[2017-04-01T00:00:00Z TO 2017-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-05",
+      "filters": [
+        "eventDate:[2017-05-01T00:00:00Z TO 2017-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-06",
+      "filters": [
+        "eventDate:[2017-06-01T00:00:00Z TO 2017-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-07",
+      "filters": [
+        "eventDate:[2017-07-01T00:00:00Z TO 2017-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-08",
+      "filters": [
+        "eventDate:[2017-08-01T00:00:00Z TO 2017-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-09",
+      "filters": [
+        "eventDate:[2017-09-01T00:00:00Z TO 2017-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-10",
+      "filters": [
+        "eventDate:[2017-10-01T00:00:00Z TO 2017-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-11",
+      "filters": [
+        "eventDate:[2017-11-01T00:00:00Z TO 2017-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-12",
+      "filters": [
+        "eventDate:[2017-12-01T00:00:00Z TO 2017-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-01",
+      "filters": [
+        "eventDate:[2018-01-01T00:00:00Z TO 2018-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-02",
+      "filters": [
+        "eventDate:[2018-02-01T00:00:00Z TO 2018-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-03",
+      "filters": [
+        "eventDate:[2018-03-01T00:00:00Z TO 2018-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-04",
+      "filters": [
+        "eventDate:[2018-04-01T00:00:00Z TO 2018-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-05",
+      "filters": [
+        "eventDate:[2018-05-01T00:00:00Z TO 2018-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-06",
+      "filters": [
+        "eventDate:[2018-06-01T00:00:00Z TO 2018-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-07",
+      "filters": [
+        "eventDate:[2018-07-01T00:00:00Z TO 2018-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-08",
+      "filters": [
+        "eventDate:[2018-08-01T00:00:00Z TO 2018-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-09",
+      "filters": [
+        "eventDate:[2018-09-01T00:00:00Z TO 2018-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-10",
+      "filters": [
+        "eventDate:[2018-10-01T00:00:00Z TO 2018-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-11",
+      "filters": [
+        "eventDate:[2018-11-01T00:00:00Z TO 2018-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-12",
+      "filters": [
+        "eventDate:[2018-12-01T00:00:00Z TO 2018-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-01",
+      "filters": [
+        "eventDate:[2019-01-01T00:00:00Z TO 2019-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-02",
+      "filters": [
+        "eventDate:[2019-02-01T00:00:00Z TO 2019-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-03",
+      "filters": [
+        "eventDate:[2019-03-01T00:00:00Z TO 2019-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-04",
+      "filters": [
+        "eventDate:[2019-04-01T00:00:00Z TO 2019-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-05",
+      "filters": [
+        "eventDate:[2019-05-01T00:00:00Z TO 2019-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-06",
+      "filters": [
+        "eventDate:[2019-06-01T00:00:00Z TO 2019-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-07",
+      "filters": [
+        "eventDate:[2019-07-01T00:00:00Z TO 2019-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-08",
+      "filters": [
+        "eventDate:[2019-08-01T00:00:00Z TO 2019-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-09",
+      "filters": [
+        "eventDate:[2019-09-01T00:00:00Z TO 2019-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-10",
+      "filters": [
+        "eventDate:[2019-10-01T00:00:00Z TO 2019-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-11",
+      "filters": [
+        "eventDate:[2019-11-01T00:00:00Z TO 2019-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-12",
+      "filters": [
+        "eventDate:[2019-12-01T00:00:00Z TO 2019-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-01",
+      "filters": [
+        "eventDate:[2020-01-01T00:00:00Z TO 2020-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-02",
+      "filters": [
+        "eventDate:[2020-02-01T00:00:00Z TO 2020-02-29T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-03",
+      "filters": [
+        "eventDate:[2020-03-01T00:00:00Z TO 2020-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-04",
+      "filters": [
+        "eventDate:[2020-04-01T00:00:00Z TO 2020-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-05",
+      "filters": [
+        "eventDate:[2020-05-01T00:00:00Z TO 2020-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-06",
+      "filters": [
+        "eventDate:[2020-06-01T00:00:00Z TO 2020-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-07",
+      "filters": [
+        "eventDate:[2020-07-01T00:00:00Z TO 2020-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-08",
+      "filters": [
+        "eventDate:[2020-08-01T00:00:00Z TO 2020-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-09",
+      "filters": [
+        "eventDate:[2020-09-01T00:00:00Z TO 2020-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-10",
+      "filters": [
+        "eventDate:[2020-10-01T00:00:00Z TO 2020-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-11",
+      "filters": [
+        "eventDate:[2020-11-01T00:00:00Z TO 2020-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-12",
+      "filters": [
+        "eventDate:[2020-12-01T00:00:00Z TO 2020-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-01",
+      "filters": [
+        "eventDate:[2021-01-01T00:00:00Z TO 2021-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-02",
+      "filters": [
+        "eventDate:[2021-02-01T00:00:00Z TO 2021-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-03",
+      "filters": [
+        "eventDate:[2021-03-01T00:00:00Z TO 2021-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-04",
+      "filters": [
+        "eventDate:[2021-04-01T00:00:00Z TO 2021-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-05",
+      "filters": [
+        "eventDate:[2021-05-01T00:00:00Z TO 2021-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-06",
+      "filters": [
+        "eventDate:[2021-06-01T00:00:00Z TO 2021-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-07",
+      "filters": [
+        "eventDate:[2021-07-01T00:00:00Z TO 2021-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-08",
+      "filters": [
+        "eventDate:[2021-08-01T00:00:00Z TO 2021-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-09",
+      "filters": [
+        "eventDate:[2021-09-01T00:00:00Z TO 2021-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-10",
+      "filters": [
+        "eventDate:[2021-10-01T00:00:00Z TO 2021-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-11",
+      "filters": [
+        "eventDate:[2021-11-01T00:00:00Z TO 2021-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-12",
+      "filters": [
+        "eventDate:[2021-12-01T00:00:00Z TO 2021-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-01",
+      "filters": [
+        "eventDate:[2022-01-01T00:00:00Z TO 2022-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-02",
+      "filters": [
+        "eventDate:[2022-02-01T00:00:00Z TO 2022-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-03",
+      "filters": [
+        "eventDate:[2022-03-01T00:00:00Z TO 2022-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-04",
+      "filters": [
+        "eventDate:[2022-04-01T00:00:00Z TO 2022-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-05",
+      "filters": [
+        "eventDate:[2022-05-01T00:00:00Z TO 2022-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-06",
+      "filters": [
+        "eventDate:[2022-06-01T00:00:00Z TO 2022-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-07",
+      "filters": [
+        "eventDate:[2022-07-01T00:00:00Z TO 2022-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-08",
+      "filters": [
+        "eventDate:[2022-08-01T00:00:00Z TO 2022-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-09",
+      "filters": [
+        "eventDate:[2022-09-01T00:00:00Z TO 2022-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-10",
+      "filters": [
+        "eventDate:[2022-10-01T00:00:00Z TO 2022-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-11",
+      "filters": [
+        "eventDate:[2022-11-01T00:00:00Z TO 2022-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-12",
+      "filters": [
+        "eventDate:[2022-12-01T00:00:00Z TO 2022-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-01",
+      "filters": [
+        "eventDate:[2023-01-01T00:00:00Z TO 2023-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-02",
+      "filters": [
+        "eventDate:[2023-02-01T00:00:00Z TO 2023-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-03",
+      "filters": [
+        "eventDate:[2023-03-01T00:00:00Z TO 2023-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-04",
+      "filters": [
+        "eventDate:[2023-04-01T00:00:00Z TO 2023-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-05",
+      "filters": [
+        "eventDate:[2023-05-01T00:00:00Z TO 2023-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-06",
+      "filters": [
+        "eventDate:[2023-06-01T00:00:00Z TO 2023-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-07",
+      "filters": [
+        "eventDate:[2023-07-01T00:00:00Z TO 2023-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-08",
+      "filters": [
+        "eventDate:[2023-08-01T00:00:00Z TO 2023-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-09",
+      "filters": [
+        "eventDate:[2023-09-01T00:00:00Z TO 2023-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-10",
+      "filters": [
+        "eventDate:[2023-10-01T00:00:00Z TO 2023-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-11",
+      "filters": [
+        "eventDate:[2023-11-01T00:00:00Z TO 2023-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-12",
+      "filters": [
+        "eventDate:[2023-12-01T00:00:00Z TO 2023-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-01",
+      "filters": [
+        "eventDate:[2024-01-01T00:00:00Z TO 2024-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-02",
+      "filters": [
+        "eventDate:[2024-02-01T00:00:00Z TO 2024-02-29T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-03",
+      "filters": [
+        "eventDate:[2024-03-01T00:00:00Z TO 2024-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-04",
+      "filters": [
+        "eventDate:[2024-04-01T00:00:00Z TO 2024-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-05",
+      "filters": [
+        "eventDate:[2024-05-01T00:00:00Z TO 2024-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-06",
+      "filters": [
+        "eventDate:[2024-06-01T00:00:00Z TO 2024-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-07",
+      "filters": [
+        "eventDate:[2024-07-01T00:00:00Z TO 2024-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-08",
+      "filters": [
+        "eventDate:[2024-08-01T00:00:00Z TO 2024-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-09",
+      "filters": [
+        "eventDate:[2024-09-01T00:00:00Z TO 2024-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-10",
+      "filters": [
+        "eventDate:[2024-10-01T00:00:00Z TO 2024-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-11",
+      "filters": [
+        "eventDate:[2024-11-01T00:00:00Z TO 2024-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-12",
+      "filters": [
+        "eventDate:[2024-12-01T00:00:00Z TO 2024-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-01",
+      "filters": [
+        "eventDate:[2025-01-01T00:00:00Z TO 2025-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-02",
+      "filters": [
+        "eventDate:[2025-02-01T00:00:00Z TO 2025-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-03",
+      "filters": [
+        "eventDate:[2025-03-01T00:00:00Z TO 2025-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-04",
+      "filters": [
+        "eventDate:[2025-04-01T00:00:00Z TO 2025-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-05",
+      "filters": [
+        "eventDate:[2025-05-01T00:00:00Z TO 2025-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-06",
+      "filters": [
+        "eventDate:[2025-06-01T00:00:00Z TO 2025-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-07",
+      "filters": [
+        "eventDate:[2025-07-01T00:00:00Z TO 2025-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-08",
+      "filters": [
+        "eventDate:[2025-08-01T00:00:00Z TO 2025-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-09",
+      "filters": [
+        "eventDate:[2025-09-01T00:00:00Z TO 2025-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-10",
+      "filters": [
+        "eventDate:[2025-10-01T00:00:00Z TO 2025-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-11",
+      "filters": [
+        "eventDate:[2025-11-01T00:00:00Z TO 2025-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-12",
+      "filters": [
+        "eventDate:[2025-12-01T00:00:00Z TO 2025-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-01",
+      "filters": [
+        "eventDate:[2026-01-01T00:00:00Z TO 2026-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-02",
+      "filters": [
+        "eventDate:[2026-02-01T00:00:00Z TO 2026-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-03",
+      "filters": [
+        "eventDate:[2026-03-01T00:00:00Z TO 2026-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-04",
+      "filters": [
+        "eventDate:[2026-04-01T00:00:00Z TO 2026-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-05",
+      "filters": [
+        "eventDate:[2026-05-01T00:00:00Z TO 2026-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-06",
+      "filters": [
+        "eventDate:[2026-06-01T00:00:00Z TO 2026-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-07",
+      "filters": [
+        "eventDate:[2026-07-01T00:00:00Z TO 2026-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-08",
+      "filters": [
+        "eventDate:[2026-08-01T00:00:00Z TO 2026-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-09",
+      "filters": [
+        "eventDate:[2026-09-01T00:00:00Z TO 2026-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23141 OR dr23201 OR dr31514 OR dr34307 OR dr34309 OR dr9942)"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    }
+  ],
+  "pages": [
+    {
+      "sliceKey": "2015-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 4808,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-01-01T00%3A00%3A00Z+TO+2015-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:22.166Z",
+      "durationMs": 167,
+      "attempts": 1,
+      "file": "2015-01--000000.json",
+      "contentHash": "d933ffd6e223e7e7486bd520596a5375639cda9f8cd449bc0b2a3b63e43a5581",
+      "bytes": 488359
+    },
+    {
+      "sliceKey": "2015-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 4990,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-02-01T00%3A00%3A00Z+TO+2015-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:23.182Z",
+      "durationMs": 82,
+      "attempts": 1,
+      "file": "2015-02--000000.json",
+      "contentHash": "88d2e960db08064657be2fb674ba7b70715123cb6fe2e38d7e73e2c27c7c4752",
+      "bytes": 507255
+    },
+    {
+      "sliceKey": "2015-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 4860,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-03-01T00%3A00%3A00Z+TO+2015-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:24.328Z",
+      "durationMs": 126,
+      "attempts": 1,
+      "file": "2015-03--000000.json",
+      "contentHash": "be8c775fb3b15f49f97b629bc18a125a0f235e2c20d5fcecd82e4ae1da749422",
+      "bytes": 493813
+    },
+    {
+      "sliceKey": "2015-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5003,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-04-01T00%3A00%3A00Z+TO+2015-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:25.372Z",
+      "durationMs": 69,
+      "attempts": 1,
+      "file": "2015-04--000000.json",
+      "contentHash": "6798675362177c0af5e16b88686df5b7917c3839a330a78c938201f3e450735a",
+      "bytes": 508632
+    },
+    {
+      "sliceKey": "2015-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5440,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-05-01T00%3A00%3A00Z+TO+2015-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:26.480Z",
+      "durationMs": 75,
+      "attempts": 1,
+      "file": "2015-05--000000.json",
+      "contentHash": "bb458dff813b35a31927ccc824186b3fa09af8ebf63c949d36fbd42038bc3a36",
+      "bytes": 552522
+    },
+    {
+      "sliceKey": "2015-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 4891,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-06-01T00%3A00%3A00Z+TO+2015-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:27.563Z",
+      "durationMs": 57,
+      "attempts": 1,
+      "file": "2015-06--000000.json",
+      "contentHash": "da9286e2552c9781f7cbadc8b5cab384e6d87d461c504bef7e5bd7165912fbe3",
+      "bytes": 496987
+    },
+    {
+      "sliceKey": "2015-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5732,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-07-01T00%3A00%3A00Z+TO+2015-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:28.675Z",
+      "durationMs": 67,
+      "attempts": 1,
+      "file": "2015-07--000000.json",
+      "contentHash": "2b3266abb7218daf756115642b28b0875b83f4c206fa6f619b8e7df6ef8936bf",
+      "bytes": 582277
+    },
+    {
+      "sliceKey": "2015-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5566,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-08-01T00%3A00%3A00Z+TO+2015-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:29.766Z",
+      "durationMs": 57,
+      "attempts": 1,
+      "file": "2015-08--000000.json",
+      "contentHash": "241e02c670eb0f472393ffb9f0ff66b97f21f191486b256013c400ac77c119eb",
+      "bytes": 565369
+    },
+    {
+      "sliceKey": "2015-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6367,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-09-01T00%3A00%3A00Z+TO+2015-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:30.892Z",
+      "durationMs": 81,
+      "attempts": 1,
+      "file": "2015-09--000000.json",
+      "contentHash": "1461aa2b7fbb27feba07adb1f7686c78754e0f02a2dfc395f089abdd5257719e",
+      "bytes": 646932
+    },
+    {
+      "sliceKey": "2015-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6945,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-10-01T00%3A00%3A00Z+TO+2015-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:31.988Z",
+      "durationMs": 75,
+      "attempts": 1,
+      "file": "2015-10--000000.json",
+      "contentHash": "b3c6e59b00de54fb83ca9480ba34ca1318c254649c1a6429932e7ffb7a0b89d7",
+      "bytes": 705306
+    },
+    {
+      "sliceKey": "2015-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5985,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-11-01T00%3A00%3A00Z+TO+2015-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:33.094Z",
+      "durationMs": 78,
+      "attempts": 1,
+      "file": "2015-11--000000.json",
+      "contentHash": "931b8115fbdf978ef6f2227ca91de04a68f60ff723f1176c54aceb10b64325f8",
+      "bytes": 608631
+    },
+    {
+      "sliceKey": "2015-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 4930,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-12-01T00%3A00%3A00Z+TO+2015-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:34.178Z",
+      "durationMs": 61,
+      "attempts": 1,
+      "file": "2015-12--000000.json",
+      "contentHash": "577cc5f662287ad1983ad49be40bb417d5893be47db467466077d028495905d3",
+      "bytes": 500464
+    },
+    {
+      "sliceKey": "2016-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5882,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-01-01T00%3A00%3A00Z+TO+2016-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:35.289Z",
+      "durationMs": 70,
+      "attempts": 1,
+      "file": "2016-01--000000.json",
+      "contentHash": "0fd13ececa3fb2aadedcc36212aead2cb599099d04a96bcef1f1d014cb78abae",
+      "bytes": 596516
+    },
+    {
+      "sliceKey": "2016-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5501,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-02-01T00%3A00%3A00Z+TO+2016-02-29T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:36.392Z",
+      "durationMs": 71,
+      "attempts": 1,
+      "file": "2016-02--000000.json",
+      "contentHash": "ace1efee6bbfc0e58fa33129306673d93f37919666707eb3914f327921d90288",
+      "bytes": 558163
+    },
+    {
+      "sliceKey": "2016-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5364,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-03-01T00%3A00%3A00Z+TO+2016-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:37.487Z",
+      "durationMs": 64,
+      "attempts": 1,
+      "file": "2016-03--000000.json",
+      "contentHash": "be01d75f475fa7cf4fb6717d10facb2303448fcd8cb4aa1dd870d838517d438f",
+      "bytes": 544442
+    },
+    {
+      "sliceKey": "2016-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5533,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-04-01T00%3A00%3A00Z+TO+2016-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:38.662Z",
+      "durationMs": 138,
+      "attempts": 1,
+      "file": "2016-04--000000.json",
+      "contentHash": "49e1c31164cc6c9ed3f3e90f06290ebae16f6bf567a39d147529849b409cb8a2",
+      "bytes": 561577
+    },
+    {
+      "sliceKey": "2016-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5914,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-05-01T00%3A00%3A00Z+TO+2016-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:39.758Z",
+      "durationMs": 131,
+      "attempts": 1,
+      "file": "2016-05--000000.json",
+      "contentHash": "e9973b5c717b3e73152306820366c900d9648e6242642b24108fef88259caf6e",
+      "bytes": 599029
+    },
+    {
+      "sliceKey": "2016-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5459,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-06-01T00%3A00%3A00Z+TO+2016-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:40.804Z",
+      "durationMs": 77,
+      "attempts": 1,
+      "file": "2016-06--000000.json",
+      "contentHash": "2e585d74ea3a4a3f1f888a232399c7e9c64bd999aacd1bc9e1086b50298f2752",
+      "bytes": 553222
+    },
+    {
+      "sliceKey": "2016-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5745,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-07-01T00%3A00%3A00Z+TO+2016-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:41.894Z",
+      "durationMs": 65,
+      "attempts": 1,
+      "file": "2016-07--000000.json",
+      "contentHash": "1a7fec056e5167b0195c27200258835b9c00b3d1a0f176140b433c7ebaa6d7d2",
+      "bytes": 582944
+    },
+    {
+      "sliceKey": "2016-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5935,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-08-01T00%3A00%3A00Z+TO+2016-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:43.029Z",
+      "durationMs": 98,
+      "attempts": 1,
+      "file": "2016-08--000000.json",
+      "contentHash": "d999b59c4cebfd00c3a757d38d01182964861763266d8e40c377050f42a1d200",
+      "bytes": 602178
+    },
+    {
+      "sliceKey": "2016-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6650,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-09-01T00%3A00%3A00Z+TO+2016-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:44.105Z",
+      "durationMs": 71,
+      "attempts": 1,
+      "file": "2016-09--000000.json",
+      "contentHash": "f5b2b1e8e45378992bf096d5e5b150d5263b615c89e51da6401cdd5f2f928902",
+      "bytes": 674980
+    },
+    {
+      "sliceKey": "2016-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7143,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-10-01T00%3A00%3A00Z+TO+2016-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:45.213Z",
+      "durationMs": 77,
+      "attempts": 1,
+      "file": "2016-10--000000.json",
+      "contentHash": "be929f40d6d2cbe3ee42ba4a0b86a0ac6720b046f929cdfdd17e82a057ad6384",
+      "bytes": 725806
+    },
+    {
+      "sliceKey": "2016-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6186,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-11-01T00%3A00%3A00Z+TO+2016-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:46.312Z",
+      "durationMs": 73,
+      "attempts": 1,
+      "file": "2016-11--000000.json",
+      "contentHash": "0ab733741631b6a1da22e518188ea521c97c8668fef0936b6e0f6925be4a0bf5",
+      "bytes": 628783
+    },
+    {
+      "sliceKey": "2016-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5495,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-12-01T00%3A00%3A00Z+TO+2016-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:47.418Z",
+      "durationMs": 77,
+      "attempts": 1,
+      "file": "2016-12--000000.json",
+      "contentHash": "8e1a86b076bfd687d5eb8db1cb7d3a1356d6126f387d8718bb3205c640267366",
+      "bytes": 557794
+    },
+    {
+      "sliceKey": "2017-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6392,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-01-01T00%3A00%3A00Z+TO+2017-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:48.576Z",
+      "durationMs": 133,
+      "attempts": 1,
+      "file": "2017-01--000000.json",
+      "contentHash": "fa09928d7bd17243c780f2f1a0953e71047dd1d42d1c7cda2a0004daa2ad9535",
+      "bytes": 649127
+    },
+    {
+      "sliceKey": "2017-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5102,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-02-01T00%3A00%3A00Z+TO+2017-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:49.669Z",
+      "durationMs": 124,
+      "attempts": 1,
+      "file": "2017-02--000000.json",
+      "contentHash": "cc04b765c68bdd30ca6fe1359ce5cbe58505e63b535da6802deab45b60d244fe",
+      "bytes": 518405
+    },
+    {
+      "sliceKey": "2017-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5972,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-03-01T00%3A00%3A00Z+TO+2017-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:50.733Z",
+      "durationMs": 85,
+      "attempts": 1,
+      "file": "2017-03--000000.json",
+      "contentHash": "5b3e2b6c9097095c02e30d84dbcc99784356d5513f481077e2ebd3783f637d03",
+      "bytes": 606608
+    },
+    {
+      "sliceKey": "2017-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6151,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-04-01T00%3A00%3A00Z+TO+2017-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:51.835Z",
+      "durationMs": 85,
+      "attempts": 1,
+      "file": "2017-04--000000.json",
+      "contentHash": "d93651233f0ca9468d52c1bdf0334e9794ae99b5e69a4a92fa1bc8599729fa08",
+      "bytes": 624739
+    },
+    {
+      "sliceKey": "2017-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6476,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-05-01T00%3A00%3A00Z+TO+2017-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:52.960Z",
+      "durationMs": 108,
+      "attempts": 1,
+      "file": "2017-05--000000.json",
+      "contentHash": "3f31051ac91a8adda527a144839514bc13452e233a1fe8fff7a717bbd82b1444",
+      "bytes": 657444
+    },
+    {
+      "sliceKey": "2017-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6470,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-06-01T00%3A00%3A00Z+TO+2017-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:54.027Z",
+      "durationMs": 73,
+      "attempts": 1,
+      "file": "2017-06--000000.json",
+      "contentHash": "f3659ec223823706d51ab1621b1cf3dcdfbc83f02ff6c4d69c18a06f1c5b39a1",
+      "bytes": 656602
+    },
+    {
+      "sliceKey": "2017-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6818,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-07-01T00%3A00%3A00Z+TO+2017-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:55.124Z",
+      "durationMs": 69,
+      "attempts": 1,
+      "file": "2017-07--000000.json",
+      "contentHash": "921d3ad89afc60d8ee031d3f494cca6a174d620d5779c1778c23a565c5eec751",
+      "bytes": 692214
+    },
+    {
+      "sliceKey": "2017-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5971,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-08-01T00%3A00%3A00Z+TO+2017-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:56.225Z",
+      "durationMs": 68,
+      "attempts": 1,
+      "file": "2017-08--000000.json",
+      "contentHash": "46dcaccb8c0d1dd9c9a51a85b2173725c2eb2eac24aba8dd92b88a57563fcfe9",
+      "bytes": 606115
+    },
+    {
+      "sliceKey": "2017-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7198,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-09-01T00%3A00%3A00Z+TO+2017-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:57.364Z",
+      "durationMs": 106,
+      "attempts": 1,
+      "file": "2017-09--000000.json",
+      "contentHash": "24069c3715ee46af4c24462def9f6e5439b07456bc936d4e4c2a788ab3802001",
+      "bytes": 731198
+    },
+    {
+      "sliceKey": "2017-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7482,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-10-01T00%3A00%3A00Z+TO+2017-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:58.616Z",
+      "durationMs": 255,
+      "attempts": 1,
+      "file": "2017-10--000000.json",
+      "contentHash": "cce12346981de88b9757f4ba4e402f3d307fc14fba4262aa0764a0b16071f9a0",
+      "bytes": 760528
+    },
+    {
+      "sliceKey": "2017-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7415,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-11-01T00%3A00%3A00Z+TO+2017-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:38:59.633Z",
+      "durationMs": 169,
+      "attempts": 1,
+      "file": "2017-11--000000.json",
+      "contentHash": "e16f6d95ab2b92c12296a172f8dfbf73d597958ee303b7e3282ebe934626e9fb",
+      "bytes": 753913
+    },
+    {
+      "sliceKey": "2017-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6838,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-12-01T00%3A00%3A00Z+TO+2017-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:00.870Z",
+      "durationMs": 304,
+      "attempts": 1,
+      "file": "2017-12--000000.json",
+      "contentHash": "ec839c16c2911d3845511f84c1657ee506f52b3bbc6bf5ba445ef2752e1f61ec",
+      "bytes": 694256
+    },
+    {
+      "sliceKey": "2018-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7252,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-01-01T00%3A00%3A00Z+TO+2018-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:01.751Z",
+      "durationMs": 84,
+      "attempts": 1,
+      "file": "2018-01--000000.json",
+      "contentHash": "7928c368cd210d7861ac37999381c2e80b99f1c841145e801f312fba1ca36eb2",
+      "bytes": 736230
+    },
+    {
+      "sliceKey": "2018-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5709,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-02-01T00%3A00%3A00Z+TO+2018-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:02.851Z",
+      "durationMs": 83,
+      "attempts": 1,
+      "file": "2018-02--000000.json",
+      "contentHash": "3082d7fa1d6b9f3ead860d15fbb8019f0a8efe9fb16faaaf6c62e64a42c89dc6",
+      "bytes": 580307
+    },
+    {
+      "sliceKey": "2018-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6770,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-03-01T00%3A00%3A00Z+TO+2018-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:03.945Z",
+      "durationMs": 75,
+      "attempts": 1,
+      "file": "2018-03--000000.json",
+      "contentHash": "764ddfa6799fe553eb50e4df63689aa79a4bb73dba4be424faad5587f42dfa33",
+      "bytes": 686988
+    },
+    {
+      "sliceKey": "2018-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7284,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-04-01T00%3A00%3A00Z+TO+2018-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:05.049Z",
+      "durationMs": 77,
+      "attempts": 1,
+      "file": "2018-04--000000.json",
+      "contentHash": "428a4a4f7be21edfcccff0294d6e376b5d23d6812553d8ff90bb4c00d039e108",
+      "bytes": 737550
+    },
+    {
+      "sliceKey": "2018-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7029,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-05-01T00%3A00%3A00Z+TO+2018-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:06.161Z",
+      "durationMs": 87,
+      "attempts": 1,
+      "file": "2018-05--000000.json",
+      "contentHash": "a03ed033decea95f9efd242f87d7cd4346a58e195b79444be86338d340c9be17",
+      "bytes": 711574
+    },
+    {
+      "sliceKey": "2018-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7181,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-06-01T00%3A00%3A00Z+TO+2018-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:07.247Z",
+      "durationMs": 71,
+      "attempts": 1,
+      "file": "2018-06--000000.json",
+      "contentHash": "be66fc289a027a44a170524078328b9999a3034cf17dd7be03d88186f42bae79",
+      "bytes": 727780
+    },
+    {
+      "sliceKey": "2018-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7438,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-07-01T00%3A00%3A00Z+TO+2018-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:08.371Z",
+      "durationMs": 93,
+      "attempts": 1,
+      "file": "2018-07--000000.json",
+      "contentHash": "919b591b6f9761e70482ff99d95bc18c4faa9c3891d094df818f666dd6faffd5",
+      "bytes": 752957
+    },
+    {
+      "sliceKey": "2018-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7715,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-08-01T00%3A00%3A00Z+TO+2018-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:09.573Z",
+      "durationMs": 193,
+      "attempts": 1,
+      "file": "2018-08--000000.json",
+      "contentHash": "1fa30e345ef3d926bc286da8468db23692e20d4cbb8845d9448737bb7c24e1c8",
+      "bytes": 781376
+    },
+    {
+      "sliceKey": "2018-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8052,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-09-01T00%3A00%3A00Z+TO+2018-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:10.717Z",
+      "durationMs": 236,
+      "attempts": 1,
+      "file": "2018-09--000000.json",
+      "contentHash": "6716c71f084a8441a5fc86eea9eeea24fd5286d5c069ecad7f990feb10bc97ab",
+      "bytes": 817358
+    },
+    {
+      "sliceKey": "2018-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8762,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-10-01T00%3A00%3A00Z+TO+2018-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:11.682Z",
+      "durationMs": 100,
+      "attempts": 1,
+      "file": "2018-10--000000.json",
+      "contentHash": "db470ed1e9970d5e808249d40094e5b6ca67dd6ec6b8040738280b71be9a06f1",
+      "bytes": 888951
+    },
+    {
+      "sliceKey": "2018-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8687,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-11-01T00%3A00%3A00Z+TO+2018-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:12.785Z",
+      "durationMs": 100,
+      "attempts": 1,
+      "file": "2018-11--000000.json",
+      "contentHash": "a4dd914527b9145220d07c390328b347b7bb042e644939b5cd687f8a63143242",
+      "bytes": 881922
+    },
+    {
+      "sliceKey": "2018-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7635,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-12-01T00%3A00%3A00Z+TO+2018-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:13.867Z",
+      "durationMs": 80,
+      "attempts": 1,
+      "file": "2018-12--000000.json",
+      "contentHash": "ae89d4514ba4d6c22e88843cef87a7eeb28dea9ad6a245907ec78c89288bb2fc",
+      "bytes": 774826
+    },
+    {
+      "sliceKey": "2019-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8426,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-01-01T00%3A00%3A00Z+TO+2019-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:15.047Z",
+      "durationMs": 160,
+      "attempts": 1,
+      "file": "2019-01--000000.json",
+      "contentHash": "e0f2244253a5266e07c268a36954dea54163f662e62aa0021888187d17e1667b",
+      "bytes": 854475
+    },
+    {
+      "sliceKey": "2019-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6551,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-02-01T00%3A00%3A00Z+TO+2019-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:16.060Z",
+      "durationMs": 70,
+      "attempts": 1,
+      "file": "2019-02--000000.json",
+      "contentHash": "a15d08e6453413261854bb7a1b9649b6d923c0dcea9f63ce1babcc61a4188894",
+      "bytes": 664734
+    },
+    {
+      "sliceKey": "2019-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6873,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-03-01T00%3A00%3A00Z+TO+2019-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:17.180Z",
+      "durationMs": 87,
+      "attempts": 1,
+      "file": "2019-03--000000.json",
+      "contentHash": "87860dff0e81d79160ff6eba5dbda64ec7d354dbcd25d8398715859484a7f144",
+      "bytes": 696706
+    },
+    {
+      "sliceKey": "2019-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7432,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-04-01T00%3A00%3A00Z+TO+2019-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:18.275Z",
+      "durationMs": 82,
+      "attempts": 1,
+      "file": "2019-04--000000.json",
+      "contentHash": "a0295b3cd7dd99e685ca1bcf6e07423b4e794ef7d50e50d0b91a8f5c48f93403",
+      "bytes": 751682
+    },
+    {
+      "sliceKey": "2019-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7645,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-05-01T00%3A00%3A00Z+TO+2019-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:19.370Z",
+      "durationMs": 75,
+      "attempts": 1,
+      "file": "2019-05--000000.json",
+      "contentHash": "380595969b177a6b95805009379163334a780a4046e60fbbcd59e73427ec568e",
+      "bytes": 774645
+    },
+    {
+      "sliceKey": "2019-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6630,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-06-01T00%3A00%3A00Z+TO+2019-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:20.479Z",
+      "durationMs": 82,
+      "attempts": 1,
+      "file": "2019-06--000000.json",
+      "contentHash": "8024597be92b768b9aa9ec1d95acba949b667c89d017b66c1a43adf7a6076968",
+      "bytes": 672502
+    },
+    {
+      "sliceKey": "2019-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7345,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-07-01T00%3A00%3A00Z+TO+2019-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:21.583Z",
+      "durationMs": 84,
+      "attempts": 1,
+      "file": "2019-07--000000.json",
+      "contentHash": "d8cbfe5f17f9c745b10ed9ca3f878e4c78e88eccebe92f50d6aa5e9dba894655",
+      "bytes": 744503
+    },
+    {
+      "sliceKey": "2019-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7812,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-08-01T00%3A00%3A00Z+TO+2019-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:22.689Z",
+      "durationMs": 89,
+      "attempts": 1,
+      "file": "2019-08--000000.json",
+      "contentHash": "7bc548a65fd5e36eed47a56fbca147331c2256c40e7930344dd6eab7a2bd6f39",
+      "bytes": 792329
+    },
+    {
+      "sliceKey": "2019-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8054,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-09-01T00%3A00%3A00Z+TO+2019-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:23.798Z",
+      "durationMs": 97,
+      "attempts": 1,
+      "file": "2019-09--000000.json",
+      "contentHash": "0ffdefe13334ba4c686aecd8952b838eecc154104783826e5bd810439d2d82bf",
+      "bytes": 817352
+    },
+    {
+      "sliceKey": "2019-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8590,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-10-01T00%3A00%3A00Z+TO+2019-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:24.912Z",
+      "durationMs": 110,
+      "attempts": 1,
+      "file": "2019-10--000000.json",
+      "contentHash": "257c6d63e9b8d99f0aea38ab213738966fab2ffcf64b8d58789500bb77edf060",
+      "bytes": 872570
+    },
+    {
+      "sliceKey": "2019-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7885,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-11-01T00%3A00%3A00Z+TO+2019-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:26.043Z",
+      "durationMs": 140,
+      "attempts": 1,
+      "file": "2019-11--000000.json",
+      "contentHash": "7cfc393c83eb4e445dbeef657c2736b4ac16d62363d4f63ac5d3834800d027e4",
+      "bytes": 800717
+    },
+    {
+      "sliceKey": "2019-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6460,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-12-01T00%3A00%3A00Z+TO+2019-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:27.080Z",
+      "durationMs": 75,
+      "attempts": 1,
+      "file": "2019-12--000000.json",
+      "contentHash": "a0538f760de21996b3cad24b86a409c0cec5ab194a3611832c00220b71dc63fe",
+      "bytes": 655824
+    },
+    {
+      "sliceKey": "2020-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6812,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-01-01T00%3A00%3A00Z+TO+2020-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:28.202Z",
+      "durationMs": 96,
+      "attempts": 1,
+      "file": "2020-01--000000.json",
+      "contentHash": "23740bbc34ebf3079ec84b938bebd7a0551181e8dbb5586d18c4bcf5465f15b6",
+      "bytes": 690807
+    },
+    {
+      "sliceKey": "2020-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6373,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-02-01T00%3A00%3A00Z+TO+2020-02-29T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:29.296Z",
+      "durationMs": 89,
+      "attempts": 1,
+      "file": "2020-02--000000.json",
+      "contentHash": "4e5f0daaedf03876054d3985a30eb2d07cb0ac89c107ff923ea4b0e8f7286639",
+      "bytes": 647341
+    },
+    {
+      "sliceKey": "2020-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6656,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-03-01T00%3A00%3A00Z+TO+2020-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:30.445Z",
+      "durationMs": 136,
+      "attempts": 1,
+      "file": "2020-03--000000.json",
+      "contentHash": "ac2ee90af10756e7413b0debd2cc5b40d0f1f84c7bf73bd2d9682fca5b40eec8",
+      "bytes": 675957
+    },
+    {
+      "sliceKey": "2020-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5045,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-04-01T00%3A00%3A00Z+TO+2020-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:31.555Z",
+      "durationMs": 144,
+      "attempts": 1,
+      "file": "2020-04--000000.json",
+      "contentHash": "beef61707d0823306bb2778c0f69076bd1f078a8b67a8377ef17b89f5e0a7f52",
+      "bytes": 512769
+    },
+    {
+      "sliceKey": "2020-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 5806,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-05-01T00%3A00%3A00Z+TO+2020-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:32.596Z",
+      "durationMs": 85,
+      "attempts": 1,
+      "file": "2020-05--000000.json",
+      "contentHash": "3e24e08b9c4642339515c52bfbff5564db64cfb6dd8aedc5b7103be89fe74269",
+      "bytes": 590155
+    },
+    {
+      "sliceKey": "2020-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 6787,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-06-01T00%3A00%3A00Z+TO+2020-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:33.700Z",
+      "durationMs": 89,
+      "attempts": 1,
+      "file": "2020-06--000000.json",
+      "contentHash": "4cb150632a519d8ce679ab947cb407ded64118b6407b05635221fd71e276be90",
+      "bytes": 689441
+    },
+    {
+      "sliceKey": "2020-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7429,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-07-01T00%3A00%3A00Z+TO+2020-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:34.800Z",
+      "durationMs": 88,
+      "attempts": 1,
+      "file": "2020-07--000000.json",
+      "contentHash": "c2e7480412c6691fbe8c1e20a29784f6c73eb57f12d4db62d639d92e482286ed",
+      "bytes": 754784
+    },
+    {
+      "sliceKey": "2020-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7814,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-08-01T00%3A00%3A00Z+TO+2020-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:35.899Z",
+      "durationMs": 86,
+      "attempts": 1,
+      "file": "2020-08--000000.json",
+      "contentHash": "1e86352977e13feaf10ddac4767ad5106eada81a47ec11636ca9202ae943340c",
+      "bytes": 792115
+    },
+    {
+      "sliceKey": "2020-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8844,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-09-01T00%3A00%3A00Z+TO+2020-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:37.051Z",
+      "durationMs": 136,
+      "attempts": 1,
+      "file": "2020-09--000000.json",
+      "contentHash": "7898bf238e6201f6055910db088217f8fe3aa1b5ce33736be6ee6b4a68b3b20a",
+      "bytes": 898363
+    },
+    {
+      "sliceKey": "2020-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9321,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-10-01T00%3A00%3A00Z+TO+2020-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:38.134Z",
+      "durationMs": 118,
+      "attempts": 1,
+      "file": "2020-10--000000.json",
+      "contentHash": "fec546cac8cdee9dc049dcd5af0f5845083c540a33ea3cda1c5b0e73e6d7aa6d",
+      "bytes": 947108
+    },
+    {
+      "sliceKey": "2020-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8349,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-11-01T00%3A00%3A00Z+TO+2020-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:39.233Z",
+      "durationMs": 117,
+      "attempts": 1,
+      "file": "2020-11--000000.json",
+      "contentHash": "8efc4889da5417b67e37cd3dc5747dac44b8db79112195e7b7eb71fd4b64b709",
+      "bytes": 849284
+    },
+    {
+      "sliceKey": "2020-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7984,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-12-01T00%3A00%3A00Z+TO+2020-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:40.319Z",
+      "durationMs": 103,
+      "attempts": 1,
+      "file": "2020-12--000000.json",
+      "contentHash": "837b52ad9811cd2ff04cc984dddc907c5a27df4060f23b93646d0970f3d6613e",
+      "bytes": 811571
+    },
+    {
+      "sliceKey": "2021-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7854,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-01-01T00%3A00%3A00Z+TO+2021-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:41.408Z",
+      "durationMs": 91,
+      "attempts": 1,
+      "file": "2021-01--000000.json",
+      "contentHash": "83c9ba181f80fe0d1b0e6baf9630e317dd251a34b227ce0b3421beb0ae30c740",
+      "bytes": 798458
+    },
+    {
+      "sliceKey": "2021-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7672,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-02-01T00%3A00%3A00Z+TO+2021-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:42.511Z",
+      "durationMs": 94,
+      "attempts": 1,
+      "file": "2021-02--000000.json",
+      "contentHash": "6c77e0cbee7723a4a3a7cf020171ff0311fcc5d59e28fca1c28863a0be29b883",
+      "bytes": 779326
+    },
+    {
+      "sliceKey": "2021-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8018,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-03-01T00%3A00%3A00Z+TO+2021-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:43.634Z",
+      "durationMs": 116,
+      "attempts": 1,
+      "file": "2021-03--000000.json",
+      "contentHash": "4157e7418b72122547a63db8432580e17a7089635cec826fb313a834d77e7ea8",
+      "bytes": 814814
+    },
+    {
+      "sliceKey": "2021-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8703,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-04-01T00%3A00%3A00Z+TO+2021-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:44.727Z",
+      "durationMs": 109,
+      "attempts": 1,
+      "file": "2021-04--000000.json",
+      "contentHash": "2d9b1a200e608f7b6a1bff382d8d0173425718760d7ad2d8e095d8cd36c502af",
+      "bytes": 882776
+    },
+    {
+      "sliceKey": "2021-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8463,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-05-01T00%3A00%3A00Z+TO+2021-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:45.805Z",
+      "durationMs": 86,
+      "attempts": 1,
+      "file": "2021-05--000000.json",
+      "contentHash": "c75c830656744bfe542f90a03e035ce4a2c92d60e52ef8d30ee0c117955dccde",
+      "bytes": 859429
+    },
+    {
+      "sliceKey": "2021-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8322,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-06-01T00%3A00%3A00Z+TO+2021-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:46.928Z",
+      "durationMs": 107,
+      "attempts": 1,
+      "file": "2021-06--000000.json",
+      "contentHash": "96cb499ed2e2e8854716cb9a60589537c63e996dde3c0921a1894ffaac576ad2",
+      "bytes": 845474
+    },
+    {
+      "sliceKey": "2021-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8049,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-07-01T00%3A00%3A00Z+TO+2021-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:48.004Z",
+      "durationMs": 82,
+      "attempts": 1,
+      "file": "2021-07--000000.json",
+      "contentHash": "b02bf38e3be9898c8cf68d5fce15e4a666cd8c7db4a9465b7480d2bb700f28ae",
+      "bytes": 817077
+    },
+    {
+      "sliceKey": "2021-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8592,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-08-01T00%3A00%3A00Z+TO+2021-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:49.121Z",
+      "durationMs": 99,
+      "attempts": 1,
+      "file": "2021-08--000000.json",
+      "contentHash": "59f9e6471fc76045d5a0b02b559afc4c675852476a62424a985bcc0d1817a891",
+      "bytes": 871436
+    },
+    {
+      "sliceKey": "2021-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9194,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-09-01T00%3A00%3A00Z+TO+2021-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:50.220Z",
+      "durationMs": 97,
+      "attempts": 1,
+      "file": "2021-09--000000.json",
+      "contentHash": "56a6e2a8913fce38fb1e3eba6584e98d543f040d0e56253e97c20e433bc2de4d",
+      "bytes": 933653
+    },
+    {
+      "sliceKey": "2021-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9599,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-10-01T00%3A00%3A00Z+TO+2021-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:51.434Z",
+      "durationMs": 211,
+      "attempts": 1,
+      "file": "2021-10--000000.json",
+      "contentHash": "ff6b22ddb3b06457f5a568813502241c30a76b5177568f4e06faf81aaf9f2c19",
+      "bytes": 975518
+    },
+    {
+      "sliceKey": "2021-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8848,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-11-01T00%3A00%3A00Z+TO+2021-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:52.460Z",
+      "durationMs": 136,
+      "attempts": 1,
+      "file": "2021-11--000000.json",
+      "contentHash": "9e0d50b60689af34685ee7efbb821ea7cedb0b39699cc31df066497571b3f915",
+      "bytes": 899420
+    },
+    {
+      "sliceKey": "2021-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7840,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-12-01T00%3A00%3A00Z+TO+2021-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:53.575Z",
+      "durationMs": 150,
+      "attempts": 1,
+      "file": "2021-12--000000.json",
+      "contentHash": "cc11d41775e8404868de29be8a11bfeb8f2cdb707d6a4372207347165dc26393",
+      "bytes": 796988
+    },
+    {
+      "sliceKey": "2022-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7856,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-01-01T00%3A00%3A00Z+TO+2022-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:54.636Z",
+      "durationMs": 110,
+      "attempts": 1,
+      "file": "2022-01--000000.json",
+      "contentHash": "92cc5a792b4fc962638c00fd2da004d4fdf51549f862dd9fe26befd601bdfcd6",
+      "bytes": 799222
+    },
+    {
+      "sliceKey": "2022-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7489,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-02-01T00%3A00%3A00Z+TO+2022-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:55.737Z",
+      "durationMs": 109,
+      "attempts": 1,
+      "file": "2022-02--000000.json",
+      "contentHash": "51dd05dabc61d99e96f7e8f6fdfb5a678caadf3849b39c9d426070a4e8bb7a64",
+      "bytes": 761289
+    },
+    {
+      "sliceKey": "2022-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7992,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-03-01T00%3A00%3A00Z+TO+2022-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:56.843Z",
+      "durationMs": 113,
+      "attempts": 1,
+      "file": "2022-03--000000.json",
+      "contentHash": "95dd1d54f6de7c3f5e06c83d8136e3c23b87d2afd2ffb2a3b0d6a450491ce8ff",
+      "bytes": 812248
+    },
+    {
+      "sliceKey": "2022-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8919,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-04-01T00%3A00%3A00Z+TO+2022-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:57.929Z",
+      "durationMs": 97,
+      "attempts": 1,
+      "file": "2022-04--000000.json",
+      "contentHash": "d19895190edc41200c5793362dc468365bdfc2c4358f0b882d2b83950757aa16",
+      "bytes": 905348
+    },
+    {
+      "sliceKey": "2022-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8865,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-05-01T00%3A00%3A00Z+TO+2022-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:39:59.023Z",
+      "durationMs": 91,
+      "attempts": 1,
+      "file": "2022-05--000000.json",
+      "contentHash": "2cdd1a7742e9943c02556027880e9d87ee71db3c97685cf5c4c3c5a845dec693",
+      "bytes": 900625
+    },
+    {
+      "sliceKey": "2022-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9079,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-06-01T00%3A00%3A00Z+TO+2022-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:00.142Z",
+      "durationMs": 109,
+      "attempts": 1,
+      "file": "2022-06--000000.json",
+      "contentHash": "cf7115c131eb974083753bbf7ac3166e7fed10e214e078c1d03e45b122d3921e",
+      "bytes": 921926
+    },
+    {
+      "sliceKey": "2022-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8979,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-07-01T00%3A00%3A00Z+TO+2022-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:01.268Z",
+      "durationMs": 134,
+      "attempts": 1,
+      "file": "2022-07--000000.json",
+      "contentHash": "c19502f6cca8e1bcb8f946f6a3cdbc3ebfa7ff69de2e26c47ab3ac1d23472553",
+      "bytes": 911888
+    },
+    {
+      "sliceKey": "2022-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9848,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-08-01T00%3A00%3A00Z+TO+2022-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:02.333Z",
+      "durationMs": 99,
+      "attempts": 1,
+      "file": "2022-08--000000.json",
+      "contentHash": "50e0866738bab1c7299fea0dd3f624f9d3b63c7b404ddcf5519c62cae3880cdd",
+      "bytes": 999705
+    },
+    {
+      "sliceKey": "2022-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10831,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-09-01T00%3A00%3A00Z+TO+2022-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:03.463Z",
+      "durationMs": 128,
+      "attempts": 1,
+      "file": "2022-09--000000.json",
+      "contentHash": "f20a7aba73f3900a9ab571ea005b496fd3901049c56125ca541f9440dcc391e0",
+      "bytes": 1099707
+    },
+    {
+      "sliceKey": "2022-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10245,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-10-01T00%3A00%3A00Z+TO+2022-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:04.552Z",
+      "durationMs": 115,
+      "attempts": 1,
+      "file": "2022-10--000000.json",
+      "contentHash": "e35ddfef6456d2b15f0ab2ccfcfe36e1b27196b226c159b81b41fa73f72af850",
+      "bytes": 1040926
+    },
+    {
+      "sliceKey": "2022-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9455,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-11-01T00%3A00%3A00Z+TO+2022-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:05.666Z",
+      "durationMs": 128,
+      "attempts": 1,
+      "file": "2022-11--000000.json",
+      "contentHash": "0440dec29743f649f9e3729ec2e2867bf3f78c552279e3e1df3f708a16b83ff0",
+      "bytes": 960841
+    },
+    {
+      "sliceKey": "2022-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8822,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-12-01T00%3A00%3A00Z+TO+2022-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:06.780Z",
+      "durationMs": 142,
+      "attempts": 1,
+      "file": "2022-12--000000.json",
+      "contentHash": "a71d9fa8fb9a19c0b35ec0dabdb943bd83f4167751e35ea2b424b7827c61e745",
+      "bytes": 896683
+    },
+    {
+      "sliceKey": "2023-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8472,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-01-01T00%3A00%3A00Z+TO+2023-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:07.845Z",
+      "durationMs": 106,
+      "attempts": 1,
+      "file": "2023-01--000000.json",
+      "contentHash": "154512237b82f43de19043561c3a2d6d4b215eba1af979ee872fef66ba7e82d5",
+      "bytes": 861279
+    },
+    {
+      "sliceKey": "2023-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7739,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-02-01T00%3A00%3A00Z+TO+2023-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:08.951Z",
+      "durationMs": 109,
+      "attempts": 1,
+      "file": "2023-02--000000.json",
+      "contentHash": "99cc60457a17163dad07ac2ba2451dab47defcd508412a705bb97ee681f1405d",
+      "bytes": 786708
+    },
+    {
+      "sliceKey": "2023-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8702,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-03-01T00%3A00%3A00Z+TO+2023-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:10.076Z",
+      "durationMs": 133,
+      "attempts": 1,
+      "file": "2023-03--000000.json",
+      "contentHash": "b5aee32df57a771ecfd3747f7c56aaf30bd0954172cc6793a7b41ede7c0abf69",
+      "bytes": 883965
+    },
+    {
+      "sliceKey": "2023-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10104,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-04-01T00%3A00%3A00Z+TO+2023-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:11.151Z",
+      "durationMs": 107,
+      "attempts": 1,
+      "file": "2023-04--000000.json",
+      "contentHash": "b7a903ac3c18cd194a3ff6cc2e4cbe766f09873e45ac0e17a3323a7887f361ab",
+      "bytes": 1025017
+    },
+    {
+      "sliceKey": "2023-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9700,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-05-01T00%3A00%3A00Z+TO+2023-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:12.252Z",
+      "durationMs": 106,
+      "attempts": 1,
+      "file": "2023-05--000000.json",
+      "contentHash": "5707e9287a58c4a24be892ccaf55d72887d37931a88c78b233b4f7fed3bc5859",
+      "bytes": 984681
+    },
+    {
+      "sliceKey": "2023-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9564,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-06-01T00%3A00%3A00Z+TO+2023-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:13.439Z",
+      "durationMs": 193,
+      "attempts": 1,
+      "file": "2023-06--000000.json",
+      "contentHash": "58d5b1ac630d9527c17cfb0fa6e50a68f9b9b4a70facfd724fbd7e60fedf2755",
+      "bytes": 968566
+    },
+    {
+      "sliceKey": "2023-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9640,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-07-01T00%3A00%3A00Z+TO+2023-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:14.481Z",
+      "durationMs": 135,
+      "attempts": 1,
+      "file": "2023-07--000000.json",
+      "contentHash": "6d32b99dca16389c6207f3ccfce55fe76b3958cfdd99e250a95ab66d7a14aca5",
+      "bytes": 978811
+    },
+    {
+      "sliceKey": "2023-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10261,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-08-01T00%3A00%3A00Z+TO+2023-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:15.752Z",
+      "durationMs": 305,
+      "attempts": 1,
+      "file": "2023-08--000000.json",
+      "contentHash": "b2ff517eac574ac4917f3c177a677f8766ed19e1527e5519ae5efd9f3ab362b2",
+      "bytes": 1041838
+    },
+    {
+      "sliceKey": "2023-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10897,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-09-01T00%3A00%3A00Z+TO+2023-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:16.675Z",
+      "durationMs": 127,
+      "attempts": 1,
+      "file": "2023-09--000000.json",
+      "contentHash": "5ba1c1af1646833fd589c824ef6cd4b463c989da650167135c84272c4da4e6da",
+      "bytes": 1106974
+    },
+    {
+      "sliceKey": "2023-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10715,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-10-01T00%3A00%3A00Z+TO+2023-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:17.779Z",
+      "durationMs": 129,
+      "attempts": 1,
+      "file": "2023-10--000000.json",
+      "contentHash": "55c522437920fc7840e104bd61c6afe2beab35e7cee902a57960d5b895f43e60",
+      "bytes": 1088101
+    },
+    {
+      "sliceKey": "2023-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9900,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-11-01T00%3A00%3A00Z+TO+2023-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:18.881Z",
+      "durationMs": 131,
+      "attempts": 1,
+      "file": "2023-11--000000.json",
+      "contentHash": "d8bba7860a45ff3d8609c766f91565dc9accf711717fc6d3cc285d62f904b8c0",
+      "bytes": 1006315
+    },
+    {
+      "sliceKey": "2023-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8786,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-12-01T00%3A00%3A00Z+TO+2023-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:19.958Z",
+      "durationMs": 108,
+      "attempts": 1,
+      "file": "2023-12--000000.json",
+      "contentHash": "7cbe177e64f52d49acd3eafb8a585c4c4edadfebe233d2b3c573edc773a7d5e7",
+      "bytes": 893081
+    },
+    {
+      "sliceKey": "2024-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8383,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-01-01T00%3A00%3A00Z+TO+2024-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:21.060Z",
+      "durationMs": 109,
+      "attempts": 1,
+      "file": "2024-01--000000.json",
+      "contentHash": "bab0231d883dea08f433dfdd5b9cf7ad6d91f5b2f8c27a5a79f6cb37ee05858b",
+      "bytes": 852489
+    },
+    {
+      "sliceKey": "2024-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8098,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-02-01T00%3A00%3A00Z+TO+2024-02-29T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:22.152Z",
+      "durationMs": 100,
+      "attempts": 1,
+      "file": "2024-02--000000.json",
+      "contentHash": "53c1dbc868ae6534fcaebb4b16e6b7753fd4745b878e05971ecffea37ead1438",
+      "bytes": 823599
+    },
+    {
+      "sliceKey": "2024-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9228,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-03-01T00%3A00%3A00Z+TO+2024-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:23.272Z",
+      "durationMs": 118,
+      "attempts": 1,
+      "file": "2024-03--000000.json",
+      "contentHash": "538f7df15570ca891bf91ecca02394bcb743de67b4229c0e867fdeb1e6e78251",
+      "bytes": 936984
+    },
+    {
+      "sliceKey": "2024-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10061,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-04-01T00%3A00%3A00Z+TO+2024-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:24.362Z",
+      "durationMs": 107,
+      "attempts": 1,
+      "file": "2024-04--000000.json",
+      "contentHash": "31b1179c7f1fac8d504e2fbf7ef35359812c2c39e1cf6ffebdcbcab155002b7d",
+      "bytes": 1021236
+    },
+    {
+      "sliceKey": "2024-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9832,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-05-01T00%3A00%3A00Z+TO+2024-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:25.460Z",
+      "durationMs": 105,
+      "attempts": 1,
+      "file": "2024-05--000000.json",
+      "contentHash": "064c2751642c1845304c8bdff5aca35f92d8aa4473bdff16254fea560a51cc60",
+      "bytes": 998653
+    },
+    {
+      "sliceKey": "2024-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9647,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-06-01T00%3A00%3A00Z+TO+2024-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:26.560Z",
+      "durationMs": 104,
+      "attempts": 1,
+      "file": "2024-06--000000.json",
+      "contentHash": "6f9d989f9707a84fd60ee33b2d9dcd0579a9f40ed6be25e7b0977c765743ef32",
+      "bytes": 979495
+    },
+    {
+      "sliceKey": "2024-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10345,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-07-01T00%3A00%3A00Z+TO+2024-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:27.686Z",
+      "durationMs": 130,
+      "attempts": 1,
+      "file": "2024-07--000000.json",
+      "contentHash": "7d60a9ee2ee8e11d2ebf9f78c75a2cef5025899158850fff70473357a4098a0d",
+      "bytes": 1050107
+    },
+    {
+      "sliceKey": "2024-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 11266,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-08-01T00%3A00%3A00Z+TO+2024-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:28.768Z",
+      "durationMs": 112,
+      "attempts": 1,
+      "file": "2024-08--000000.json",
+      "contentHash": "f61613ff32f59f4c577e4227e7e312f5114e5a2a14e574ec0112387c6b14b985",
+      "bytes": 1143417
+    },
+    {
+      "sliceKey": "2024-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 12099,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-09-01T00%3A00%3A00Z+TO+2024-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:29.896Z",
+      "durationMs": 139,
+      "attempts": 1,
+      "file": "2024-09--000000.json",
+      "contentHash": "fd14b15217339f37f9384233b4515c77b25bac690bf8894464e7eac09270356e",
+      "bytes": 1229023
+    },
+    {
+      "sliceKey": "2024-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 11986,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-10-01T00%3A00%3A00Z+TO+2024-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:31.004Z",
+      "durationMs": 147,
+      "attempts": 1,
+      "file": "2024-10--000000.json",
+      "contentHash": "0bf4b67e3949a89139a9c110f8531fdf48ff56e6b5b25302bbfc1930f1ec4c78",
+      "bytes": 1218002
+    },
+    {
+      "sliceKey": "2024-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10765,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-11-01T00%3A00%3A00Z+TO+2024-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:32.088Z",
+      "durationMs": 129,
+      "attempts": 1,
+      "file": "2024-11--000000.json",
+      "contentHash": "9aef9ca3a528917ee87dce74983a33a969d992dd24f22f3eac2f7c6b0b3a4d93",
+      "bytes": 1093863
+    },
+    {
+      "sliceKey": "2024-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9112,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-12-01T00%3A00%3A00Z+TO+2024-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:33.202Z",
+      "durationMs": 142,
+      "attempts": 1,
+      "file": "2024-12--000000.json",
+      "contentHash": "2dad680d3a09691497c5b9082df6caa49273543d7e5ee92fcdefe55fca6b7fb5",
+      "bytes": 926209
+    },
+    {
+      "sliceKey": "2025-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9192,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-01-01T00%3A00%3A00Z+TO+2025-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:34.283Z",
+      "durationMs": 121,
+      "attempts": 1,
+      "file": "2025-01--000000.json",
+      "contentHash": "57d40aa390ec0e32bf7595332e610ebd80112cd949cd184f909ea9b81b0197de",
+      "bytes": 934445
+    },
+    {
+      "sliceKey": "2025-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8282,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-02-01T00%3A00%3A00Z+TO+2025-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:35.457Z",
+      "durationMs": 193,
+      "attempts": 1,
+      "file": "2025-02--000000.json",
+      "contentHash": "1aaf9ae11879f57dfc772271b3b90d461e1407453832d142d3a7795aa0b62c0d",
+      "bytes": 841526
+    },
+    {
+      "sliceKey": "2025-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8960,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-03-01T00%3A00%3A00Z+TO+2025-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:41.419Z",
+      "durationMs": 5054,
+      "attempts": 1,
+      "file": "2025-03--000000.json",
+      "contentHash": "ea4d8cbac3f33e88b15d32b94007d139341e7e813b394a93573633fc2987aa1c",
+      "bytes": 910343
+    },
+    {
+      "sliceKey": "2025-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10119,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-04-01T00%3A00%3A00Z+TO+2025-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:42.570Z",
+      "durationMs": 1136,
+      "attempts": 1,
+      "file": "2025-04--000000.json",
+      "contentHash": "15e22458865a16683134e0fcd4f4ed60720ca0289c16f286f98ae3dfec036e08",
+      "bytes": 1028023
+    },
+    {
+      "sliceKey": "2025-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10248,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-05-01T00%3A00%3A00Z+TO+2025-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:42.790Z",
+      "durationMs": 211,
+      "attempts": 1,
+      "file": "2025-05--000000.json",
+      "contentHash": "e6f39bced598e1eba11789a94223e18ce60b56519925b2d17a691739b674593c",
+      "bytes": 1040494
+    },
+    {
+      "sliceKey": "2025-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10334,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-06-01T00%3A00%3A00Z+TO+2025-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:43.856Z",
+      "durationMs": 175,
+      "attempts": 1,
+      "file": "2025-06--000000.json",
+      "contentHash": "e204e554a4d5ea1714cf30b085971a662d2ba4bd9aa8cddb2ae56ae66e303607",
+      "bytes": 1049530
+    },
+    {
+      "sliceKey": "2025-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10783,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-07-01T00%3A00%3A00Z+TO+2025-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:44.979Z",
+      "durationMs": 198,
+      "attempts": 1,
+      "file": "2025-07--000000.json",
+      "contentHash": "30887fc5ae8caa8119f56d9b3e5ab288054e8b8ddc2b97f2b19661a3e7ec2abe",
+      "bytes": 1094651
+    },
+    {
+      "sliceKey": "2025-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 11543,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-08-01T00%3A00%3A00Z+TO+2025-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:46.058Z",
+      "durationMs": 176,
+      "attempts": 1,
+      "file": "2025-08--000000.json",
+      "contentHash": "9d9cba5f6753a063986b33f96fa5ae91471e53810f9bed2d0083ce907ac848fa",
+      "bytes": 1171931
+    },
+    {
+      "sliceKey": "2025-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10649,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-09-01T00%3A00%3A00Z+TO+2025-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:47.075Z",
+      "durationMs": 91,
+      "attempts": 1,
+      "file": "2025-09--000000.json",
+      "contentHash": "705ce4a90aa1ce165d05752fcc7406ac0752e0161a264ac7c4d1eb9345d85111",
+      "bytes": 1078940
+    },
+    {
+      "sliceKey": "2025-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 10772,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-10-01T00%3A00%3A00Z+TO+2025-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:48.177Z",
+      "durationMs": 93,
+      "attempts": 1,
+      "file": "2025-10--000000.json",
+      "contentHash": "a258f012f7db784f28e9715556c1a726de8a82848a744b0b5ca947ed35b5f511",
+      "bytes": 1091696
+    },
+    {
+      "sliceKey": "2025-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9428,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-11-01T00%3A00%3A00Z+TO+2025-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:49.296Z",
+      "durationMs": 112,
+      "attempts": 1,
+      "file": "2025-11--000000.json",
+      "contentHash": "59c6f1ab0dd7ec6ad065873369ac92c8b6a9401353c760e0169b4ee9dc5c4421",
+      "bytes": 955995
+    },
+    {
+      "sliceKey": "2025-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8203,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-12-01T00%3A00%3A00Z+TO+2025-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:50.358Z",
+      "durationMs": 74,
+      "attempts": 1,
+      "file": "2025-12--000000.json",
+      "contentHash": "b19ec699f5fafa1d7c77bf1ca1c8786913e805e5321665869106ebcf158722ed",
+      "bytes": 831714
+    },
+    {
+      "sliceKey": "2026-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7694,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-01-01T00%3A00%3A00Z+TO+2026-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:51.456Z",
+      "durationMs": 71,
+      "attempts": 1,
+      "file": "2026-01--000000.json",
+      "contentHash": "bf51351a53c439e122de3b6373dfd942c74f463a20eda69cd06ee0890802503d",
+      "bytes": 780345
+    },
+    {
+      "sliceKey": "2026-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7227,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-02-01T00%3A00%3A00Z+TO+2026-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:52.554Z",
+      "durationMs": 67,
+      "attempts": 1,
+      "file": "2026-02--000000.json",
+      "contentHash": "9ec8891f4c433a35ab75aa3ddbff6e9488405a9d1d317952305aad4c083cd226",
+      "bytes": 732598
+    },
+    {
+      "sliceKey": "2026-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 7764,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-03-01T00%3A00%3A00Z+TO+2026-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:53.655Z",
+      "durationMs": 68,
+      "attempts": 1,
+      "file": "2026-03--000000.json",
+      "contentHash": "f6ee539411af1acba665bdc83e8a600980ffbb5ae4d8d56b00504ca971c7f08c",
+      "bytes": 787230
+    },
+    {
+      "sliceKey": "2026-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8503,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-04-01T00%3A00%3A00Z+TO+2026-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:54.806Z",
+      "durationMs": 118,
+      "attempts": 1,
+      "file": "2026-04--000000.json",
+      "contentHash": "eaa214125ca5626f0cbd0b8575aae5abe75c4715615743f0e9b8a94d337cfe03",
+      "bytes": 862217
+    },
+    {
+      "sliceKey": "2026-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8574,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-05-01T00%3A00%3A00Z+TO+2026-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:56.001Z",
+      "durationMs": 211,
+      "attempts": 1,
+      "file": "2026-05--000000.json",
+      "contentHash": "5a0a9685afaa36e3681f0909f4e0edf80a80236e88d9bd83445d91605d7fb0ee",
+      "bytes": 869206
+    },
+    {
+      "sliceKey": "2026-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8286,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-06-01T00%3A00%3A00Z+TO+2026-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:56.977Z",
+      "durationMs": 86,
+      "attempts": 1,
+      "file": "2026-06--000000.json",
+      "contentHash": "b15eea938ea9288eb947c6c51d0a8a9fbf514c669307ae7b2d54e5bbda8442e5",
+      "bytes": 839415
+    },
+    {
+      "sliceKey": "2026-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 8800,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-07-01T00%3A00%3A00Z+TO+2026-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:58.095Z",
+      "durationMs": 103,
+      "attempts": 1,
+      "file": "2026-07--000000.json",
+      "contentHash": "486f23e5dc37ebea89359964ddaf4e2476884df3c7e0d4e9af5b5ea92d17a627",
+      "bytes": 891293
+    },
+    {
+      "sliceKey": "2026-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9236,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-08-01T00%3A00%3A00Z+TO+2026-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:40:59.175Z",
+      "durationMs": 81,
+      "attempts": 1,
+      "file": "2026-08--000000.json",
+      "contentHash": "96e8e27bb4bb8d37b56bebcf5744eb3b4e7dcb88e3dd4c21d874faa1ae3ece74",
+      "bytes": 935303
+    },
+    {
+      "sliceKey": "2026-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 9097,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-09-01T00%3A00%3A00Z+TO+2026-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23141+OR+dr23201+OR+dr31514+OR+dr34307+OR+dr34309+OR+dr9942%29&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-03T03:41:00.264Z",
+      "durationMs": 70,
+      "attempts": 1,
+      "file": "2026-09--000000.json",
+      "contentHash": "039077041ba11a8d1646d9b783dfcd114ded50c36ea28291de2ab9ace8a71228",
+      "bytes": 921526
+    }
+  ],
+  "corpusHash": "a866356d691fc5ec1e313a83d7868c3867195787f2beb4e1dc482eec7843b74b",
+  "requestCount": 141,
+  "warnings": [
+    "2015-01: 495 of 422525 records in no cell",
+    "2015-02: 501 of 297962 records in no cell",
+    "2015-03: 948 of 358166 records in no cell",
+    "2015-04: 549 of 359010 records in no cell",
+    "2015-05: 409 of 348416 records in no cell",
+    "2015-06: 389 of 274214 records in no cell",
+    "2015-07: 421 of 282902 records in no cell",
+    "2015-08: 1634 of 322452 records in no cell",
+    "2015-09: 401 of 382983 records in no cell",
+    "2015-10: 1840 of 511173 records in no cell",
+    "2015-11: 542 of 426169 records in no cell",
+    "2015-12: 355 of 337390 records in no cell",
+    "2016-01: 600 of 447640 records in no cell",
+    "2016-02: 514 of 348517 records in no cell",
+    "2016-03: 399 of 344486 records in no cell",
+    "2016-04: 527 of 355473 records in no cell",
+    "2016-05: 750 of 335847 records in no cell",
+    "2016-06: 504 of 280080 records in no cell",
+    "2016-07: 434 of 316007 records in no cell",
+    "2016-08: 1090 of 337719 records in no cell",
+    "2016-09: 1615 of 424139 records in no cell",
+    "2016-10: 1649 of 558329 records in no cell",
+    "2016-11: 978 of 478786 records in no cell",
+    "2016-12: 569 of 379949 records in no cell",
+    "2017-01: 844 of 530210 records in no cell",
+    "2017-02: 683 of 408192 records in no cell",
+    "2017-03: 765 of 438657 records in no cell",
+    "2017-04: 578 of 412445 records in no cell",
+    "2017-05: 600 of 414586 records in no cell",
+    "2017-06: 1038 of 360635 records in no cell",
+    "2017-07: 380 of 391261 records in no cell",
+    "2017-08: 731 of 400656 records in no cell",
+    "2017-09: 1271 of 545808 records in no cell",
+    "2017-10: 810 of 711749 records in no cell",
+    "2017-11: 542 of 627252 records in no cell",
+    "2017-12: 378 of 458805 records in no cell",
+    "2018-01: 717 of 547036 records in no cell",
+    "2018-02: 684 of 416944 records in no cell",
+    "2018-03: 525 of 485229 records in no cell",
+    "2018-04: 391 of 506679 records in no cell",
+    "2018-05: 555 of 440961 records in no cell",
+    "2018-06: 175 of 436678 records in no cell",
+    "2018-07: 1016 of 476551 records in no cell",
+    "2018-08: 629 of 488459 records in no cell",
+    "2018-09: 699 of 609845 records in no cell",
+    "2018-10: 342 of 771320 records in no cell",
+    "2018-11: 1664 of 680982 records in no cell",
+    "2018-12: 1316 of 576341 records in no cell",
+    "2019-01: 1136 of 660122 records in no cell",
+    "2019-02: 546 of 472523 records in no cell",
+    "2019-03: 444 of 503200 records in no cell",
+    "2019-04: 1046 of 556750 records in no cell",
+    "2019-05: 519 of 522669 records in no cell",
+    "2019-06: 334 of 466728 records in no cell",
+    "2019-07: 359 of 522703 records in no cell",
+    "2019-08: 384 of 585943 records in no cell",
+    "2019-09: 1127 of 662078 records in no cell",
+    "2019-10: 1950 of 891757 records in no cell",
+    "2019-11: 523 of 751534 records in no cell",
+    "2019-12: 471 of 613919 records in no cell",
+    "2020-01: 433 of 693443 records in no cell",
+    "2020-02: 509 of 525923 records in no cell",
+    "2020-03: 488 of 537224 records in no cell",
+    "2020-04: 136 of 550212 records in no cell",
+    "2020-05: 285 of 593882 records in no cell",
+    "2020-06: 281 of 589350 records in no cell",
+    "2020-07: 303 of 614317 records in no cell",
+    "2020-08: 393 of 672780 records in no cell",
+    "2020-09: 529 of 801756 records in no cell",
+    "2020-10: 532 of 968699 records in no cell",
+    "2020-11: 675 of 854751 records in no cell",
+    "2020-12: 383 of 725804 records in no cell",
+    "2021-01: 237 of 841585 records in no cell",
+    "2021-02: 246 of 695822 records in no cell",
+    "2021-03: 294 of 733634 records in no cell",
+    "2021-04: 274 of 778540 records in no cell",
+    "2021-05: 368 of 734269 records in no cell",
+    "2021-06: 547 of 649566 records in no cell",
+    "2021-07: 97 of 629374 records in no cell",
+    "2021-08: 102 of 735258 records in no cell",
+    "2021-09: 476 of 899618 records in no cell",
+    "2021-10: 596 of 1165274 records in no cell",
+    "2021-11: 346 of 944577 records in no cell",
+    "2021-12: 231 of 798565 records in no cell",
+    "2022-01: 287 of 965001 records in no cell",
+    "2022-02: 193 of 730680 records in no cell",
+    "2022-03: 749 of 801970 records in no cell",
+    "2022-04: 483 of 824627 records in no cell",
+    "2022-05: 528 of 784995 records in no cell",
+    "2022-06: 185 of 694960 records in no cell",
+    "2022-07: 90 of 751730 records in no cell",
+    "2022-08: 222 of 851313 records in no cell",
+    "2022-09: 322 of 1042281 records in no cell",
+    "2022-10: 374 of 1191057 records in no cell",
+    "2022-11: 361 of 1051879 records in no cell",
+    "2022-12: 228 of 926009 records in no cell",
+    "2023-01: 265 of 1040519 records in no cell",
+    "2023-02: 275 of 800763 records in no cell",
+    "2023-03: 217 of 920745 records in no cell",
+    "2023-04: 358 of 993421 records in no cell",
+    "2023-05: 285 of 870832 records in no cell",
+    "2023-06: 160 of 794006 records in no cell",
+    "2023-07: 171 of 915983 records in no cell",
+    "2023-08: 161 of 998252 records in no cell",
+    "2023-09: 270 of 1291231 records in no cell",
+    "2023-10: 457 of 1458372 records in no cell",
+    "2023-11: 183 of 1361256 records in no cell",
+    "2023-12: 170 of 1087870 records in no cell",
+    "2024-01: 210 of 1179293 records in no cell",
+    "2024-02: 179 of 946527 records in no cell",
+    "2024-03: 202 of 999081 records in no cell",
+    "2024-04: 232 of 1023569 records in no cell",
+    "2024-05: 432 of 900950 records in no cell",
+    "2024-06: 207 of 901481 records in no cell",
+    "2024-07: 318 of 933255 records in no cell",
+    "2024-08: 117 of 1122228 records in no cell",
+    "2024-09: 248 of 1428857 records in no cell",
+    "2024-10: 200 of 1678027 records in no cell",
+    "2024-11: 145 of 1353886 records in no cell",
+    "2024-12: 126 of 1156498 records in no cell",
+    "2025-01: 330 of 1311415 records in no cell",
+    "2025-02: 121 of 1017970 records in no cell",
+    "2025-03: 165 of 1049596 records in no cell",
+    "2025-04: 225 of 1132283 records in no cell",
+    "2025-05: 273 of 1015438 records in no cell",
+    "2025-06: 265 of 1013548 records in no cell",
+    "2025-07: 431 of 1066508 records in no cell",
+    "2025-08: 741 of 1212208 records in no cell",
+    "2025-09: 367 of 506146 records in no cell",
+    "2025-10: 235 of 617700 records in no cell",
+    "2025-11: 71 of 493652 records in no cell",
+    "2025-12: 14 of 429824 records in no cell",
+    "2026-01: 18 of 400229 records in no cell",
+    "2026-02: 21 of 312585 records in no cell",
+    "2026-03: 175 of 382697 records in no cell",
+    "2026-04: 7 of 385232 records in no cell",
+    "2026-05: 7 of 347618 records in no cell",
+    "2026-06: 9 of 319757 records in no cell",
+    "2026-08: 1 of 300412 records in no cell"
+  ]
+}
