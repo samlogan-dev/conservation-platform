@@ -73,12 +73,14 @@ export const ALA_REQUESTED_FIELDS = [
   "lifeStage",
   "recordedBy",
   "recordNumber",
+  "firstLoadedDate",
   // Location
   "decimalLatitude",
   "decimalLongitude",
   "coordinateUncertaintyInMeters",
   "coordinatePrecision",
   "stateProvince",
+  "cl1048", // IBRA 7 bioregion
   "country",
   "locality",
   "raw_locality",
@@ -95,6 +97,7 @@ export const ALA_REQUESTED_FIELDS = [
   "spatiallyValid",
   "sensitive",
   "stateConservation",
+  "countryConservation",
 ] as const;
 
 /**

@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "typecheck": "tsc --noEmit",
-    "ingest": "tsx src/ingestion/cli.ts"
+    "ingest": "tsx src/ingestion/cli.ts",
+    "db:migrate": "tsx src/db/migrate.ts"
   },
   "type": "module",
   "dependencies": {
@@ -16,10 +17,12 @@
     "@hono/node-server": "^2.1.1",
     "@supabase/supabase-js": "^2.112.4",
     "dotenv": "^17.4.2",
-    "hono": "^4.13.5"
+    "hono": "^4.13.5",
+    "pg": "^8.23.1"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
+    "@types/pg": "^8.23.1",
     "tsx": "^4.23.12",
     "typescript": "^7.0.2"
   },

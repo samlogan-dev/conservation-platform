@@ -81,6 +81,7 @@ export const CANONICAL_SCHEMA: SchemaGroup[] = [
       { path: "order", type: "string", required: false, description: "Order.", sourceFields: ["order"] },
       { path: "family", type: "string", required: false, description: "Family.", sourceFields: ["family"] },
       { path: "genus", type: "string", required: false, description: "Genus.", sourceFields: ["genus"] },
+      { path: "nationalStatus", type: "string", required: false, description: "National (EPBC) status as the source attached it. Never set by a model.", sourceFields: ["countryConservation"] },
     ],
   },
   {
@@ -95,6 +96,7 @@ export const CANONICAL_SCHEMA: SchemaGroup[] = [
         description: "Observation date. ALA supplies epoch milliseconds; converted on the way in.",
         sourceFields: ["eventDate"],
       },
+      { path: "firstLoadedAt", type: "iso8601", required: false, description: "When the source first held the record — the publication-lag signal.", sourceFields: ["firstLoadedDate"] },
     ],
   },
   {
@@ -112,6 +114,7 @@ export const CANONICAL_SCHEMA: SchemaGroup[] = [
         sourceFields: ["coordinateUncertaintyInMeters"],
       },
       { path: "stateProvince", type: "string", required: false, description: "Australian state or territory.", sourceFields: ["stateProvince"] },
+      { path: "ibraRegion", type: "string", required: false, description: "IBRA 7 bioregion (ALA layer cl1048). Null offshore.", sourceFields: ["cl1048"] },
       { path: "locality", type: "string", required: false, description: "Free-text place description.", sourceFields: ["locality"] },
     ],
   },

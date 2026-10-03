@@ -1,7 +1,8 @@
 ## Quick run
 ```bash
-cd platform && cd backend && npm run dev
-cd platform && cd frontend && npm run dev
+cd platform && docker compose up -d                 # Postgres + PostGIS on localhost:54329
+cd platform/backend && npm run db:migrate && npm run dev
+cd platform/frontend && npm run dev
 ```
 
 # Conservation Reporting Platform
@@ -20,7 +21,8 @@ here yet. The earlier build is tagged `koala-archive` in this repo.
 platform/
 ├── frontend/   Vue 3 · TypeScript · Vite · Tailwind v4 · shadcn-vue · Pinia · Vue Router · Axios
 │               (currently a placeholder shell)
-└── backend/    Hono · Node · TypeScript · Supabase client · Anthropic SDK
+├── backend/    Hono · Node · TypeScript · Postgres (pg) · Anthropic SDK
+└── docker-compose.yml   local Postgres 17 + PostGIS 3.5
 ```
 
 ## Ingestion
@@ -48,7 +50,8 @@ a state. How a many-species, Australia-wide corpus is partitioned into harvests 
 ```
 backend/
 ├── data/snapshots/<harvest>/<runId>/      manifest.json + pages/ — frozen raw responses
-├── data/canonical/<harvest>/<runId>.json  derived; gitignored, rebuilt by `adapt`
+├── db/migrations/                          the database schema, applied by `npm run db:migrate`
+├── src/db/                                 connection pools (platform and ai_reader) + migration runner
 └── src/ingestion/
     ├── config/       species, regions, harvest windows, politeness, the Anthropic client
     ├── http/         per-host rate limiting + identifying User-Agent (ethics pillar 1)
@@ -56,7 +59,7 @@ backend/
     ├── sources/      the two-function source contract, the registry, and ala/
     ├── canonical/    the record every source maps into, its declared schema, mapping trace
     ├── privacy/      contributor pseudonyms (pillar 2), coordinate fuzzing (pillar 4)
-    ├── store/        where adapted records are kept (JSON on disk; Supabase later)
+    ├── store/        loads adapted records into Postgres, one transaction per run
     └── analysis/     field coverage, free-text substance, contributing-dataset breakdown
 ```
 
@@ -99,6 +102,28 @@ Precise coordinates and observer identifiers are stored, never served: coordinat
 to ~1.1 km and observer ids replaced with pseudonyms at the API boundary
 (`privacy/coordinates.ts`, `privacy/contributors.ts`).
 
+## Database
+
+Local Postgres 17 with PostGIS, from `docker-compose.yml` (image `imresamu/postgis`, the
+multi-architecture build of the official one). Two schemas:
+
+- **`corpus`** — `harvest_runs`, `datasets`, `taxa`, `occurrences` (with a PostGIS point),
+  `effort_cells` (all-taxa counts per 0.1° cell and period, the reporting-rate denominator), and
+  two views: `analysable_occurrences` (valid, dated, telemetry excluded, managed populations
+  labelled) and `taxon_tiers` (records since 2015 and whether a taxon has ≥100 of them).
+- **`analysis`** — `runs`, `insights` (the record both arms write, so they can be compared by
+  key) and `ai_queries` (every query the AI arm ran, with a result hash for re-running).
+
+`datasets.kind` is curated: tracking datasets are `telemetry` and excluded from analysis; AWC
+monitoring is `managed`. The seed list is `db/migrations/003_seed_dataset_kinds.sql`.
+
+**The AI arm's role, `ai_reader`**, can read `corpus` and nothing else: no access to `analysis`
+(it must not see the calculated arm's answers), no write privilege anywhere, read-only
+transactions by default, 30 s statement timeout. The privileges are what hold — verified that
+switching the read-only default off still leaves every write refused. A session can lower its own
+timeout, so the query tool sets the timeout per transaction rather than relying on the role
+default. `npm run db:migrate` creates the role from `AI_READER_PASSWORD`.
+
 ### Model calls
 
 `config/anthropic.ts` is the one place the key is read (`CLAUDE_API_KEY` or `ANTHROPIC_API_KEY`
@@ -111,12 +136,14 @@ parameter — and reports which applied, so a run never claims a setting that wa
 ```bash
 cd backend
 npm install
-cp .env.example .env   # the placeholder Supabase values are fine for ingestion
+cp .env.example .env   # the placeholder Supabase values are fine; database defaults need no entry
+docker compose -f ../docker-compose.yml up -d
+npm run db:migrate
 npm run dev            # http://localhost:8000
 ```
 
 Scripts: `dev` (tsx watch) · `build` (tsc → `dist/`) · `start` (node `dist/index.js`) ·
-`typecheck` · `ingest`.
+`typecheck` · `ingest` · `db:migrate`.
 
 ## Frontend Setup
 

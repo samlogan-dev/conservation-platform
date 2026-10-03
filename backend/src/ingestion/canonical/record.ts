@@ -113,10 +113,21 @@ export interface CanonicalRecord {
   order: string | null;
   family: string | null;
   genus: string | null;
+  /**
+   * National (EPBC) status as the source attached it at harvest time. Read, never inferred:
+   * official status is not set or changed by any model.
+   */
+  nationalStatus: string | null;
 
   // --- When ---
   /** ISO 8601 UTC. ALA returns epoch millis; the conversion is recorded as `derived`. */
   eventDate: string | null;
+  /**
+   * When the source first held the record. The gap between this and `eventDate` is the
+   * publication lag, and it is what lets a period be compared with earlier periods at the
+   * same age.
+   */
+  firstLoadedAt: string | null;
 
   // --- Where ---
   decimalLatitude: number | null;
@@ -128,6 +139,8 @@ export interface CanonicalRecord {
   coordinateUncertaintyInMeters: number | null;
   /** Australian state or territory. */
   stateProvince: string | null;
+  /** IBRA 7 bioregion — the analysis's region unit. Null offshore: IBRA covers land only. */
+  ibraRegion: string | null;
   locality: string | null;
 
   // --- What was seen ---

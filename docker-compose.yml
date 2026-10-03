@@ -1,0 +1,27 @@
+# Local Postgres + PostGIS for development and evaluation runs.
+#
+#   docker compose up -d        # start
+#   cd backend && npm run db:migrate
+#
+# imresamu/postgis is the multi-architecture build of the official postgis/postgis image (the
+# official one is amd64 only, so it would run emulated on Apple Silicon). Bound to localhost on
+# 54329 to stay clear of any Postgres already on 5432. The credentials are local-only.
+services:
+  db:
+    image: imresamu/postgis:17-3.5
+    environment:
+      POSTGRES_USER: platform
+      POSTGRES_PASSWORD: platform
+      POSTGRES_DB: platform
+    ports:
+      - "127.0.0.1:54329:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U platform -d platform"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:

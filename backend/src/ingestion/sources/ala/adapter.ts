@@ -105,6 +105,7 @@ function declareExclusions(m: Mapper): void {
   );
   m.exclude("absent from every koala/NSW record", "dataGeneralizations", "informationWithheld", "sensitive");
   m.exclude("ALA's own duplicate of basisOfRecord", "raw_basisOfRecord");
+  m.exclude("duplicate of countryConservation", "austConservation");
   m.exclude("free-text locality already kept as `locality`", "raw_locality");
   m.exclude("ALA's own duplicate of vernacularName", "raw_vernacularName");
 }
@@ -154,9 +155,13 @@ export function adaptAlaRecord(
     order: m.map("order", ["order"], asString),
     family: m.map("family", ["family"], asString),
     genus: m.map("genus", ["genus"], asString),
+    nationalStatus: m.map("nationalStatus", ["countryConservation"], asString),
 
     eventDate: m.map("eventDate", ["eventDate"], epochMillisToIso, {
       note: "ALA returns epoch milliseconds; converted to ISO 8601 UTC",
+    }),
+    firstLoadedAt: m.map("firstLoadedAt", ["firstLoadedDate"], epochMillisToIso, {
+      note: "normalised to ISO 8601 UTC",
     }),
 
     decimalLatitude: m.map("decimalLatitude", ["decimalLatitude"], asNumber),
@@ -167,6 +172,7 @@ export function adaptAlaRecord(
       asNumber,
     ),
     stateProvince: m.map("stateProvince", ["stateProvince"], asString),
+    ibraRegion: m.map("ibraRegion", ["cl1048"], asString),
     locality: m.map("locality", ["locality"], asString),
 
     basisOfRecord: m.map("basisOfRecord", ["basisOfRecord"], asString),

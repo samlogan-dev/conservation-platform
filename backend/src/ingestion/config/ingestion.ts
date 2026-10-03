@@ -29,6 +29,6 @@ export const INGESTION = {
   baseBackoffMs: num("INGESTION_BASE_BACKOFF_MS", 2_000),
   maxBackoffMs: num("INGESTION_MAX_BACKOFF_MS", 30_000),
 
-  /** Where frozen snapshots and canonical output are written. */
+  /** Where frozen snapshots are written. Canonical records go to Postgres. */
   dataDir: process.env.INGESTION_DATA_DIR ?? "data",
 } as const;

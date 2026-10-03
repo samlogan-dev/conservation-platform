@@ -63,9 +63,6 @@ pnpm-debug.log*
 # ========================
 # Ingestion data
 # ========================
-# Canonical records are derived: `npm run ingest -- adapt` rebuilds them from a frozen
-# snapshot in under a second and with no network traffic, so they are not worth versioning.
-backend/data/canonical/
 
 # Frozen snapshots are the reproducibility anchor — the raw evidence of what a source returned
 # at a point in time, which cannot be regenerated once the source moves on. Pages are large, so

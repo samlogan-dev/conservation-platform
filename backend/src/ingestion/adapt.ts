@@ -72,7 +72,7 @@ export async function adaptRun(
     if (pagesRead % 100 === 0) log(`  adapted ${pagesRead}/${manifest.pages.length} pages, ${stored.length} records`);
   }
 
-  await recordStore.save(harvestKey, runId, stored, analyser.finish(harvestKey, runId));
+  await recordStore.save(manifest, stored, analyser.finish(harvestKey, runId));
 
   const summary: AdaptSummary = {
     harvestKey,

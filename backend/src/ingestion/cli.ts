@@ -4,6 +4,7 @@ import { getSource } from "./sources/registry.ts";
 import { adaptRun } from "./adapt.ts";
 import { latestRunId, listRuns, readManifest } from "./snapshot/store.ts";
 import { recordStore } from "./store/recordStore.ts";
+import { closeDb } from "../db/pool.ts";
 
 /**
  * Ingestion CLI.
@@ -139,7 +140,9 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.message : error);
-  process.exitCode = 1;
-});
+main()
+  .catch((error) => {
+    console.error(error instanceof Error ? error.message : error);
+    process.exitCode = 1;
+  })
+  .finally(closeDb);
