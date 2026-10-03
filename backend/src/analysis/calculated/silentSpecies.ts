@@ -35,15 +35,15 @@ export async function silentSpecies(): Promise<Insight[]> {
   }>(
     `select t.taxon_concept_id, t.scientific_name, t.vernacular_name, t.national_status,
             count(a.record_id)::int as records_since_2015,
-            count(a.record_id) filter (where a.event_date >= $1::date)::int as records_in_window,
-            max(a.event_date) as last_record_at,
-            (count(a.record_id) filter (where a.event_date >= $3::date and a.event_date < $4::date + 1) / $5::float)::float as baseline_annual_mean,
+            count(a.record_id) filter (where a.event_day >= $1::date)::int as records_in_window,
+            max(a.event_day)::text as last_record_at,
+            (count(a.record_id) filter (where a.event_day >= $3::date and a.event_day < $4::date + 1) / $5::float)::float as baseline_annual_mean,
             count(distinct a.data_resource_uid)::int as datasets,
             avg((a.coordinate_uncertainty_m is null or a.coordinate_uncertainty_m > 2000)::int)::float as share_imprecise,
-            avg((a.dataset_kind = 'managed')::int)::float as share_managed
+            avg((a.population = 'managed')::int)::float as share_managed
      from corpus.taxa t
      left join corpus.analysable_occurrences a
-       on a.taxon_concept_id = t.taxon_concept_id and a.event_date < $2::date + 1
+       on a.taxon_concept_id = t.taxon_concept_id and a.event_day < $2::date + 1
      group by t.taxon_concept_id`,
     [periodStart, periodEnd, P.baseline.start, P.baseline.end, baselineYears],
   );
@@ -54,7 +54,7 @@ export async function silentSpecies(): Promise<Insight[]> {
     if (!silent && !gap) continue;
     const kind = silent ? "silent" : "evidence_gap";
     const name = taxonLabel(r.vernacular_name, r.scientific_name);
-    const last = r.last_record_at ? new Date(r.last_record_at).toISOString().slice(0, 10) : null;
+    const last = r.last_record_at; // event_day as text — a local date, never shifted through a JS Date
     const monthsSince = last
       ? Math.floor((Date.parse(periodEnd) - Date.parse(last)) / (30.44 * 86_400_000))
       : null;
@@ -96,25 +96,25 @@ export async function silentSpecies(): Promise<Insight[]> {
   }>(
     `with nationally_recent as (
        select distinct taxon_concept_id from corpus.analysable_occurrences
-       where event_date >= $1::date and event_date < $2::date + 1
+       where event_day >= $1::date and event_day < $2::date + 1
      )
      select a.taxon_concept_id, t.scientific_name, t.vernacular_name, t.national_status, a.ibra_region,
-            count(*) filter (where a.event_date >= $3::date and a.event_date < $4::date + 1)::int as baseline_records,
+            count(*) filter (where a.event_day >= $3::date and a.event_day < $4::date + 1)::int as baseline_records,
             count(*)::int as records_since_2015,
-            max(a.event_date) as last_record_at,
+            max(a.event_day)::text as last_record_at,
             count(distinct a.data_resource_uid)::int as datasets
      from corpus.analysable_occurrences a
      join nationally_recent n using (taxon_concept_id)
      join corpus.taxa t using (taxon_concept_id)
-     where a.ibra_region is not null and a.event_date < $2::date + 1
+     where a.ibra_region is not null and a.event_day < $2::date + 1
      group by a.taxon_concept_id, t.scientific_name, t.vernacular_name, t.national_status, a.ibra_region
-     having count(*) filter (where a.event_date >= $3::date and a.event_date < $4::date + 1) >= $5
-        and max(a.event_date) < $1::date`,
+     having count(*) filter (where a.event_day >= $3::date and a.event_day < $4::date + 1) >= $5
+        and max(a.event_day) < $1::date`,
     [periodStart, periodEnd, P.baseline.start, P.baseline.end, S.regionalMinBaselineRecords],
   );
 
   for (const r of regional.rows) {
-    const last = new Date(r.last_record_at).toISOString().slice(0, 10);
+    const last = r.last_record_at;
     insights.push({
       insightType: "silent_species",
       taxonConceptId: r.taxon_concept_id,

@@ -18,6 +18,8 @@ export type InsightType =
 export interface Insight {
   insightType: InsightType;
   taxonConceptId: string | null;
+  /** Other taxa an insight is about (AI arm); the calculated arm writes one taxon per insight. */
+  relatedTaxa?: string[];
   region: string | null;
   periodStart: string;
   periodEnd: string;
@@ -69,6 +71,7 @@ export async function insertInsights(runId: string, insights: Insight[]): Promis
     const batch = insights.slice(i, i + 1_000).map((x) => ({
       insight_type: x.insightType,
       taxon_concept_id: x.taxonConceptId,
+      related_taxa: x.relatedTaxa ?? [],
       region: x.region,
       period_start: x.periodStart,
       period_end: x.periodEnd,
@@ -79,11 +82,11 @@ export async function insertInsights(runId: string, insights: Insight[]): Promis
     }));
     await db().query(
       `insert into analysis.insights
-         (run_id, insight_type, taxon_concept_id, region, period_start, period_end, figures, confidence, summary, query_ids)
-       select $2, x.insight_type, x.taxon_concept_id, x.region, x.period_start, x.period_end, x.figures, x.confidence,
+         (run_id, insight_type, taxon_concept_id, related_taxa, region, period_start, period_end, figures, confidence, summary, query_ids)
+       select $2, x.insight_type, x.taxon_concept_id, x.related_taxa, x.region, x.period_start, x.period_end, x.figures, x.confidence,
               x.summary, x.query_ids
        from jsonb_to_recordset($1::jsonb) as x(
-         insight_type text, taxon_concept_id text, region text, period_start date, period_end date,
+         insight_type text, taxon_concept_id text, related_taxa text[], region text, period_start date, period_end date,
          figures jsonb, confidence jsonb, summary text, query_ids bigint[])`,
       [JSON.stringify(batch), runId],
     );

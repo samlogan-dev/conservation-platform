@@ -222,6 +222,8 @@ export class PostgresRecordStore implements RecordStore {
           harvestId,
           JSON.stringify(analysis),
         ]);
+        // New records need the managed-population rules applied (db/migrations/012).
+        await client.query("select corpus.apply_managed_rules()");
         await finish("commit");
       },
       abort: () => finish("rollback"),

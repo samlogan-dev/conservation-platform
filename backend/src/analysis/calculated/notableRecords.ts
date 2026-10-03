@@ -25,39 +25,39 @@ export async function notableRecords(): Promise<Insight[]> {
 
   const { rows } = await db().query<{
     record_id: string; taxon_concept_id: string; scientific_name: string | null; vernacular_name: string | null;
-    national_status: string | null; ibra_region: string | null; state_province: string | null; event_date: string;
-    coordinate_uncertainty_m: number | null; dataset_kind: string; data_resource_uid: string | null;
+    national_status: string | null; ibra_region: string | null; state_province: string | null; event_day: string;
+    coordinate_uncertainty_m: number | null; population: string; data_resource_uid: string | null;
     nearest_prior_km: number | null; region_seen: boolean; month_share: number | null; baseline_records: number;
   }>(
     `with cur as (
        select a.* from corpus.analysable_occurrences a
        join corpus.taxon_tiers tt using (taxon_concept_id)
        where tt.statistical_tier and a.geom is not null
-         and a.event_date >= $1::date and a.event_date < $2::date + 1
+         and a.event_day >= $1::date and a.event_day < $2::date + 1
      ), season as (
-       select taxon_concept_id, extract(month from event_date)::int as m, count(*) as n,
+       select taxon_concept_id, extract(month from event_day)::int as m, count(*) as n,
               sum(count(*)) over (partition by taxon_concept_id) as total
        from corpus.analysable_occurrences
-       where event_date >= $3::date and event_date < $4::date + 1
+       where event_day >= $3::date and event_day < $4::date + 1
          and taxon_concept_id in (select taxon_concept_id from cur)
        group by 1, 2
      )
      select c.record_id, c.taxon_concept_id, t.scientific_name, t.vernacular_name, t.national_status,
-            c.ibra_region, c.state_province, c.event_date, c.coordinate_uncertainty_m, c.dataset_kind, c.data_resource_uid,
+            c.ibra_region, c.state_province, c.event_day, c.coordinate_uncertainty_m, c.population, c.data_resource_uid,
             (select st_distance(c.geom::geography, p.geom::geography) / 1000.0
              from corpus.occurrences p
-             where p.taxon_concept_id = c.taxon_concept_id and p.event_date < $1::date and p.is_valid
+             where p.taxon_concept_id = c.taxon_concept_id and p.event_day < $1::date and p.is_valid
                and p.geom is not null and coalesce(p.data_resource_uid <> all($5::text[]), true)
              order by p.geom <-> c.geom limit 1)::float as nearest_prior_km,
             (c.ibra_region is null or exists (
                select 1 from corpus.occurrences p
                where p.taxon_concept_id = c.taxon_concept_id and p.ibra_region = c.ibra_region
-                 and p.event_date < $1::date and p.is_valid)) as region_seen,
+                 and p.event_day < $1::date and p.is_valid)) as region_seen,
             (s.n::float / nullif(s.total, 0))::float as month_share,
             coalesce((select max(total) from season s2 where s2.taxon_concept_id = c.taxon_concept_id), 0)::int as baseline_records
      from cur c
      join corpus.taxa t using (taxon_concept_id)
-     left join season s on s.taxon_concept_id = c.taxon_concept_id and s.m = extract(month from c.event_date)::int`,
+     left join season s on s.taxon_concept_id = c.taxon_concept_id and s.m = extract(month from c.event_day)::int`,
     [start, end, P.baseline.start, P.baseline.end, telemetry],
   );
 
@@ -86,7 +86,7 @@ export async function notableRecords(): Promise<Insight[]> {
   };
   const insights: Insight[] = [];
   for (const { first: r, records, reasons, maxKm } of groups.values()) {
-    const managed = records.filter((x) => x.dataset_kind === "managed").length;
+    const managed = records.filter((x) => x.population === "managed").length;
     const imprecise = records.filter((x) => x.coordinate_uncertainty_m === null || x.coordinate_uncertainty_m > 2000).length;
     const region = r.ibra_region ?? null;
     const where = r.ibra_region ?? (r.state_province ? `${r.state_province} (outside IBRA)` : "an unassigned area");

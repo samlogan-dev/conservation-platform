@@ -5,7 +5,11 @@
  * These are the defaults recorded in CLAUDE.md (3 Oct 2026). Change a value → bump the version.
  */
 export const CALCULATED_PARAMS = {
-  version: "2026-10-03.3",
+  version: "2026-10-04.1",
+  // .1 (4 Oct 2026): every date window on the record's Australian Eastern local date (event_day),
+  // not its UTC date; managed populations set per taxon and state as well as per dataset
+  // (corpus.managed_populations); range change from wild records only. All three found by
+  // adjudicating the first AI-arm runs.
 
   /** The month a report is "for". The corpus runs to the end of September 2026. */
   reportMonth: "2026-09",
@@ -35,6 +39,8 @@ export const CALCULATED_PARAMS = {
     recentWindow: { start: "2022-01-01", end: "2024-12-31" },
     /** IUCN criterion B grid. Only records located to within this many metres count towards it. */
     aooFineCellM: 2_000,
+    /** Range is a wild-trend measure: managed populations (fenced havens, reintroductions) are left out. */
+    wildOnly: true,
     /** Coarser grid every record can contribute to, robust to ~10 km sensitive-species blurring. */
     aooCoarseCellM: 10_000,
     /** Flag a change at least this large in the coarse AOO (cf. IUCN's 30% decline threshold). */

@@ -11,7 +11,8 @@ import { type Insight, taxonLabel } from "../runs.ts";
  *  - AOO at 2 km (IUCN criterion B grid), from records located to within 2 km only — marked
  *    unreliable when too few records in either window are that precise;
  *  - AOO at 10 km, from every record: the measure the flag is raised on.
- * Grids are in EPSG:3577 (Australian Albers, equal-area).
+ * Grids are in EPSG:3577 (Australian Albers, equal-area). Wild records only (params.wildOnly):
+ * a fenced haven opening is not range expansion.
  *
  * One insight per taxon, flagged or not, so the AI arm's figures can be checked against any
  * taxon it reports on. `figures.flag` is "contraction", "expansion" or null.
@@ -35,14 +36,16 @@ export async function rangeChange(): Promise<Insight[]> {
     share_discontinued: number;
   }>(
     `with w as (
-       select a.taxon_concept_id, a.geom, a.coordinate_uncertainty_m, a.data_resource_uid, a.dataset_kind,
-              case when a.event_date >= $1::date and a.event_date < $2::date + 1 then 'baseline'
-                   when a.event_date >= $3::date and a.event_date < $4::date + 1 then 'recent' end as win
+       select a.taxon_concept_id, a.geom, a.coordinate_uncertainty_m, a.data_resource_uid, a.population,
+              case when a.event_day >= $1::date and a.event_day < $2::date + 1 then 'baseline'
+                   when a.event_day >= $3::date and a.event_day < $4::date + 1 then 'recent' end as win
        from corpus.analysable_occurrences a
        join corpus.taxon_tiers tt using (taxon_concept_id)
        where tt.statistical_tier and a.geom is not null
-         and ((a.event_date >= $1::date and a.event_date < $2::date + 1)
-           or (a.event_date >= $3::date and a.event_date < $4::date + 1))
+         and (not $7::boolean or a.population = 'wild')
+         and (not $7::boolean or a.population = 'wild')
+         and ((a.event_day >= $1::date and a.event_day < $2::date + 1)
+           or (a.event_day >= $3::date and a.event_day < $4::date + 1))
      ), active_recent as (
        select distinct taxon_concept_id, data_resource_uid from w where win = 'recent'
      ), p as (
@@ -58,11 +61,11 @@ export async function rangeChange(): Promise<Insight[]> {
             count(distinct (floor(st_x(albers) / $5), floor(st_y(albers) / $5))) filter (where precise)::int as aoo_fine_cells,
             count(distinct (floor(st_x(albers) / $6), floor(st_y(albers) / $6)))::int as aoo_coarse_cells,
             count(distinct p.data_resource_uid)::int as datasets,
-            avg((p.dataset_kind = 'managed')::int)::float as share_managed,
+            avg((p.population = 'managed')::int)::float as share_managed,
             avg(p.from_discontinued::int)::float as share_discontinued
      from p join corpus.taxa t using (taxon_concept_id)
      group by p.taxon_concept_id, t.scientific_name, t.vernacular_name, t.national_status, p.win`,
-    [R.baselineWindow.start, R.baselineWindow.end, R.recentWindow.start, R.recentWindow.end, R.aooFineCellM, R.aooCoarseCellM],
+    [R.baselineWindow.start, R.baselineWindow.end, R.recentWindow.start, R.recentWindow.end, R.aooFineCellM, R.aooCoarseCellM, R.wildOnly],
   );
 
   // National all-taxa effort per window, per year — what the range measures are read against.

@@ -75,6 +75,15 @@ async function validateInsight(
     const { rowCount } = await db().query("select 1 from corpus.taxa where taxon_concept_id = $1", [taxon]);
     if (!rowCount) return `taxon_concept_id ${taxon} is not in corpus.taxa — copy it exactly from a query result`;
   }
+  const related = input.related_taxa ?? [];
+  if (!Array.isArray(related) || !related.every((x) => typeof x === "string")) return "related_taxa must be an array of taxon_concept_id strings";
+  if (related.length) {
+    const { rows: known } = await db().query<{ taxon_concept_id: string }>(
+      "select taxon_concept_id from corpus.taxa where taxon_concept_id = any($1::text[])", [related],
+    );
+    const unknown = related.filter((x) => !known.some((k) => k.taxon_concept_id === x));
+    if (unknown.length) return `related_taxa not in corpus.taxa: ${unknown.join(", ")} — copy them exactly from a query result`;
+  }
   const region = input.region ?? null;
   if (region !== null && (typeof region !== "string" || !regions.has(region))) {
     return `region "${String(region)}" is not an IBRA region in the corpus — use ibra_region exactly, or null`;
@@ -97,6 +106,7 @@ async function validateInsight(
   return {
     insightType: insightType as InsightType,
     taxonConceptId: taxon,
+    relatedTaxa: related as string[],
     region,
     periodStart: input.period_start,
     periodEnd: input.period_end,

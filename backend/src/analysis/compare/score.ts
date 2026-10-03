@@ -23,13 +23,19 @@ import { executeReadOnly } from "../ai/queryTool.ts";
  *    evidence gap is fairly reported over "since 2015";
  *  - notable-record reasons are compared after mapping free-text labels onto the calculated arm's;
  *  - dates are read as text, so a date column is never shifted by the host's time zone.
+ *
+ * 2026-10-04.1: discovery reported two ways — by key (the insight's taxon and its related_taxa)
+ * and by mention (the taxon's common or scientific name in the summary; for a regional finding,
+ * the region too). The pilot open run bundled several taxa into one insight with no taxon id, so
+ * key matching alone understated what it surfaced; mention matching is the lenient bound.
  */
-export const SCORER_VERSION = "2026-10-03.2";
+export const SCORER_VERSION = "2026-10-04.1";
 const PRIORITY_K = 15;
 
 interface Row {
   insight_id: string; insight_type: string; taxon_concept_id: string | null; region: string | null;
   period_start: string; period_end: string; figures: Record<string, unknown>; summary: string; query_ids: string[];
+  related_taxa: string[];
 }
 
 const day = (d: string) => d.slice(0, 10);
@@ -43,7 +49,7 @@ const close = (a: number | null, b: number | null, rel = 0.01, abs = 0.0015) =>
 
 async function insights(runId: string): Promise<Row[]> {
   const { rows } = await db().query<Row>(
-    `select insight_id, insight_type, taxon_concept_id, region, period_start::text, period_end::text, figures, summary, query_ids
+    `select insight_id, insight_type, taxon_concept_id, region, period_start::text, period_end::text, figures, summary, query_ids, related_taxa
      from analysis.insights where run_id = $1 order by insight_id`,
     [runId],
   );
@@ -183,13 +189,25 @@ export async function scoreRun(aiRunId: string, calculatedRunId: string): Promis
 
   // --- Discovery ---
   const sets = prioritySets(calc);
-  const aiTaxa = new Set(ai.map((r) => r.taxon_concept_id).filter(Boolean));
-  const aiTaxonRegion = new Set(ai.map((r) => `${r.taxon_concept_id}|${r.region ?? ""}`));
-  const discovery: Record<string, { found: number; of: number; missed: string[] }> = {};
+  const taxaOf = (r: Row) => [r.taxon_concept_id, ...(r.related_taxa ?? [])].filter((x): x is string => Boolean(x));
+  const aiTaxa = new Set(ai.flatMap(taxaOf));
+  const aiTaxonRegion = new Set(ai.flatMap((r) => taxaOf(r).map((t) => `${t}|${r.region ?? ""}`)));
+  const prioTaxa = [...new Set(Object.values(sets).flat().map((r) => r.taxon_concept_id).filter((x): x is string => Boolean(x)))];
+  const names = new Map(
+    (await db().query<{ taxon_concept_id: string; scientific_name: string | null; vernacular_name: string | null }>(
+      "select taxon_concept_id, scientific_name, vernacular_name from corpus.taxa where taxon_concept_id = any($1::text[])", [prioTaxa],
+    )).rows.map((t) => [t.taxon_concept_id, [t.vernacular_name, t.scientific_name].filter((x): x is string => Boolean(x)).map((x) => x.toLowerCase())]),
+  );
+  const texts = ai.map((r) => `${r.summary} ${r.region ?? ""}`.toLowerCase().replace(/[-‐]/g, " "));
+  const norm = (x: string) => x.replace(/[-‐]/g, " ");
+  const mentioned = (r: Row) => texts.some((t) =>
+    (names.get(r.taxon_concept_id ?? "") ?? []).some((n) => t.includes(norm(n))) && (r.region === null || t.includes(r.region.toLowerCase())));
+  const discovery: Record<string, { found: number; mentioned: number; of: number; missed: string[] }> = {};
   for (const [name, rows] of Object.entries(sets)) {
     const regional = name === "regional_silence";
-    const hits = rows.filter((r) => regional ? aiTaxonRegion.has(`${r.taxon_concept_id}|${r.region ?? ""}`) : aiTaxa.has(r.taxon_concept_id));
-    discovery[name] = { found: hits.length, of: rows.length, missed: rows.filter((r) => !hits.includes(r)).map((r) => r.summary.slice(0, 120)) };
+    const hits = rows.filter((r) => regional ? aiTaxonRegion.has(`${r.taxon_concept_id}|${r.region ?? ""}`) : aiTaxa.has(r.taxon_concept_id ?? ""));
+    const byMention = rows.filter((r) => hits.includes(r) || mentioned(r));
+    discovery[name] = { found: hits.length, mentioned: byMention.length, of: rows.length, missed: rows.filter((r) => !byMention.includes(r)).map((r) => r.summary.slice(0, 120)) };
   }
   const aiOnTaxaNotFlagged = ai.filter((r) => r.taxon_concept_id && !calc.some((c) => c.taxon_concept_id === r.taxon_concept_id && (c.figures.kind || c.figures.flag || c.insight_type === "notable_record"))).length;
 
@@ -236,8 +254,9 @@ export async function scoreRun(aiRunId: string, calculatedRunId: string): Promis
           headline_counts: headlineChecks,
         }
       : null,
-    discovery: Object.fromEntries(Object.entries(discovery).map(([k, v]) => [k, `${v.found}/${v.of}`])),
+    discovery: Object.fromEntries(Object.entries(discovery).map(([k, v]) => [k, `${v.found}/${v.of} by key, ${v.mentioned}/${v.of} by mention`])),
     discovery_recall_overall: pct(Object.values(discovery).reduce((a, v) => a + v.found, 0), Object.values(discovery).reduce((a, v) => a + v.of, 0)),
+    discovery_recall_by_mention: pct(Object.values(discovery).reduce((a, v) => a + v.mentioned, 0), Object.values(discovery).reduce((a, v) => a + v.of, 0)),
     ai_insights_on_taxa_the_calculated_arm_did_not_flag: aiOnTaxaNotFlagged,
     grounding: {
       queries_cited: queryIds.length,
