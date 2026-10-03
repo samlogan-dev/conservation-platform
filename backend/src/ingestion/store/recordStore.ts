@@ -7,12 +7,8 @@ import type { CorpusAnalysis } from "../analysis/coverage.ts";
 /**
  * Where adapted records live.
  *
- * Stage 1 writes canonical JSON to disk rather than to Supabase. The Build Scope sanctions
- * this explicitly — "if Supabase setup slows the loop early on, writing canonical JSON to disk
- * first and adding Postgres once the shape settles is a reasonable trade" — and it is the
- * right trade here for a reason beyond setup cost: the canonical shape is expected to be wrong
- * and to change more than once during this stage, so a migration per schema revision would be
- * pure friction while the thing being settled is the schema itself.
+ * Canonical JSON on disk for now. Supabase is the intended home once the schema settles; until
+ * then a migration per schema revision would be pure friction.
  *
  * Two files per run: the records (slim, see `StoredRecord`) and the corpus analysis computed
  * while adapting. Traces are not stored; see `StoredRecord` for why.
@@ -54,8 +50,8 @@ export class JsonFileRecordStore implements RecordStore {
   ): Promise<void> {
     const file = this.recordsFile(harvestKey, runId);
     await mkdir(path.dirname(file), { recursive: true });
-    // Compact rather than pretty-printed: a year of koala records is tens of megabytes, and
-    // nobody reads this file by eye — the Schema page is the readable form.
+    // Compact rather than pretty-printed: a large harvest is tens of megabytes, and nobody
+    // reads this file by eye.
     await writeFile(file, JSON.stringify(records), "utf8");
     await writeFile(this.analysisFile(harvestKey, runId), JSON.stringify(analysis, null, 2), "utf8");
   }

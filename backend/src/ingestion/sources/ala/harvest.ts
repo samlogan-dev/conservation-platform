@@ -91,9 +91,11 @@ export async function runAlaHarvest(
   const emit = options.onEvent ?? (() => {});
   const checkpoint = () => options.signal?.throwIfAborted();
   const species = SPECIES[harvest.speciesKey];
-  const region = REGIONS[harvest.regionKey];
   if (!species) throw new Error(`unknown species key: ${harvest.speciesKey}`);
-  if (!region) throw new Error(`unknown region key: ${harvest.regionKey}`);
+  const region = harvest.regionKey === undefined ? null : REGIONS[harvest.regionKey];
+  if (region === undefined) throw new Error(`unknown region key: ${harvest.regionKey}`);
+  // ALA is an Australian atlas, so an Australia-wide harvest needs no spatial filter at all.
+  const regionFilters = region ? [stateFilter(region.alaStateProvince)] : [];
 
   const startedAt = new Date();
   const runId = newRunId();
@@ -102,10 +104,7 @@ export async function runAlaHarvest(
 
   const baseQuery: AlaQuery = {
     q: `taxon_name:"${species.alaTaxonName}"`,
-    fq: [
-      stateFilter(region.alaStateProvince),
-      eventDateFilter(harvest.startDate, harvest.endDate),
-    ],
+    fq: [...regionFilters, eventDateFilter(harvest.startDate, harvest.endDate)],
   };
 
   const writer = new SnapshotWriter(harvest.key, runId);
@@ -129,7 +128,7 @@ export async function runAlaHarvest(
     const slice = queue.shift()!;
     const sliceQuery: AlaQuery = {
       q: baseQuery.q,
-      fq: [stateFilter(region.alaStateProvince), eventDateFilter(slice.startDate, slice.endDate)],
+      fq: [...regionFilters, eventDateFilter(slice.startDate, slice.endDate)],
     };
     checkpoint();
     const count = await countRecords(sliceQuery);
@@ -167,10 +166,7 @@ export async function runAlaHarvest(
   let retrievedTotal = 0;
 
   for (const slice of planned) {
-    const filters = [
-      stateFilter(region.alaStateProvince),
-      eventDateFilter(slice.startDate, slice.endDate),
-    ];
+    const filters = [...regionFilters, eventDateFilter(slice.startDate, slice.endDate)];
     const sliceQuery: AlaQuery = { q: baseQuery.q, fq: filters };
 
     // Never ask for an offset the API cannot serve; it would answer 200-with-nothing.

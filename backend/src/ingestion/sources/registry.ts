@@ -1,7 +1,5 @@
 import { runAlaHarvest } from "./ala/harvest.ts";
 import { adaptAlaPage } from "./ala/adapter.ts";
-import { runInaturalistHarvest } from "./inaturalist/harvest.ts";
-import { adaptInaturalistPage } from "./inaturalist/adapter.ts";
 import type { SourceModule } from "./types.ts";
 
 /**
@@ -9,9 +7,8 @@ import type { SourceModule } from "./types.ts";
  *
  * Everything above this line is source-specific and everything below it is shared. Adding a
  * source means writing a harvester and an adapter and adding a line here — no change to the
- * canonical record, the snapshot store, the analysis or the views. That was the architectural
- * claim Stage 1 made and could not test with one source; this is where it either holds or does
- * not.
+ * canonical record, the snapshot store or the analysis. ALA is the only source; the seam is
+ * kept because it costs nothing and a second source is not ruled out.
  */
 export const SOURCES: Record<string, SourceModule> = {
   ala: {
@@ -21,14 +18,6 @@ export const SOURCES: Record<string, SourceModule> = {
     recordIdField: "uuid",
     harvest: runAlaHarvest,
     adaptPage: adaptAlaPage,
-  },
-  inaturalist: {
-    key: "inaturalist",
-    label: "iNaturalist",
-    recordsKey: "results",
-    recordIdField: "id",
-    harvest: runInaturalistHarvest,
-    adaptPage: adaptInaturalistPage,
   },
 };
 

@@ -1,9 +1,8 @@
 /**
  * ALA endpoint constants and the version-controlled field list.
  *
- * Everything here was verified against the live API on 29 Aug 2026, which resolved the open
- * question in the Build Scope about ALA moving services behind an API-key gateway:
- * occurrence *reads* need no key on any of the three live hosts. That may change; it is
+ * Everything here was verified against the live API on 29 Aug 2026: occurrence *reads* need
+ * no key on any of the three live hosts. That may change; it is
  * recorded here with its date so the claim is falsifiable rather than assumed.
  */
 
@@ -83,7 +82,7 @@ export const ALA_REQUESTED_FIELDS = [
   "country",
   "locality",
   "raw_locality",
-  // Free text — the material the LLM arm depends on existing at all
+  // Free text
   "occurrenceRemarks",
   "raw_occurrenceRemarks",
   "eventRemarks",

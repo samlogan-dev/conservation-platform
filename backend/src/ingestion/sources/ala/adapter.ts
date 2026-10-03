@@ -1,4 +1,3 @@
-import { recordTypeOf } from "../../canonical/recordType.ts";
 import type { AdaptedRecord, CanonicalRecord, Provenance } from "../../canonical/record.ts";
 import { Mapper, asInteger, asNumber, asString, isEmpty } from "../../canonical/mapper.ts";
 import { validateRecord } from "../../canonical/validate.ts";
@@ -70,45 +69,41 @@ function epochMillisToIso(value: unknown): string | null {
 /**
  * Register the fields ALA supplies that the canonical record deliberately does not keep.
  *
- * Every reason below was measured against the Stage 1 corpus rather than assumed, and the
- * counts are quoted so they can be re-checked when the harvest widens — most of these become
- * worth keeping the moment a second species or a second state enters the window.
+ * The measured figures below come from the koala/NSW corpus the record was first cut against
+ * (Aug–Sep 2026) and should be re-checked against a many-species harvest; some will stop
+ * holding once the corpus widens.
  */
 function declareExclusions(m: Mapper): void {
   m.exclude(
-    "identical on every record in a single-species harvest — one distinct value across all 2,865",
-    "kingdom", "phylum", "classs", "order", "family", "genus", "species",
-    "taxonRank", "taxonConceptID", "raw_scientificName",
+    "duplicates scientificName / genus at the resolution kept",
+    "species", "raw_scientificName",
   );
-  m.exclude(
-    "constant within this harvest window — restore when the window spans more than one state",
-    "country", "stateProvince", "raw_countryCode",
-  );
+  m.exclude("constant — ALA is an Australian atlas", "country", "raw_countryCode");
   m.exclude("derivable from eventDate", "year", "month");
   m.exclude(
-    "populated on 84.5% but the value is a 1e-9 placeholder, not a measurement",
+    "populated on 84.5% (koala/NSW) but the value is a 1e-9 placeholder, not a measurement",
     "coordinatePrecision",
   );
-  m.exclude("true on 100% of records — no discriminating power", "spatiallyValid");
+  m.exclude("true on 100% of koala/NSW records — no discriminating power seen yet", "spatiallyValid");
   m.exclude(
-    "'Endangered' on 99.9% — a state listing, and constant here. IUCN remains ground truth and is never set from a harvested field",
+    "a state listing; how conservation status is sourced is not yet decided",
     "stateConservation",
   );
   m.exclude(
     "publisher-internal identifiers; the source record id and occurrence id already attribute the record",
     "institutionCode", "raw_institutionCode",
-    "collectionCode", "raw_collectionCode", "catalogNumber", "raw_catalogNumber",
+    "collectionCode", "raw_collectionCode", "catalogNumber", "raw_catalogNumber", "recordNumber",
   );
   m.exclude(
     "coarser duplicate of dataResource / license",
     "dataProviderUid", "dataProviderName", "rights",
   );
-  m.exclude("populated on 25.7% and 2.4% respectively", "sex", "lifeStage");
+  m.exclude("populated on 25.7% and 2.4% respectively (koala/NSW)", "sex", "lifeStage");
   m.exclude(
-    "substantive on 2.5% and 0.03% respectively — too sparse to build on yet",
+    "substantive on 2.5% and 0.03% respectively (koala/NSW) — too sparse to build on yet",
     "habitat", "identificationRemarks",
   );
-  m.exclude("absent from every record in this corpus", "dataGeneralizations", "informationWithheld", "sensitive");
+  m.exclude("absent from every koala/NSW record", "dataGeneralizations", "informationWithheld", "sensitive");
   m.exclude("ALA's own duplicate of basisOfRecord", "raw_basisOfRecord");
   m.exclude("free-text locality already kept as `locality`", "raw_locality");
   m.exclude("ALA's own duplicate of vernacularName", "raw_vernacularName");
@@ -136,8 +131,6 @@ export function adaptAlaRecord(
   const provenance: Provenance = {
     source: "ala",
     sourceRecordId,
-    // Restored in Stage 2: this is the key that joins an ALA record to the same observation at
-    // its originating source.
     occurrenceId: m.map("provenance.occurrenceId", ["occurrenceID"], asString),
     harvestId: context.harvestId,
     snapshotPage: context.snapshotPage,
@@ -145,15 +138,6 @@ export function adaptAlaRecord(
     dataResourceUid: m.map("provenance.dataResourceUid", ["dataResourceUid"], asString),
     dataResourceName: m.map("provenance.dataResourceName", ["dataResourceName"], asString),
     license: m.map("provenance.license", ["license"], asString),
-    /**
-     * Always true for ALA, and not an oversight.
-     *
-     * An aggregator only republishes what its contributors permitted it to republish — anything
-     * reaching us through ALA has already passed that filter. Stage 2 measured the same filter
-     * from the other side: it is why 63% of iNaturalist's koala observations never arrive here
-     * at all. One mechanism, two consequences.
-     */
-    contentRedistributable: true,
   };
 
   const record: CanonicalRecord = {
@@ -162,6 +146,14 @@ export function adaptAlaRecord(
 
     scientificName: m.map("scientificName", ["scientificName"], asString),
     vernacularName: m.map("vernacularName", ["vernacularName"], asString),
+    taxonConceptId: m.map("taxonConceptId", ["taxonConceptID"], asString),
+    taxonRank: m.map("taxonRank", ["taxonRank"], asString),
+    kingdom: m.map("kingdom", ["kingdom"], asString),
+    phylum: m.map("phylum", ["phylum"], asString),
+    taxonClass: m.map("taxonClass", ["classs"], asString, { note: "ALA spells Darwin Core `class` as `classs`" }),
+    order: m.map("order", ["order"], asString),
+    family: m.map("family", ["family"], asString),
+    genus: m.map("genus", ["genus"], asString),
 
     eventDate: m.map("eventDate", ["eventDate"], epochMillisToIso, {
       note: "ALA returns epoch milliseconds; converted to ISO 8601 UTC",
@@ -174,30 +166,17 @@ export function adaptAlaRecord(
       ["coordinateUncertaintyInMeters"],
       asNumber,
     ),
+    stateProvince: m.map("stateProvince", ["stateProvince"], asString),
     locality: m.map("locality", ["locality"], asString),
 
     basisOfRecord: m.map("basisOfRecord", ["basisOfRecord"], asString),
     individualCount: m.map("individualCount", ["individualCount"], asInteger),
-    // Read from the raw fields rather than the mapped ones, so the trace names exactly what
-    // decided it. `recordNumber` is consulted only for BioNet's `WR…` rehabilitation numbers.
-    recordType: m.derive(
-      "recordType",
-      ["dataResourceUid", "basisOfRecord", "recordNumber", "raw_occurrenceRemarks", "occurrenceRemarks"],
-      (v) =>
-        recordTypeOf({
-          dataResourceUid: asString(v["dataResourceUid"]),
-          basisOfRecord: asString(v["basisOfRecord"]),
-          recordNumber: asString(v["recordNumber"]),
-          remarks: asString(v["raw_occurrenceRemarks"] ?? v["occurrenceRemarks"]),
-        }),
-      { note: "specimen and rescue are read from the record's content; otherwise the dataset decides" },
-    ),
     recordedByPseudonym: m.map("recordedByPseudonym", ["recordedBy"], pseudonymiseContributor, {
       note: "ethics pillar 2 — observer identifier replaced with a stable pseudonym; the raw value stays in the snapshot only",
     }),
 
-    // The free text the LLM arm depends on. `raw_occurrenceRemarks` is listed first because it
-    // is the name the value actually arrives under.
+    // `raw_occurrenceRemarks` is listed first because it is the name the value actually
+    // arrives under.
     occurrenceRemarks: m.map(
       "occurrenceRemarks",
       ["raw_occurrenceRemarks", "occurrenceRemarks"],
@@ -210,9 +189,6 @@ export function adaptAlaRecord(
       m.map<string[]>("sourceAssertions", ["assertions"], (value) =>
         Array.isArray(value) ? value.map(String) : null,
       ) ?? [],
-
-    // ALA publishes per-issue assertions but no overall grade for a record.
-    sourceQualityGrade: null,
 
     isValid: true,
   };

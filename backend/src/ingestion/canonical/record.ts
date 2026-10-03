@@ -1,17 +1,14 @@
 /**
- * The canonical internal record.
+ * The canonical internal record — the shape every adapted occurrence is stored in, and the
+ * thing both analysis arms read.
  *
- * Stage 1's actual output. Every source, however bespoke its adapter, emits this shape —
- * without it, cross-source disagreement (a Layer 2 rule) cannot be computed at all.
+ * Vocabulary: Darwin Core term names, which ALA already speaks.
  *
- * Vocabulary: Darwin Core term names, chosen because ALA and GBIF both already speak it, so
- * the mapping work transfers to the next source almost free.
- *
- * **Deliberately narrow (revised 29 Aug 2026).** The first cut carried roughly forty fields,
- * which made every record unreadable without telling anyone anything: thirteen of them held a
- * single distinct value across all 2,865 records — every koala is in Animalia, every record in
- * this window is from 2025 and in New South Wales. What remains is the set an insight could
- * actually be built on.
+ * **Deliberately narrow.** A field is kept when an insight could be built on it. The set was
+ * first cut against a single-species, single-state harvest; as of 3 Oct 2026 the taxonomy
+ * chain and state are back in, because across many species and all of Australia they stop
+ * being constant and become the axes the analysis groups by. Which further fields earn a place
+ * is decided by the practitioner insights, which are not yet settled.
  *
  * Widening this back out is cheap and expected. The raw response is frozen verbatim before any
  * of this is applied, so restoring a field is an edit plus `npm run ingest -- adapt` — about a
@@ -19,8 +16,6 @@
  * the reason, and surface in the record inspector, so the menu of what can come back stays
  * visible rather than becoming folklore.
  */
-
-import type { RecordType } from "./recordType.ts";
 
 /** Where a canonical value came from, and what happened to it on the way. */
 export type FieldStatus =
@@ -64,7 +59,7 @@ export interface MappingTrace {
    * told about, which usually means the source changed.
    */
   unmappedSourceFields: { field: string; value: unknown }[];
-  /** Basic type/required-field failures. Not Layer 1 — see Build Scope. */
+  /** Basic type/required-field failures. */
   validationIssues: ValidationIssue[];
   /** Fields ALA nested inside `otherProperties` and the adapter had to lift out. */
   liftedFromOtherProperties: string[];
@@ -84,13 +79,8 @@ export interface Provenance {
   /** The source's own identifier for this record. Pillar 3 requires it on every row. */
   sourceRecordId: string;
   /**
-   * The publisher's identifier for the observation (dwc:occurrenceID).
-   *
-   * Restored in Stage 2, having been excluded in Stage 1 with the note "needed for
-   * cross-source de-duplication once a second source lands, not before". It is now before:
-   * ALA republishes iNaturalist records with an occurrenceID of
-   * `https://www.inaturalist.org/observations/<id>`, which is the only key that joins the two
-   * corpora. The excluded-fields menu doing its job.
+   * The publisher's identifier for the observation (dwc:occurrenceID) — the key that joins an
+   * ALA record back to the same observation at the dataset that contributed it.
    */
   occurrenceId: string | null;
   /** Which harvest produced this record — joins it back to its frozen snapshot. */
@@ -103,20 +93,6 @@ export interface Provenance {
   dataResourceName: string | null;
   /** Required for attribution in the UI. */
   license: string | null;
-  /**
-   * Whether this record's free text may be republished, as opposed to merely analysed.
-   *
-   * Each adapter answers in its own licensing vocabulary, which is the point: aggregators only
-   * ever publish what they are permitted to publish, so anything arriving via ALA is already
-   * filtered. Fetching a source *directly* bypasses that filter and puts the question back on
-   * this platform — Stage 2 found 63% of iNaturalist's koala observations are All Rights
-   * Reserved and never reach an aggregator at all.
-   *
-   * False does not stop the record being counted, measured or reasoned about; it stops the
-   * contributor's text being served. Enforced at the API boundary alongside coordinate
-   * fuzzing, because that is the point where analysis ends and redistribution begins.
-   */
-  contentRedistributable: boolean;
 }
 
 export interface CanonicalRecord {
@@ -127,6 +103,16 @@ export interface CanonicalRecord {
   // --- What ---
   scientificName: string | null;
   vernacularName: string | null;
+  /** ALA's taxon concept identifier — a stable key for the species across name changes. */
+  taxonConceptId: string | null;
+  taxonRank: string | null;
+  kingdom: string | null;
+  phylum: string | null;
+  /** Darwin Core `class`; ALA calls it `classs`. */
+  taxonClass: string | null;
+  order: string | null;
+  family: string | null;
+  genus: string | null;
 
   // --- When ---
   /** ISO 8601 UTC. ALA returns epoch millis; the conversion is recorded as `derived`. */
@@ -136,54 +122,33 @@ export interface CanonicalRecord {
   decimalLatitude: number | null;
   decimalLongitude: number | null;
   /**
-   * Kept because it is the sharpest data-quality signal in the corpus: it is what exposes
-   * iNaturalist's ~28km obscuring of threatened-species locations as a privacy artefact
-   * rather than an error.
+   * The sharpest data-quality signal in the corpus: it separates a GPS fix from a location a
+   * contributor has deliberately obscured, which threatened species often are.
    */
   coordinateUncertaintyInMeters: number | null;
+  /** Australian state or territory. */
+  stateProvince: string | null;
   locality: string | null;
 
   // --- What was seen ---
-  /** Separates a live observation from a museum specimen — 2,763 vs 102 in this corpus. */
+  /** Separates a live observation from a museum specimen. */
   basisOfRecord: string | null;
   individualCount: number | null;
   /**
-   * The channel the record entered through — government database, public sighting, rescue,
-   * survey, specimen — derived by each adapter from its own fields. Added 2 Oct 2026; see
-   * `recordType.ts` for why this, rather than the source, is the split the portal reads by.
-   */
-  recordType: RecordType;
-  /**
-   * Ethics pillar 2 — an irreversible pseudonym, never the observer's identity. Kept despite
-   * the trim because observer effort is the largest named threat to any density claim this
-   * project makes, and this is the field any effort correction has to be built on.
+   * Ethics pillar 2 — an irreversible pseudonym, never the observer's identity. Kept because
+   * observer effort is the largest named threat to any density claim this project makes, and
+   * this is the field any effort correction has to be built on.
    */
   recordedByPseudonym: string | null;
 
-  // --- Free text: the material the LLM arm depends on existing at all ---
+  // --- Free text ---
   occurrenceRemarks: string | null;
   eventRemarks: string | null;
 
-  /**
-   * The source's own data-quality assertions, kept verbatim and never reinterpreted here.
-   * The baseline a governance layer would eventually be measured against — most of why ALA
-   * was taken first.
-   */
+  /** The source's own data-quality assertions, kept verbatim and never reinterpreted here. */
   sourceAssertions: string[];
 
-  /**
-   * The source's own overall verdict on the record, where it publishes one.
-   *
-   * Distinct from `sourceAssertions`, which are per-issue flags. ALA has no such grade and
-   * leaves this null; iNaturalist publishes `research` / `needs_id` / `casual`. Added in
-   * Stage 2 rather than widening `sourceAssertions`, because a single overall judgement and a
-   * list of specific complaints are different kinds of claim and flattening them together
-   * would lose that — and because Stage 1 found ALA's assertions a weak baseline (four fire on
-   * 100% of records), which makes a real grade worth having its own field.
-   */
-  sourceQualityGrade: string | null;
-
-  /** Did the record pass basic checks. Not a Layer 1 verdict. */
+  /** Did the record pass basic checks. */
   isValid: boolean;
 }
 
@@ -197,7 +162,7 @@ export interface AdaptedRecord {
  * What the store keeps per record: the record and the two counts the list view needs.
  *
  * The full trace is not stored. At ~10 KB per record it was the bulk of the canonical file,
- * and a 77,000-record year would have produced a JSON document too large for Node to parse.
+ * and a large harvest would have produced a JSON document too large for Node to parse.
  * Adapting is deterministic and the raw page is frozen, so the trace for any one record is
  * regenerated on demand by re-adapting the page it came from — which is exactly what the
  * record inspector does.

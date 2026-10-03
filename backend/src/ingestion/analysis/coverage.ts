@@ -1,18 +1,12 @@
 import type { AdaptedRecord, FieldStatus } from "../canonical/record.ts";
 
 /**
- * Corpus analysis: what Stage 1 is actually for.
+ * Corpus analysis: what a harvest actually delivered, field by field.
  *
- * The field-coverage table exists to settle a question the whole LLM arm currently rests on as
- * an assumption — is there enough free text in ALA occurrence records to classify at all? If
- * there is not, that is a finding, and it reorders the sources rather than derailing anything.
- *
- * A plain populated/not-populated count would answer that question wrongly, and this was found
- * empirically rather than reasoned about: `occurrenceRemarks` is populated on ~58% of the
- * Stage 1 window, but sampled values include ",  K2" and "0" alongside "Looks strong and
- * healthy". Presence is not usefulness. So free text is additionally bucketed by substance,
- * and it is the substantive count — not the populated count — that the source-ordering
- * decision should be made on.
+ * A plain populated/not-populated count misleads, and this was found empirically rather than
+ * reasoned about: on the koala/NSW corpus `occurrenceRemarks` was populated on ~58% of
+ * records, but sampled values included ",  K2" and "0" alongside "Looks strong and healthy".
+ * Presence is not usefulness, so free text is additionally bucketed by substance.
  */
 
 export interface FieldCoverage {
@@ -62,11 +56,10 @@ export interface ResourceBreakdown {
   /** Free-text substance within this resource — where the usable text actually comes from. */
   substantiveRemarks: number;
   /**
-   * Coordinate uncertainty in metres, where supplied.
-   *
-   * Both are reported because the mean alone misleads: iNaturalist's distribution is bimodal —
-   * a median of 16m (phone GPS) alongside a tail at ~28km where threatened-species locations
-   * are deliberately obscured. The mean lands at ~3,656m, describing neither group.
+   * Coordinate uncertainty in metres, where supplied. Both are reported because the mean
+   * alone misleads: where threatened-species locations are deliberately obscured the
+   * distribution is bimodal — phone-GPS metres alongside a tail of tens of kilometres — and
+   * the mean describes neither group.
    */
   meanCoordinateUncertainty: number | null;
   medianCoordinateUncertainty: number | null;
@@ -133,7 +126,7 @@ const median = (values: number[]): number => {
 /**
  * Incremental corpus analysis: records are added one at a time as they are adapted and the
  * summary is produced at the end. Accumulating rather than taking the whole corpus at once is
- * what lets a year of 77,000 records be analysed without ever holding its traces in memory.
+ * what lets a large harvest be analysed without ever holding its traces in memory.
  */
 export class CorpusAnalyser {
   private total = 0;

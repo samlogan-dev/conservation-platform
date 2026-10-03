@@ -3,14 +3,7 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import "dotenv/config";
 
-import { userRoutes } from "./routes/user_routes.ts";
-import { corpusRoutes } from "./routes/corpus_routes.ts";
-import { syncRoutes } from "./routes/sync_routes.ts";
-import { portalRoutes } from "./routes/portal_routes.ts";
-import { SURFACES } from "./surfaces.ts";
-
-// strict: false so `/api/users` and `/api/users/` both match — the frontend
-// API client calls the trailing-slash form.
+// strict: false so `/api/x` and `/api/x/` both match.
 const app = new Hono({ strict: false });
 
 // --- CORS ---
@@ -32,21 +25,9 @@ app.use(
 );
 
 // --- Routes ---
-app.route("/api/users", userRoutes);
-
-// The practitioner portal: read-only, addressed by species, region and window.
-app.route("/api/portal", portalRoutes);
-
-// The researcher console: run-by-run views over harvested runs, and the Run page that starts
-// a harvest on an explicit POST and follows it live. Not mounted at all when switched off.
-if (SURFACES.consoleEnabled) {
-  app.route("/api/console/corpus", corpusRoutes);
-  app.route("/api/console/sync", syncRoutes);
-} else {
-  console.log("Console routes disabled (CONSOLE_ENABLED=false) — serving the portal only.");
-}
-
-app.get("/", (c) => c.json({ message: "Hello World" }));
+// None yet beyond the health check. The analysis and portal routes are rebuilt around the
+// practitioner insights once those are defined; ingestion runs from the CLI meanwhile.
+app.get("/", (c) => c.json({ status: "ok" }));
 
 // --- Server ---
 const port = Number(process.env.PORT) || 8000;

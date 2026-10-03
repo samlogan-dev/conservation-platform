@@ -8,14 +8,14 @@ import type { StoredRecord } from "./canonical/record.ts";
  * Re-adapt a frozen snapshot into canonical records.
  *
  * Deliberately a separate step from harvesting, and this is the payoff for freezing raw
- * responses: when the canonical shape changes — which Stage 1 expects more than once — the
- * schema is re-derived from disk in seconds, with no network traffic and no new load on ALA.
+ * responses: when the canonical shape changes — which is expected more than once — the
+ * schema is re-derived from disk in seconds, with no network traffic and no new load on the source.
  * The corpus stays byte-identical across schema revisions, so a change in the output is
  * attributable to the adapter rather than to the source having moved underneath it.
  *
  * Pages are processed one at a time and only the slim record is kept; the trace feeds the
- * corpus analysis as it goes and is then dropped. That is what lets a 77,000-record year be
- * adapted in a bounded amount of memory.
+ * corpus analysis as it goes and is then dropped. That is what lets a large harvest be adapted
+ * in a bounded amount of memory.
  */
 export interface AdaptSummary {
   harvestKey: string;

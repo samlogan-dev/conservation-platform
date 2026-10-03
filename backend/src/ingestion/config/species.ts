@@ -1,12 +1,11 @@
 /**
  * The species registry.
  *
- * Working set as of 29 Aug 2026, chosen so each exercises a different mechanism rather than
- * being three instances of one. All three are provisional and none survives a record count
- * that comes back too thin — rationale in CLAUDE.md.
- *
- * Only the Koala is harvested in Stage 1. The other two are listed because the registry is
- * the right place for them and listing them costs nothing; nothing reads them yet.
+ * The project now covers as many Australian threatened species as ALA holds good data for,
+ * and which species — and whether they are listed here one by one or selected by a query
+ * such as a conservation-status filter — is not yet decided. The entries below are ALA taxon
+ * names already verified against the live API, kept so the pipeline can be exercised end to
+ * end; they are not a working set.
  */
 export interface Species {
   key: string;
@@ -14,8 +13,6 @@ export interface Species {
   vernacularName: string;
   /** Exactly as ALA's `taxon_name` index expects it. Verified against the live API. */
   alaTaxonName: string;
-  /** iNaturalist numeric taxon id. Verified against /v1/taxa on 29 Aug 2026. */
-  inatTaxonId?: number;
 }
 
 export const SPECIES: Record<string, Species> = {
@@ -24,7 +21,6 @@ export const SPECIES: Record<string, Species> = {
     scientificName: "Phascolarctos cinereus",
     vernacularName: "Koala",
     alaTaxonName: "Phascolarctos cinereus",
-    inatTaxonId: 42983,
   },
   greyHeadedFlyingFox: {
     key: "greyHeadedFlyingFox",

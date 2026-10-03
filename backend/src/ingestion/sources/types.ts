@@ -54,16 +54,16 @@ export interface AdaptContext {
 
 /**
  * What a source has to provide. Two functions: fetch and freeze, then turn frozen bytes into
- * canonical records. Everything else — rate limiting, snapshot layout, storage, analysis, the
- * views — is shared, which is the claim Stage 2 exists to test.
+ * canonical records. Everything else — rate limiting, snapshot layout, storage, analysis — is
+ * shared.
  */
 export interface SourceModule {
   key: string;
   label: string;
   /**
    * Top-level key of a frozen page body under which the record array sits — `occurrences`
-   * for ALA, `results` for iNaturalist. Declared here so the read layer and the raw-data view
-   * can find records in a page without knowing which source produced it.
+   * for ALA. Declared here so a reader can find records in a page without knowing which
+   * source produced it.
    */
   recordsKey: string;
   /** Field on a raw record that `provenance.sourceRecordId` was taken from. */

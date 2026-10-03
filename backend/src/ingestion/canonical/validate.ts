@@ -3,11 +3,9 @@ import type { CanonicalRecord, ValidationIssue } from "./record.ts";
 /**
  * Basic type and required-field checking, which happens naturally as part of adapting.
  *
- * This is deliberately NOT Layer 1 (schema conformance) and must not be mistaken for it —
- * Stage 1 excludes the evaluation layers on purpose. There is no rule registry here, no
- * severity policy, no trigger-rate reporting. It exists so the adapter can say which records
- * came out unusable and why, which the record inspector needs in order to show a mapping that
- * failed rather than one that silently produced null.
+ * Deliberately minimal: no rule registry, no severity policy, no trigger-rate reporting. It
+ * exists so the adapter can say which records came out unusable and why, rather than letting
+ * a failed mapping silently produce null.
  */
 
 /**

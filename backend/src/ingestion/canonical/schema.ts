@@ -3,9 +3,8 @@ import type { CanonicalRecord } from "./record.ts";
 /**
  * The canonical schema, declared as data rather than left implicit in the TypeScript types.
  *
- * Stage 1's stated output is the schema, not the records — so it should be a thing the
- * platform can show, check against and version, not something a reader has to reconstruct by
- * reading interfaces. The types still enforce it at compile time; this describes it at runtime.
+ * The schema should be a thing the platform can show, check against and version, not
+ * something a reader has to reconstruct by reading interfaces. The types still enforce it at compile time; this describes it at runtime.
  */
 
 export type FieldType =
@@ -65,16 +64,23 @@ export const CANONICAL_SCHEMA: SchemaGroup[] = [
       { path: "provenance.dataResourceUid", type: "string", required: false, description: "The contributing dataset inside the source.", sourceFields: ["dataResourceUid"] },
       { path: "provenance.dataResourceName", type: "string", required: false, description: "Human-readable name of that dataset.", sourceFields: ["dataResourceName"] },
       { path: "provenance.license", type: "string", required: false, description: "Licence the record is published under.", sourceFields: ["license"] },
-      { path: "provenance.contentRedistributable", type: "boolean", required: true, description: "Whether the contributor's text may be republished, as opposed to only analysed. False withholds the text at the API boundary.", sourceFields: ["license_code"] },
     ],
   },
   {
     key: "taxon",
     label: "What was seen",
-    description: "The species. Narrow by design — the full taxonomy chain is identical on every record in a single-species harvest.",
+    description: "The taxon, with the classification chain the analysis groups species by.",
     fields: [
       { path: "scientificName", type: "string", required: true, description: "Binomial name.", sourceFields: ["scientificName"] },
       { path: "vernacularName", type: "string", required: false, description: "Common name.", sourceFields: ["vernacularName"] },
+      { path: "taxonConceptId", type: "string", required: false, description: "ALA's taxon concept identifier — stable across name changes.", sourceFields: ["taxonConceptID"] },
+      { path: "taxonRank", type: "string", required: false, description: "Rank the record was matched at (species, subspecies, genus…).", sourceFields: ["taxonRank"] },
+      { path: "kingdom", type: "string", required: false, description: "Kingdom.", sourceFields: ["kingdom"] },
+      { path: "phylum", type: "string", required: false, description: "Phylum.", sourceFields: ["phylum"] },
+      { path: "taxonClass", type: "string", required: false, description: "Class. ALA spells it `classs`.", sourceFields: ["classs"] },
+      { path: "order", type: "string", required: false, description: "Order.", sourceFields: ["order"] },
+      { path: "family", type: "string", required: false, description: "Family.", sourceFields: ["family"] },
+      { path: "genus", type: "string", required: false, description: "Genus.", sourceFields: ["genus"] },
     ],
   },
   {
@@ -105,6 +111,7 @@ export const CANONICAL_SCHEMA: SchemaGroup[] = [
         description: "Radius the true position could fall within. The sharpest quality signal in the corpus — it is what distinguishes a GPS fix from a deliberately obscured location.",
         sourceFields: ["coordinateUncertaintyInMeters"],
       },
+      { path: "stateProvince", type: "string", required: false, description: "Australian state or territory.", sourceFields: ["stateProvince"] },
       { path: "locality", type: "string", required: false, description: "Free-text place description.", sourceFields: ["locality"] },
     ],
   },
@@ -115,13 +122,6 @@ export const CANONICAL_SCHEMA: SchemaGroup[] = [
     fields: [
       { path: "basisOfRecord", type: "string", required: false, description: "Live observation vs preserved museum specimen.", sourceFields: ["basisOfRecord"] },
       { path: "individualCount", type: "integer", required: false, description: "Animals reported. Not a survey count.", sourceFields: ["individualCount"] },
-      {
-        path: "recordType",
-        type: "string",
-        required: true,
-        description: "The channel the record entered through: government_database, public_sighting, rescue_rehab, survey_research, specimen or other. Derived from the dataset, the basis of record, rehab record numbers and encounter codes.",
-        sourceFields: ["dataResourceUid", "basisOfRecord", "recordNumber", "raw_occurrenceRemarks"],
-      },
       {
         path: "recordedByPseudonym",
         type: "string",
@@ -134,7 +134,7 @@ export const CANONICAL_SCHEMA: SchemaGroup[] = [
   {
     key: "freeText",
     label: "Free text",
-    description: "The unstructured material the LLM arm depends on existing at all.",
+    description: "The contributor's unstructured notes.",
     fields: [
       {
         path: "occurrenceRemarks",
@@ -155,11 +155,10 @@ export const CANONICAL_SCHEMA: SchemaGroup[] = [
         path: "sourceAssertions",
         type: "string[]",
         required: true,
-        description: "The source's own data-quality flags. The baseline a governance layer would be measured against.",
+        description: "The source's own data-quality flags.",
         sourceFields: ["assertions"],
       },
-      { path: "sourceQualityGrade", type: "string", required: false, description: "The source's own overall verdict on the record, where it publishes one. ALA has none; iNaturalist grades research / needs_id / casual.", sourceFields: ["quality_grade"] },
-      { path: "isValid", type: "boolean", required: true, description: "Passed the basic checks. Not a Layer 1 verdict." },
+      { path: "isValid", type: "boolean", required: true, description: "Passed the basic checks." },
     ],
   },
 ];

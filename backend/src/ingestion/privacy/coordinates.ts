@@ -2,15 +2,10 @@
  * Ethics pillar 4 — ecological protection: never expose high-precision GPS for
  * poacher-sensitive species.
  *
- * Where fuzzing applies was left open in the Build Scope. Decided here, 29 Aug 2026, for
- * Stage 1: **fuzz at the API boundary, store precise.**
- *
- * The reasoning is that fuzzing at ingestion is irreversible and would destroy the very thing
- * Stage 1 is trying to measure — coordinate precision is one of the fields whose coverage and
- * variability the stage exists to report on, and a Layer 1 check on "coordinate precision
- * within the fuzzing policy" cannot be written against already-fuzzed coordinates. Storing
- * precise and fuzzing on the way out keeps both properties: nothing precise leaves the
- * backend, and the precise value remains available to the checks that need it.
+ * Decided 29 Aug 2026: **fuzz at the API boundary, store precise.** Fuzzing at ingestion is
+ * irreversible and would destroy coordinate precision as something the analysis can measure;
+ * storing precise and fuzzing on the way out keeps both properties — nothing precise leaves
+ * the backend, and the precise value remains available to the checks that need it.
  *
  * The trade-off, recorded honestly: this puts the guarantee in the serialisation layer rather
  * than in the datastore, so it holds only as long as every response path applies it. That is
