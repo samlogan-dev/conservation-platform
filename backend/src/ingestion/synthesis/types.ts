@@ -1,6 +1,6 @@
 /**
- * AI analysis (page 5): one model call per species, region and window, over the numbers the
- * Statistics and Insights pages already compute — never over records or free text.
+ * AI analysis: one model call per species, region and window, over the numbers the
+ * Sources and Insights pages already compute — never over records or free text.
  *
  * The model is given an *evidence pack*: a flat list of named metrics with ids. It answers
  * through a tool schema, citing metric ids, and everything it says is checked back against

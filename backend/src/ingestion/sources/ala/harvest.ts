@@ -88,6 +88,8 @@ export async function runAlaHarvest(
   options: HarvestOptions = {},
 ): Promise<HarvestResult> {
   const log = options.onProgress ?? (() => {});
+  const emit = options.onEvent ?? (() => {});
+  const checkpoint = () => options.signal?.throwIfAborted();
   const species = SPECIES[harvest.speciesKey];
   const region = REGIONS[harvest.regionKey];
   if (!species) throw new Error(`unknown species key: ${harvest.speciesKey}`);
@@ -111,10 +113,13 @@ export async function runAlaHarvest(
 
   log(`harvest ${harvest.key} (run ${runId})`);
   log(`  query: ${baseQuery.q} | ${baseQuery.fq.join(" | ")}`);
+  emit({ type: "started", harvestKey: harvest.key, runId, source: "ala", query: baseQuery });
 
+  checkpoint();
   const expectedTotal = await countRecords(baseQuery);
   requestCount++;
   log(`  window total: ${expectedTotal} records`);
+  emit({ type: "counted", expectedRecords: expectedTotal });
 
   // --- Partition until every slice is provably under the reachable cap ---
   const queue = sliceByMonth(harvest.startDate, harvest.endDate);
@@ -126,6 +131,7 @@ export async function runAlaHarvest(
       q: baseQuery.q,
       fq: [stateFilter(region.alaStateProvince), eventDateFilter(slice.startDate, slice.endDate)],
     };
+    checkpoint();
     const count = await countRecords(sliceQuery);
     requestCount++;
 
@@ -133,6 +139,12 @@ export async function runAlaHarvest(
       const halves = bisect(slice);
       if (halves) {
         log(`  slice ${slice.key}: ${count} over limit — splitting`);
+        emit({
+          type: "slice-split",
+          sliceKey: slice.key,
+          expectedRecords: count,
+          into: [halves[0].key, halves[1].key],
+        });
         queue.unshift(...halves);
         continue;
       }
@@ -144,6 +156,7 @@ export async function runAlaHarvest(
           `Records beyond the cap are unreachable and this run is incomplete.`,
       );
     }
+    emit({ type: "slice-planned", sliceKey: slice.key, expectedRecords: count });
     if (count > 0) planned.push({ ...slice, count });
   }
 
@@ -167,6 +180,7 @@ export async function runAlaHarvest(
 
     for (let startIndex = 0; startIndex < reachable; startIndex += ALA_MAX_PAGE_SIZE) {
       const pageSize = Math.min(ALA_MAX_PAGE_SIZE, ALA_MAX_REACHABLE_OFFSET - startIndex);
+      checkpoint();
       const result = await fetchPage(sliceQuery, startIndex, pageSize);
       requestCount++;
 
@@ -174,7 +188,7 @@ export async function runAlaHarvest(
       const parsed = JSON.parse(result.body) as { occurrences?: unknown[] };
       const recordCount = parsed.occurrences?.length ?? 0;
 
-      await writer.writePage(
+      const page = await writer.writePage(
         {
           sliceKey: slice.key,
           startIndex,
@@ -188,6 +202,7 @@ export async function runAlaHarvest(
         },
         result.body,
       );
+      emit({ type: "page", page });
 
       retrieved += recordCount;
       pages++;
@@ -219,6 +234,7 @@ export async function runAlaHarvest(
       pages,
     });
     retrievedTotal += retrieved;
+    emit({ type: "slice-done", sliceKey: slice.key, expectedRecords: slice.count, retrievedRecords: retrieved });
     log(`  slice ${slice.key}: ${retrieved}/${slice.count} in ${pages} page(s)`);
   }
 
@@ -252,6 +268,16 @@ export async function runAlaHarvest(
   };
 
   await writer.writeManifest(manifest);
+  emit({
+    type: "harvested",
+    complete,
+    expectedRecords: expectedTotal,
+    retrievedRecords: retrievedTotal,
+    corpusHash: manifest.corpusHash,
+    requestCount,
+    durationMs: manifest.durationMs,
+    warnings,
+  });
   log(
     `  done: ${retrievedTotal}/${expectedTotal} records, ${requestCount} requests, ` +
       `corpus ${manifest.corpusHash.slice(0, 12)}, complete=${complete}`,

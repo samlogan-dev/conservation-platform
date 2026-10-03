@@ -8,7 +8,7 @@ import { bytes, num, pct, sourceLabel } from '@/lib/format'
 /**
  * The essentials of one source's run, collapsed to a line of chips until opened. Sits on the
  * Schema page above the tables, because that page is the one that is scoped to a single run;
- * the Statistics and Insights pages read across every source instead.
+ * the Harvest page and the portal read across every source instead.
  */
 const props = defineProps<{
   manifest: Manifest

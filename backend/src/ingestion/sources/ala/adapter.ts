@@ -1,3 +1,4 @@
+import { recordTypeOf } from "../../canonical/recordType.ts";
 import type { AdaptedRecord, CanonicalRecord, Provenance } from "../../canonical/record.ts";
 import { Mapper, asInteger, asNumber, asString, isEmpty } from "../../canonical/mapper.ts";
 import { validateRecord } from "../../canonical/validate.ts";
@@ -95,7 +96,7 @@ function declareExclusions(m: Mapper): void {
   );
   m.exclude(
     "publisher-internal identifiers; the source record id and occurrence id already attribute the record",
-    "recordNumber", "institutionCode", "raw_institutionCode",
+    "institutionCode", "raw_institutionCode",
     "collectionCode", "raw_collectionCode", "catalogNumber", "raw_catalogNumber",
   );
   m.exclude(
@@ -177,6 +178,20 @@ export function adaptAlaRecord(
 
     basisOfRecord: m.map("basisOfRecord", ["basisOfRecord"], asString),
     individualCount: m.map("individualCount", ["individualCount"], asInteger),
+    // Read from the raw fields rather than the mapped ones, so the trace names exactly what
+    // decided it. `recordNumber` is consulted only for BioNet's `WR…` rehabilitation numbers.
+    recordType: m.derive(
+      "recordType",
+      ["dataResourceUid", "basisOfRecord", "recordNumber", "raw_occurrenceRemarks", "occurrenceRemarks"],
+      (v) =>
+        recordTypeOf({
+          dataResourceUid: asString(v["dataResourceUid"]),
+          basisOfRecord: asString(v["basisOfRecord"]),
+          recordNumber: asString(v["recordNumber"]),
+          remarks: asString(v["raw_occurrenceRemarks"] ?? v["occurrenceRemarks"]),
+        }),
+      { note: "specimen and rescue are read from the record's content; otherwise the dataset decides" },
+    ),
     recordedByPseudonym: m.map("recordedByPseudonym", ["recordedBy"], pseudonymiseContributor, {
       note: "ethics pillar 2 — observer identifier replaced with a stable pseudonym; the raw value stays in the snapshot only",
     }),

@@ -5,6 +5,9 @@ import "dotenv/config";
 
 import { userRoutes } from "./routes/user_routes.ts";
 import { corpusRoutes } from "./routes/corpus_routes.ts";
+import { syncRoutes } from "./routes/sync_routes.ts";
+import { portalRoutes } from "./routes/portal_routes.ts";
+import { SURFACES } from "./surfaces.ts";
 
 // strict: false so `/api/users` and `/api/users/` both match — the frontend
 // API client calls the trailing-slash form.
@@ -30,8 +33,18 @@ app.use(
 
 // --- Routes ---
 app.route("/api/users", userRoutes);
-// Read-only views over harvested runs. Harvesting itself stays in the CLI.
-app.route("/api/corpus", corpusRoutes);
+
+// The practitioner portal: read-only, addressed by species, region and window.
+app.route("/api/portal", portalRoutes);
+
+// The researcher console: run-by-run views over harvested runs, and the Run page that starts
+// a harvest on an explicit POST and follows it live. Not mounted at all when switched off.
+if (SURFACES.consoleEnabled) {
+  app.route("/api/console/corpus", corpusRoutes);
+  app.route("/api/console/sync", syncRoutes);
+} else {
+  console.log("Console routes disabled (CONSOLE_ENABLED=false) — serving the portal only.");
+}
 
 app.get("/", (c) => c.json({ message: "Hello World" }));
 

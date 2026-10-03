@@ -16,10 +16,11 @@ import type {
   TextRows,
 } from "./corpusTypes";
 
-const base = (harvestKey: string, runId: string) => `/corpus/${harvestKey}/${runId}`;
+// The console's run-scoped API. The portal reads the same families through portalAPI.ts.
+const base = (harvestKey: string, runId: string) => `/console/corpus/${harvestKey}/${runId}`;
 
 export const listHarvestsAPI = async (): Promise<Harvest[]> =>
-  (await apiClient.get("/corpus/harvests")).data;
+  (await apiClient.get("/console/corpus/harvests")).data;
 
 export const getManifestAPI = async (harvestKey: string, runId: string): Promise<Manifest> =>
   (await apiClient.get(`${base(harvestKey, runId)}/manifest`)).data;

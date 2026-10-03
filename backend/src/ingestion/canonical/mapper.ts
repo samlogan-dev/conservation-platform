@@ -112,6 +112,34 @@ export class Mapper {
     return canonicalValue;
   }
 
+  /**
+   * Compute a canonical value from several source fields at once, and record which were read.
+   *
+   * `map` takes the first populated field; a derived classification needs all of its inputs,
+   * so it gets its own entry point. The trace shows every input that was populated, and the
+   * status is always `derived`, so the inspector never presents a computed value as carried.
+   */
+  derive<T>(
+    canonicalField: string,
+    sourceFields: string[],
+    compute: (values: Record<string, unknown>) => T,
+    options?: { note?: string },
+  ): T {
+    for (const f of sourceFields) this.consumed.add(f);
+    const values: Record<string, unknown> = {};
+    for (const f of sourceFields) if (f in this.raw && !isEmpty(this.raw[f])) values[f] = this.raw[f];
+    const canonicalValue = compute(values);
+    this.traces.push({
+      canonicalField,
+      sourceFields,
+      rawValue: values,
+      canonicalValue,
+      status: "derived",
+      note: options?.note,
+    });
+    return canonicalValue;
+  }
+
   getTraces(): FieldTrace[] {
     return this.traces;
   }

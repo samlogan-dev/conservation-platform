@@ -28,6 +28,8 @@ export async function runInaturalistHarvest(
   options: HarvestOptions = {},
 ): Promise<HarvestResult> {
   const log = options.onProgress ?? (() => {});
+  const emit = options.onEvent ?? (() => {});
+  const checkpoint = () => options.signal?.throwIfAborted();
   const species = SPECIES[harvest.speciesKey];
   const region = REGIONS[harvest.regionKey];
   if (!species) throw new Error(`unknown species key: ${harvest.speciesKey}`);
@@ -53,12 +55,21 @@ export async function runInaturalistHarvest(
 
   log(`harvest ${harvest.key} (run ${runId})`);
   log(`  query: taxon_id=${query.taxonId} place_id=${query.placeId} ${query.d1}..${query.d2}`);
+  const recordedQuery = {
+    q: `taxon_id:${query.taxonId}`,
+    fq: [`place_id:${query.placeId}`, `observed:[${query.d1} TO ${query.d2}]`],
+  };
+  emit({ type: "started", harvestKey: harvest.key, runId, source: "inaturalist", query: recordedQuery });
 
+  checkpoint();
   const expectedTotal = await countObservations(query);
   requestCount++;
   log(`  window total: ${expectedTotal} observations`);
+  emit({ type: "counted", expectedRecords: expectedTotal });
 
   const sliceKey = `${harvest.startDate}_${harvest.endDate}`;
+  // No partition is needed here (see above), so the whole window is the one slice.
+  emit({ type: "slice-planned", sliceKey, expectedRecords: expectedTotal });
   let cursor = 0;
   let retrieved = 0;
   let pages = 0;
@@ -69,6 +80,7 @@ export async function runInaturalistHarvest(
   const maxPages = Math.ceil(expectedTotal / INAT_MAX_PER_PAGE) + 5;
 
   while (pages < maxPages) {
+    checkpoint();
     const result = await fetchPage(query, cursor);
     requestCount++;
 
@@ -76,7 +88,7 @@ export async function runInaturalistHarvest(
     const records = parsed.results ?? [];
     if (records.length === 0) break;
 
-    await writer.writePage(
+    const page = await writer.writePage(
       {
         sliceKey,
         // The cursor stands in for the offset — the manifest records where the page began,
@@ -92,6 +104,7 @@ export async function runInaturalistHarvest(
       },
       result.body,
     );
+    emit({ type: "page", page });
 
     for (const r of records) {
       if (seenIds.has(r.id)) {
@@ -105,6 +118,8 @@ export async function runInaturalistHarvest(
     cursor = records[records.length - 1]!.id;
     log(`  page ${pages}: ${records.length} records (cursor now ${cursor})`);
   }
+
+  emit({ type: "slice-done", sliceKey, expectedRecords: expectedTotal, retrievedRecords: retrieved });
 
   if (retrieved !== expectedTotal) {
     warnings.push(`expected ${expectedTotal} observations but retrieved ${retrieved}`);
@@ -135,10 +150,7 @@ export async function runInaturalistHarvest(
     description: harvest.description,
     source: "inaturalist",
     baseUrl: INAT_BASE_URL,
-    query: {
-      q: `taxon_id:${query.taxonId}`,
-      fq: [`place_id:${query.placeId}`, `observed:[${query.d1} TO ${query.d2}]`],
-    },
+    query: recordedQuery,
     // iNaturalist returns its whole record; there is no field-selection parameter to record.
     requestedFields: [],
     politeness: {
@@ -159,6 +171,16 @@ export async function runInaturalistHarvest(
   };
 
   await writer.writeManifest(manifest);
+  emit({
+    type: "harvested",
+    complete: manifest.complete,
+    expectedRecords: expectedTotal,
+    retrievedRecords: retrieved,
+    corpusHash: manifest.corpusHash,
+    requestCount,
+    durationMs: manifest.durationMs,
+    warnings,
+  });
   log(
     `  done: ${retrieved}/${expectedTotal} records, ${requestCount} requests, ` +
       `corpus ${manifest.corpusHash.slice(0, 12)}, complete=${manifest.complete}`,

@@ -23,8 +23,8 @@ platform/
 
 ## Ingestion
 
-Harvesting is a CLI job, not an HTTP route — it is rate-limited traffic against someone else's
-service and should not be triggerable by a page refresh.
+Harvesting runs from the CLI, or from the console's Run page on an explicit button press — it is
+rate-limited traffic against someone else's service and is never triggered by a page load.
 
 ```bash
 cd backend
@@ -112,23 +112,72 @@ appear in both views as a menu rather than vanishing. Restoring one is an edit p
 `npm run ingest -- adapt` — about a second, no new API traffic — because the raw responses are
 frozen.
 
-### The five views
+### Two surfaces: the portal and the console
 
-In pipeline order — what the source sent, how it is stored, the numbers, what the numbers mean,
-and what the model makes of them. Pages 1 and 2 are scoped to the run selected in the header
-strip. Pages 3, 4 and 5 read across **every source fetched for the same species, region and
-window** (the run's "family"), so they say the same thing whichever source is selected, and the
-strip shows the scope and one chip per source instead of one run.
+The frontend is one app with two route groups, each with its own layout, over the same backend
+data. They are split by reader, not by technology.
 
-1. **Raw data** (`/`) — every API call in the run, each response frozen verbatim and shown as
-   read-only JSON with line numbers. Request metadata sits above it: status, size, timing,
-   retry count, sha256, and the exact URL. A 100-record response is ~6,000 lines, so there is a
-   whole-response / one-record toggle.
-2. **Schema** (`/schema`) — the data as the database holds it, laid out like a table editor:
-   one tab per table, one row per record, one column per field with its declared type in the
-   header and `NULL` shown as `NULL`. `sightings` is the table the pipeline fills;
+**The portal** (`/`) is for the practitioner. It reads the current picture by species, region
+and **window** — never by run — and reads each window as **one merged corpus**: the newest run of
+every source, de-duplicated, so a sighting held by two sources is counted once. Nothing in the
+portal is split by source. Where a split changes how a figure should be read, it is by **record
+type** instead (below). The window is in the URL
+(`?window=koala__nsw__2025-01-01__2025-12-31`), so a view can be bookmarked or sent on. The strip
+under the header names the run behind every source, and when the console is enabled, each has a
+*trace* link that opens that run's records in the console: "clean" here means checked and
+annotated, not filtered. The portal never writes: no harvest, no model call, no raw response.
+
+1. **Overview** (`/`) — every calendar year for the species and region: the most recent full
+   year as four figures (distinct sightings, animals that came into care, the share of other
+   sightings describing a sick, injured or dead koala, the threat named most) and one line on
+   what joining the sources adds (2025: 609 sightings held only by iNaturalist); sightings per
+   year as small multiples — all distinct sightings, then government database, public sighting
+   and rescue & rehab, each on its own scale; the condition rate per record type, **outside
+   rescue records**; threats named per year, with the rescue/other split on hover; and every
+   figure per year in a table. Text figures come from the one classifier that has read every
+   year, so a trend is not a change of classifier.
+2. **Sources** (`/sources`) — for one window: what joining the sources adds (each source's
+   sightings, how many another source also holds, how many only it holds); kinds of record, with
+   each type's remarks, condition rate and top threats; every contributing dataset after
+   de-duplication, with the kinds of record it supplied; quality flags per source vocabulary.
+   Flags are shown, never used to hide a record.
+3. **AI analysis** (`/analysis`) — the stored model reading of the window, read-only, with the
+   evidence it was given and every failed check marked. A window with none says so and links to
+   the console, where it is generated. See **AI analysis** below.
+
+**Record types** (`canonical/recordType.ts`, a canonical field since 2 Oct 2026) are the channel a
+record entered through, derived by each adapter: *government database* (NSW BioNet, the Victorian
+atlas), *public sighting* (iNaturalist, NatureMapr, community koala registers, ALA's own app),
+*rescue & rehab* (BioNet `WR…` rehabilitation numbers, "Encounter broad:" codes, WIRES call
+sheets — read from the record's content, whichever dataset carries it), *survey or research*,
+*museum specimen*, and *other* for a dataset not yet assigned. Rescue is split out because those
+records describe sick animals by construction: blended in, they make the condition rate a measure
+of how much rehabilitation data was loaded (2024: 13% with them, 4% without). BioNet's own API
+separates acoustic, drone, licensed and public-app records; ALA's copy does not, so the rest of
+BioNet stays together as one type.
+
+**The merged corpus** (`ingestion/union/`) joins on `provenance.occurrenceId`, the same key the
+console's cross-source comparison uses, and keeps the copy from the source the observation
+originated at. It needs every record loaded, so each window's summary is computed once and stored
+in `data/derived/union/`, naming the runs and classifier passes it was built from; a new run or
+classifier pass is picked up the next time it is asked for. `npm run ingest -- union` builds them
+all ahead of time (about two seconds for twelve years).
+
+**The console** (`/console`) is for the researcher and the examiner: one run at a time, in
+pipeline order, plus the two things that act. Raw data and Schema are scoped to the run selected
+in the header strip; Harvest, Insights and AI analysis read across **every source fetched for the same
+species, region and window** (the run's "family"), and the strip shows the scope and one chip per
+source instead. `?harvest=…&run=…` selects a run on arrival, which is how the portal links in.
+
+1. **Raw data** (`/console`) — every API call in the run, each response frozen verbatim and
+   shown as read-only JSON with line numbers. Request metadata sits above it: status, size,
+   timing, retry count, sha256, and the exact URL. A 100-record response is ~6,000 lines, so
+   there is a whole-response / one-record toggle.
+2. **Schema** (`/console/schema`) — the data as the database holds it, laid out like a table
+   editor: one tab per table, one row per record, one column per field with its declared type in
+   the header and `NULL` shown as `NULL`. `sightings` is the table the pipeline fills;
    `snapshot_pages` and `harvest_runs` are what its provenance columns point at, so the chain
-   back to page 1 reads as foreign keys. A missing required value or a wrong type is tinted in
+   back to Raw data reads as foreign keys. A missing required value or a wrong type is tinted in
    the grid; fuzzed coordinates carry a `≈`; withheld text says so. Opening a row shows the
    record by schema group with both kinds of check kept distinct — **structural** (is the field
    present, is it the declared type) as per-field badges, **semantic** (is the date in the
@@ -138,32 +187,36 @@ strip shows the scope and one chip per source instead of one run.
    Above the tables, "About this source" is a collapsed panel holding the selected run's own
    essentials: what was fetched and whether it all arrived (slices, reconciliation, hash),
    the datasets inside the source, its free-text bands and its quality flags.
-3. **Statistics** (`/statistics`) — the numbers across every source, described and not
-   interpreted: one overview row per source; sightings by source, with how many each holds
-   alone and how many are the same sighting seen twice; every contributing dataset across
-   every source; free text per source and combined; quality flags side by side.
-4. **Insights** (`/insights`) — what the numbers mean, one question per card with a verdict and
-   the evidence under it: how much of a primary source reaches the aggregator and why the rest
-   does not, whether content survives the trip, whether coordinate obscuring survives the trip,
-   whether there is enough text for an LLM, which datasets carry the text, how precisely each
-   source locates sightings, whether each source's own flags discriminate anything. All computed
-   from the family and the joins between its members; no model output.
-5. **AI analysis** (`/analysis`) — the model's reading of pages 3 and 4. The family's numbers
-   are flattened into an *evidence pack* — a few hundred named metrics with ids, nothing per
-   record, no text, no coordinates — and a frontier-tier model is asked what matters most to a
-   practitioner and to state each insight's essence. The answer comes back through a tool
-   schema citing metric ids, and the server checks it before storing it: every cited id must
-   exist, and every number in the prose must be a value in the pack or a difference or ratio of
-   two cited values. What fails is shown on the card as unverified, not hidden. One call per
-   family, on a button press only, cached on disk with the evidence hash so a new run or a new
-   classifier pass shows as "numbers have changed" rather than as a silently stale report. The
-   whole pack the model was given is on the page. See **AI analysis** below.
+3. **Harvest** (`/console/harvest`) — how each source's fetch went for the window: records
+   retrieved against expected, completeness, datasets, obscuring, API calls and bytes frozen;
+   and free text per field, per source and combined, in substance bands.
+4. **Insights** (`/console/insights`) — what the sources say about each other, one question per
+   card with a verdict and the evidence under it: how much of a primary source reaches the
+   aggregator and why the rest does not, whether content survives the trip, whether coordinate
+   obscuring survives the trip, whether there is enough text for an LLM, which datasets carry
+   the text, how precisely each source locates sightings, whether each source's own flags
+   discriminate anything. The comparison the portal's merge is built on. No model output.
+5. **AI analysis** (`/console/analysis`) — where the analysis the portal shows is generated. The
+   family's numbers are flattened into an *evidence pack* — a few hundred named metrics with ids,
+   nothing per record, no text, no coordinates — and a frontier-tier model is asked what matters
+   most to a practitioner and to state each insight's essence. The answer comes back through a
+   tool schema citing metric ids, and the server checks it before storing it: every cited id
+   must exist, and every number in the prose must be a value in the pack or a difference or
+   ratio of two cited values. What fails is shown on the card as unverified, not hidden. One call
+   per family, on a button press only, cached on disk with the evidence hash so a new run or a
+   new classifier pass shows as "numbers have changed" rather than as a silently stale report.
+6. **Run** (`/console/run`) — harvest a window from every source and watch it land.
+
+The API is split the same way: `/api/portal/*` is GET only and always mounted;
+`/api/console/corpus/*` and `/api/console/sync/*` carry everything run-scoped, raw or costly, and
+are not mounted at all when `CONSOLE_ENABLED=false`. Set that for any deployment that is not
+local, alongside `INGESTION_SERVE_RAW=false` and `INGESTION_ALLOW_UI_HARVEST=false`.
 
 The schema itself is declared as data in `canonical/schema.ts`, not left implicit in the
 TypeScript types, so the platform can render it, check records against it and version it —
 Stage 1's stated output is the schema, so it should be a thing you can look at.
 
-Precise coordinates and observer identifiers never leave the backend on pages 2 and 3:
+Precise coordinates and observer identifiers never leave the backend on any page but Raw data:
 coordinates are reduced to ~1.1km and observer ids replaced with pseudonyms at the API boundary.
 
 **Licensed content.** iNaturalist records are licensed per contributor, and 63% of its koala
@@ -172,7 +225,7 @@ never served — `provenance.contentRedistributable` carries the answer and the 
 words at the same boundary that fuzzes coordinates. The UI says a record's text is withheld rather
 than rendering an empty field.
 
-**Page 1 is the deliberate exception.** A redacted "raw data" view would misrepresent what the
+**Raw data is the deliberate exception.** A redacted "raw data" view would misrepresent what the
 source actually sent, which is the one thing that view exists to show — so the frozen response is
 served verbatim, precise coordinates and observer names included. That is fine while the platform
 runs locally against your own harvest and is not fine in a deployment, so it is a flag rather than
@@ -213,7 +266,8 @@ npm run ingest -- evaluate --classifier llm
 remarks with labels known by construction, spanning negation, typos, vernacular, confusable
 species, mortality versus live, boilerplate and traps — and writes a report to
 `data/evaluations/`. Results land as their own table (`text_classifications` on the Schema
-page), as a section on Statistics, and as cards on Insights.
+page), per record type on the portal's Sources page and Overview, and as cards on the console's
+Insights page.
 
 **Backfill.** Koala × NSW is defined one harvest per year from 2015 for both sources
 (`config/harvests.ts`); `npm run ingest -- harvest koala-nsw-2024` fetches, freezes and adapts
@@ -223,7 +277,7 @@ records, 5,800 iNaturalist) and the keyword baseline has read every one of them.
 
 ## AI analysis
 
-Page 5. `ingestion/synthesis/` holds it: `evidence.ts` builds the pack from the family,
+Generated from the console, shown in the portal. `ingestion/synthesis/` holds it: `evidence.ts` builds the pack from the family,
 `prompt.ts` is the versioned prompt and tool schema, `verify.ts` is the fact-check run on the
 model's answer, `store.ts` keeps one file per family per model under `data/syntheses/`.
 
@@ -298,19 +352,25 @@ npx shadcn-vue@latest add button card table
 
 ```
 frontend/src/
-├── apis/         apiClient.ts (Axios, reads VITE_API_BASE_URL) + per-resource API modules
-├── components/   UserManager.vue — the wiring demo
-├── lib/utils.ts  cn() helper for shadcn-vue
-├── router/       vue-router; "/" → UserView
-├── stores/       Pinia; userStore.ts also owns the User type
-├── views/        HomeView.vue (placeholder), UserView.vue
-├── App.vue       <RouterView />
-└── main.ts       registers Pinia + Router
+├── apis/         apiClient.ts (Axios, reads VITE_API_BASE_URL); corpusAPI/syncAPI (console),
+│                 portalAPI (portal), and their types
+├── layouts/      PortalLayout.vue, ConsoleLayout.vue — one per surface
+├── views/        portal/ (Overview, Sources, AI analysis) and
+│                 console/ (Raw data, Schema, Harvest, Insights, AI analysis, Run)
+├── components/   corpus/ (console grids and panels), portal/ (year charts),
+│                 shared/ (the AI analysis report both surfaces render)
+├── stores/       corpusStore (console run selection), portalStore (portal window), syncStore
+├── lib/          formatters, chart helpers, window labels, DDL generation
+├── router/       "/" → portal routes, "/console" → console routes
+└── App.vue       <RouterView />
 
 backend/src/
-├── index.ts      Hono app, CORS from ALLOWED_ORIGINS, mounts /api/users
-├── config.ts     Supabase client + FRONTEND_URL
-└── routes/       user_routes.ts — mock data, to be replaced with Supabase queries
+├── index.ts      Hono app, CORS from ALLOWED_ORIGINS; mounts /api/portal, and /api/console/*
+│                 when CONSOLE_ENABLED is not false
+├── surfaces.ts   the CONSOLE_ENABLED flag
+├── ingestion/    harvest, adapt, classify, synthesise; corpusService (by run) and
+│                 portalService (by window, merged via union/) are the read layers
+└── routes/       portal_routes.ts, corpus_routes.ts, sync_routes.ts, user_routes.ts (demo)
 ```
 
 Note: `index.ts` imports routes with an explicit `.ts` extension. That works because the tsconfig

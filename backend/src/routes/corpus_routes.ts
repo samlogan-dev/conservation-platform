@@ -20,11 +20,13 @@ import {
 import { anthropicConfigured } from "../ingestion/config/anthropic.ts";
 
 /**
- * Read-only API over harvested runs, with one exception.
+ * The console's read API over harvested runs, with one exception. Mounted under
+ * /api/console/corpus, and only when the console is enabled — the portal reads the same
+ * families through portal_routes.ts, addressed by window instead of by run.
  *
- * Harvesting is deliberately not exposed over HTTP — it is a batch job with a rate-limited
- * network footprint against someone else's service, and it belongs behind the CLI where it
- * cannot be triggered by a page refresh.
+ * Harvesting is not started from here. It now can be started from the dashboard, but only
+ * through `sync_routes.ts`, which carries the guards that made it CLI-only until then: an
+ * explicit POST, one at a time, behind a flag.
  *
  * The exception is `POST …/synthesis`: it makes one model call over aggregates the server
  * already holds. No source system is touched, and it runs only on an explicit button press.
@@ -131,7 +133,7 @@ corpusRoutes.get("/:harvestKey/:runId/text/rows", async (c) => {
   );
 });
 
-/** Page 5: the evidence pack for this run's family and the stored synthesis, if any. */
+/** AI analysis: the evidence pack for this run's family and the stored synthesis, if any. */
 corpusRoutes.get("/:harvestKey/:runId/synthesis", async (c) => {
   const { harvestKey, runId } = c.req.param();
   return c.json(await withRun(harvestKey, runId, (r) => getSynthesis(harvestKey, r)));

@@ -116,6 +116,13 @@ export const CANONICAL_SCHEMA: SchemaGroup[] = [
       { path: "basisOfRecord", type: "string", required: false, description: "Live observation vs preserved museum specimen.", sourceFields: ["basisOfRecord"] },
       { path: "individualCount", type: "integer", required: false, description: "Animals reported. Not a survey count.", sourceFields: ["individualCount"] },
       {
+        path: "recordType",
+        type: "string",
+        required: true,
+        description: "The channel the record entered through: government_database, public_sighting, rescue_rehab, survey_research, specimen or other. Derived from the dataset, the basis of record, rehab record numbers and encounter codes.",
+        sourceFields: ["dataResourceUid", "basisOfRecord", "recordNumber", "raw_occurrenceRemarks"],
+      },
+      {
         path: "recordedByPseudonym",
         type: "string",
         required: false,

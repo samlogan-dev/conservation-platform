@@ -169,6 +169,15 @@ export interface SourceComparison {
   unexplainedShortfall: number;
 }
 
+/** The channel a record entered through. See backend canonical/recordType.ts. */
+export type RecordType =
+  | "government_database"
+  | "public_sighting"
+  | "rescue_rehab"
+  | "survey_research"
+  | "specimen"
+  | "other";
+
 // ---- Threat and condition extraction from free text
 
 export type TextSubject = "koala" | "not_koala" | "unclear";
@@ -278,7 +287,7 @@ export interface CorpusFamily {
   comparisons: SourceComparison[];
 }
 
-// ---- AI analysis (page 5)
+// ---- AI analysis
 
 export type MetricUnit = "count" | "share" | "metres" | "chars" | "text" | "flag";
 
@@ -373,6 +382,7 @@ export interface RecordRow {
   locality: string | null;
   basisOfRecord: string | null;
   individualCount: number | null;
+  recordType: RecordType;
   recordedByPseudonym: string | null;
   occurrenceRemarks: string | null;
   eventRemarks: string | null;

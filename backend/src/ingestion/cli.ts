@@ -10,6 +10,7 @@ import { summariseText } from "./analysis/text.ts";
 import type { ClassifierKey } from "./text/types.ts";
 import { getFamily } from "./corpusService.ts";
 import { synthesiseFamily } from "./synthesis/job.ts";
+import { getTimeline, getWindowUnion, listScopes } from "./portalService.ts";
 
 /**
  * Ingestion CLI.
@@ -24,6 +25,7 @@ import { synthesiseFamily } from "./synthesis/job.ts";
  *   npm run ingest -- classify [harvestKey] [runId] [--classifier keyword|llm] [--limit N] [--force]
  *   npm run ingest -- evaluate [--classifier keyword|llm]
  *   npm run ingest -- synthesise [harvestKey] [runId] [--force]
+ *   npm run ingest -- union    [speciesKey] [regionKey]
  */
 
 const log = (m: string) => console.log(m);
@@ -204,6 +206,24 @@ async function main(): Promise<void> {
       log(`\nusage: ${s.usage.inputTokens} in / ${s.usage.outputTokens} out tokens`);
       break;
     }
+    case "union": {
+      // Build (or confirm current) the portal's merged corpus for every window, so the first
+      // visit to the portal does not have to. Stale summaries are recomputed; current ones are read.
+      for (const scope of await listScopes()) {
+        if (arg1 && scope.speciesKey !== arg1) continue;
+        if (arg2 && scope.regionKey !== arg2) continue;
+        const timeline = await getTimeline(scope.speciesKey, scope.regionKey);
+        for (const y of timeline.years) {
+          const u = y.union;
+          log(`${y.year}: ${u.distinct} distinct (${u.duplicatesRemoved} duplicates removed), ${u.total.remarksRead} remarks read`);
+        }
+        for (const w of scope.windows.filter((w) => w.calendarYear === null)) {
+          const { union: u } = await getWindowUnion(w.id);
+          log(`${w.id}: ${u.distinct} distinct (${u.duplicatesRemoved} duplicates removed)`);
+        }
+      }
+      break;
+    }
     case "harvest": {
       const key = arg1 ?? DEFAULT_HARVEST;
       const harvest = HARVESTS[key];
@@ -239,7 +259,7 @@ async function main(): Promise<void> {
       break;
     }
     default:
-      throw new Error(`unknown command "${command}" — use harvest | adapt | report | runs | classify | evaluate | synthesise`);
+      throw new Error(`unknown command "${command}" — use harvest | adapt | report | runs | classify | evaluate | synthesise | union`);
   }
 }
 

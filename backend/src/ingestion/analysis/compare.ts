@@ -27,13 +27,13 @@ type AdaptedRecord = { record: CanonicalRecord };
  */
 
 /** The stable prefix an identifier scheme shares — everything up to the final separator. */
-function namespaceOf(occurrenceId: string): string {
+export function namespaceOf(occurrenceId: string): string {
   const cut = Math.max(occurrenceId.lastIndexOf("/"), occurrenceId.lastIndexOf(":"));
   return cut > 0 ? occurrenceId.slice(0, cut) : occurrenceId;
 }
 
 /** The identifier namespace covering the largest share of a corpus, and that share. */
-function dominantNamespace(records: AdaptedRecord[]): { namespace: string; share: number } {
+export function dominantNamespace(records: AdaptedRecord[]): { namespace: string; share: number } {
   const tally = new Map<string, number>();
   let withKey = 0;
   for (const r of records) {

@@ -20,6 +20,8 @@
  * visible rather than becoming folklore.
  */
 
+import type { RecordType } from "./recordType.ts";
+
 /** Where a canonical value came from, and what happened to it on the way. */
 export type FieldStatus =
   /** Source supplied a usable value and it mapped cleanly. */
@@ -145,6 +147,12 @@ export interface CanonicalRecord {
   /** Separates a live observation from a museum specimen — 2,763 vs 102 in this corpus. */
   basisOfRecord: string | null;
   individualCount: number | null;
+  /**
+   * The channel the record entered through — government database, public sighting, rescue,
+   * survey, specimen — derived by each adapter from its own fields. Added 2 Oct 2026; see
+   * `recordType.ts` for why this, rather than the source, is the split the portal reads by.
+   */
+  recordType: RecordType;
   /**
    * Ethics pillar 2 — an irreversible pseudonym, never the observer's identity. Kept despite
    * the trim because observer effort is the largest named threat to any density claim this

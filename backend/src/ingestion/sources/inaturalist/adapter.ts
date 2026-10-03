@@ -1,3 +1,4 @@
+import { recordTypeOf } from "../../canonical/recordType.ts";
 import type { AdaptedRecord, CanonicalRecord, Provenance } from "../../canonical/record.ts";
 import { Mapper, asInteger, asString } from "../../canonical/mapper.ts";
 import { validateRecord } from "../../canonical/validate.ts";
@@ -181,6 +182,13 @@ export function adaptInaturalistRecord(
     // iNaturalist has no count field — abundance lives in optional observation fields, which
     // are not populated consistently enough to map.
     individualCount: null,
+    // A public sighting unless the observer's own text says the animal came into care.
+    recordType: recordTypeOf({
+      dataResourceUid: "inaturalist",
+      basisOfRecord: "HUMAN_OBSERVATION",
+      recordNumber: null,
+      remarks: asString(rawRecord["description"]),
+    }),
     recordedByPseudonym: pseudonymiseContributor(user["login"] ?? user["id"] ?? null),
 
     occurrenceRemarks: m.map("occurrenceRemarks", ["description"], asString),

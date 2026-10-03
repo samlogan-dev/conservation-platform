@@ -10,15 +10,15 @@ import { num, shortHash } from '@/lib/format'
  * nothing without the query and the run that produced it — and because "complete" being
  * visible at all times is the guard against quietly reading a truncated harvest.
  *
- * Pages 1 and 2 are scoped to one run, so the strip shows that run. Pages 3, 4 and 5 read
- * across every source for the same species, region and window, so there it shows the family
- * instead: the scope, and one chip per source.
+ * Raw data and Schema are scoped to one run, so the strip shows that run. Harvest, Insights
+ * and AI analysis read across every source for the same species, region and window, so there it
+ * shows the family instead: the scope, and one chip per source.
  */
 const store = useCorpusStore()
 const { manifest, harvests, harvestKey, runId, family } = storeToRefs(store)
 const route = useRoute()
 
-const CROSS_SOURCE = new Set(['/statistics', '/insights', '/analysis'])
+const CROSS_SOURCE = new Set(['/console/harvest', '/console/insights', '/console/analysis'])
 const crossSource = computed(() => CROSS_SOURCE.has(route.path))
 
 function onSelect(event: Event) {

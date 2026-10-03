@@ -479,7 +479,7 @@ export async function getFamily(harvestKey: string, runId: string) {
   };
 }
 
-// ---------------------------------------------------------------- AI analysis (page 5)
+// ---------------------------------------------------------------- AI analysis
 
 /** The evidence the model would be given for this run's family, and the stored synthesis if any. */
 export async function getSynthesis(harvestKey: string, runId: string): Promise<SynthesisStatus> {

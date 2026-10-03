@@ -43,4 +43,14 @@ export const INGESTION = {
    * in development, and it must be switched off in any deployment that is not just you.
    */
   serveRawResponses: (process.env.INGESTION_SERVE_RAW ?? "true").toLowerCase() !== "false",
+
+  /**
+   * Whether the dashboard may start a harvest (the Run page).
+   *
+   * A harvest is rate-limited traffic against someone else's service, so it is only ever
+   * started by an explicit POST, one at a time. That is safe while the platform runs locally
+   * for its researcher, and not in a deployment anyone else can reach — so, like the raw view,
+   * it is a flag: on by default in development, and it must be switched off anywhere else.
+   */
+  allowUiHarvest: (process.env.INGESTION_ALLOW_UI_HARVEST ?? "true").toLowerCase() !== "false",
 } as const;

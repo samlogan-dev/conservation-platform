@@ -38,23 +38,40 @@ export const useCorpusStore = defineStore("corpusStore", () => {
     return response?.data?.message ?? (e instanceof Error ? e.message : String(e));
   }
 
-  /** Load the harvest list and select the newest run of the first harvest that has one. */
-  async function init() {
+  /**
+   * Load the harvest list and select a run: the one asked for, when it exists — the portal
+   * links into the console with `?harvest=…&run=…` so a figure can be traced to its run —
+   * otherwise the newest run of the first harvest that has one.
+   */
+  async function init(preferred: { harvestKey?: string; runId?: string } = {}) {
     loading.value = true;
     error.value = null;
     try {
       harvests.value = await listHarvestsAPI();
+      const asked = harvests.value.find((h) => h.key === preferred.harvestKey);
+      const askedRun = asked?.runs.find((r) => r.runId === preferred.runId) ?? asked?.runs[0];
       const firstWithRun = harvests.value.find((h) => h.runs.length > 0);
-      if (firstWithRun) {
+      if (asked && askedRun) {
+        await selectRun(asked.key, askedRun.runId);
+      } else if (firstWithRun) {
         await selectRun(firstWithRun.key, firstWithRun.runs[0]!.runId);
       } else {
         error.value =
-          "No harvested runs found. Run `npm run ingest -- harvest` in platform/backend first.";
+          "No harvested runs found. Start one from the Run page, or run `npm run ingest -- harvest` in platform/backend.";
       }
     } catch (e) {
       error.value = describeError(e);
     } finally {
       loading.value = false;
+    }
+  }
+
+  /** Re-list harvests after new runs land, without moving the current selection. */
+  async function refreshHarvests() {
+    try {
+      harvests.value = await listHarvestsAPI();
+    } catch (e) {
+      error.value = describeError(e);
     }
   }
 
@@ -95,6 +112,7 @@ export const useCorpusStore = defineStore("corpusStore", () => {
     ready,
     selectedHarvest,
     init,
+    refreshHarvests,
     selectRun,
   };
 });
