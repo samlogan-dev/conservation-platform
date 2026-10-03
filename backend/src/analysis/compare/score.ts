@@ -13,10 +13,18 @@ import { executeReadOnly } from "../ai/queryTool.ts";
  *    the finding is regional), under any label.
  *  - Grounding (both): every cited query is re-run and its rows compared (order-insensitive) with
  *    what was logged; every number in the insight's figures is checked against the cited results
- *    — as a value, or a difference, ratio or percentage change of two values. Numbers that fail
- *    are listed for adjudication as possible fabrications.
+ *    — as a value, a column total, or a difference, ratio or percentage change of two values.
+ *    Numbers that fail are listed for adjudication as possible fabrications.
+ *
+ * 2026-10-03.2, after the first guided run — matching made fair, the strict checks kept:
+ *  - the evidence-gap headline counts every taxon under the threshold, as the brief defines it,
+ *    not only those the calculated arm labels evidence_gap because they are not also silent;
+ *  - national silent-species insights match on taxon alone: the brief fixes the period, and an
+ *    evidence gap is fairly reported over "since 2015";
+ *  - notable-record reasons are compared after mapping free-text labels onto the calculated arm's;
+ *  - dates are read as text, so a date column is never shifted by the host's time zone.
  */
-export const SCORER_VERSION = "2026-10-03.1";
+export const SCORER_VERSION = "2026-10-03.2";
 const PRIORITY_K = 15;
 
 interface Row {
@@ -24,7 +32,7 @@ interface Row {
   period_start: string; period_end: string; figures: Record<string, unknown>; summary: string; query_ids: string[];
 }
 
-const day = (d: string | Date) => new Date(d).toISOString().slice(0, 10);
+const day = (d: string) => d.slice(0, 10);
 const num = (v: unknown): number | null => {
   if (typeof v === "number" && Number.isFinite(v)) return v;
   if (typeof v === "string" && /^-?\d+(\.\d+)?(e-?\d+)?$/i.test(v.trim())) return Number(v);
@@ -35,7 +43,7 @@ const close = (a: number | null, b: number | null, rel = 0.01, abs = 0.0015) =>
 
 async function insights(runId: string): Promise<Row[]> {
   const { rows } = await db().query<Row>(
-    `select insight_id, insight_type, taxon_concept_id, region, period_start, period_end, figures, summary, query_ids
+    `select insight_id, insight_type, taxon_concept_id, region, period_start::text, period_end::text, figures, summary, query_ids
      from analysis.insights where run_id = $1 order by insight_id`,
     [runId],
   );
@@ -50,7 +58,9 @@ function compareFigures(type: string, ai: Record<string, unknown>, calc: Record<
   switch (type) {
     case "silent_species":
       return {
-        kind: same("kind"),
+        // A taxon both silent and data-poor is labelled silent by the calculated arm; the AI may
+        // fairly lead with either.
+        kind: same("kind") || (get(ai, "kind") === "evidence_gap" && get(calc, "evidence_gap") === true),
         records_since_2015: near("records_since_2015", 0),
         last_record_date: get(ai, "last_record_date") === undefined || String(get(ai, "last_record_date")).slice(0, 10) === get(calc, "last_record_date"),
       };
@@ -65,12 +75,21 @@ function compareFigures(type: string, ai: Record<string, unknown>, calc: Record<
         records_recent: near("records.recent", 0),
       };
     case "notable_record": {
-      const r = (o: Record<string, unknown>) => JSON.stringify([...((o.reasons as string[]) ?? [])].sort());
+      const r = (o: Record<string, unknown>) => JSON.stringify([...new Set(((o.reasons as string[]) ?? []).map(reasonLabel))].sort());
       return { reasons: r(ai) === r(calc), records: near("records", 0) };
     }
     default:
       return {};
   }
+}
+
+/** A notable-record reason in the calculated arm's vocabulary, from whatever label the AI used. */
+function reasonLabel(reason: string): string {
+  const s = reason.toLowerCase();
+  if (/outside_range|\bkm\b|distance|range/.test(s)) return "outside_range";
+  if (/new_region|region|ibra/.test(s)) return "new_region";
+  if (/season|month|%/.test(s)) return "out_of_season";
+  return s;
 }
 
 /** The calculated arm's headline counts, for comparison with the AI's headline insights. */
@@ -80,6 +99,8 @@ function headlineCounts(calc: Row[]): Record<string, number> {
     if (r.insight_type === "silent_species") {
       const k = String(r.figures.kind);
       counts[`silent_species:${k}`] = (counts[`silent_species:${k}`] ?? 0) + 1;
+      // The brief defines an evidence gap whether or not the taxon is also silent.
+      if (k === "silent" && r.figures.evidence_gap === true) counts["silent_species:evidence_gap"] = (counts["silent_species:evidence_gap"] ?? 0) + 1;
     } else if (r.insight_type === "range_change" && r.figures.flag) {
       const k = String(r.figures.flag);
       counts[`range_change:${k}`] = (counts[`range_change:${k}`] ?? 0) + 1;
@@ -132,7 +153,10 @@ export async function scoreRun(aiRunId: string, calculatedRunId: string): Promis
   const run = (await db().query<{ brief: string }>("select brief from analysis.runs where run_id = $1 and arm = 'ai'", [aiRunId])).rows[0];
   if (!run) throw new Error(`no AI run ${aiRunId}`);
   const [ai, calc] = await Promise.all([insights(aiRunId), insights(calculatedRunId)]);
-  const key = (r: Row) => `${r.insight_type}|${r.taxon_concept_id}|${r.region ?? ""}|${day(r.period_start)}|${day(r.period_end)}`;
+  const key = (r: Row) =>
+    r.insight_type === "silent_species" && r.region === null
+      ? `${r.insight_type}|${r.taxon_concept_id}||national`
+      : `${r.insight_type}|${r.taxon_concept_id}|${r.region ?? ""}|${day(r.period_start)}|${day(r.period_end)}`;
   const calcByKey = new Map(calc.map((r) => [key(r), r]));
 
   // --- Reproduction ---
@@ -180,6 +204,11 @@ export async function scoreRun(aiRunId: string, calculatedRunId: string): Promis
     // Hashes ignore row order, so equal hashes mean the same rows (within the row cap).
     const reproduced = out.error === null && out.resultHash === q.result_hash;
     const values = out.rows.flat().map(num).filter((v): v is number => v !== null);
+    // Column totals: an AI may report the sum of a breakdown it queried.
+    for (let c = 0; c < out.columns.length; c++) {
+      const col = out.rows.map((row) => num(row[c])).filter((v): v is number => v !== null);
+      if (col.length > 1) values.push(col.reduce((a, b) => a + b, 0));
+    }
     rerun.set(Number(q.query_id), { reproduced, values });
   }
   const grounding: unknown[] = [];
