@@ -101,6 +101,13 @@ export const ALA_REQUESTED_FIELDS = [
 ] as const;
 
 /**
+ * Fields requested in a bulk download. The same list minus `assertions`, which the download
+ * service does not take as a field: it delivers assertions as one true/false column per code
+ * instead (see `downloadReader.ts`).
+ */
+export const ALA_DOWNLOAD_FIELDS = ALA_REQUESTED_FIELDS.filter((f) => f !== "assertions");
+
+/**
  * Free-text fields whose corpus-wide coverage is probed with exists-queries.
  *
  * Note `raw_occurrenceRemarks` is absent: it is returned on records but is not indexed, so

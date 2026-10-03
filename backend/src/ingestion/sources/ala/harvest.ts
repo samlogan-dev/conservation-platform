@@ -87,6 +87,7 @@ export async function runAlaHarvest(
   harvest: HarvestDefinition,
   options: HarvestOptions = {},
 ): Promise<HarvestResult> {
+  if (harvest.source !== "ala") throw new Error(`runAlaHarvest given a ${harvest.source} harvest`);
   const log = options.onProgress ?? (() => {});
   const emit = options.onEvent ?? (() => {});
   const checkpoint = () => options.signal?.throwIfAborted();

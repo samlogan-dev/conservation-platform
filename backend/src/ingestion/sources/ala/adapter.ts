@@ -151,7 +151,8 @@ export function adaptAlaRecord(
     taxonRank: m.map("taxonRank", ["taxonRank"], asString),
     kingdom: m.map("kingdom", ["kingdom"], asString),
     phylum: m.map("phylum", ["phylum"], asString),
-    taxonClass: m.map("taxonClass", ["classs"], asString, { note: "ALA spells Darwin Core `class` as `classs`" }),
+    // The search API calls it `classs`; the bulk download returns the same field as `class`.
+    taxonClass: m.map("taxonClass", ["classs", "class"], asString, { note: "ALA's search API spells Darwin Core `class` as `classs`" }),
     order: m.map("order", ["order"], asString),
     family: m.map("family", ["family"], asString),
     genus: m.map("genus", ["genus"], asString),
@@ -193,7 +194,9 @@ export function adaptAlaRecord(
 
     sourceAssertions:
       m.map<string[]>("sourceAssertions", ["assertions"], (value) =>
-        Array.isArray(value) ? value.map(String) : null,
+        // Sorted, so the search API and the bulk download (which list them in different orders)
+        // produce the identical record.
+        Array.isArray(value) ? value.map(String).sort() : null,
       ) ?? [],
 
     isValid: true,

@@ -53,21 +53,18 @@ export interface AdaptContext {
 }
 
 /**
- * What a source has to provide. Two functions: fetch and freeze, then turn frozen bytes into
- * canonical records. Everything else — rate limiting, snapshot layout, storage, analysis — is
- * shared.
+ * What a source has to provide: fetch and freeze, then turn the frozen bytes into canonical
+ * records. Everything else — rate limiting, snapshot layout, storage, analysis — is shared.
+ *
+ * Frozen bytes come in two shapes. A paged source freezes one JSON body per request and
+ * implements `adaptPage`; a bulk-download source freezes one archive and implements
+ * `streamRecords`, because its corpus is too large to hold in memory. `adapt.ts` takes whichever
+ * the source offers.
  */
 export interface SourceModule {
   key: string;
   label: string;
-  /**
-   * Top-level key of a frozen page body under which the record array sits — `occurrences`
-   * for ALA. Declared here so a reader can find records in a page without knowing which
-   * source produced it.
-   */
-  recordsKey: string;
-  /** Field on a raw record that `provenance.sourceRecordId` was taken from. */
-  recordIdField: string;
   harvest(definition: HarvestDefinition, options?: HarvestOptions): Promise<HarvestResult>;
-  adaptPage(pageBody: string, context: AdaptContext): AdaptedRecord[];
+  adaptPage?(pageBody: string, context: AdaptContext): AdaptedRecord[];
+  streamRecords?(manifest: SnapshotManifest): AsyncIterable<AdaptedRecord>;
 }

@@ -12,7 +12,7 @@ import { closeDb } from "../db/pool.ts";
  * `harvest` and `adapt` are separate commands on purpose: re-adapting a frozen snapshot needs
  * no network access, so the schema can be iterated on as fast as it can be edited.
  *
- *   npm run ingest -- harvest  [harvestKey]
+ *   npm run ingest -- harvest  [harvestKey] [--confirm-doi]   (--confirm-doi: harvests that mint a DOI)
  *   npm run ingest -- adapt    [harvestKey] [runId]
  *   npm run ingest -- report   [harvestKey] [runId]
  *   npm run ingest -- runs     [harvestKey]
@@ -98,13 +98,17 @@ async function report(harvestKey: string, runId: string): Promise<void> {
 }
 
 async function main(): Promise<void> {
-  const [command = "harvest", arg1, arg2] = process.argv.slice(2);
+  const [command = "harvest", arg1, arg2] = process.argv.slice(2).filter((a) => !a.startsWith("--"));
 
   switch (command) {
     case "harvest": {
       const key = arg1 ?? DEFAULT_HARVEST;
       const harvest = HARVESTS[key];
       if (!harvest) throw new Error(`unknown harvest "${key}" — known: ${Object.keys(HARVESTS).join(", ")}`);
+      // A DOI is permanent and public: minting one takes a deliberate flag, never a default.
+      if (harvest.source === "ala-download" && harvest.mintDoi && !process.argv.includes("--confirm-doi")) {
+        throw new Error(`"${key}" mints a permanent DOI — re-run with --confirm-doi to proceed`);
+      }
       const { runId } = await getSource(harvest.source).harvest(harvest, { onProgress: log });
       const { summary } = await adaptRun(key, runId, { onProgress: log });
       log(

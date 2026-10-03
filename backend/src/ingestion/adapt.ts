@@ -1,26 +1,26 @@
-import { readManifest, readPageBody } from "./snapshot/store.ts";
+import { readManifest, readPageBody, type SnapshotManifest } from "./snapshot/store.ts";
 import { getSource } from "./sources/registry.ts";
-import { recordStore } from "./store/recordStore.ts";
+import type { SourceModule } from "./sources/types.ts";
+import { BATCH_SIZE, recordStore } from "./store/recordStore.ts";
 import { CorpusAnalyser } from "./analysis/coverage.ts";
-import type { StoredRecord } from "./canonical/record.ts";
+import type { AdaptedRecord, StoredRecord } from "./canonical/record.ts";
 
 /**
- * Re-adapt a frozen snapshot into canonical records.
+ * Re-adapt a frozen snapshot into canonical records and load them.
  *
  * Deliberately a separate step from harvesting, and this is the payoff for freezing raw
  * responses: when the canonical shape changes — which is expected more than once — the
- * schema is re-derived from disk in seconds, with no network traffic and no new load on the source.
+ * schema is re-derived from disk, with no network traffic and no new load on the source.
  * The corpus stays byte-identical across schema revisions, so a change in the output is
  * attributable to the adapter rather than to the source having moved underneath it.
  *
- * Pages are processed one at a time and only the slim record is kept; the trace feeds the
- * corpus analysis as it goes and is then dropped. That is what lets a large harvest be adapted
- * in a bounded amount of memory.
+ * Records stream through: each is adapted, counted into the corpus analysis, and loaded in
+ * batches; the mapping trace is dropped once the analysis has read it. Memory stays bounded
+ * whether the snapshot is a hundred-record page or a two-million-row download.
  */
 export interface AdaptSummary {
   harvestKey: string;
   runId: string;
-  pagesRead: number;
   recordsAdapted: number;
   recordsValid: number;
   recordsWithErrors: number;
@@ -28,61 +28,71 @@ export interface AdaptSummary {
   duplicates: number;
 }
 
+/** A paged snapshot, page by page, as one stream of records. */
+async function* pagedRecords(source: SourceModule, manifest: SnapshotManifest): AsyncGenerator<AdaptedRecord> {
+  for (const page of manifest.pages) {
+    const body = await readPageBody(manifest.harvestKey, manifest.runId, page.file);
+    yield* source.adaptPage!(body, {
+      harvestId: `${manifest.harvestKey}/${manifest.runId}`,
+      snapshotPage: page.file,
+      fetchedAt: page.fetchedAt,
+    });
+  }
+}
+
+const PROGRESS_EVERY = 100_000;
+
 export async function adaptRun(
   harvestKey: string,
   runId: string,
   options: { onProgress?: (message: string) => void } = {},
-): Promise<{ summary: AdaptSummary; records: StoredRecord[] }> {
+): Promise<{ summary: AdaptSummary }> {
   const log = options.onProgress ?? (() => {});
   const manifest = await readManifest(harvestKey, runId);
   const source = getSource(manifest.source);
+  const records = source.streamRecords
+    ? source.streamRecords(manifest)
+    : source.adaptPage
+      ? pagedRecords(source, manifest)
+      : null;
+  if (!records) throw new Error(`source "${source.key}" can neither stream records nor adapt pages`);
 
-  const stored: StoredRecord[] = [];
   const analyser = new CorpusAnalyser();
   const seen = new Set<string>();
-  let duplicates = 0;
-  let pagesRead = 0;
+  const summary: AdaptSummary = { harvestKey, runId, recordsAdapted: 0, recordsValid: 0, recordsWithErrors: 0, duplicates: 0 };
+  let batch: StoredRecord[] = [];
 
-  for (const page of manifest.pages) {
-    const body = await readPageBody(harvestKey, runId, page.file);
-    const adapted = source.adaptPage(body, {
-      harvestId: `${harvestKey}/${runId}`,
-      snapshotPage: page.file,
-      fetchedAt: page.fetchedAt,
-    });
-
-    for (const item of adapted) {
-      // ALA can return the same record in two slices if its event date sits on a boundary.
-      // De-duplicating on the source record id keeps the canonical set honest, and counting
-      // the collisions keeps the fact visible rather than silently absorbed.
+  const writer = await recordStore.openRun(manifest);
+  try {
+    for await (const item of records) {
+      // The same record can appear twice (ALA returns a record in two slices when its date sits on
+      // a boundary). De-duplicating on the source record id keeps the corpus honest; counting the
+      // collisions keeps the fact visible rather than silently absorbed.
       if (seen.has(item.record.recordId)) {
-        duplicates++;
+        summary.duplicates++;
         continue;
       }
       seen.add(item.record.recordId);
       analyser.add(item);
-      stored.push({
+      summary.recordsAdapted++;
+      if (item.record.isValid) summary.recordsValid++;
+      else summary.recordsWithErrors++;
+      batch.push({
         record: item.record,
         issueCount: item.trace.validationIssues.length,
         unmappedCount: item.trace.unmappedSourceFields.length,
       });
+      if (batch.length >= BATCH_SIZE) {
+        await writer.append(batch);
+        batch = [];
+      }
+      if (summary.recordsAdapted % PROGRESS_EVERY === 0) log(`  adapted ${summary.recordsAdapted} records`);
     }
-
-    pagesRead++;
-    if (pagesRead % 100 === 0) log(`  adapted ${pagesRead}/${manifest.pages.length} pages, ${stored.length} records`);
+    if (batch.length > 0) await writer.append(batch);
+    await writer.commit(analyser.finish(harvestKey, runId));
+  } catch (error) {
+    await writer.abort();
+    throw error;
   }
-
-  await recordStore.save(manifest, stored, analyser.finish(harvestKey, runId));
-
-  const summary: AdaptSummary = {
-    harvestKey,
-    runId,
-    pagesRead,
-    recordsAdapted: stored.length,
-    recordsValid: stored.filter((r) => r.record.isValid).length,
-    recordsWithErrors: stored.filter((r) => !r.record.isValid).length,
-    duplicates,
-  };
-
-  return { summary, records: stored };
+  return { summary };
 }

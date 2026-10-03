@@ -80,6 +80,16 @@ export interface SnapshotManifest {
   requestCount: number;
   /** Anything that went wrong but did not stop the run. */
   warnings: string[];
+  /**
+   * Bulk downloads only: the exchange with ALA's download service, kept whole — the submission
+   * response, the final status (which carries any DOI), and the parameters sent, minus the email.
+   */
+  download?: {
+    params: Record<string, string>;
+    submitResponse: unknown;
+    finalStatus: unknown;
+    doi: string | null;
+  };
 }
 
 export const sha256 = (input: string): string =>
@@ -126,6 +136,16 @@ export class SnapshotWriter {
     return page;
   }
 
+  /** Record a file frozen by other means (a streamed download) as a page of this run. */
+  addPage(page: SnapshotPage): void {
+    this.pages.push(page);
+  }
+
+  /** Absolute path for a file inside the run's `pages/` directory. */
+  pagePath(file: string): string {
+    return path.join(this.dir, "pages", file);
+  }
+
   getPages(): SnapshotPage[] {
     return this.pages;
   }
@@ -157,18 +177,22 @@ export async function readManifest(
   return JSON.parse(raw) as SnapshotManifest;
 }
 
-export async function readPageBody(
-  harvestKey: string,
-  runId: string,
-  file: string,
-): Promise<string> {
-  // Guard against a caller reaching outside the run directory via a crafted file name.
+/** Absolute path of a frozen page, refusing names that reach outside the run directory. */
+export function pageFilePath(harvestKey: string, runId: string, file: string): string {
   const base = path.join(runDir(harvestKey, runId), "pages");
   const resolved = path.resolve(base, file);
   if (!resolved.startsWith(base + path.sep)) {
     throw new Error(`refusing to read outside the snapshot directory: ${file}`);
   }
-  return readFile(resolved, "utf8");
+  return resolved;
+}
+
+export async function readPageBody(
+  harvestKey: string,
+  runId: string,
+  file: string,
+): Promise<string> {
+  return readFile(pageFilePath(harvestKey, runId, file), "utf8");
 }
 
 /**
