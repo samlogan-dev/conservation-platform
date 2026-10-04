@@ -62,7 +62,7 @@ async function validateInsight(
   input: Record<string, unknown>,
   regions: Set<string>,
 ): Promise<Insight | string> {
-  const types: InsightType[] = ["silent_species", "range_change", "notable_record", "other"];
+  const types: InsightType[] = ["silent_species", "range_change", "reporting_rate", "notable_record", "other"];
   const insightType = brief === "guided" ? input.insight_type : "other";
   if (!types.includes(insightType as InsightType)) return `insight_type must be one of ${types.join(", ")}`;
   if (brief === "open" && (typeof input.category !== "string" || !input.category.trim())) return "category is required";

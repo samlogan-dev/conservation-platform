@@ -5,7 +5,8 @@
  * These are the defaults recorded in CLAUDE.md (3 Oct 2026). Change a value → bump the version.
  */
 export const CALCULATED_PARAMS = {
-  version: "2026-10-04.1",
+  version: "2026-10-04.2",
+  // .2 (4 Oct 2026): insight #3, reporting-rate trend, added.
   // .1 (4 Oct 2026): every date window on the record's Australian Eastern local date (event_day),
   // not its UTC date; managed populations set per taxon and state as well as per dataset
   // (corpus.managed_populations); range change from wild records only. All three found by
@@ -49,6 +50,22 @@ export const CALCULATED_PARAMS = {
     minRecordsPerWindow: 20,
     /** Below this share of precise records in either window, the 2 km figure is marked unreliable. */
     minPreciseShareForFineAoo: 0.5,
+  },
+
+  reportingRate: {
+    // Windows are rangeChange's: equal-length settled periods, 2025–26 excluded as still filling in.
+    /** Wild records only, as for range change. */
+    wildOnly: true,
+    /** Flag a decline at or below this detection ratio (the IUCN-style 30% change)… */
+    declineRatio: 0.7,
+    /** …and an increase at or above its reciprocal, so the two are symmetric on a log scale. */
+    increaseRatio: 1 / 0.7,
+    /** 95% interval for the ratio; a flag needs it to exclude 1. */
+    z: 1.96,
+    /** Consistent-source detections (cell-months with a record) needed in each window to flag. */
+    minDetectionsPerWindow: 20,
+    /** Records (all sources) in each window for a taxon–region pair to be assessed at all. */
+    minRecordsPerWindow: 20,
   },
 
   notableRecords: {

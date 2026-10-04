@@ -28,8 +28,12 @@ import { executeReadOnly } from "../ai/queryTool.ts";
  * and by mention (the taxon's common or scientific name in the summary; for a regional finding,
  * the region too). The pilot open run bundled several taxa into one insight with no taxon id, so
  * key matching alone understated what it surfaced; mention matching is the lenient bound.
+ *
+ * 2026-10-04.2: insight #3 (reporting_rate). As the evaluation design sets out, it is scored on
+ * whether a flag is raised and on direction, not exact value; the ratio's closeness is recorded
+ * beside them. Headline counts are national. Discovery adds the steepest well-evidenced declines.
  */
-export const SCORER_VERSION = "2026-10-04.1";
+export const SCORER_VERSION = "2026-10-04.2";
 const PRIORITY_K = 15;
 
 interface Row {
@@ -80,6 +84,17 @@ function compareFigures(type: string, ai: Record<string, unknown>, calc: Record<
         records_baseline: near("records.baseline", 0),
         records_recent: near("records.recent", 0),
       };
+    case "reporting_rate": {
+      const dir = (o: Record<string, unknown>) => {
+        const r = num(get(o, "detection_ratio"));
+        return r === null ? null : Math.sign(r - 1);
+      };
+      return {
+        flag: (get(ai, "flag") ?? null) === (get(calc, "flag") ?? null),
+        direction: dir(ai) !== null && dir(ai) === dir(calc),
+        detection_ratio_within_5pct: near("detection_ratio", 0.05),
+      };
+    }
     case "notable_record": {
       const r = (o: Record<string, unknown>) => JSON.stringify([...new Set(((o.reasons as string[]) ?? []).map(reasonLabel))].sort());
       return { reasons: r(ai) === r(calc), records: near("records", 0) };
@@ -107,6 +122,9 @@ function headlineCounts(calc: Row[]): Record<string, number> {
       counts[`silent_species:${k}`] = (counts[`silent_species:${k}`] ?? 0) + 1;
       // The brief defines an evidence gap whether or not the taxon is also silent.
       if (k === "silent" && r.figures.evidence_gap === true) counts["silent_species:evidence_gap"] = (counts["silent_species:evidence_gap"] ?? 0) + 1;
+    } else if (r.insight_type === "reporting_rate" && r.figures.flag && r.region === null) {
+      const k = `reporting_rate:${String(r.figures.flag)}`;
+      counts[k] = (counts[k] ?? 0) + 1;
     } else if (r.insight_type === "range_change" && r.figures.flag) {
       const k = String(r.figures.flag);
       counts[`range_change:${k}`] = (counts[`range_change:${k}`] ?? 0) + 1;
@@ -128,6 +146,11 @@ function prioritySets(calc: Row[]): Record<string, Row[]> {
     // Contractions with the most baseline evidence behind them.
     contraction: top(calc.filter((r) => r.figures.flag === "contraction"), (r) => Math.min(n(r, "records.baseline"), 1e9) * -n(r, "aoo_10km_km2.change")),
     notable: top(calc.filter((r) => r.insight_type === "notable_record"), (r) => n(r, "max_distance_to_prior_km")),
+    // National reporting-rate declines with the most detections behind them.
+    rate_decline: top(
+      calc.filter((r) => r.insight_type === "reporting_rate" && r.region === null && r.figures.flag === "decline"),
+      (r) => n(r, "detections.baseline") * -Math.log(Math.max(n(r, "detection_ratio"), 1e-6)),
+    ),
   };
 }
 
@@ -173,7 +196,8 @@ export async function scoreRun(aiRunId: string, calculatedRunId: string): Promis
   for (const r of ai.filter((x) => x.insight_type !== "other")) {
     if (r.taxon_concept_id === null && r.region === null) {
       const k = r.insight_type === "silent_species" ? `silent_species:${r.figures.kind}` :
-        r.insight_type === "range_change" ? `range_change:${r.figures.flag}` : "notable_record:groups";
+        r.insight_type === "range_change" ? `range_change:${r.figures.flag}` :
+        r.insight_type === "reporting_rate" ? `reporting_rate:${r.figures.flag}` : "notable_record:groups";
       headlineChecks.push({ insight_id: r.insight_id, key: k, ai: num(r.figures.count), calculated: counts[k] ?? 0, agrees: num(r.figures.count) === (counts[k] ?? 0) });
       continue;
     }

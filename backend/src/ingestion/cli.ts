@@ -5,7 +5,7 @@ import { adaptRun } from "./adapt.ts";
 import { latestRunId, listRuns, readManifest } from "./snapshot/store.ts";
 import { recordStore } from "./store/recordStore.ts";
 import { closeDb } from "../db/pool.ts";
-import { harvestEffort, loadEffort } from "./effort.ts";
+import { EFFORT_GROUPS, type EffortGroup, harvestEffort, loadEffort } from "./effort.ts";
 
 /**
  * Ingestion CLI.
@@ -17,11 +17,17 @@ import { harvestEffort, loadEffort } from "./effort.ts";
  *   npm run ingest -- adapt    [harvestKey] [runId]
  *   npm run ingest -- report   [harvestKey] [runId]
  *   npm run ingest -- runs     [harvestKey]
- *   npm run ingest -- effort   [fromYYYY-MM] [toYYYY-MM]   (all-taxa counts per 0.1° cell per month)
- *   npm run ingest -- effort-load [runId]                  (re-load a frozen effort run, no network)
+ *   npm run ingest -- effort   [fromYYYY-MM] [toYYYY-MM] [--group=G]  (record counts per 0.1° cell per month;
+ *                                                         G = all (default) | Aves | Mammalia | Reptilia | Amphibia | Plantae)
+ *   npm run ingest -- effort-load [runId] [--group=G]      (re-load a frozen effort run, no network)
  */
 
 const log = (m: string) => console.log(m);
+const effortGroup = (): EffortGroup => {
+  const g = process.argv.find((a) => a.startsWith("--group="))?.slice("--group=".length) ?? "all";
+  if (!(g in EFFORT_GROUPS)) throw new Error(`--group must be one of ${Object.keys(EFFORT_GROUPS).join(", ")}`);
+  return g as EffortGroup;
+};
 const pct = (n: number) => `${(n * 100).toFixed(1)}%`;
 
 async function resolveRun(harvestKey: string, runId?: string): Promise<string> {
@@ -122,11 +128,11 @@ async function main(): Promise<void> {
       break;
     }
     case "effort": {
-      await harvestEffort(arg1 ?? "2015-01", arg2 ?? "2026-09", { onProgress: log });
+      await harvestEffort(arg1 ?? "2015-01", arg2 ?? "2026-09", { onProgress: log, group: effortGroup() });
       break;
     }
     case "effort-load": {
-      await loadEffort(arg1, { onProgress: log });
+      await loadEffort(arg1, { onProgress: log, group: effortGroup() });
       break;
     }
     case "adapt": {

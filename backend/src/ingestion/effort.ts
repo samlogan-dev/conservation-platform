@@ -19,6 +19,25 @@ import { eventDateFilter } from "./sources/ala/client.ts";
  */
 export const EFFORT_HARVEST_KEY = "effort-point01-monthly";
 
+/**
+ * Taxonomic groups with their own effort counts, and the ALA filter for each (field names verified
+ * against the live API, 4 Oct 2026). A threatened taxon's reporting rate is read against its own
+ * group's effort; taxa in no group (fish, insects, …) use "all".
+ */
+export const EFFORT_GROUPS = {
+  all: null,
+  Aves: "class:Aves",
+  Mammalia: "class:Mammalia",
+  Reptilia: "class:Reptilia",
+  Amphibia: "class:Amphibia",
+  Plantae: "kingdom:Plantae",
+} as const;
+export type EffortGroup = keyof typeof EFFORT_GROUPS;
+
+/** The snapshot key a group's facet responses are frozen under. */
+export const effortHarvestKey = (group: EffortGroup) =>
+  group === "all" ? EFFORT_HARVEST_KEY : `${EFFORT_HARVEST_KEY}-${group.toLowerCase()}`;
+
 interface Month {
   key: string;
   start: string;
@@ -61,24 +80,30 @@ const cellsOf = (body: FacetBody) => body.facetResults?.find((f) => f.fieldName 
 export async function harvestEffort(
   from: string,
   to: string,
-  options: { onProgress?: (message: string) => void } = {},
+  options: { onProgress?: (message: string) => void; group?: EffortGroup } = {},
 ): Promise<{ harvestId: string; cells: number }> {
   const log = options.onProgress ?? (() => {});
+  const group = options.group ?? "all";
+  const harvestKey = effortHarvestKey(group);
+  const groupFilter = EFFORT_GROUPS[group];
   const telemetry = (
     await db().query<{ uid: string }>("select data_resource_uid as uid from corpus.datasets where kind = 'telemetry' order by 1")
   ).rows.map((r) => r.uid);
-  const exclude = telemetry.length ? [`-dataResourceUid:(${telemetry.join(" OR ")})`] : [];
+  const exclude = [
+    ...(telemetry.length ? [`-dataResourceUid:(${telemetry.join(" OR ")})`] : []),
+    ...(groupFilter ? [groupFilter] : []),
+  ];
 
   const runId = newRunId();
   const startedAt = new Date();
-  const writer = new SnapshotWriter(EFFORT_HARVEST_KEY, runId);
+  const writer = new SnapshotWriter(harvestKey, runId);
   await writer.init();
   const span = months(from, to);
   let expected = 0;
   let retrieved = 0;
   const warnings: string[] = [];
 
-  log(`effort ${from} → ${to}: ${span.length} months, excluding ${telemetry.length} telemetry datasets`);
+  log(`effort (${group}) ${from} → ${to}: ${span.length} months, excluding ${telemetry.length} telemetry datasets`);
   for (const month of span) {
     const url = new URL(`${ALA_BASE_URL}/occurrences/search`);
     url.searchParams.set("q", "*:*");
@@ -117,8 +142,8 @@ export async function harvestEffort(
   const finishedAt = new Date();
   const manifest: SnapshotManifest = {
     runId,
-    harvestKey: EFFORT_HARVEST_KEY,
-    description: `All-taxa records per 0.1° cell per month, telemetry excluded, ${from} to ${to}, via ALA facets`,
+    harvestKey,
+    description: `${group === "all" ? "All-taxa" : group} records per 0.1° cell per month, telemetry excluded, ${from} to ${to}, via ALA facets`,
     source: "ala-facets",
     baseUrl: ALA_BASE_URL,
     query: { q: "*:*", fq: exclude },
@@ -138,7 +163,7 @@ export async function harvestEffort(
   };
   await writer.writeManifest(manifest);
 
-  return loadEffort(runId, { onProgress: log });
+  return loadEffort(runId, { onProgress: log, group });
 }
 
 /**
@@ -147,13 +172,15 @@ export async function harvestEffort(
  */
 export async function loadEffort(
   runId?: string,
-  options: { onProgress?: (message: string) => void } = {},
+  options: { onProgress?: (message: string) => void; group?: EffortGroup } = {},
 ): Promise<{ harvestId: string; cells: number }> {
   const log = options.onProgress ?? (() => {});
-  const resolved = runId ?? (await latestRunId(EFFORT_HARVEST_KEY));
-  if (!resolved) throw new Error("no frozen effort run — run: npm run ingest -- effort");
-  const manifest = await readManifest(EFFORT_HARVEST_KEY, resolved);
-  const harvestId = `${EFFORT_HARVEST_KEY}/${resolved}`;
+  const group = options.group ?? "all";
+  const harvestKey = effortHarvestKey(group);
+  const resolved = runId ?? (await latestRunId(harvestKey));
+  if (!resolved) throw new Error(`no frozen effort run for ${group} — run: npm run ingest -- effort --group=${group}`);
+  const manifest = await readManifest(harvestKey, resolved);
+  const harvestId = `${harvestKey}/${resolved}`;
 
   // Sum per cell and month: labels that differ only in a signed zero are one cell.
   const totals = new Map<string, { lat: number; lon: number; start: string; end: string; records: number }>();
@@ -161,7 +188,7 @@ export async function loadEffort(
     const start = `${page.sliceKey}-01`;
     const [y, m] = page.sliceKey.split("-").map(Number) as [number, number];
     const end = new Date(Date.UTC(y, m, 0)).toISOString().slice(0, 10);
-    const body = JSON.parse(await readPageBody(EFFORT_HARVEST_KEY, resolved, page.file)) as FacetBody;
+    const body = JSON.parse(await readPageBody(harvestKey, resolved, page.file)) as FacetBody;
     for (const c of cellsOf(body)) {
       const cell = parseCell(c.label);
       if (!cell) continue;
@@ -181,18 +208,18 @@ export async function loadEffort(
          finished_at, expected_records, retrieved_records, complete, corpus_hash, request_count, warnings)
        values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
        on conflict (harvest_id) do update set loaded_at = now()`,
-      [harvestId, EFFORT_HARVEST_KEY, resolved, manifest.source, manifest.description, JSON.stringify(manifest.query),
+      [harvestId, harvestKey, resolved, manifest.source, manifest.description, JSON.stringify(manifest.query),
         manifest.startedAt, manifest.finishedAt, manifest.expectedRecords, manifest.retrievedRecords, manifest.complete,
         manifest.corpusHash, manifest.requestCount, JSON.stringify(manifest.warnings)],
     );
     for (let i = 0; i < rows.length; i += 5_000) {
       await client.query(
-        `insert into corpus.effort_cells (cell_lat, cell_lon, period_start, period_end, records, harvest_id)
-         select x.lat, x.lon, x.start, x."end", x.records, $2
+        `insert into corpus.effort_cells (taxon_group, cell_lat, cell_lon, period_start, period_end, records, harvest_id)
+         select $3, x.lat, x.lon, x.start, x."end", x.records, $2
          from jsonb_to_recordset($1::jsonb) as x(lat numeric, lon numeric, start date, "end" date, records integer)
-         on conflict (cell_lat, cell_lon, period_start, period_end)
+         on conflict (taxon_group, cell_lat, cell_lon, period_start, period_end)
          do update set records = excluded.records, harvest_id = excluded.harvest_id`,
-        [JSON.stringify(rows.slice(i, i + 5_000)), harvestId],
+        [JSON.stringify(rows.slice(i, i + 5_000)), harvestId, group],
       );
     }
     await client.query("commit");
@@ -202,6 +229,6 @@ export async function loadEffort(
   } finally {
     client.release();
   }
-  log(`loaded ${rows.length} cell-months (${manifest.retrievedRecords} of ${manifest.expectedRecords} records fall in a cell)`);
+  log(`loaded ${rows.length} ${group} cell-months (${manifest.retrievedRecords} of ${manifest.expectedRecords} records fall in a cell)`);
   return { harvestId, cells: rows.length };
 }

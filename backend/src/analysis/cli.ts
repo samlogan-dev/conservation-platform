@@ -5,6 +5,7 @@ import { type Insight, finishRun, insertInsights, startRun } from "./runs.ts";
 import { silentSpecies } from "./calculated/silentSpecies.ts";
 import { rangeChange } from "./calculated/rangeChange.ts";
 import { notableRecords } from "./calculated/notableRecords.ts";
+import { reportingRate } from "./calculated/reportingRate.ts";
 import { AI_PARAMS, measureOpening, runAiArm } from "./ai/agent.ts";
 import { PROMPT_VERSION, briefText, systemPrompt, type Brief } from "./ai/prompt.ts";
 import { AI_MODEL } from "../ingestion/config/anthropic.ts";
@@ -14,7 +15,7 @@ import { db } from "../db/pool.ts";
 /**
  * Analysis CLI.
  *
- *   npm run analyse -- calculated [1,2,5]           run the calculated arm for the given insights (default all built)
+ *   npm run analyse -- calculated [1,2,3,5]         run the calculated arm for the given insights (default all built)
  *   npm run analyse -- ai-prompt <guided|open>      print the system prompt and brief (no API call)
  *   npm run analyse -- ai-estimate                  measure the fixed opening with count_tokens (free) and estimate cost
  *   npm run analyse -- ai <guided|open> [--repeat N] --confirm-spend   run the AI arm (paid)
@@ -25,6 +26,7 @@ import { db } from "../db/pool.ts";
 const CALCULATED: Record<string, { label: string; run: () => Promise<Insight[]> }> = {
   "1": { label: "silent species and evidence gaps", run: silentSpecies },
   "2": { label: "range change", run: rangeChange },
+  "3": { label: "reporting-rate trend", run: reportingRate },
   "5": { label: "notable records", run: notableRecords },
 };
 

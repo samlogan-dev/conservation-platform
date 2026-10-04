@@ -73,7 +73,7 @@ export async function rangeChange(): Promise<Insight[]> {
     `select case when period_start >= $1::date and period_end <= $2::date then 'baseline' else 'recent' end as win,
             sum(records) as records
      from corpus.effort_cells
-     where (period_start >= $1::date and period_end <= $2::date) or (period_start >= $3::date and period_end <= $4::date)
+     where taxon_group = 'all' and ((period_start >= $1::date and period_end <= $2::date) or (period_start >= $3::date and period_end <= $4::date))
      group by 1`,
     [R.baselineWindow.start, R.baselineWindow.end, R.recentWindow.start, R.recentWindow.end],
   );
