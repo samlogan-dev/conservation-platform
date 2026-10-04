@@ -80,6 +80,18 @@ export interface LoggedQuery {
   duration_ms: number
 }
 
+export interface ManualBaseline {
+  model_version: string
+  calculated_run_id: string
+  steps: { insight: string; step: string; unit: string; units: number; perUnit: Record<string, number> }[]
+  totals: { queries: number; downloads: number; joins: number; computations: number; ala_request_floor_hours: number }
+  platform: {
+    manual_steps: number
+    calculated_arm_seconds: number
+    ai_arm: { brief: string; runs: number; mean_cost: number; mean_minutes: number; mean_turns: number; mean_queries: number }[]
+  }
+}
+
 export interface InsightQuery {
   run?: string
   type?: InsightType
@@ -107,6 +119,7 @@ export const portalApi = {
     ),
   runs: () => get<{ runs: Run[] }>('/runs'),
   run: (id: string) => get<{ run: Run & { params: any; corpus: any }; comparison: Record<string, any> | null }>(`/runs/${id}`),
+  baseline: (run?: string) => get<{ run: string; baseline: ManualBaseline | null }>('/baseline', { run }),
   currency: () => get<{ months: { month: string; records: number; wild: number; datasets: number }[] }>('/currency'),
   taxonSeries: (id: string, run?: string) =>
     get<{

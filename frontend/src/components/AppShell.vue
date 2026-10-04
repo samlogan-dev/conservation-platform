@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 const nav = [
   { to: '/', label: 'Report' },
   { to: '/regions', label: 'Bioregions' },
-  { to: '/evaluation', label: 'AI evaluation' },
+  { to: '/evaluation', label: 'Evaluation' },
 ]
 </script>
 

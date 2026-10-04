@@ -25,7 +25,7 @@ const pct = (x: number | null | undefined) => (x === null || x === undefined ? '
 <template>
   <AsyncState :loading="loading" :error="error">
     <div v-if="data">
-      <RouterLink to="/evaluation" class="text-sm text-muted-foreground hover:underline">← AI evaluation</RouterLink>
+      <RouterLink to="/evaluation" class="text-sm text-muted-foreground hover:underline">← Evaluation</RouterLink>
       <h1 class="mt-2 text-2xl font-semibold">
         {{ data.run.arm === 'ai' ? `AI run — ${data.run.brief} brief` : 'Calculated run' }}
         <span class="font-mono text-base text-muted-foreground">{{ data.run.run_id.slice(0, 8) }}</span>

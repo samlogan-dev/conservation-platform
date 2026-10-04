@@ -13,6 +13,7 @@ import { db } from "../db/pool.ts";
  *   GET /api/runs                      every analysis run, AI runs with their latest score
  *   GET /api/runs/:id                  one run, with its comparison (AI runs)
  *   GET /api/queries?ids=1,2           the SQL behind an AI insight, as logged
+ *   GET /api/baseline[?run=]           the manual route to the run's insights, against the platform
  *   GET /api/geo/regions               IBRA 7 outlines as GeoJSON, simplified for national maps
  *   GET /api/currency                  threatened records per month, to show how far recent months lag
  *   GET /api/taxon-series/:id[?run=]   a taxon's records per year and per bioregion in the run's windows
@@ -147,6 +148,16 @@ portal.get("/regions", async (c) => {
     [runId],
   );
   return c.json({ run: runId, regions: rows });
+});
+
+portal.get("/baseline", async (c) => {
+  const runId = await resolveRun(c.req.query("run"));
+  const { rows } = await db().query(
+    `select baseline_id::int, calculated_run_id, model_version, steps, totals, platform, created_at
+     from analysis.manual_baselines where calculated_run_id = $1 order by baseline_id desc limit 1`,
+    [runId],
+  );
+  return c.json({ run: runId, baseline: rows[0] ?? null });
 });
 
 /** Region outlines never change between corpus loads; build the GeoJSON once. */

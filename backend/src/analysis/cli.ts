@@ -11,6 +11,7 @@ import { AI_PARAMS, measureOpening, runAiArm } from "./ai/agent.ts";
 import { PROMPT_VERSION, briefText, systemPrompt, type Brief } from "./ai/prompt.ts";
 import { AI_MODEL } from "../ingestion/config/anthropic.ts";
 import { scoreRun } from "./compare/score.ts";
+import { manualBaseline } from "./baseline/manualRoute.ts";
 import { db } from "../db/pool.ts";
 
 /**
@@ -21,6 +22,7 @@ import { db } from "../db/pool.ts";
  *   npm run analyse -- ai-estimate                  measure the fixed opening with count_tokens (free) and estimate cost
  *   npm run analyse -- ai <guided|open> [--repeat N] --confirm-spend   run the AI arm (paid)
  *   npm run analyse -- compare <aiRunId> [calculatedRunId]   score an AI run (default: latest calculated run)
+ *   npm run analyse -- baseline [calculatedRunId]   model the manual route to the same insights (no API call)
  *
  * Each invocation is one row in analysis.runs, carrying the parameters and the exact corpus it read.
  */
@@ -111,11 +113,21 @@ async function main(): Promise<void> {
       console.log(JSON.stringify(summary, null, 2));
       break;
     }
+    case "baseline": {
+      const calcId = list ??
+        (await db().query<{ run_id: string }>(`select run_id from analysis.runs where arm = 'calculated' and status = 'done'
+           and params->'insights' @> '["1","2","3","4","5"]' order by started_at desc limit 1`)).rows[0]?.run_id;
+      if (!calcId) throw new Error("no completed calculated run with all five insights");
+      const { baselineId, steps, totals, platform } = await manualBaseline(calcId);
+      for (const s of steps) console.log(`#${s.insight} ${String(s.units).padStart(6)} × ${JSON.stringify(s.perUnit)}  ${s.step}`);
+      console.log(JSON.stringify({ baselineId, totals, platform }, null, 2));
+      break;
+    }
     case "calculated":
       await runCalculated(list ? list.split(",").map((s) => s.trim()) : Object.keys(CALCULATED));
       break;
     default:
-      throw new Error(`unknown command "${command}" — use: calculated | ai-prompt | ai-estimate | ai | compare`);
+      throw new Error(`unknown command "${command}" — use: calculated | ai-prompt | ai-estimate | ai | compare | baseline`);
   }
 }
 
