@@ -14,7 +14,9 @@ import { QUERY_LIMITS } from "./queryTool.ts";
  *    field in its recording tool, so neither the prompt nor the tool schema hints at what the
  *    calculated arm looks for — a discovery test.
  */
-export const PROMPT_VERSION = "ai-2026-10-04.1";
+export const PROMPT_VERSION = "ai-2026-10-04.2";
+// ai-2026-10-04.2: the schema lists only columns ai_reader may read (free-text remarks withheld,
+// db/migrations/014).
 // ai-2026-10-04.1, after the pilot runs: dates stated as event_day (Australian Eastern local
 // date); population ('wild' | 'managed', set per taxon and state as well as per dataset) replaces
 // dataset_kind as the managed marker; related_taxa lets one insight name several taxa; the guided
@@ -42,7 +44,9 @@ const RELATION_NOTES: Record<string, string> = {
 async function schemaDescription(): Promise<string> {
   const { rows } = await db().query<{ table_name: string; columns: string }>(
     `select table_name, string_agg(column_name || ' ' || data_type, ', ' order by ordinal_position) as columns
-     from information_schema.columns where table_schema = 'corpus'
+     from information_schema.columns
+     where table_schema = 'corpus'
+       and has_column_privilege('ai_reader', format('corpus.%I', table_name), column_name, 'SELECT')
      group by table_name order by table_name`,
   );
   return rows

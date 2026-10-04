@@ -29,13 +29,27 @@ export interface Insight {
   queryIds?: number[];
 }
 
-/** The harvest runs loaded right now — what a run reads, recorded so it can be reproduced. */
+/**
+ * What a run reads, recorded so it can be reproduced: the harvest runs loaded, and a fingerprint
+ * of the curation applied on top of them (managed-population rules and dataset kinds). Curation
+ * changes what the views return, so an AI run's queries re-run identically only under the same
+ * fingerprint — found when the pilot runs' queries stopped reproducing after the 4 Oct 2026 fixes.
+ */
 async function corpusDescription(client: pg.PoolClient | pg.Pool): Promise<unknown> {
-  const { rows } = await client.query(
+  const { rows: harvests } = await client.query(
     `select harvest_id, source, corpus_hash, retrieved_records, complete, loaded_at
      from corpus.harvest_runs order by harvest_id`,
   );
-  return rows;
+  const { rows: [curation] } = await client.query(
+    `select md5(coalesce((select string_agg(concat_ws('|', taxon_concept_id, state_province, ibra_region, data_resource_uid), ';'
+                                            order by taxon_concept_id, state_province, ibra_region, data_resource_uid)
+                          from corpus.managed_populations), '')
+                || '#' ||
+                coalesce((select string_agg(data_resource_uid || '=' || kind, ';' order by data_resource_uid)
+                          from corpus.datasets where kind <> 'wild'), '')) as hash,
+            (select count(*)::int from corpus.managed_populations) as managed_rules`,
+  );
+  return { harvests, curation };
 }
 
 export async function startRun(args: {

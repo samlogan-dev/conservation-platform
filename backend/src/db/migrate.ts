@@ -54,6 +54,10 @@ async function migrate(): Promise<void> {
         throw new Error(`${file}: ${error instanceof Error ? error.message : error}`);
       }
     }
+    // A migration that recreates a view re-grants it to ai_reader in full; re-apply the column
+    // restriction every time (db/migrations/014).
+    const { rowCount: restrictable } = await client.query("select 1 from pg_proc where proname = 'restrict_ai_reader'");
+    if (restrictable) await client.query("select corpus.restrict_ai_reader()");
     console.log("migrations up to date");
   } finally {
     client.release();
