@@ -84,10 +84,18 @@ async function main(): Promise<void> {
     case "ai": {
       if (flag("confirm-spend") !== "true") throw new Error("AI runs call a paid API — re-run with --confirm-spend");
       const repeat = Number(flag("repeat") ?? 1);
+      let failed = 0;
       for (let i = 1; i <= repeat; i++) {
-        const s = await runAiArm(brief(list), { onProgress: (m) => console.log(m) });
-        console.log(`run ${i}/${repeat} ${s.runId}: ${s.turns} turns, ${s.queries} queries, ${s.insights} insights, stop=${s.stopReason}, ~$${s.estimatedCostUsd.toFixed(2)}`);
+        // A failed run is recorded as failed in analysis.runs; the batch carries on.
+        try {
+          const s = await runAiArm(brief(list), { onProgress: (m) => console.log(m) });
+          console.log(`run ${i}/${repeat} ${s.runId}: ${s.turns} turns, ${s.queries} queries, ${s.insights} insights, stop=${s.stopReason}, ~$${s.estimatedCostUsd.toFixed(2)}`);
+        } catch (error) {
+          failed++;
+          console.error(`run ${i}/${repeat} failed: ${error instanceof Error ? error.message : String(error)}`);
+        }
       }
+      if (failed) throw new Error(`${failed} of ${repeat} runs failed`);
       break;
     }
     case "compare": {

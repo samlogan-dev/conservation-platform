@@ -20,7 +20,7 @@ import { formatForModel, runQuery } from "./queryTool.ts";
  * reproducible token for token; run-to-run consistency is measured by repeating runs.
  */
 export const AI_PARAMS = {
-  version: "2026-10-03.1",
+  version: "2026-10-04.1", // .1: dropped streams are retried (streamRetries)
   effort: "high" as const,
   maxTokensPerTurn: 32_000,
   maxTurns: 80,
@@ -29,6 +29,8 @@ export const AI_PARAMS = {
   /** Warn the model when this close to either limit. */
   warnTurnsLeft: 6,
   warnCostShare: 0.8,
+  /** Re-sends of a turn whose stream dropped mid-response ("terminated"), with backoff. */
+  streamRetries: 3,
   /**
    * Claude Opus 5.5 per-million-token prices, USD, from Anthropic's model table (cached
    * 2026-09-25): input $4, output $20, cache reads $0.20; 5-minute cache writes at 1.25× input.
@@ -146,6 +148,7 @@ export async function runAiArm(brief: Brief, options: { onProgress?: (m: string)
   let queries = 0;
   let insights = 0;
   let stopReason = "unknown";
+  let streamRetries = 0;
 
   const transcriptPath = path.resolve(process.cwd(), INGESTION.dataDir, "ai-runs", `${runId}.json`);
   const saveTranscript = async () => {
@@ -158,18 +161,33 @@ export async function runAiArm(brief: Brief, options: { onProgress?: (m: string)
       if (turns >= AI_PARAMS.maxTurns) { stopReason = "turn_limit"; break; }
       if (costOf(usage) >= AI_PARAMS.maxCostUsd) { stopReason = "cost_limit"; break; }
 
-      const message = await client.messages
-        .stream({
-          model: AI_MODEL,
-          max_tokens: AI_PARAMS.maxTokensPerTurn,
-          system,
-          tools: toolDefs,
-          messages,
-          output_config: { effort: AI_PARAMS.effort },
-          // Caches the growing conversation, so each turn re-reads the history at cache prices.
-          cache_control: { type: "ephemeral" },
-        })
-        .finalMessage();
+      // The SDK retries failed requests, but not a stream that drops part-way through a response
+      // (undici's "terminated"). The turn is only appended once complete, so re-sending the same
+      // request is safe; the dropped attempt's tokens are billed but not counted in usage.
+      let message: Anthropic.Message | undefined;
+      for (let attempt = 0; ; attempt++) {
+        try {
+          message = await client.messages
+            .stream({
+              model: AI_MODEL,
+              max_tokens: AI_PARAMS.maxTokensPerTurn,
+              system,
+              tools: toolDefs,
+              messages,
+              output_config: { effort: AI_PARAMS.effort },
+              // Caches the growing conversation, so each turn re-reads the history at cache prices.
+              cache_control: { type: "ephemeral" },
+            })
+            .finalMessage();
+          break;
+        } catch (error) {
+          const transient = !(error instanceof Anthropic.APIError) || error.status === undefined || error.status >= 500 || error.status === 429;
+          if (!transient || attempt >= AI_PARAMS.streamRetries) throw error;
+          streamRetries++;
+          log(`  turn ${turns + 1}: stream dropped (${error instanceof Error ? error.message : String(error)}), retry ${attempt + 1}`);
+          await new Promise((r) => setTimeout(r, 5_000 * 2 ** attempt));
+        }
+      }
       turns++;
       usage.requests++;
       usage.inputTokens += message.usage.input_tokens;
@@ -229,13 +247,13 @@ export async function runAiArm(brief: Brief, options: { onProgress?: (m: string)
     }
 
     await saveTranscript();
-    await finishRun(runId, { status: "done", usage: { ...usage, stopReason, turns, queries, insights, estimatedCostUsd: costOf(usage) }, temperature: null });
+    await finishRun(runId, { status: "done", usage: { ...usage, stopReason, turns, queries, insights, streamRetries, estimatedCostUsd: costOf(usage) }, temperature: null });
   } catch (error) {
     await saveTranscript().catch(() => {});
     await finishRun(runId, {
       status: "failed",
       error: error instanceof Error ? error.message : String(error),
-      usage: { ...usage, stopReason: "error", turns, queries, insights, estimatedCostUsd: costOf(usage) },
+      usage: { ...usage, stopReason: "error", turns, queries, insights, streamRetries, estimatedCostUsd: costOf(usage) },
       temperature: null,
     });
     throw error;
