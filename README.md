@@ -5,7 +5,9 @@ cd platform/backend && npm run db:migrate && npm run dev
 cd platform/frontend && npm run dev                 # portal at http://localhost:5173
 ```
 The portal reads the latest calculated run with all five insights; produce one with
-`npm run analyse -- calculated` in `backend/` if none exists.
+`npm run analyse -- calculated` in `backend/` if none exists. Its maps need the bioregion
+outlines: `npm run ingest -- regions` (89 requests to ALA's spatial service, ~90 MB frozen) or,
+from a frozen run, `npm run ingest -- regions-load`.
 
 # Conservation Reporting Platform
 
@@ -18,7 +20,9 @@ build is tagged `koala-archive`. Built: ingestion from the Atlas of Living Austr
 plus per-group effort facets), the calculated arm for all five practitioner insights, the AI arm
 (Claude Opus 5.5 with read-only SQL), the comparison scorer, and a first portal — the monthly
 report, per-insight lists, bioregion and species pages, and the AI evaluation with every AI
-insight's cited SQL. The portal API (`backend/src/api/portal.ts`) serves aggregates and insights
+insight's cited SQL — with D3 maps at bioregion scale (co-movement, regional silences, a species'
+records by region) and charts of records over time, including the monthly record counts that
+show how far recent months lag. The portal API (`backend/src/api/portal.ts`) serves aggregates and insights
 only, never record coordinates.
 
 ```
@@ -112,7 +116,8 @@ Local Postgres 17 with PostGIS, from `docker-compose.yml` (image `imresamu/postg
 multi-architecture build of the official one). Two schemas:
 
 - **`corpus`** — `harvest_runs`, `datasets`, `taxa`, `occurrences` (with a PostGIS point),
-  `effort_cells` (all-taxa counts per 0.1° cell and period, the reporting-rate denominator), and
+  `effort_cells` (all-taxa counts per 0.1° cell and period, the reporting-rate denominator),
+  `ibra_regions` (IBRA 7 outlines from ALA's layer `cl1048`, simplified to ~1 km, for maps only), and
   two views: `analysable_occurrences` (valid, dated, telemetry excluded, managed populations
   labelled) and `taxon_tiers` (records since 2015 and whether a taxon has ≥100 of them).
 - **`analysis`** — `runs`, `insights` (the record both arms write, so they can be compared by

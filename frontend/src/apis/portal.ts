@@ -107,5 +107,12 @@ export const portalApi = {
     ),
   runs: () => get<{ runs: Run[] }>('/runs'),
   run: (id: string) => get<{ run: Run & { params: any; corpus: any }; comparison: Record<string, any> | null }>(`/runs/${id}`),
+  currency: () => get<{ months: { month: string; records: number; wild: number; datasets: number }[] }>('/currency'),
+  taxonSeries: (id: string, run?: string) =>
+    get<{
+      windows: { baseline: { start: string; end: string }; recent: { start: string; end: string } }
+      years: { year: number; records: number; wild: number; datasets: number }[]
+      regions: { region: string; baseline: number; recent: number; since_2015: number }[]
+    }>(`/taxon-series/${encodeURIComponent(id)}`, { run }),
   queries: (ids: number[]) => get<{ queries: LoggedQuery[] }>('/queries', { ids: ids.join(',') }),
 }

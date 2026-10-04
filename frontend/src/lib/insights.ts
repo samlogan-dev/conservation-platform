@@ -143,3 +143,16 @@ export function caveatOf(i: Insight): string | null {
 export const movedTaxaText = (i: Insight) => i.summary.match(/\): (.+)\.$/)?.[1] ?? null
 
 export const isHeadline = (i: Insight) => !i.taxon_concept_id && !i.region && typeof i.figures.count === 'number'
+
+/**
+ * Per bioregion, reporting-rate increases minus declines as a share of the taxa assessed there.
+ * With one or two taxa a region swings to ±1 on a single species, so regions with fewer than
+ * MIN_TAXA_FOR_BALANCE assessed are left unshaded.
+ */
+export const MIN_TAXA_FOR_BALANCE = 5
+export const regionBalance = (regions: { region: string; co_movement: Record<string, any> | null }[]) =>
+  Object.fromEntries(
+    regions
+      .filter((r) => (r.co_movement?.taxa_assessed ?? 0) >= MIN_TAXA_FOR_BALANCE)
+      .map((r) => [r.region, (r.co_movement!.increases - r.co_movement!.declines) / r.co_movement!.taxa_assessed]),
+  )

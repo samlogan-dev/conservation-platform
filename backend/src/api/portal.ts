@@ -13,6 +13,9 @@ import { db } from "../db/pool.ts";
  *   GET /api/runs                      every analysis run, AI runs with their latest score
  *   GET /api/runs/:id                  one run, with its comparison (AI runs)
  *   GET /api/queries?ids=1,2           the SQL behind an AI insight, as logged
+ *   GET /api/geo/regions               IBRA 7 outlines as GeoJSON, simplified for national maps
+ *   GET /api/currency                  threatened records per month, to show how far recent months lag
+ *   GET /api/taxon-series/:id[?run=]   a taxon's records per year and per bioregion in the run's windows
  *
  * `run` defaults to the latest completed calculated run that computed all five insights.
  */
@@ -144,6 +147,81 @@ portal.get("/regions", async (c) => {
     [runId],
   );
   return c.json({ run: runId, regions: rows });
+});
+
+/** Region outlines never change between corpus loads; build the GeoJSON once. */
+let geoCache: Promise<string> | null = null;
+portal.get("/geo/regions", async (c) => {
+  geoCache ??= db()
+    .query<{ geojson: string }>(
+      // ~4 km tolerance and 2 decimals (~1 km): well under a pixel on a national map, ~1 MB raw.
+      // Exterior rings clockwise, as d3-geo reads them; the other winding means "the globe minus this".
+      `select json_build_object('type', 'FeatureCollection', 'features', json_agg(json_build_object(
+         'type', 'Feature', 'properties', json_build_object('name', name, 'area_km2', round(area_km2)),
+         'geometry', st_asgeojson(st_forcepolygoncw(st_simplifypreservetopology(geom, 0.04)), 2)::json) order by name))::text as geojson
+       from corpus.ibra_regions`,
+    )
+    .then((r) => r.rows[0]!.geojson);
+  geoCache.catch(() => (geoCache = null));
+  c.header("Content-Type", "application/json");
+  c.header("Cache-Control", "public, max-age=86400");
+  return c.body(await geoCache);
+});
+
+let currencyCache: { at: number; value: Promise<unknown> } | null = null;
+portal.get("/currency", async (c) => {
+  if (!currencyCache || Date.now() - currencyCache.at > 10 * 60_000) {
+    currencyCache = {
+      at: Date.now(),
+      value: db()
+        .query(
+          `select to_char(date_trunc('month', event_day), 'YYYY-MM') as month, count(*)::int as records,
+                  count(*) filter (where population = 'wild')::int as wild,
+                  count(distinct data_resource_uid)::int as datasets
+           from corpus.analysable_occurrences
+           where event_day >= '2015-01-01' and event_day <= current_date
+           group by 1 order by 1`,
+        )
+        .then((r) => r.rows),
+    };
+    currencyCache.value.catch(() => (currencyCache = null));
+  }
+  return c.json({ months: await currencyCache.value });
+});
+
+portal.get("/taxon-series/:id{.+}", async (c) => {
+  const id = c.req.param("id");
+  const runId = await resolveRun(c.req.query("run"));
+  const { rows: runRows } = await db().query<{ b: { start: string; end: string }; r: { start: string; end: string } }>(
+    `select params->'rangeChange'->'baselineWindow' as b, params->'rangeChange'->'recentWindow' as r
+     from analysis.runs where run_id = $1`,
+    [runId],
+  );
+  const w = runRows[0];
+  if (!w?.b || !w.r) return c.json({ error: "run has no windows" }, 404);
+  const [years, regions] = await Promise.all([
+    db().query(
+      `select extract(year from event_day)::int as year, count(*)::int as records,
+              count(*) filter (where population = 'wild')::int as wild,
+              count(distinct data_resource_uid)::int as datasets
+       from corpus.analysable_occurrences
+       where taxon_concept_id = $1 and event_day >= '2015-01-01' and event_day <= current_date
+       group by 1 order by 1`,
+      [id],
+    ),
+    // Wild records only, as range change and reporting rate count them. Region counts, never points.
+    db().query(
+      `select ibra_region as region,
+              count(*) filter (where event_day between $2::date and $3::date)::int as baseline,
+              count(*) filter (where event_day between $4::date and $5::date)::int as recent,
+              count(*)::int as since_2015
+       from corpus.analysable_occurrences
+       where taxon_concept_id = $1 and population = 'wild' and ibra_region is not null and event_day >= '2015-01-01'
+       group by 1 order by 1`,
+      [id, w.b.start, w.b.end, w.r.start, w.r.end],
+    ),
+  ]);
+  return c.json({ run: runId, windows: { baseline: w.b, recent: w.r }, years: years.rows, regions: regions.rows });
 });
 
 portal.get("/taxa/:id{.+}", async (c) => {

@@ -6,6 +6,7 @@ import { INSIGHT_META, INSIGHT_ORDER } from '@/lib/insights'
 import { useAsync } from '@/lib/useAsync'
 import AsyncState from '@/components/AsyncState.vue'
 import InsightRow from '@/components/InsightRow.vue'
+import RegionMap from '@/components/RegionMap.vue'
 
 const route = useRoute()
 const region = computed(() => String(route.params.region))
@@ -28,7 +29,12 @@ const coMovement = computed(() => data.value?.items.find((i) => i.insight_type =
 <template>
   <div>
     <RouterLink to="/regions" class="text-sm text-muted-foreground hover:underline">← Bioregions</RouterLink>
-    <h1 class="mt-2 text-2xl font-semibold">{{ region }}</h1>
+    <div class="flex flex-wrap items-start justify-between gap-4">
+      <h1 class="mt-2 text-2xl font-semibold">{{ region }}</h1>
+      <div class="w-56 shrink-0">
+        <RegionMap :values="{ [region]: 1 }" :max="1" :outlined="[region]" :height="190" :tooltip="(n) => n" />
+      </div>
+    </div>
     <AsyncState :loading="loading" :error="error">
       <p v-if="coMovement" class="mt-2 max-w-3xl text-muted-foreground">{{ coMovement.summary }}</p>
       <p v-if="!data?.items.length" class="mt-6 text-sm text-muted-foreground">No regional findings for this bioregion.</p>

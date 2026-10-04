@@ -6,6 +6,7 @@ import { latestRunId, listRuns, readManifest } from "./snapshot/store.ts";
 import { recordStore } from "./store/recordStore.ts";
 import { closeDb } from "../db/pool.ts";
 import { EFFORT_GROUPS, type EffortGroup, harvestEffort, loadEffort } from "./effort.ts";
+import { harvestRegions, loadRegions } from "./regions.ts";
 
 /**
  * Ingestion CLI.
@@ -20,6 +21,8 @@ import { EFFORT_GROUPS, type EffortGroup, harvestEffort, loadEffort } from "./ef
  *   npm run ingest -- effort   [fromYYYY-MM] [toYYYY-MM] [--group=G]  (record counts per 0.1° cell per month;
  *                                                         G = all (default) | Aves | Mammalia | Reptilia | Amphibia | Plantae)
  *   npm run ingest -- effort-load [runId] [--group=G]      (re-load a frozen effort run, no network)
+ *   npm run ingest -- regions                               (IBRA 7 outlines for maps, from ALA's spatial layer)
+ *   npm run ingest -- regions-load [runId]                  (re-load frozen outlines, no network)
  */
 
 const log = (m: string) => console.log(m);
@@ -135,6 +138,14 @@ async function main(): Promise<void> {
       await loadEffort(arg1, { onProgress: log, group: effortGroup() });
       break;
     }
+    case "regions": {
+      await harvestRegions({ onProgress: log });
+      break;
+    }
+    case "regions-load": {
+      await loadRegions(arg1, { onProgress: log });
+      break;
+    }
     case "adapt": {
       const key = arg1 ?? DEFAULT_HARVEST;
       const runId = await resolveRun(key, arg2);
@@ -157,7 +168,7 @@ async function main(): Promise<void> {
       break;
     }
     default:
-      throw new Error(`unknown command "${command}" — use harvest | adapt | report | runs | effort | effort-load`);
+      throw new Error(`unknown command "${command}" — use harvest | adapt | report | runs | effort | effort-load | regions | regions-load`);
   }
 }
 

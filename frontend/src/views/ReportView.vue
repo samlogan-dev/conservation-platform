@@ -2,17 +2,19 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { portalApi, type Insight, type Summary } from '@/apis/portal'
-import { INSIGHT_META, fmt } from '@/lib/insights'
+import { INSIGHT_META, MIN_TAXA_FOR_BALANCE, fmt, regionBalance } from '@/lib/insights'
 import { useAsync } from '@/lib/useAsync'
 import AsyncState from '@/components/AsyncState.vue'
 import InsightRow from '@/components/InsightRow.vue'
+import RegionMap from '@/components/RegionMap.vue'
+import TimeBars from '@/components/TimeBars.vue'
 
 /**
  * The monthly report: the five insights, each with its headline numbers and the few findings a
  * practitioner should look at first, and the caveats that decide how far each can be trusted.
  */
 const { data, loading, error } = useAsync(async () => {
-  const summary = await portalApi.summary()
+  const [summary, regions, currency] = await Promise.all([portalApi.summary(), portalApi.regions(), portalApi.currency()])
   const top = (q: Parameters<typeof portalApi.insights>[0]) => portalApi.insights({ limit: 5, ...q }).then((r) => r.items)
   const [silent, contraction, decline, coMovement, notable] = await Promise.all([
     top({ type: 'silent_species', label: 'silent', sort: 'baseline_annual_mean' }),
@@ -21,7 +23,7 @@ const { data, loading, error } = useAsync(async () => {
     top({ type: 'co_movement', flagged: true, sort: 'p_decline', limit: 10 }),
     top({ type: 'notable_record', sort: 'distance' }),
   ])
-  return { summary, sections: { silent, contraction, decline, coMovement, notable } as Record<string, Insight[]> }
+  return { summary, regions: regions.regions, currency: currency.months, sections: { silent, contraction, decline, coMovement, notable } as Record<string, Insight[]> }
 })
 
 const count = (s: Summary, type: string, label?: string, national?: boolean) =>
@@ -33,6 +35,16 @@ const monthName = computed(() => {
   const m = data.value?.summary.run.report_month
   return m ? new Date(`${m}-01T00:00:00`).toLocaleDateString('en-AU', { month: 'long', year: 'numeric' }) : ''
 })
+const balance = computed(() => regionBalance(data.value?.regions ?? []))
+const flagged = computed(() => (data.value?.regions ?? []).filter((r) => r.co_movement?.flag).map((r) => r.region))
+const balanceTip = (name: string) => {
+  const cm = data.value?.regions.find((r) => r.region === name)?.co_movement
+  if (!cm) return `${name}: no taxa assessed`
+  const flag = cm.flag === 'co_decline' ? ' — co-decline' : cm.flag === 'co_increase' ? ' — co-increase' : ''
+  return `${name}: ${cm.declines} declined, ${cm.increases} increased of ${cm.taxa_assessed} taxa${flag}`
+}
+const monthTick = (m: string) => (m.endsWith('-01') ? m.slice(0, 4) : '')
+const currencyPoints = computed(() => (data.value?.currency ?? []).map((m) => ({ x: m.month, y: m.records })))
 const yrs = (w?: { start: string; end: string }) => (w ? `${w.start.slice(0, 4)}–${w.end.slice(0, 4)}` : '')
 </script>
 
@@ -57,6 +69,19 @@ const yrs = (w?: { start: string; end: string }) => (w ? `${w.start.slice(0, 4)}
             <strong>Recent months are incomplete.</strong> Datasets reach the Atlas months to a year late (eBird has not
             loaded 2026). So trends and ranges compare settled windows — {{ yrs(data.summary.run.window_baseline) }}
             against {{ yrs(data.summary.run.window_recent) }} — and only notable records and silence use the latest months.
+            <div class="mt-2 rounded-md bg-background/70 p-2">
+              <TimeBars
+                :points="currencyPoints"
+                :bands="[
+                  { from: data.summary.run.window_baseline.start.slice(0, 7), to: data.summary.run.window_baseline.end.slice(0, 7), label: 'baseline window' },
+                  { from: data.summary.run.window_recent.start.slice(0, 7), to: data.summary.run.window_recent.end.slice(0, 7), label: 'recent window' },
+                ]"
+                :x-label="monthTick"
+                :height="150"
+                y-label="threatened records"
+              />
+              <p class="text-xs text-muted-foreground">Threatened-species records per month of observation. The fall at the right is records not yet loaded, not animals.</p>
+            </div>
           </li>
           <li>
             <strong>Records measure effort as well as organisms.</strong> Recording roughly doubled between the windows.
@@ -137,6 +162,20 @@ const yrs = (w?: { start: string; end: string }) => (w ? `${w.start.slice(0, 4)}
             Bioregions where more threatened taxa moved the same way than the national rate predicts (screening test; q
             is the false-discovery-adjusted value across bioregions):
           </p>
+          <div class="mb-3 max-w-2xl">
+            <RegionMap
+              :values="balance"
+              mode="diverging"
+              :outlined="flagged"
+              :tooltip="balanceTip"
+              :legend="['more declines', 'more increases']"
+              :height="380"
+            />
+            <p class="text-xs text-muted-foreground">
+              Shade: reporting-rate increases minus declines, as a share of the threatened taxa assessed in each bioregion
+              (blank under {{ MIN_TAXA_FOR_BALANCE }} taxa). Outlined: flagged co-movement. Click a bioregion for its findings.
+            </p>
+          </div>
           <ul class="divide-y"><InsightRow v-for="i in data.sections.coMovement" :key="i.insight_id" :insight="i" /></ul>
         </section>
 
