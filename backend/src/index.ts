@@ -2,6 +2,7 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import "dotenv/config";
+import { portal } from "./api/portal.ts";
 
 // strict: false so `/api/x` and `/api/x/` both match.
 const app = new Hono({ strict: false });
@@ -25,9 +26,9 @@ app.use(
 );
 
 // --- Routes ---
-// None yet beyond the health check. The analysis and portal routes are rebuilt around the
-// practitioner insights once those are defined; ingestion runs from the CLI meanwhile.
+// Read-only portal API over the analysis results; ingestion and analysis run from the CLIs.
 app.get("/", (c) => c.json({ status: "ok" }));
+app.route("/api", portal);
 
 // --- Server ---
 const port = Number(process.env.PORT) || 8000;

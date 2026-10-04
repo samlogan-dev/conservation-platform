@@ -2,8 +2,10 @@
 ```bash
 cd platform && docker compose up -d                 # Postgres + PostGIS on localhost:54329
 cd platform/backend && npm run db:migrate && npm run dev
-cd platform/frontend && npm run dev
+cd platform/frontend && npm run dev                 # portal at http://localhost:5173
 ```
+The portal reads the latest calculated run with all five insights; produce one with
+`npm run analyse -- calculated` in `backend/` if none exists.
 
 # Conservation Reporting Platform
 
@@ -11,16 +13,18 @@ The research artefact for *Improving Endangered Species Conservation Reporting T
 Data Integration*. Vue 3 (Vite) frontend + Hono backend, in one repo. `../CLAUDE.md` is the
 authority on the research question, the current approach and the ethics pillars.
 
-**State as of 3 Oct 2026.** The project was re-scoped on 2 Oct 2026 (see `../CLAUDE.md`). What
-survives from the earlier koala/NSW build is the ingestion layer: harvest from the Atlas of Living
-Australia, freeze the raw responses, adapt them into one canonical record. Everything downstream —
-the analysis arms and the portal — is being rebuilt around the practitioner insights and is not
-here yet. The earlier build is tagged `koala-archive` in this repo.
+**State as of 4 Oct 2026.** Re-scoped on 2 Oct 2026 (see `../CLAUDE.md`); the earlier koala/NSW
+build is tagged `koala-archive`. Built: ingestion from the Atlas of Living Australia (bulk download
+plus per-group effort facets), the calculated arm for all five practitioner insights, the AI arm
+(Claude Opus 5.5 with read-only SQL), the comparison scorer, and a first portal — the monthly
+report, per-insight lists, bioregion and species pages, and the AI evaluation with every AI
+insight's cited SQL. The portal API (`backend/src/api/portal.ts`) serves aggregates and insights
+only, never record coordinates.
 
 ```
 platform/
 ├── frontend/   Vue 3 · TypeScript · Vite · Tailwind v4 · shadcn-vue · Pinia · Vue Router · Axios
-│               (currently a placeholder shell)
+│               (the portal: src/views)
 ├── backend/    Hono · Node · TypeScript · Postgres (pg) · Anthropic SDK
 └── docker-compose.yml   local Postgres 17 + PostGIS 3.5
 ```
