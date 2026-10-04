@@ -5,7 +5,8 @@
  * These are the defaults recorded in CLAUDE.md (3 Oct 2026). Change a value → bump the version.
  */
 export const CALCULATED_PARAMS = {
-  version: "2026-10-04.2",
+  version: "2026-10-04.3",
+  // .3 (4 Oct 2026): insight #4, regional co-movement, added.
   // .2 (4 Oct 2026): insight #3, reporting-rate trend, added.
   // .1 (4 Oct 2026): every date window on the record's Australian Eastern local date (event_day),
   // not its UTC date; managed populations set per taxon and state as well as per dataset
@@ -66,6 +67,13 @@ export const CALCULATED_PARAMS = {
     minDetectionsPerWindow: 20,
     /** Records (all sources) in each window for a taxon–region pair to be assessed at all. */
     minRecordsPerWindow: 20,
+  },
+
+  coMovement: {
+    /** A region is flagged only when at least this many taxa moved the same way… */
+    minTaxa: 3,
+    /** …and the binomial upper tail against the national share is below this. */
+    alpha: 0.05,
   },
 
   notableRecords: {

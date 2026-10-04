@@ -14,7 +14,8 @@ import { QUERY_LIMITS } from "./queryTool.ts";
  *    field in its recording tool, so neither the prompt nor the tool schema hints at what the
  *    calculated arm looks for — a discovery test.
  */
-export const PROMPT_VERSION = "ai-2026-10-04.3";
+export const PROMPT_VERSION = "ai-2026-10-04.4";
+// ai-2026-10-04.4: the guided brief adds insight #4, co_movement.
 // ai-2026-10-04.3: effort_cells has a taxon_group; the guided brief adds insight #3,
 // reporting_rate.
 // ai-2026-10-04.2: the schema lists only columns ai_reader may read (free-text remarks withheld,
@@ -95,6 +96,7 @@ export function briefText(brief: Brief): string {
   const R = C.rangeChange;
   const N = C.notableRecords;
   const RR = C.reportingRate;
+  const CM = C.coMovement;
   const lookbackStart = (() => {
     const d = new Date(`${mEnd}T00:00:00Z`);
     d.setUTCMonth(d.getUTCMonth() - S.lookbackMonths);
@@ -109,7 +111,7 @@ export function briefText(brief: Brief): string {
 Investigate as you judge best and record each insight worth their attention — aim for the most important 20 to 40. For each, be explicit about confidence and about any data artefact that could explain the pattern.`;
   }
 
-  return `Report month: ${C.reportMonth} (${mStart} to ${mEnd}). Compute the four insights below exactly as defined and record them with record_insight, using the insight_type given. "Analysable" means corpus.analysable_occurrences. The statistical tier is taxa with statistical_tier = true in corpus.taxon_tiers.
+  return `Report month: ${C.reportMonth} (${mStart} to ${mEnd}). Compute the five insights below exactly as defined and record them with record_insight, using the insight_type given. "Analysable" means corpus.analysable_occurrences. The statistical tier is taxa with statistical_tier = true in corpus.taxon_tiers.
 
 ## 1. silent_species — period ${lookbackStart} to ${mEnd}
 (a) Silent: taxa in corpus.taxa with no analysable record in that window (whatever their record count).
@@ -138,6 +140,10 @@ Wild analysable records with a grid cell (cell_lat not null), per taxon, nationa
 - Record ratio: per window, consistent-source records ÷ effort-group records summed over the footprint cells and the window's months; ratio = recent ÷ baseline.
 Flag "decline" when the detection ratio is ≤ ${RR.declineRatio}, its interval's upper end is below 1 and the record ratio is below 1; "increase" when the detection ratio is ≥ ${RR.increaseRatio.toFixed(4)}, its interval's lower end is above 1 and the record ratio is above 1; both need at least ${RR.minDetectionsPerWindow} detections in each window. Regional figures only for taxon–region pairs with at least ${RR.minRecordsPerWindow} records (all sources) in each window.
 Record national headline insights with the count of declines and of increases (taxon and region null; figures {flag, count}), then individual insights for the most important flagged taxa, nationally and by region, up to 15 each (figures {flag, effort_group, detections: {baseline, recent}, visits: {baseline, recent}, detection_ratio, detection_ratio_ci95: [low, high], consistent_source_ratio}).
+
+## 5. co_movement — IBRA regions, from section 4's regional results (period ${R.recentWindow.start} to ${R.recentWindow.end})
+A taxon–region pair is assessed when section 4 gives it at least ${RR.minDetectionsPerWindow} detections in each window. Per region: taxa_assessed, declines and increases (section 4 flags). Expected shares: the share of all assessed taxon–region pairs, nationally, flagged decline (and increase). p_decline = P(X ≥ declines) for X ~ Binomial(taxa_assessed, expected decline share); p_increase likewise. Flag "co_decline" when declines ≥ ${CM.minTaxa} and p_decline < ${CM.alpha}; otherwise "co_increase" when increases ≥ ${CM.minTaxa} and p_increase < ${CM.alpha}.
+Record headline insights with the count of co_decline and of co_increase regions (taxon and region null; figures {flag, count}), then one insight per flagged region (region set, taxon null, related_taxa = the taxa that moved; figures {flag, taxa_assessed, declines, increases, p_decline, p_increase}).
 
 Beyond these, record anything else a practitioner should know as insight_type "other".`;
 }
@@ -180,7 +186,7 @@ export function tools(brief: Brief): Anthropic.Tool[] {
             properties: {
               insight_type: {
                 type: "string",
-                enum: ["silent_species", "range_change", "reporting_rate", "notable_record", "other"],
+                enum: ["silent_species", "range_change", "reporting_rate", "co_movement", "notable_record", "other"],
               },
               ...INSIGHT_PROPERTIES,
             },

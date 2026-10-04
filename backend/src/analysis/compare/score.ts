@@ -32,8 +32,12 @@ import { executeReadOnly } from "../ai/queryTool.ts";
  * 2026-10-04.2: insight #3 (reporting_rate). As the evaluation design sets out, it is scored on
  * whether a flag is raised and on direction, not exact value; the ratio's closeness is recorded
  * beside them. Headline counts are national. Discovery adds the steepest well-evidenced declines.
+ *
+ * 2026-10-04.3: insight #4 (co_movement), matched on region; flag and the decline/increase counts
+ * compared. Discovery adds the co_decline regions, found when an AI insight is set in that region
+ * or names it.
  */
-export const SCORER_VERSION = "2026-10-04.2";
+export const SCORER_VERSION = "2026-10-04.3";
 const PRIORITY_K = 15;
 
 interface Row {
@@ -95,6 +99,13 @@ function compareFigures(type: string, ai: Record<string, unknown>, calc: Record<
         detection_ratio_within_5pct: near("detection_ratio", 0.05),
       };
     }
+    case "co_movement":
+      return {
+        flag: (get(ai, "flag") ?? null) === (get(calc, "flag") ?? null),
+        declines: near("declines", 0),
+        increases: near("increases", 0),
+        taxa_assessed: near("taxa_assessed", 0),
+      };
     case "notable_record": {
       const r = (o: Record<string, unknown>) => JSON.stringify([...new Set(((o.reasons as string[]) ?? []).map(reasonLabel))].sort());
       return { reasons: r(ai) === r(calc), records: near("records", 0) };
@@ -122,6 +133,9 @@ function headlineCounts(calc: Row[]): Record<string, number> {
       counts[`silent_species:${k}`] = (counts[`silent_species:${k}`] ?? 0) + 1;
       // The brief defines an evidence gap whether or not the taxon is also silent.
       if (k === "silent" && r.figures.evidence_gap === true) counts["silent_species:evidence_gap"] = (counts["silent_species:evidence_gap"] ?? 0) + 1;
+    } else if (r.insight_type === "co_movement" && r.figures.flag) {
+      const k = `co_movement:${String(r.figures.flag)}`;
+      counts[k] = (counts[k] ?? 0) + 1;
     } else if (r.insight_type === "reporting_rate" && r.figures.flag && r.region === null) {
       const k = `reporting_rate:${String(r.figures.flag)}`;
       counts[k] = (counts[k] ?? 0) + 1;
@@ -146,6 +160,8 @@ function prioritySets(calc: Row[]): Record<string, Row[]> {
     // Contractions with the most baseline evidence behind them.
     contraction: top(calc.filter((r) => r.figures.flag === "contraction"), (r) => Math.min(n(r, "records.baseline"), 1e9) * -n(r, "aoo_10km_km2.change")),
     notable: top(calc.filter((r) => r.insight_type === "notable_record"), (r) => n(r, "max_distance_to_prior_km")),
+    // Regions where several taxa declined together, most significant first.
+    co_decline: top(calc.filter((r) => r.insight_type === "co_movement" && r.figures.flag === "co_decline"), (r) => -n(r, "p_decline")),
     // National reporting-rate declines with the most detections behind them.
     rate_decline: top(
       calc.filter((r) => r.insight_type === "reporting_rate" && r.region === null && r.figures.flag === "decline"),
@@ -197,7 +213,8 @@ export async function scoreRun(aiRunId: string, calculatedRunId: string): Promis
     if (r.taxon_concept_id === null && r.region === null) {
       const k = r.insight_type === "silent_species" ? `silent_species:${r.figures.kind}` :
         r.insight_type === "range_change" ? `range_change:${r.figures.flag}` :
-        r.insight_type === "reporting_rate" ? `reporting_rate:${r.figures.flag}` : "notable_record:groups";
+        r.insight_type === "reporting_rate" ? `reporting_rate:${r.figures.flag}` :
+        r.insight_type === "co_movement" ? `co_movement:${r.figures.flag}` : "notable_record:groups";
       headlineChecks.push({ insight_id: r.insight_id, key: k, ai: num(r.figures.count), calculated: counts[k] ?? 0, agrees: num(r.figures.count) === (counts[k] ?? 0) });
       continue;
     }
@@ -229,8 +246,13 @@ export async function scoreRun(aiRunId: string, calculatedRunId: string): Promis
   const discovery: Record<string, { found: number; mentioned: number; of: number; missed: string[] }> = {};
   for (const [name, rows] of Object.entries(sets)) {
     const regional = name === "regional_silence";
-    const hits = rows.filter((r) => regional ? aiTaxonRegion.has(`${r.taxon_concept_id}|${r.region ?? ""}`) : aiTaxa.has(r.taxon_concept_id ?? ""));
-    const byMention = rows.filter((r) => hits.includes(r) || mentioned(r));
+    // A finding with no taxon (co_movement) is about a region: found when an AI insight is set in it, or names it.
+    const aiRegions = new Set(ai.map((r) => r.region).filter(Boolean));
+    const hits = rows.filter((r) =>
+      r.taxon_concept_id === null ? aiRegions.has(r.region)
+      : regional ? aiTaxonRegion.has(`${r.taxon_concept_id}|${r.region ?? ""}`) : aiTaxa.has(r.taxon_concept_id));
+    const byMention = rows.filter((r) =>
+      hits.includes(r) || (r.taxon_concept_id === null ? texts.some((t) => t.includes((r.region ?? "").toLowerCase())) : mentioned(r)));
     discovery[name] = { found: hits.length, mentioned: byMention.length, of: rows.length, missed: rows.filter((r) => !byMention.includes(r)).map((r) => r.summary.slice(0, 120)) };
   }
   const aiOnTaxaNotFlagged = ai.filter((r) => r.taxon_concept_id && !calc.some((c) => c.taxon_concept_id === r.taxon_concept_id && (c.figures.kind || c.figures.flag || c.insight_type === "notable_record"))).length;
