@@ -1,0 +1,3658 @@
+{
+  "runId": "2026-10-04T01-23-11-859Z",
+  "harvestKey": "effort-point01-monthly-reptilia",
+  "description": "Reptilia records per 0.1° cell per month, telemetry excluded, 2015-01 to 2026-09, via ALA facets",
+  "source": "ala-facets",
+  "baseUrl": "https://biocache-ws.ala.org.au/ws",
+  "query": {
+    "q": "*:*",
+    "fq": [
+      "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+      "class:Reptilia"
+    ]
+  },
+  "requestedFields": [
+    "point-0.1"
+  ],
+  "politeness": {
+    "userAgent": "ConservationReportingPlatform/0.1 (UTS Honours research; +mailto:sam@samlogan.com.au)",
+    "minRequestIntervalMs": 1100
+  },
+  "startedAt": "2026-10-04T01:23:11.859Z",
+  "finishedAt": "2026-10-04T01:25:52.012Z",
+  "durationMs": 160153,
+  "expectedRecords": 806458,
+  "retrievedRecords": 804344,
+  "complete": true,
+  "slices": [
+    {
+      "sliceKey": "2015-01",
+      "filters": [
+        "eventDate:[2015-01-01T00:00:00Z TO 2015-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-02",
+      "filters": [
+        "eventDate:[2015-02-01T00:00:00Z TO 2015-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-03",
+      "filters": [
+        "eventDate:[2015-03-01T00:00:00Z TO 2015-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-04",
+      "filters": [
+        "eventDate:[2015-04-01T00:00:00Z TO 2015-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-05",
+      "filters": [
+        "eventDate:[2015-05-01T00:00:00Z TO 2015-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-06",
+      "filters": [
+        "eventDate:[2015-06-01T00:00:00Z TO 2015-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-07",
+      "filters": [
+        "eventDate:[2015-07-01T00:00:00Z TO 2015-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-08",
+      "filters": [
+        "eventDate:[2015-08-01T00:00:00Z TO 2015-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-09",
+      "filters": [
+        "eventDate:[2015-09-01T00:00:00Z TO 2015-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-10",
+      "filters": [
+        "eventDate:[2015-10-01T00:00:00Z TO 2015-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-11",
+      "filters": [
+        "eventDate:[2015-11-01T00:00:00Z TO 2015-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-12",
+      "filters": [
+        "eventDate:[2015-12-01T00:00:00Z TO 2015-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-01",
+      "filters": [
+        "eventDate:[2016-01-01T00:00:00Z TO 2016-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-02",
+      "filters": [
+        "eventDate:[2016-02-01T00:00:00Z TO 2016-02-29T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-03",
+      "filters": [
+        "eventDate:[2016-03-01T00:00:00Z TO 2016-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-04",
+      "filters": [
+        "eventDate:[2016-04-01T00:00:00Z TO 2016-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-05",
+      "filters": [
+        "eventDate:[2016-05-01T00:00:00Z TO 2016-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-06",
+      "filters": [
+        "eventDate:[2016-06-01T00:00:00Z TO 2016-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-07",
+      "filters": [
+        "eventDate:[2016-07-01T00:00:00Z TO 2016-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-08",
+      "filters": [
+        "eventDate:[2016-08-01T00:00:00Z TO 2016-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-09",
+      "filters": [
+        "eventDate:[2016-09-01T00:00:00Z TO 2016-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-10",
+      "filters": [
+        "eventDate:[2016-10-01T00:00:00Z TO 2016-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-11",
+      "filters": [
+        "eventDate:[2016-11-01T00:00:00Z TO 2016-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-12",
+      "filters": [
+        "eventDate:[2016-12-01T00:00:00Z TO 2016-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-01",
+      "filters": [
+        "eventDate:[2017-01-01T00:00:00Z TO 2017-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-02",
+      "filters": [
+        "eventDate:[2017-02-01T00:00:00Z TO 2017-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-03",
+      "filters": [
+        "eventDate:[2017-03-01T00:00:00Z TO 2017-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-04",
+      "filters": [
+        "eventDate:[2017-04-01T00:00:00Z TO 2017-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-05",
+      "filters": [
+        "eventDate:[2017-05-01T00:00:00Z TO 2017-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-06",
+      "filters": [
+        "eventDate:[2017-06-01T00:00:00Z TO 2017-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-07",
+      "filters": [
+        "eventDate:[2017-07-01T00:00:00Z TO 2017-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-08",
+      "filters": [
+        "eventDate:[2017-08-01T00:00:00Z TO 2017-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-09",
+      "filters": [
+        "eventDate:[2017-09-01T00:00:00Z TO 2017-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-10",
+      "filters": [
+        "eventDate:[2017-10-01T00:00:00Z TO 2017-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-11",
+      "filters": [
+        "eventDate:[2017-11-01T00:00:00Z TO 2017-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-12",
+      "filters": [
+        "eventDate:[2017-12-01T00:00:00Z TO 2017-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-01",
+      "filters": [
+        "eventDate:[2018-01-01T00:00:00Z TO 2018-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-02",
+      "filters": [
+        "eventDate:[2018-02-01T00:00:00Z TO 2018-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-03",
+      "filters": [
+        "eventDate:[2018-03-01T00:00:00Z TO 2018-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-04",
+      "filters": [
+        "eventDate:[2018-04-01T00:00:00Z TO 2018-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-05",
+      "filters": [
+        "eventDate:[2018-05-01T00:00:00Z TO 2018-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-06",
+      "filters": [
+        "eventDate:[2018-06-01T00:00:00Z TO 2018-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-07",
+      "filters": [
+        "eventDate:[2018-07-01T00:00:00Z TO 2018-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-08",
+      "filters": [
+        "eventDate:[2018-08-01T00:00:00Z TO 2018-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-09",
+      "filters": [
+        "eventDate:[2018-09-01T00:00:00Z TO 2018-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-10",
+      "filters": [
+        "eventDate:[2018-10-01T00:00:00Z TO 2018-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-11",
+      "filters": [
+        "eventDate:[2018-11-01T00:00:00Z TO 2018-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-12",
+      "filters": [
+        "eventDate:[2018-12-01T00:00:00Z TO 2018-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-01",
+      "filters": [
+        "eventDate:[2019-01-01T00:00:00Z TO 2019-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-02",
+      "filters": [
+        "eventDate:[2019-02-01T00:00:00Z TO 2019-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-03",
+      "filters": [
+        "eventDate:[2019-03-01T00:00:00Z TO 2019-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-04",
+      "filters": [
+        "eventDate:[2019-04-01T00:00:00Z TO 2019-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-05",
+      "filters": [
+        "eventDate:[2019-05-01T00:00:00Z TO 2019-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-06",
+      "filters": [
+        "eventDate:[2019-06-01T00:00:00Z TO 2019-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-07",
+      "filters": [
+        "eventDate:[2019-07-01T00:00:00Z TO 2019-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-08",
+      "filters": [
+        "eventDate:[2019-08-01T00:00:00Z TO 2019-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-09",
+      "filters": [
+        "eventDate:[2019-09-01T00:00:00Z TO 2019-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-10",
+      "filters": [
+        "eventDate:[2019-10-01T00:00:00Z TO 2019-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-11",
+      "filters": [
+        "eventDate:[2019-11-01T00:00:00Z TO 2019-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-12",
+      "filters": [
+        "eventDate:[2019-12-01T00:00:00Z TO 2019-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-01",
+      "filters": [
+        "eventDate:[2020-01-01T00:00:00Z TO 2020-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-02",
+      "filters": [
+        "eventDate:[2020-02-01T00:00:00Z TO 2020-02-29T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-03",
+      "filters": [
+        "eventDate:[2020-03-01T00:00:00Z TO 2020-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-04",
+      "filters": [
+        "eventDate:[2020-04-01T00:00:00Z TO 2020-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-05",
+      "filters": [
+        "eventDate:[2020-05-01T00:00:00Z TO 2020-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-06",
+      "filters": [
+        "eventDate:[2020-06-01T00:00:00Z TO 2020-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-07",
+      "filters": [
+        "eventDate:[2020-07-01T00:00:00Z TO 2020-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-08",
+      "filters": [
+        "eventDate:[2020-08-01T00:00:00Z TO 2020-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-09",
+      "filters": [
+        "eventDate:[2020-09-01T00:00:00Z TO 2020-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-10",
+      "filters": [
+        "eventDate:[2020-10-01T00:00:00Z TO 2020-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-11",
+      "filters": [
+        "eventDate:[2020-11-01T00:00:00Z TO 2020-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-12",
+      "filters": [
+        "eventDate:[2020-12-01T00:00:00Z TO 2020-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-01",
+      "filters": [
+        "eventDate:[2021-01-01T00:00:00Z TO 2021-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-02",
+      "filters": [
+        "eventDate:[2021-02-01T00:00:00Z TO 2021-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-03",
+      "filters": [
+        "eventDate:[2021-03-01T00:00:00Z TO 2021-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-04",
+      "filters": [
+        "eventDate:[2021-04-01T00:00:00Z TO 2021-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-05",
+      "filters": [
+        "eventDate:[2021-05-01T00:00:00Z TO 2021-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-06",
+      "filters": [
+        "eventDate:[2021-06-01T00:00:00Z TO 2021-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-07",
+      "filters": [
+        "eventDate:[2021-07-01T00:00:00Z TO 2021-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-08",
+      "filters": [
+        "eventDate:[2021-08-01T00:00:00Z TO 2021-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-09",
+      "filters": [
+        "eventDate:[2021-09-01T00:00:00Z TO 2021-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-10",
+      "filters": [
+        "eventDate:[2021-10-01T00:00:00Z TO 2021-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-11",
+      "filters": [
+        "eventDate:[2021-11-01T00:00:00Z TO 2021-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-12",
+      "filters": [
+        "eventDate:[2021-12-01T00:00:00Z TO 2021-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-01",
+      "filters": [
+        "eventDate:[2022-01-01T00:00:00Z TO 2022-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-02",
+      "filters": [
+        "eventDate:[2022-02-01T00:00:00Z TO 2022-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-03",
+      "filters": [
+        "eventDate:[2022-03-01T00:00:00Z TO 2022-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-04",
+      "filters": [
+        "eventDate:[2022-04-01T00:00:00Z TO 2022-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-05",
+      "filters": [
+        "eventDate:[2022-05-01T00:00:00Z TO 2022-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-06",
+      "filters": [
+        "eventDate:[2022-06-01T00:00:00Z TO 2022-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-07",
+      "filters": [
+        "eventDate:[2022-07-01T00:00:00Z TO 2022-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-08",
+      "filters": [
+        "eventDate:[2022-08-01T00:00:00Z TO 2022-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-09",
+      "filters": [
+        "eventDate:[2022-09-01T00:00:00Z TO 2022-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-10",
+      "filters": [
+        "eventDate:[2022-10-01T00:00:00Z TO 2022-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-11",
+      "filters": [
+        "eventDate:[2022-11-01T00:00:00Z TO 2022-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-12",
+      "filters": [
+        "eventDate:[2022-12-01T00:00:00Z TO 2022-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-01",
+      "filters": [
+        "eventDate:[2023-01-01T00:00:00Z TO 2023-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-02",
+      "filters": [
+        "eventDate:[2023-02-01T00:00:00Z TO 2023-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-03",
+      "filters": [
+        "eventDate:[2023-03-01T00:00:00Z TO 2023-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-04",
+      "filters": [
+        "eventDate:[2023-04-01T00:00:00Z TO 2023-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-05",
+      "filters": [
+        "eventDate:[2023-05-01T00:00:00Z TO 2023-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-06",
+      "filters": [
+        "eventDate:[2023-06-01T00:00:00Z TO 2023-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-07",
+      "filters": [
+        "eventDate:[2023-07-01T00:00:00Z TO 2023-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-08",
+      "filters": [
+        "eventDate:[2023-08-01T00:00:00Z TO 2023-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-09",
+      "filters": [
+        "eventDate:[2023-09-01T00:00:00Z TO 2023-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-10",
+      "filters": [
+        "eventDate:[2023-10-01T00:00:00Z TO 2023-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-11",
+      "filters": [
+        "eventDate:[2023-11-01T00:00:00Z TO 2023-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-12",
+      "filters": [
+        "eventDate:[2023-12-01T00:00:00Z TO 2023-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-01",
+      "filters": [
+        "eventDate:[2024-01-01T00:00:00Z TO 2024-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-02",
+      "filters": [
+        "eventDate:[2024-02-01T00:00:00Z TO 2024-02-29T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-03",
+      "filters": [
+        "eventDate:[2024-03-01T00:00:00Z TO 2024-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-04",
+      "filters": [
+        "eventDate:[2024-04-01T00:00:00Z TO 2024-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-05",
+      "filters": [
+        "eventDate:[2024-05-01T00:00:00Z TO 2024-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-06",
+      "filters": [
+        "eventDate:[2024-06-01T00:00:00Z TO 2024-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-07",
+      "filters": [
+        "eventDate:[2024-07-01T00:00:00Z TO 2024-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-08",
+      "filters": [
+        "eventDate:[2024-08-01T00:00:00Z TO 2024-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-09",
+      "filters": [
+        "eventDate:[2024-09-01T00:00:00Z TO 2024-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-10",
+      "filters": [
+        "eventDate:[2024-10-01T00:00:00Z TO 2024-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-11",
+      "filters": [
+        "eventDate:[2024-11-01T00:00:00Z TO 2024-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-12",
+      "filters": [
+        "eventDate:[2024-12-01T00:00:00Z TO 2024-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-01",
+      "filters": [
+        "eventDate:[2025-01-01T00:00:00Z TO 2025-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-02",
+      "filters": [
+        "eventDate:[2025-02-01T00:00:00Z TO 2025-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-03",
+      "filters": [
+        "eventDate:[2025-03-01T00:00:00Z TO 2025-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-04",
+      "filters": [
+        "eventDate:[2025-04-01T00:00:00Z TO 2025-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-05",
+      "filters": [
+        "eventDate:[2025-05-01T00:00:00Z TO 2025-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-06",
+      "filters": [
+        "eventDate:[2025-06-01T00:00:00Z TO 2025-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-07",
+      "filters": [
+        "eventDate:[2025-07-01T00:00:00Z TO 2025-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-08",
+      "filters": [
+        "eventDate:[2025-08-01T00:00:00Z TO 2025-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-09",
+      "filters": [
+        "eventDate:[2025-09-01T00:00:00Z TO 2025-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-10",
+      "filters": [
+        "eventDate:[2025-10-01T00:00:00Z TO 2025-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-11",
+      "filters": [
+        "eventDate:[2025-11-01T00:00:00Z TO 2025-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-12",
+      "filters": [
+        "eventDate:[2025-12-01T00:00:00Z TO 2025-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-01",
+      "filters": [
+        "eventDate:[2026-01-01T00:00:00Z TO 2026-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-02",
+      "filters": [
+        "eventDate:[2026-02-01T00:00:00Z TO 2026-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-03",
+      "filters": [
+        "eventDate:[2026-03-01T00:00:00Z TO 2026-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-04",
+      "filters": [
+        "eventDate:[2026-04-01T00:00:00Z TO 2026-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-05",
+      "filters": [
+        "eventDate:[2026-05-01T00:00:00Z TO 2026-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-06",
+      "filters": [
+        "eventDate:[2026-06-01T00:00:00Z TO 2026-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-07",
+      "filters": [
+        "eventDate:[2026-07-01T00:00:00Z TO 2026-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-08",
+      "filters": [
+        "eventDate:[2026-08-01T00:00:00Z TO 2026-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-09",
+      "filters": [
+        "eventDate:[2026-09-01T00:00:00Z TO 2026-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Reptilia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    }
+  ],
+  "pages": [
+    {
+      "sliceKey": "2015-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 733,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-01-01T00%3A00%3A00Z+TO+2015-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:11.988Z",
+      "durationMs": 128,
+      "attempts": 1,
+      "file": "2015-01--000000.json",
+      "contentHash": "4e0635abf9ffe96f0f242c2f6ce309d4fd42853e6e8e1414b3b59d2623a80965",
+      "bytes": 75815
+    },
+    {
+      "sliceKey": "2015-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 736,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-02-01T00%3A00%3A00Z+TO+2015-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:13.028Z",
+      "durationMs": 67,
+      "attempts": 1,
+      "file": "2015-02--000000.json",
+      "contentHash": "998d1fc8110076098a550cb91aab9fd6e844d74da5ebf8cfd96f237985287565",
+      "bytes": 76219
+    },
+    {
+      "sliceKey": "2015-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 702,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-03-01T00%3A00%3A00Z+TO+2015-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:14.101Z",
+      "durationMs": 39,
+      "attempts": 1,
+      "file": "2015-03--000000.json",
+      "contentHash": "d1244d5916581de6116456fe0dd2b0d669ad13033d49c2fbcd2b7ba6053bbf61",
+      "bytes": 72796
+    },
+    {
+      "sliceKey": "2015-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 603,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-04-01T00%3A00%3A00Z+TO+2015-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:15.203Z",
+      "durationMs": 39,
+      "attempts": 1,
+      "file": "2015-04--000000.json",
+      "contentHash": "1487dcfac01c5b755b4d4a5e832c7f8a90e5dd2aa7bbd6ac0bcb3d272286d20d",
+      "bytes": 62770
+    },
+    {
+      "sliceKey": "2015-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 492,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-05-01T00%3A00%3A00Z+TO+2015-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:16.371Z",
+      "durationMs": 105,
+      "attempts": 1,
+      "file": "2015-05--000000.json",
+      "contentHash": "f26a62b78a5ef2ce9c0e66e74b1d877e20e5428f3f173343d2b49e7a89547055",
+      "bytes": 51553
+    },
+    {
+      "sliceKey": "2015-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 317,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-06-01T00%3A00%3A00Z+TO+2015-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:17.395Z",
+      "durationMs": 28,
+      "attempts": 1,
+      "file": "2015-06--000000.json",
+      "contentHash": "c2b5fa27ac36f2345d7492dc5201ce15c3b948a810563a69e6793e225ff62e57",
+      "bytes": 33932
+    },
+    {
+      "sliceKey": "2015-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 359,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-07-01T00%3A00%3A00Z+TO+2015-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:18.499Z",
+      "durationMs": 32,
+      "attempts": 1,
+      "file": "2015-07--000000.json",
+      "contentHash": "2d3af8cd559a83e228969906f4b1b286e741873b4e38e1552500f550f4aa9cf7",
+      "bytes": 38240
+    },
+    {
+      "sliceKey": "2015-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 466,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-08-01T00%3A00%3A00Z+TO+2015-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:20.214Z",
+      "durationMs": 645,
+      "attempts": 1,
+      "file": "2015-08--000000.json",
+      "contentHash": "7cde9a4e67b51593743c6f9c914dcde2dbc74e0e3a2307960c3f9882fd16e238",
+      "bytes": 48961
+    },
+    {
+      "sliceKey": "2015-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 930,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-09-01T00%3A00%3A00Z+TO+2015-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:20.709Z",
+      "durationMs": 38,
+      "attempts": 1,
+      "file": "2015-09--000000.json",
+      "contentHash": "3835cc4176637127778aa1045e456e2ffe1e27e2d2c548ce1656c2dfdf7fde4a",
+      "bytes": 95619
+    },
+    {
+      "sliceKey": "2015-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1223,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-10-01T00%3A00%3A00Z+TO+2015-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:21.819Z",
+      "durationMs": 47,
+      "attempts": 1,
+      "file": "2015-10--000000.json",
+      "contentHash": "a5f01e8c2e6683c254d7de0e85cc048e58c300105212f4a2419925a639100d69",
+      "bytes": 125408
+    },
+    {
+      "sliceKey": "2015-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1000,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-11-01T00%3A00%3A00Z+TO+2015-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:22.968Z",
+      "durationMs": 95,
+      "attempts": 1,
+      "file": "2015-11--000000.json",
+      "contentHash": "f7ad4659118542216de58705e0a513d54bd743802bbb97515d033e9a8e88438c",
+      "bytes": 102848
+    },
+    {
+      "sliceKey": "2015-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 765,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-12-01T00%3A00%3A00Z+TO+2015-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:24.001Z",
+      "durationMs": 27,
+      "attempts": 1,
+      "file": "2015-12--000000.json",
+      "contentHash": "3e828a0ce17c42d73d4e867fd4e522afc248a5f90d09ef052978ca7d4b19c93c",
+      "bytes": 79113
+    },
+    {
+      "sliceKey": "2016-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 749,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-01-01T00%3A00%3A00Z+TO+2016-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:25.138Z",
+      "durationMs": 63,
+      "attempts": 1,
+      "file": "2016-01--000000.json",
+      "contentHash": "de37d4c634be25b05759853a1a677f48d8237700f267723cff3463d2c1206d5f",
+      "bytes": 77472
+    },
+    {
+      "sliceKey": "2016-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 732,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-02-01T00%3A00%3A00Z+TO+2016-02-29T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:30.369Z",
+      "durationMs": 4193,
+      "attempts": 1,
+      "file": "2016-02--000000.json",
+      "contentHash": "9fa145ce5e00bcf9bf8322aa758af7f18dfe4557653946d4372562204f8ad66f",
+      "bytes": 75700
+    },
+    {
+      "sliceKey": "2016-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 760,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-03-01T00%3A00%3A00Z+TO+2016-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:30.437Z",
+      "durationMs": 64,
+      "attempts": 1,
+      "file": "2016-03--000000.json",
+      "contentHash": "eb556424525dea26afd15bbafdd6e1cdd6ca0b023f8599968332af6c642edd3d",
+      "bytes": 78694
+    },
+    {
+      "sliceKey": "2016-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 622,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-04-01T00%3A00%3A00Z+TO+2016-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:31.566Z",
+      "durationMs": 91,
+      "attempts": 1,
+      "file": "2016-04--000000.json",
+      "contentHash": "3cce913d311a4ccf0bd3f5fba15a5ba1ece6acd6fdfac85f17ec1ddcf29d99f4",
+      "bytes": 64749
+    },
+    {
+      "sliceKey": "2016-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 471,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-05-01T00%3A00%3A00Z+TO+2016-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:32.602Z",
+      "durationMs": 25,
+      "attempts": 1,
+      "file": "2016-05--000000.json",
+      "contentHash": "afe8958a5cbecd56714f03367ee7cf30f6bdaf1162be997f635d6e1dea88c35a",
+      "bytes": 49460
+    },
+    {
+      "sliceKey": "2016-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 406,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-06-01T00%3A00%3A00Z+TO+2016-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:37.622Z",
+      "durationMs": 3943,
+      "attempts": 1,
+      "file": "2016-06--000000.json",
+      "contentHash": "a5d5f70e194e997f5a2eac48b05b06d45bfc331e4f139e01e6f22b372a8f64fc",
+      "bytes": 42823
+    },
+    {
+      "sliceKey": "2016-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 430,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-07-01T00%3A00%3A00Z+TO+2016-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:37.662Z",
+      "durationMs": 37,
+      "attempts": 1,
+      "file": "2016-07--000000.json",
+      "contentHash": "4a2f7635c6b583d221978615deb3b31f521f31cc5d03b3252f6ee9ee35825d1e",
+      "bytes": 45241
+    },
+    {
+      "sliceKey": "2016-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 519,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-08-01T00%3A00%3A00Z+TO+2016-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:39.832Z",
+      "durationMs": 1107,
+      "attempts": 1,
+      "file": "2016-08--000000.json",
+      "contentHash": "dca95f50a46b5ff48459d9c7566964b24d0e3738136977199df4e8f77fa0e232",
+      "bytes": 54268
+    },
+    {
+      "sliceKey": "2016-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 799,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-09-01T00%3A00%3A00Z+TO+2016-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:39.862Z",
+      "durationMs": 27,
+      "attempts": 1,
+      "file": "2016-09--000000.json",
+      "contentHash": "641e21910449f56ae549a5f88ef1db734991a2cd07de2d9238d928348a2a9fec",
+      "bytes": 82619
+    },
+    {
+      "sliceKey": "2016-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1035,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-10-01T00%3A00%3A00Z+TO+2016-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:40.998Z",
+      "durationMs": 61,
+      "attempts": 1,
+      "file": "2016-10--000000.json",
+      "contentHash": "0b3e8ba4217bf02ab270bf1718d5b5b0ab7540cf1909ce5bed01ec4ff54f3463",
+      "bytes": 106336
+    },
+    {
+      "sliceKey": "2016-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1019,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-11-01T00%3A00%3A00Z+TO+2016-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:42.070Z",
+      "durationMs": 33,
+      "attempts": 1,
+      "file": "2016-11--000000.json",
+      "contentHash": "9904c1688c35d2159bb588e947cf823b1371c339e2f78c3bca7699fd5164002d",
+      "bytes": 104792
+    },
+    {
+      "sliceKey": "2016-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 878,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-12-01T00%3A00%3A00Z+TO+2016-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:43.178Z",
+      "durationMs": 41,
+      "attempts": 1,
+      "file": "2016-12--000000.json",
+      "contentHash": "96c63402aab62f14a57e2c4651d6fcf53996e303cb72c0a399c47ab145a4ee37",
+      "bytes": 90619
+    },
+    {
+      "sliceKey": "2017-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 864,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-01-01T00%3A00%3A00Z+TO+2017-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:44.544Z",
+      "durationMs": 305,
+      "attempts": 1,
+      "file": "2017-01--000000.json",
+      "contentHash": "e7f69fc82b7ea794f54cca6484eac39aad82e64a1545a7188de0b3c458dfc35d",
+      "bytes": 89086
+    },
+    {
+      "sliceKey": "2017-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 750,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-02-01T00%3A00%3A00Z+TO+2017-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:45.398Z",
+      "durationMs": 57,
+      "attempts": 1,
+      "file": "2017-02--000000.json",
+      "contentHash": "8ceb007f4607cccb0568c6722fb66b8c4d31c1a12fe79c05e2d4fa778c79fa34",
+      "bytes": 77682
+    },
+    {
+      "sliceKey": "2017-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 851,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-03-01T00%3A00%3A00Z+TO+2017-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:46.470Z",
+      "durationMs": 28,
+      "attempts": 1,
+      "file": "2017-03--000000.json",
+      "contentHash": "ad38d082ab8c32c7dd8b05cf7aa04c9c4f3016a599f422f7d297f37c2232debb",
+      "bytes": 87919
+    },
+    {
+      "sliceKey": "2017-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 709,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-04-01T00%3A00%3A00Z+TO+2017-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:47.569Z",
+      "durationMs": 26,
+      "attempts": 1,
+      "file": "2017-04--000000.json",
+      "contentHash": "8f40ccfbe414538a859e54a77e9b4a068268d6b472eef84f4f2f909dcc7c1c2d",
+      "bytes": 73446
+    },
+    {
+      "sliceKey": "2017-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 760,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-05-01T00%3A00%3A00Z+TO+2017-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:48.671Z",
+      "durationMs": 28,
+      "attempts": 1,
+      "file": "2017-05--000000.json",
+      "contentHash": "98201c2660afe8eb13810fcbdf9743321128c923af7bbcc30b9cb590933e24e0",
+      "bytes": 78618
+    },
+    {
+      "sliceKey": "2017-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 464,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-06-01T00%3A00%3A00Z+TO+2017-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:50.138Z",
+      "durationMs": 395,
+      "attempts": 1,
+      "file": "2017-06--000000.json",
+      "contentHash": "e3f8c22c363ccd7ce8be0ae5c926ae1f81dff3115c9a973b2aab5d28e877cbc3",
+      "bytes": 48688
+    },
+    {
+      "sliceKey": "2017-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 514,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-07-01T00%3A00%3A00Z+TO+2017-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:51.034Z",
+      "durationMs": 190,
+      "attempts": 1,
+      "file": "2017-07--000000.json",
+      "contentHash": "c7f3e2f0616befb4cc69071e93d6c581b6cda8d94f57d434e4d69cfe93ee4076",
+      "bytes": 53768
+    },
+    {
+      "sliceKey": "2017-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 587,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-08-01T00%3A00%3A00Z+TO+2017-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:51.974Z",
+      "durationMs": 29,
+      "attempts": 1,
+      "file": "2017-08--000000.json",
+      "contentHash": "035176c9a6e724d4028295cdbd2e39121ae1da8ce67061da48456c33d9604f70",
+      "bytes": 61061
+    },
+    {
+      "sliceKey": "2017-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 897,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-09-01T00%3A00%3A00Z+TO+2017-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:53.090Z",
+      "durationMs": 44,
+      "attempts": 1,
+      "file": "2017-09--000000.json",
+      "contentHash": "6c7309c46fdf5e06e8a1a2b236eaf702ff4250051926d3babb0c0606a6bdef3c",
+      "bytes": 92418
+    },
+    {
+      "sliceKey": "2017-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1232,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-10-01T00%3A00%3A00Z+TO+2017-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:54.227Z",
+      "durationMs": 80,
+      "attempts": 1,
+      "file": "2017-10--000000.json",
+      "contentHash": "ce90028930c6e814fbc47cb2acaae951124bb75de529c11a8987e3fdd1bbd0b6",
+      "bytes": 126273
+    },
+    {
+      "sliceKey": "2017-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1172,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-11-01T00%3A00%3A00Z+TO+2017-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:55.409Z",
+      "durationMs": 162,
+      "attempts": 1,
+      "file": "2017-11--000000.json",
+      "contentHash": "591ce8d165299c2891dccf5f7e737499bfc942872c4d513ea984f3d5c7d85421",
+      "bytes": 120221
+    },
+    {
+      "sliceKey": "2017-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 886,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-12-01T00%3A00%3A00Z+TO+2017-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:56.407Z",
+      "durationMs": 57,
+      "attempts": 1,
+      "file": "2017-12--000000.json",
+      "contentHash": "61f7b0613fb1044b5fdf0a58aefc1e4a4fe6abfe7605d4f8674ed34b9b1e7aca",
+      "bytes": 91281
+    },
+    {
+      "sliceKey": "2018-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 925,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-01-01T00%3A00%3A00Z+TO+2018-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:57.479Z",
+      "durationMs": 29,
+      "attempts": 1,
+      "file": "2018-01--000000.json",
+      "contentHash": "1a29fc8dc075296da1a4fa8b1af9542f623b678b01457c7f89bfec4319cb81f8",
+      "bytes": 95129
+    },
+    {
+      "sliceKey": "2018-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 813,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-02-01T00%3A00%3A00Z+TO+2018-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:58.579Z",
+      "durationMs": 28,
+      "attempts": 1,
+      "file": "2018-02--000000.json",
+      "contentHash": "e6b943818013b68909653367e1a83867f693463a08587e03c65119e9123c85ac",
+      "bytes": 83855
+    },
+    {
+      "sliceKey": "2018-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1048,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-03-01T00%3A00%3A00Z+TO+2018-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:23:59.738Z",
+      "durationMs": 86,
+      "attempts": 1,
+      "file": "2018-03--000000.json",
+      "contentHash": "b578be9e064844ca58a22e0c7c73e5129a98ee0b712dd87549fba91be8c37bc4",
+      "bytes": 107441
+    },
+    {
+      "sliceKey": "2018-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 939,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-04-01T00%3A00%3A00Z+TO+2018-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:00.785Z",
+      "durationMs": 32,
+      "attempts": 1,
+      "file": "2018-04--000000.json",
+      "contentHash": "345f7ad241e5344a77a71c729d9776bd71d2604ece59b7e3e58dcff5b32e8b76",
+      "bytes": 96637
+    },
+    {
+      "sliceKey": "2018-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 552,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-05-01T00%3A00%3A00Z+TO+2018-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:01.887Z",
+      "durationMs": 32,
+      "attempts": 1,
+      "file": "2018-05--000000.json",
+      "contentHash": "74f468306c35b597b76519277450d41a5cbf3517ab3987a95c5710ae8722c576",
+      "bytes": 57614
+    },
+    {
+      "sliceKey": "2018-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 459,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-06-01T00%3A00%3A00Z+TO+2018-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:02.982Z",
+      "durationMs": 27,
+      "attempts": 1,
+      "file": "2018-06--000000.json",
+      "contentHash": "19ff2f4452c7bd609f3099fbde99b7e502a0c0419e967a0fda69a2bc0e13e0c5",
+      "bytes": 48160
+    },
+    {
+      "sliceKey": "2018-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 553,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-07-01T00%3A00%3A00Z+TO+2018-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:04.084Z",
+      "durationMs": 27,
+      "attempts": 1,
+      "file": "2018-07--000000.json",
+      "contentHash": "84cb50a3bde957f06f3ab09f8155e127fadbff9147ec2e5336c878e81df5c93d",
+      "bytes": 57508
+    },
+    {
+      "sliceKey": "2018-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 717,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-08-01T00%3A00%3A00Z+TO+2018-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:05.194Z",
+      "durationMs": 37,
+      "attempts": 1,
+      "file": "2018-08--000000.json",
+      "contentHash": "8359118be3d37f3f552dd381c920c53c6ce017c001bb2c9c27ad9585e1694b19",
+      "bytes": 74265
+    },
+    {
+      "sliceKey": "2018-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1192,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-09-01T00%3A00%3A00Z+TO+2018-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:06.392Z",
+      "durationMs": 134,
+      "attempts": 1,
+      "file": "2018-09--000000.json",
+      "contentHash": "34846c8fdbf89bbbcc1f7a08a8754e435780c2ccf1833d30a4ba99e56b569631",
+      "bytes": 122173
+    },
+    {
+      "sliceKey": "2018-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1613,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-10-01T00%3A00%3A00Z+TO+2018-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:07.409Z",
+      "durationMs": 50,
+      "attempts": 1,
+      "file": "2018-10--000000.json",
+      "contentHash": "ca3a5de230f8c13d652e3a5d30b3f79c5cdd3c88ad5082133517426ebf817213",
+      "bytes": 164660
+    },
+    {
+      "sliceKey": "2018-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1561,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-11-01T00%3A00%3A00Z+TO+2018-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:08.507Z",
+      "durationMs": 47,
+      "attempts": 1,
+      "file": "2018-11--000000.json",
+      "contentHash": "e306492cbe97f77b4deacbaf41b8935e70ae91161f46903ec975fc190bee8d0f",
+      "bytes": 159371
+    },
+    {
+      "sliceKey": "2018-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1231,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-12-01T00%3A00%3A00Z+TO+2018-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:09.595Z",
+      "durationMs": 34,
+      "attempts": 1,
+      "file": "2018-12--000000.json",
+      "contentHash": "0671e8dc1df9353c1d42bcc234bdda3ce1f9c0dab5388f68158ea7daadc26b56",
+      "bytes": 126111
+    },
+    {
+      "sliceKey": "2019-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1223,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-01-01T00%3A00%3A00Z+TO+2019-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:10.711Z",
+      "durationMs": 49,
+      "attempts": 1,
+      "file": "2019-01--000000.json",
+      "contentHash": "7db662179a4ef459f587d3e72c7a0deff347b0c631fdee37db8ff382501bf194",
+      "bytes": 125214
+    },
+    {
+      "sliceKey": "2019-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1030,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-02-01T00%3A00%3A00Z+TO+2019-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:11.826Z",
+      "durationMs": 62,
+      "attempts": 1,
+      "file": "2019-02--000000.json",
+      "contentHash": "96ad4a4afe79de76637515a353a6fd6d78bef2704b4165407edf51537cbe5373",
+      "bytes": 105708
+    },
+    {
+      "sliceKey": "2019-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1093,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-03-01T00%3A00%3A00Z+TO+2019-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:13.074Z",
+      "durationMs": 208,
+      "attempts": 1,
+      "file": "2019-03--000000.json",
+      "contentHash": "0e001439361cb5671b4f0c5526482970e162c4e405e5576457cbd36327bce73b",
+      "bytes": 112029
+    },
+    {
+      "sliceKey": "2019-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1006,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-04-01T00%3A00%3A00Z+TO+2019-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:14.000Z",
+      "durationMs": 31,
+      "attempts": 1,
+      "file": "2019-04--000000.json",
+      "contentHash": "71ae070fac5c40b25977f57796120c6ff32e26a5f031384556c1b8552c337a39",
+      "bytes": 102761
+    },
+    {
+      "sliceKey": "2019-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 657,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-05-01T00%3A00%3A00Z+TO+2019-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:15.103Z",
+      "durationMs": 34,
+      "attempts": 1,
+      "file": "2019-05--000000.json",
+      "contentHash": "5325146cfa8bc59b3bb40fab8313d06f11122932f8a2fe338c19f6680d9f1a3c",
+      "bytes": 68013
+    },
+    {
+      "sliceKey": "2019-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 495,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-06-01T00%3A00%3A00Z+TO+2019-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:16.232Z",
+      "durationMs": 62,
+      "attempts": 1,
+      "file": "2019-06--000000.json",
+      "contentHash": "4be2bc5d1f5569d873989d0e1fe61cfe2a6c9a8ec286d60532d59829dc030930",
+      "bytes": 51750
+    },
+    {
+      "sliceKey": "2019-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 524,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-07-01T00%3A00%3A00Z+TO+2019-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:17.295Z",
+      "durationMs": 24,
+      "attempts": 1,
+      "file": "2019-07--000000.json",
+      "contentHash": "48e3bc6611cd2c9671e87e680ae1115fc66d2e52d115a5ac50538fbf5d941f0b",
+      "bytes": 54819
+    },
+    {
+      "sliceKey": "2019-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 681,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-08-01T00%3A00%3A00Z+TO+2019-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:18.403Z",
+      "durationMs": 32,
+      "attempts": 1,
+      "file": "2019-08--000000.json",
+      "contentHash": "13a948091c68988ed8051ab8c651492d9cfc90acfd01b56028cafd0c708f7879",
+      "bytes": 70672
+    },
+    {
+      "sliceKey": "2019-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1111,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-09-01T00%3A00%3A00Z+TO+2019-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:19.515Z",
+      "durationMs": 43,
+      "attempts": 1,
+      "file": "2019-09--000000.json",
+      "contentHash": "3bbcd7622edc29eab72d41c0b55026f484cd547c4d027166124349c2831e707c",
+      "bytes": 113930
+    },
+    {
+      "sliceKey": "2019-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1628,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-10-01T00%3A00%3A00Z+TO+2019-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:20.617Z",
+      "durationMs": 44,
+      "attempts": 1,
+      "file": "2019-10--000000.json",
+      "contentHash": "4474c25469b4d0a51a0d99cc60b4db9067a029f65b370e7853ea3ad16707c3d1",
+      "bytes": 166075
+    },
+    {
+      "sliceKey": "2019-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1332,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-11-01T00%3A00%3A00Z+TO+2019-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:21.715Z",
+      "durationMs": 41,
+      "attempts": 1,
+      "file": "2019-11--000000.json",
+      "contentHash": "8571255a1ec0d72c75780ce6414d17c6d54e89865d7a32ee18850062c2ef5a7a",
+      "bytes": 136205
+    },
+    {
+      "sliceKey": "2019-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1183,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-12-01T00%3A00%3A00Z+TO+2019-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:22.813Z",
+      "durationMs": 38,
+      "attempts": 1,
+      "file": "2019-12--000000.json",
+      "contentHash": "c4203977f6b01735c82d468b659a9ddbd865c3ad73775dd4df0f91da73a5925e",
+      "bytes": 121276
+    },
+    {
+      "sliceKey": "2020-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1110,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-01-01T00%3A00%3A00Z+TO+2020-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:23.905Z",
+      "durationMs": 29,
+      "attempts": 1,
+      "file": "2020-01--000000.json",
+      "contentHash": "24c9de83fcf1f61b63c40af21b4bb65cdd52cb21a19dd0a8711439c5d23538c2",
+      "bytes": 113831
+    },
+    {
+      "sliceKey": "2020-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1128,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-02-01T00%3A00%3A00Z+TO+2020-02-29T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:25.028Z",
+      "durationMs": 51,
+      "attempts": 1,
+      "file": "2020-02--000000.json",
+      "contentHash": "71d92194b79912689400c3ee170a96b368513ca818baf3974770d0ecf7459948",
+      "bytes": 115701
+    },
+    {
+      "sliceKey": "2020-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1224,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-03-01T00%3A00%3A00Z+TO+2020-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:26.156Z",
+      "durationMs": 78,
+      "attempts": 1,
+      "file": "2020-03--000000.json",
+      "contentHash": "ebf18bcd0c57203b3d0961153b20f988b088800811d76380fe5e39391e765111",
+      "bytes": 125545
+    },
+    {
+      "sliceKey": "2020-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 893,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-04-01T00%3A00%3A00Z+TO+2020-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:27.218Z",
+      "durationMs": 39,
+      "attempts": 1,
+      "file": "2020-04--000000.json",
+      "contentHash": "fb26a916d94f88d29dc98864b7ef524ed7d9288ed2c0262e3a376124d1eeab93",
+      "bytes": 91976
+    },
+    {
+      "sliceKey": "2020-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 651,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-05-01T00%3A00%3A00Z+TO+2020-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:28.393Z",
+      "durationMs": 114,
+      "attempts": 1,
+      "file": "2020-05--000000.json",
+      "contentHash": "5c4b21ad2069f4ce4234b90ceff5b1caedc166a0e19c49bb25f805931413d315",
+      "bytes": 67548
+    },
+    {
+      "sliceKey": "2020-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 497,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-06-01T00%3A00%3A00Z+TO+2020-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:29.436Z",
+      "durationMs": 56,
+      "attempts": 1,
+      "file": "2020-06--000000.json",
+      "contentHash": "ac9b77af11fd2b4eb50073cdd4cecdd6137dfa52ede788a6b2dfd550c4f6cb02",
+      "bytes": 52032
+    },
+    {
+      "sliceKey": "2020-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 593,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-07-01T00%3A00%3A00Z+TO+2020-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:30.508Z",
+      "durationMs": 27,
+      "attempts": 1,
+      "file": "2020-07--000000.json",
+      "contentHash": "3d3e0c3d586520aa61179d1f8477f0aafe75acd949400f752953199f7f29f802",
+      "bytes": 61673
+    },
+    {
+      "sliceKey": "2020-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 854,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-08-01T00%3A00%3A00Z+TO+2020-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:31.615Z",
+      "durationMs": 32,
+      "attempts": 1,
+      "file": "2020-08--000000.json",
+      "contentHash": "84ede9b5c332c2f4ac36e29d59ff7d7214896d400bb8733d49b04b02b4dafb8e",
+      "bytes": 87552
+    },
+    {
+      "sliceKey": "2020-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1375,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-09-01T00%3A00%3A00Z+TO+2020-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:32.790Z",
+      "durationMs": 106,
+      "attempts": 1,
+      "file": "2020-09--000000.json",
+      "contentHash": "8c9228f7563a5c73c8c549e004f05c42e455dc411dd22b41d0b38505eb066316",
+      "bytes": 140734
+    },
+    {
+      "sliceKey": "2020-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1755,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-10-01T00%3A00%3A00Z+TO+2020-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:33.824Z",
+      "durationMs": 39,
+      "attempts": 1,
+      "file": "2020-10--000000.json",
+      "contentHash": "1eb533c11707c88913622a77e02ec1656e313d91e74ebb41ed6db504b59e0ca2",
+      "bytes": 179015
+    },
+    {
+      "sliceKey": "2020-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1735,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-11-01T00%3A00%3A00Z+TO+2020-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:34.927Z",
+      "durationMs": 41,
+      "attempts": 1,
+      "file": "2020-11--000000.json",
+      "contentHash": "50bb8f564d0d9e8ba2ee6491526d8a895d7dc4ba770374de2218441447a4c253",
+      "bytes": 176939
+    },
+    {
+      "sliceKey": "2020-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1401,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-12-01T00%3A00%3A00Z+TO+2020-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:36.158Z",
+      "durationMs": 171,
+      "attempts": 1,
+      "file": "2020-12--000000.json",
+      "contentHash": "d6411d19f63a24dc7c5ba8259efc37cd57ce034ae2396d4a756331f2b8a3555e",
+      "bytes": 143348
+    },
+    {
+      "sliceKey": "2021-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1447,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-01-01T00%3A00%3A00Z+TO+2021-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:37.120Z",
+      "durationMs": 32,
+      "attempts": 1,
+      "file": "2021-01--000000.json",
+      "contentHash": "b587487d648bcc0f006d76e70f3b727a8af2fa11a692974f8bad9954b88635a1",
+      "bytes": 148015
+    },
+    {
+      "sliceKey": "2021-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1307,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-02-01T00%3A00%3A00Z+TO+2021-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:38.347Z",
+      "durationMs": 158,
+      "attempts": 1,
+      "file": "2021-02--000000.json",
+      "contentHash": "348d5dee23afecf52754c46783163617d6c5fc76022f9ca294916b9a4a9239cf",
+      "bytes": 133829
+    },
+    {
+      "sliceKey": "2021-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1432,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-03-01T00%3A00%3A00Z+TO+2021-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:39.343Z",
+      "durationMs": 53,
+      "attempts": 1,
+      "file": "2021-03--000000.json",
+      "contentHash": "f315eea99795e94badc1c10efa1b4704551e08483fcac6f54f4ea881fcb55241",
+      "bytes": 146364
+    },
+    {
+      "sliceKey": "2021-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1334,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-04-01T00%3A00%3A00Z+TO+2021-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:40.468Z",
+      "durationMs": 77,
+      "attempts": 1,
+      "file": "2021-04--000000.json",
+      "contentHash": "1221fcd6d83f18a424e7dc387253c5af0c2a1da9a828ee378b782aa78b7cda47",
+      "bytes": 136105
+    },
+    {
+      "sliceKey": "2021-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 835,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-05-01T00%3A00%3A00Z+TO+2021-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:41.726Z",
+      "durationMs": 233,
+      "attempts": 1,
+      "file": "2021-05--000000.json",
+      "contentHash": "0d7689521da404a6d9f37c0b46dba473cb5ffe5abcdf54e78755099f290d9895",
+      "bytes": 86106
+    },
+    {
+      "sliceKey": "2021-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 698,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-06-01T00%3A00%3A00Z+TO+2021-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:42.657Z",
+      "durationMs": 63,
+      "attempts": 1,
+      "file": "2021-06--000000.json",
+      "contentHash": "6b0925e3445dd3e2b0299df5e495c5db8f275d50aa317e26f6be3ad013c3bc22",
+      "bytes": 72349
+    },
+    {
+      "sliceKey": "2021-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 724,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-07-01T00%3A00%3A00Z+TO+2021-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:43.739Z",
+      "durationMs": 44,
+      "attempts": 1,
+      "file": "2021-07--000000.json",
+      "contentHash": "89c4cbd1bc31660b35a3ca7738ef37f10d84786f09d59fdf87b9020018498dca",
+      "bytes": 74885
+    },
+    {
+      "sliceKey": "2021-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1008,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-08-01T00%3A00%3A00Z+TO+2021-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:44.839Z",
+      "durationMs": 42,
+      "attempts": 1,
+      "file": "2021-08--000000.json",
+      "contentHash": "0373ee093d955b07355cecd65268ecd8400c70506538e02068422db8a8cc0d5c",
+      "bytes": 103219
+    },
+    {
+      "sliceKey": "2021-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1553,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-09-01T00%3A00%3A00Z+TO+2021-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:45.945Z",
+      "durationMs": 46,
+      "attempts": 1,
+      "file": "2021-09--000000.json",
+      "contentHash": "39ea183ef8e5673c25e9f7b9b30716916f85c5f4ef4d742d8025fc8bbbfd283b",
+      "bytes": 158471
+    },
+    {
+      "sliceKey": "2021-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1896,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-10-01T00%3A00%3A00Z+TO+2021-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:47.237Z",
+      "durationMs": 236,
+      "attempts": 1,
+      "file": "2021-10--000000.json",
+      "contentHash": "18cf3d8d5050c6962d5cc9c25084a639b9b855aa05222057e02bed22cdd0fa83",
+      "bytes": 193147
+    },
+    {
+      "sliceKey": "2021-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1832,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-11-01T00%3A00%3A00Z+TO+2021-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:48.155Z",
+      "durationMs": 53,
+      "attempts": 1,
+      "file": "2021-11--000000.json",
+      "contentHash": "a3f353fb66e58004cba0a11b546eb63763fc7cc362c2b77d7653b21e8519457f",
+      "bytes": 186764
+    },
+    {
+      "sliceKey": "2021-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1714,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-12-01T00%3A00%3A00Z+TO+2021-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:49.333Z",
+      "durationMs": 130,
+      "attempts": 1,
+      "file": "2021-12--000000.json",
+      "contentHash": "8b65a1d04871a716d37c7a41cc0e887831498d78b22e804b7dd28d821ee122ba",
+      "bytes": 174848
+    },
+    {
+      "sliceKey": "2022-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1710,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-01-01T00%3A00%3A00Z+TO+2022-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:50.652Z",
+      "durationMs": 348,
+      "attempts": 1,
+      "file": "2022-01--000000.json",
+      "contentHash": "3aff03d1e557cf39e335288a7e8890c3853c0d1a5d9d47b7046deb8fabb5ae17",
+      "bytes": 174468
+    },
+    {
+      "sliceKey": "2022-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1510,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-02-01T00%3A00%3A00Z+TO+2022-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:51.448Z",
+      "durationMs": 43,
+      "attempts": 1,
+      "file": "2022-02--000000.json",
+      "contentHash": "545618944bf6af5a2754ee9e88519be89945e10e8beb84895058b52af836be5a",
+      "bytes": 154275
+    },
+    {
+      "sliceKey": "2022-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1569,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-03-01T00%3A00%3A00Z+TO+2022-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:52.571Z",
+      "durationMs": 65,
+      "attempts": 1,
+      "file": "2022-03--000000.json",
+      "contentHash": "b1f1ffda3aa092366cf6d039bcc199702ac070eee59f6186134d65312edf6516",
+      "bytes": 160076
+    },
+    {
+      "sliceKey": "2022-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1409,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-04-01T00%3A00%3A00Z+TO+2022-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:53.643Z",
+      "durationMs": 36,
+      "attempts": 1,
+      "file": "2022-04--000000.json",
+      "contentHash": "ae4df7dc528409aaadfed6ad5abfd7272afafa8c3bea121880c25d77224fa2b6",
+      "bytes": 143694
+    },
+    {
+      "sliceKey": "2022-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1058,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-05-01T00%3A00%3A00Z+TO+2022-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:54.742Z",
+      "durationMs": 34,
+      "attempts": 1,
+      "file": "2022-05--000000.json",
+      "contentHash": "16b7be3e290fc4c78acf46bf32e202ea2c8f3f265ca5e0adc3f2feaa57566dc8",
+      "bytes": 108589
+    },
+    {
+      "sliceKey": "2022-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 811,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-06-01T00%3A00%3A00Z+TO+2022-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:55.885Z",
+      "durationMs": 76,
+      "attempts": 1,
+      "file": "2022-06--000000.json",
+      "contentHash": "a730d110a88e6eaea20242221e11c95464fdf4f7d77a6b6f680b938fb51cf881",
+      "bytes": 83762
+    },
+    {
+      "sliceKey": "2022-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 827,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-07-01T00%3A00%3A00Z+TO+2022-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:56.942Z",
+      "durationMs": 33,
+      "attempts": 1,
+      "file": "2022-07--000000.json",
+      "contentHash": "5667e21d5aac24c3fc0c7ab43fb958fee41c782b1b166d06502e0d1eb22446d8",
+      "bytes": 85256
+    },
+    {
+      "sliceKey": "2022-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1103,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-08-01T00%3A00%3A00Z+TO+2022-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:58.042Z",
+      "durationMs": 31,
+      "attempts": 1,
+      "file": "2022-08--000000.json",
+      "contentHash": "50a5f48ea4219cef263230dcd74765643b24ac842308b4c65f66f610436adcc1",
+      "bytes": 113178
+    },
+    {
+      "sliceKey": "2022-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1685,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-09-01T00%3A00%3A00Z+TO+2022-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:24:59.162Z",
+      "durationMs": 50,
+      "attempts": 1,
+      "file": "2022-09--000000.json",
+      "contentHash": "d44cdf4746f2e347ea2f3a0cca1b01bb139942cafe9165617ef737f5036436d2",
+      "bytes": 171715
+    },
+    {
+      "sliceKey": "2022-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2148,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-10-01T00%3A00%3A00Z+TO+2022-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:00.272Z",
+      "durationMs": 60,
+      "attempts": 1,
+      "file": "2022-10--000000.json",
+      "contentHash": "02c77eeab60b8e11456e789583e34835be936daaec3f4712253507a223369665",
+      "bytes": 218445
+    },
+    {
+      "sliceKey": "2022-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2159,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-11-01T00%3A00%3A00Z+TO+2022-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:01.373Z",
+      "durationMs": 60,
+      "attempts": 1,
+      "file": "2022-11--000000.json",
+      "contentHash": "d241ef705b544b2b1d4231f3d71d85768538e2aa7e52ca5143da523d3ce91bf6",
+      "bytes": 219721
+    },
+    {
+      "sliceKey": "2022-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1932,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-12-01T00%3A00%3A00Z+TO+2022-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:02.470Z",
+      "durationMs": 56,
+      "attempts": 1,
+      "file": "2022-12--000000.json",
+      "contentHash": "b33a3cb828d791dcf9d5425310c97bc263401ddf8c97e19d61dd6759b9219b2b",
+      "bytes": 196804
+    },
+    {
+      "sliceKey": "2023-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1912,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-01-01T00%3A00%3A00Z+TO+2023-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:03.562Z",
+      "durationMs": 46,
+      "attempts": 1,
+      "file": "2023-01--000000.json",
+      "contentHash": "dd197c736e727a302ffb7e9207b4bacf47c9f04ec18a83d89782abb6a5d985f0",
+      "bytes": 194907
+    },
+    {
+      "sliceKey": "2023-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1680,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-02-01T00%3A00%3A00Z+TO+2023-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:04.667Z",
+      "durationMs": 50,
+      "attempts": 1,
+      "file": "2023-02--000000.json",
+      "contentHash": "5a477f4b54cd2d611c25f9ecda9e6be65153ef9e33d870bfc22222f3dd5fd6eb",
+      "bytes": 171311
+    },
+    {
+      "sliceKey": "2023-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1703,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-03-01T00%3A00%3A00Z+TO+2023-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:05.763Z",
+      "durationMs": 44,
+      "attempts": 1,
+      "file": "2023-03--000000.json",
+      "contentHash": "e128d43023216630ccb6e904cab737ea2abedd1ac55a3a87cd09f96d1a4ccf71",
+      "bytes": 173616
+    },
+    {
+      "sliceKey": "2023-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1678,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-04-01T00%3A00%3A00Z+TO+2023-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:06.859Z",
+      "durationMs": 39,
+      "attempts": 1,
+      "file": "2023-04--000000.json",
+      "contentHash": "15f0cebb649f071bcd898a508dc2afe6282803ce00f27f9531e7558a2a71744b",
+      "bytes": 170816
+    },
+    {
+      "sliceKey": "2023-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1129,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-05-01T00%3A00%3A00Z+TO+2023-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:08.630Z",
+      "durationMs": 709,
+      "attempts": 1,
+      "file": "2023-05--000000.json",
+      "contentHash": "6975284fd1a7efbfbfdc600a284cbd971d0f3a6861509a380b40d600344c209d",
+      "bytes": 115732
+    },
+    {
+      "sliceKey": "2023-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 952,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-06-01T00%3A00%3A00Z+TO+2023-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:09.063Z",
+      "durationMs": 41,
+      "attempts": 1,
+      "file": "2023-06--000000.json",
+      "contentHash": "6d4cfc58ef9ef719d6294f2aa0020b40ff4768f9ff2082a7c4d09e89572f55b5",
+      "bytes": 97934
+    },
+    {
+      "sliceKey": "2023-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 964,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-07-01T00%3A00%3A00Z+TO+2023-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:10.170Z",
+      "durationMs": 47,
+      "attempts": 1,
+      "file": "2023-07--000000.json",
+      "contentHash": "160ff40454015609a2d85efd5048058b1b31bed987acaed146db6be308a37167",
+      "bytes": 99142
+    },
+    {
+      "sliceKey": "2023-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1360,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-08-01T00%3A00%3A00Z+TO+2023-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:11.351Z",
+      "durationMs": 127,
+      "attempts": 1,
+      "file": "2023-08--000000.json",
+      "contentHash": "045d5f72d9c646671e3f2bf930ee78972cfa84972cab99f009a6c9a8988772bd",
+      "bytes": 139118
+    },
+    {
+      "sliceKey": "2023-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2292,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-09-01T00%3A00%3A00Z+TO+2023-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:12.452Z",
+      "durationMs": 126,
+      "attempts": 1,
+      "file": "2023-09--000000.json",
+      "contentHash": "247ab617ea0b01f6e9edea2a19ab423f6a3cb4a44619d5c3b090520b6fd1a6e1",
+      "bytes": 232946
+    },
+    {
+      "sliceKey": "2023-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2448,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-10-01T00%3A00%3A00Z+TO+2023-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:13.472Z",
+      "durationMs": 45,
+      "attempts": 1,
+      "file": "2023-10--000000.json",
+      "contentHash": "6a70c2cb5bb0bcd8419d3447a0bcfd165918eef7bc7842d4b4075d2934642d61",
+      "bytes": 248761
+    },
+    {
+      "sliceKey": "2023-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2384,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-11-01T00%3A00%3A00Z+TO+2023-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:14.585Z",
+      "durationMs": 57,
+      "attempts": 1,
+      "file": "2023-11--000000.json",
+      "contentHash": "847245d1ee5ff5e1983fc4c847f605a362df07293596682bb88c291f536005be",
+      "bytes": 242322
+    },
+    {
+      "sliceKey": "2023-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2146,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-12-01T00%3A00%3A00Z+TO+2023-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:15.700Z",
+      "durationMs": 71,
+      "attempts": 1,
+      "file": "2023-12--000000.json",
+      "contentHash": "bab9c5c6303a6ae454d03b028fc2ad6789412b85166f98d131224b5fb7d1c112",
+      "bytes": 218516
+    },
+    {
+      "sliceKey": "2024-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2045,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-01-01T00%3A00%3A00Z+TO+2024-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:16.778Z",
+      "durationMs": 49,
+      "attempts": 1,
+      "file": "2024-01--000000.json",
+      "contentHash": "4012325535d0e6dba5f0a7665fce2addafaec68ef0ab5f04b44918aa183abb8d",
+      "bytes": 208262
+    },
+    {
+      "sliceKey": "2024-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1791,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-02-01T00%3A00%3A00Z+TO+2024-02-29T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:18.003Z",
+      "durationMs": 173,
+      "attempts": 1,
+      "file": "2024-02--000000.json",
+      "contentHash": "ebb6a6ab569e55e67537ccc28e7e1c8f3b6945f409ac5a16125edae094b96f7e",
+      "bytes": 182497
+    },
+    {
+      "sliceKey": "2024-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2015,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-03-01T00%3A00%3A00Z+TO+2024-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:18.971Z",
+      "durationMs": 40,
+      "attempts": 1,
+      "file": "2024-03--000000.json",
+      "contentHash": "989b3ea3088dad8fdf89ff352af11b0a2c98aef49b80ceec4b061ae4dc014ad1",
+      "bytes": 205111
+    },
+    {
+      "sliceKey": "2024-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1675,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-04-01T00%3A00%3A00Z+TO+2024-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:20.085Z",
+      "durationMs": 54,
+      "attempts": 1,
+      "file": "2024-04--000000.json",
+      "contentHash": "17872f05a71dced2e9471bc2e60f421b6b61460e2aca28ef31e8267afc66b098",
+      "bytes": 170802
+    },
+    {
+      "sliceKey": "2024-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1225,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-05-01T00%3A00%3A00Z+TO+2024-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:21.179Z",
+      "durationMs": 47,
+      "attempts": 1,
+      "file": "2024-05--000000.json",
+      "contentHash": "825bf57df3a0a801a12e7d760a09369c838bab55390e4c6bbec07a69959051b7",
+      "bytes": 125435
+    },
+    {
+      "sliceKey": "2024-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 961,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-06-01T00%3A00%3A00Z+TO+2024-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:22.276Z",
+      "durationMs": 42,
+      "attempts": 1,
+      "file": "2024-06--000000.json",
+      "contentHash": "8ebafe6165903654ff4c170ed682045d323f93c378aa3cd2ac5a3ff137e73808",
+      "bytes": 98899
+    },
+    {
+      "sliceKey": "2024-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1008,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-07-01T00%3A00%3A00Z+TO+2024-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:23.377Z",
+      "durationMs": 42,
+      "attempts": 1,
+      "file": "2024-07--000000.json",
+      "contentHash": "14e0951c3b649f2999e2d7abcf5258fc96e93f751dc2cad4fb720d45c97e0121",
+      "bytes": 103589
+    },
+    {
+      "sliceKey": "2024-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1592,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-08-01T00%3A00%3A00Z+TO+2024-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:24.500Z",
+      "durationMs": 64,
+      "attempts": 1,
+      "file": "2024-08--000000.json",
+      "contentHash": "add1b23d342d8e63aba2904e292cf98ade130b7cc00efcfebbd85793558bc8b3",
+      "bytes": 162456
+    },
+    {
+      "sliceKey": "2024-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2467,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-09-01T00%3A00%3A00Z+TO+2024-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:25.587Z",
+      "durationMs": 50,
+      "attempts": 1,
+      "file": "2024-09--000000.json",
+      "contentHash": "0d8b48a6940d4d5ea9bf0185817d53ada038f474587d9aaf75af4084f507f222",
+      "bytes": 250735
+    },
+    {
+      "sliceKey": "2024-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2880,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-10-01T00%3A00%3A00Z+TO+2024-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:26.683Z",
+      "durationMs": 45,
+      "attempts": 1,
+      "file": "2024-10--000000.json",
+      "contentHash": "782d817e17f3e5e3eb161e18c429b9ffbf86058b1cd541049cda3b104c0ab83a",
+      "bytes": 292371
+    },
+    {
+      "sliceKey": "2024-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2826,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-11-01T00%3A00%3A00Z+TO+2024-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:27.807Z",
+      "durationMs": 67,
+      "attempts": 1,
+      "file": "2024-11--000000.json",
+      "contentHash": "eb67ffb299ab37c1f6d23505df2762918c3c508dea86f080ef4f066e42cb2e68",
+      "bytes": 287030
+    },
+    {
+      "sliceKey": "2024-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2414,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-12-01T00%3A00%3A00Z+TO+2024-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:28.929Z",
+      "durationMs": 88,
+      "attempts": 1,
+      "file": "2024-12--000000.json",
+      "contentHash": "b72526fe0e4d061c2a77d2b5a15fe57bef83d8742024ad7d2b4d32f7694db05a",
+      "bytes": 245389
+    },
+    {
+      "sliceKey": "2025-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2282,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-01-01T00%3A00%3A00Z+TO+2025-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:29.991Z",
+      "durationMs": 49,
+      "attempts": 1,
+      "file": "2025-01--000000.json",
+      "contentHash": "75b10ccfa45757322b90348b07efa41c45ff362fcea2342f1acf9126170985e0",
+      "bytes": 231983
+    },
+    {
+      "sliceKey": "2025-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1948,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-02-01T00%3A00%3A00Z+TO+2025-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:31.097Z",
+      "durationMs": 54,
+      "attempts": 1,
+      "file": "2025-02--000000.json",
+      "contentHash": "4fd575ba6ea9f2e0f7fbb98e1dd65e72d007bd9d3165490ee8abf425ae1e4a34",
+      "bytes": 198586
+    },
+    {
+      "sliceKey": "2025-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2067,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-03-01T00%3A00%3A00Z+TO+2025-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:32.190Z",
+      "durationMs": 45,
+      "attempts": 1,
+      "file": "2025-03--000000.json",
+      "contentHash": "68374c7eb9c020444eab7bb7f24a6e599048a0e417f124775ed3017ee44656e4",
+      "bytes": 210397
+    },
+    {
+      "sliceKey": "2025-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1885,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-04-01T00%3A00%3A00Z+TO+2025-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:33.382Z",
+      "durationMs": 136,
+      "attempts": 1,
+      "file": "2025-04--000000.json",
+      "contentHash": "4fd60898777763dd6ddbf90224a79b9a5ee755f4bfdb2362cc3e9955fe6a77fa",
+      "bytes": 191919
+    },
+    {
+      "sliceKey": "2025-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1411,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-05-01T00%3A00%3A00Z+TO+2025-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:34.446Z",
+      "durationMs": 99,
+      "attempts": 1,
+      "file": "2025-05--000000.json",
+      "contentHash": "57835e0ecbd2960e169c8e2b2f295510be8a6bab542f35a9c3d164dffc96eb6f",
+      "bytes": 144095
+    },
+    {
+      "sliceKey": "2025-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1090,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-06-01T00%3A00%3A00Z+TO+2025-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:35.493Z",
+      "durationMs": 45,
+      "attempts": 1,
+      "file": "2025-06--000000.json",
+      "contentHash": "ca9c69c508caac801f7a20aa12962ad03eecb9729c2c7131e546bab841a24246",
+      "bytes": 111862
+    },
+    {
+      "sliceKey": "2025-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1146,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-07-01T00%3A00%3A00Z+TO+2025-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:36.605Z",
+      "durationMs": 55,
+      "attempts": 1,
+      "file": "2025-07--000000.json",
+      "contentHash": "55125fa7d6e2ce75fee62b84a46d4859fcfd4cfbce36961aa9029ee46e43f88e",
+      "bytes": 117557
+    },
+    {
+      "sliceKey": "2025-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1474,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-08-01T00%3A00%3A00Z+TO+2025-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:37.713Z",
+      "durationMs": 61,
+      "attempts": 1,
+      "file": "2025-08--000000.json",
+      "contentHash": "e2896278b9182bb8d834f4b7e25753c416c004e5ed99eec6c0a59b5555150ab9",
+      "bytes": 150724
+    },
+    {
+      "sliceKey": "2025-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2641,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-09-01T00%3A00%3A00Z+TO+2025-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:38.807Z",
+      "durationMs": 54,
+      "attempts": 1,
+      "file": "2025-09--000000.json",
+      "contentHash": "b45210f2f99129954efdaf20a3193ce6160c7bcf7423eb1a97203c1184d285c5",
+      "bytes": 268075
+    },
+    {
+      "sliceKey": "2025-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 3163,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-10-01T00%3A00%3A00Z+TO+2025-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:39.908Z",
+      "durationMs": 54,
+      "attempts": 1,
+      "file": "2025-10--000000.json",
+      "contentHash": "24310f7197cb126d622406c0fb9c9e262ee4a8dd869e766950b3383cc723f134",
+      "bytes": 320853
+    },
+    {
+      "sliceKey": "2025-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2890,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-11-01T00%3A00%3A00Z+TO+2025-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:41.002Z",
+      "durationMs": 47,
+      "attempts": 1,
+      "file": "2025-11--000000.json",
+      "contentHash": "be05ea24f05588c7bfd1b0acb0f4f15b9ddd651c924b512c1f08e9068a4811d5",
+      "bytes": 293473
+    },
+    {
+      "sliceKey": "2025-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2482,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-12-01T00%3A00%3A00Z+TO+2025-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:42.102Z",
+      "durationMs": 45,
+      "attempts": 1,
+      "file": "2025-12--000000.json",
+      "contentHash": "c3de883fbe86e851befa97d938d71913a541855748ce1ed32aa695b9c72876ce",
+      "bytes": 252186
+    },
+    {
+      "sliceKey": "2026-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2342,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-01-01T00%3A00%3A00Z+TO+2026-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:43.191Z",
+      "durationMs": 33,
+      "attempts": 1,
+      "file": "2026-01--000000.json",
+      "contentHash": "692a7049794f2c158afd3e04dd10a5c23f9ee2efe1c96aa93039f810ada226e3",
+      "bytes": 238182
+    },
+    {
+      "sliceKey": "2026-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2059,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-02-01T00%3A00%3A00Z+TO+2026-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:44.319Z",
+      "durationMs": 59,
+      "attempts": 1,
+      "file": "2026-02--000000.json",
+      "contentHash": "aafb12b540662fad6fb97ddae190f6c297edb1b09515156ee23d9341fbe45505",
+      "bytes": 209455
+    },
+    {
+      "sliceKey": "2026-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2176,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-03-01T00%3A00%3A00Z+TO+2026-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:45.434Z",
+      "durationMs": 73,
+      "attempts": 1,
+      "file": "2026-03--000000.json",
+      "contentHash": "9713ab62d7a8ddf3eba0f4786fd271f172ee759f164fe207bb3daa5093938950",
+      "bytes": 221584
+    },
+    {
+      "sliceKey": "2026-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2002,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-04-01T00%3A00%3A00Z+TO+2026-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:46.534Z",
+      "durationMs": 72,
+      "attempts": 1,
+      "file": "2026-04--000000.json",
+      "contentHash": "4bbefc0173b163676817014d8fc5d83a8cf9177e3ea6e707f67aa454fbfc381a",
+      "bytes": 203802
+    },
+    {
+      "sliceKey": "2026-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1456,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-05-01T00%3A00%3A00Z+TO+2026-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:47.593Z",
+      "durationMs": 29,
+      "attempts": 1,
+      "file": "2026-05--000000.json",
+      "contentHash": "36468e1d75a138b1bb870e522150cbd1e95b15ee76b6b4b7fb327b0ba5c3e5bd",
+      "bytes": 148691
+    },
+    {
+      "sliceKey": "2026-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1270,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-06-01T00%3A00%3A00Z+TO+2026-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:48.700Z",
+      "durationMs": 33,
+      "attempts": 1,
+      "file": "2026-06--000000.json",
+      "contentHash": "aed7455fd7772e0c678c8f84d9e93b295291f5ff9cafb162a96235a4820a932b",
+      "bytes": 129992
+    },
+    {
+      "sliceKey": "2026-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1334,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-07-01T00%3A00%3A00Z+TO+2026-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:49.809Z",
+      "durationMs": 43,
+      "attempts": 1,
+      "file": "2026-07--000000.json",
+      "contentHash": "7676feb73f3f9ec0a2f802a968f0bea02640e958e9a649aa2e6b7e19e1edcf1f",
+      "bytes": 136421
+    },
+    {
+      "sliceKey": "2026-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1630,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-08-01T00%3A00%3A00Z+TO+2026-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:50.913Z",
+      "durationMs": 45,
+      "attempts": 1,
+      "file": "2026-08--000000.json",
+      "contentHash": "4ac168d6cedf353d62b519cde73147e5d51aea6405304dd2627e9db53bf016cb",
+      "bytes": 166326
+    },
+    {
+      "sliceKey": "2026-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2246,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-09-01T00%3A00%3A00Z+TO+2026-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AReptilia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:52.006Z",
+      "durationMs": 37,
+      "attempts": 1,
+      "file": "2026-09--000000.json",
+      "contentHash": "c2b76c72b18b4aa8ff33157ca0873dd7b161124b97c7e5079088997dd64ef1cf",
+      "bytes": 228212
+    }
+  ],
+  "corpusHash": "e8c8ac0d7b95b1ac77efb34443a9d39e88b27dc2d1f34ba0f8798b476f885de8",
+  "requestCount": 141,
+  "warnings": [
+    "2015-01: 24 of 2463 records in no cell",
+    "2015-02: 18 of 3981 records in no cell",
+    "2015-03: 11 of 6546 records in no cell",
+    "2015-04: 14 of 5799 records in no cell",
+    "2015-05: 10 of 2740 records in no cell",
+    "2015-06: 2 of 1217 records in no cell",
+    "2015-07: 4 of 3854 records in no cell",
+    "2015-08: 20 of 2914 records in no cell",
+    "2015-09: 9 of 6184 records in no cell",
+    "2015-10: 22 of 6922 records in no cell",
+    "2015-11: 22 of 8281 records in no cell",
+    "2015-12: 29 of 3465 records in no cell",
+    "2016-01: 42 of 3362 records in no cell",
+    "2016-02: 27 of 3755 records in no cell",
+    "2016-03: 16 of 4524 records in no cell",
+    "2016-04: 47 of 3588 records in no cell",
+    "2016-05: 8 of 2344 records in no cell",
+    "2016-06: 13 of 2395 records in no cell",
+    "2016-07: 13 of 2391 records in no cell",
+    "2016-08: 16 of 3579 records in no cell",
+    "2016-09: 16 of 3329 records in no cell",
+    "2016-10: 25 of 5997 records in no cell",
+    "2016-11: 34 of 7668 records in no cell",
+    "2016-12: 21 of 4513 records in no cell",
+    "2017-01: 12 of 3682 records in no cell",
+    "2017-02: 10 of 4019 records in no cell",
+    "2017-03: 4 of 4789 records in no cell",
+    "2017-04: 13 of 3689 records in no cell",
+    "2017-05: 9 of 5682 records in no cell",
+    "2017-06: 7 of 2568 records in no cell",
+    "2017-07: 8 of 2757 records in no cell",
+    "2017-08: 6 of 2670 records in no cell",
+    "2017-09: 95 of 4209 records in no cell",
+    "2017-10: 129 of 5985 records in no cell",
+    "2017-11: 19 of 7333 records in no cell",
+    "2017-12: 42 of 3670 records in no cell",
+    "2018-01: 11 of 3885 records in no cell",
+    "2018-02: 31 of 3492 records in no cell",
+    "2018-03: 12 of 4686 records in no cell",
+    "2018-04: 13 of 4913 records in no cell",
+    "2018-05: 42 of 1882 records in no cell",
+    "2018-07: 3 of 2903 records in no cell",
+    "2018-08: 5 of 3544 records in no cell",
+    "2018-09: 50 of 6675 records in no cell",
+    "2018-10: 34 of 15216 records in no cell",
+    "2018-11: 51 of 9396 records in no cell",
+    "2018-12: 36 of 5976 records in no cell",
+    "2019-01: 23 of 4431 records in no cell",
+    "2019-02: 1 of 3916 records in no cell",
+    "2019-03: 3 of 4934 records in no cell",
+    "2019-04: 2 of 4501 records in no cell",
+    "2019-05: 3 of 3123 records in no cell",
+    "2019-06: 3 of 1492 records in no cell",
+    "2019-08: 29 of 2902 records in no cell",
+    "2019-09: 9 of 4155 records in no cell",
+    "2019-10: 14 of 6984 records in no cell",
+    "2019-11: 29 of 6285 records in no cell",
+    "2019-12: 65 of 4809 records in no cell",
+    "2020-01: 120 of 4638 records in no cell",
+    "2020-02: 94 of 5065 records in no cell",
+    "2020-03: 62 of 6029 records in no cell",
+    "2020-04: 9 of 3493 records in no cell",
+    "2020-05: 5 of 2087 records in no cell",
+    "2020-08: 1 of 3407 records in no cell",
+    "2020-09: 4 of 6251 records in no cell",
+    "2020-10: 3 of 9111 records in no cell",
+    "2020-11: 7 of 9482 records in no cell",
+    "2020-12: 2 of 6519 records in no cell",
+    "2021-02: 1 of 5592 records in no cell",
+    "2021-04: 1 of 8023 records in no cell",
+    "2021-07: 30 of 2094 records in no cell",
+    "2021-08: 1 of 4289 records in no cell",
+    "2021-09: 7 of 6626 records in no cell",
+    "2021-10: 40 of 9581 records in no cell",
+    "2021-12: 3 of 7419 records in no cell",
+    "2022-01: 7 of 8101 records in no cell",
+    "2022-02: 1 of 6014 records in no cell",
+    "2022-03: 27 of 6848 records in no cell",
+    "2022-04: 45 of 5469 records in no cell",
+    "2022-05: 27 of 3741 records in no cell",
+    "2022-06: 3 of 2614 records in no cell",
+    "2022-09: 7 of 6395 records in no cell",
+    "2022-10: 33 of 10235 records in no cell",
+    "2022-11: 49 of 10013 records in no cell",
+    "2022-12: 17 of 8520 records in no cell",
+    "2023-01: 44 of 8287 records in no cell",
+    "2023-02: 9 of 7160 records in no cell",
+    "2023-03: 21 of 8259 records in no cell",
+    "2023-05: 19 of 2702 records in no cell",
+    "2023-06: 17 of 2709 records in no cell",
+    "2023-07: 36 of 3276 records in no cell",
+    "2023-08: 8 of 4314 records in no cell",
+    "2023-09: 26 of 9453 records in no cell",
+    "2023-10: 3 of 11954 records in no cell",
+    "2023-11: 20 of 11709 records in no cell",
+    "2024-01: 5 of 8845 records in no cell",
+    "2025-04: 12 of 7202 records in no cell",
+    "2026-05: 2 of 4270 records in no cell"
+  ]
+}

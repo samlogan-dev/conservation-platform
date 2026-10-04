@@ -1,0 +1,3615 @@
+{
+  "runId": "2026-10-04T01-25-54-660Z",
+  "harvestKey": "effort-point01-monthly-amphibia",
+  "description": "Amphibia records per 0.1° cell per month, telemetry excluded, 2015-01 to 2026-09, via ALA facets",
+  "source": "ala-facets",
+  "baseUrl": "https://biocache-ws.ala.org.au/ws",
+  "query": {
+    "q": "*:*",
+    "fq": [
+      "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+      "class:Amphibia"
+    ]
+  },
+  "requestedFields": [
+    "point-0.1"
+  ],
+  "politeness": {
+    "userAgent": "ConservationReportingPlatform/0.1 (UTS Honours research; +mailto:sam@samlogan.com.au)",
+    "minRequestIntervalMs": 1100
+  },
+  "startedAt": "2026-10-04T01:25:54.660Z",
+  "finishedAt": "2026-10-04T01:28:43.234Z",
+  "durationMs": 168574,
+  "expectedRecords": 1534417,
+  "retrievedRecords": 1533190,
+  "complete": true,
+  "slices": [
+    {
+      "sliceKey": "2015-01",
+      "filters": [
+        "eventDate:[2015-01-01T00:00:00Z TO 2015-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-02",
+      "filters": [
+        "eventDate:[2015-02-01T00:00:00Z TO 2015-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-03",
+      "filters": [
+        "eventDate:[2015-03-01T00:00:00Z TO 2015-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-04",
+      "filters": [
+        "eventDate:[2015-04-01T00:00:00Z TO 2015-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-05",
+      "filters": [
+        "eventDate:[2015-05-01T00:00:00Z TO 2015-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-06",
+      "filters": [
+        "eventDate:[2015-06-01T00:00:00Z TO 2015-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-07",
+      "filters": [
+        "eventDate:[2015-07-01T00:00:00Z TO 2015-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-08",
+      "filters": [
+        "eventDate:[2015-08-01T00:00:00Z TO 2015-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-09",
+      "filters": [
+        "eventDate:[2015-09-01T00:00:00Z TO 2015-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-10",
+      "filters": [
+        "eventDate:[2015-10-01T00:00:00Z TO 2015-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-11",
+      "filters": [
+        "eventDate:[2015-11-01T00:00:00Z TO 2015-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2015-12",
+      "filters": [
+        "eventDate:[2015-12-01T00:00:00Z TO 2015-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-01",
+      "filters": [
+        "eventDate:[2016-01-01T00:00:00Z TO 2016-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-02",
+      "filters": [
+        "eventDate:[2016-02-01T00:00:00Z TO 2016-02-29T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-03",
+      "filters": [
+        "eventDate:[2016-03-01T00:00:00Z TO 2016-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-04",
+      "filters": [
+        "eventDate:[2016-04-01T00:00:00Z TO 2016-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-05",
+      "filters": [
+        "eventDate:[2016-05-01T00:00:00Z TO 2016-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-06",
+      "filters": [
+        "eventDate:[2016-06-01T00:00:00Z TO 2016-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-07",
+      "filters": [
+        "eventDate:[2016-07-01T00:00:00Z TO 2016-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-08",
+      "filters": [
+        "eventDate:[2016-08-01T00:00:00Z TO 2016-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-09",
+      "filters": [
+        "eventDate:[2016-09-01T00:00:00Z TO 2016-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-10",
+      "filters": [
+        "eventDate:[2016-10-01T00:00:00Z TO 2016-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-11",
+      "filters": [
+        "eventDate:[2016-11-01T00:00:00Z TO 2016-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2016-12",
+      "filters": [
+        "eventDate:[2016-12-01T00:00:00Z TO 2016-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-01",
+      "filters": [
+        "eventDate:[2017-01-01T00:00:00Z TO 2017-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-02",
+      "filters": [
+        "eventDate:[2017-02-01T00:00:00Z TO 2017-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-03",
+      "filters": [
+        "eventDate:[2017-03-01T00:00:00Z TO 2017-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-04",
+      "filters": [
+        "eventDate:[2017-04-01T00:00:00Z TO 2017-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-05",
+      "filters": [
+        "eventDate:[2017-05-01T00:00:00Z TO 2017-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-06",
+      "filters": [
+        "eventDate:[2017-06-01T00:00:00Z TO 2017-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-07",
+      "filters": [
+        "eventDate:[2017-07-01T00:00:00Z TO 2017-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-08",
+      "filters": [
+        "eventDate:[2017-08-01T00:00:00Z TO 2017-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-09",
+      "filters": [
+        "eventDate:[2017-09-01T00:00:00Z TO 2017-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-10",
+      "filters": [
+        "eventDate:[2017-10-01T00:00:00Z TO 2017-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-11",
+      "filters": [
+        "eventDate:[2017-11-01T00:00:00Z TO 2017-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2017-12",
+      "filters": [
+        "eventDate:[2017-12-01T00:00:00Z TO 2017-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-01",
+      "filters": [
+        "eventDate:[2018-01-01T00:00:00Z TO 2018-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-02",
+      "filters": [
+        "eventDate:[2018-02-01T00:00:00Z TO 2018-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-03",
+      "filters": [
+        "eventDate:[2018-03-01T00:00:00Z TO 2018-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-04",
+      "filters": [
+        "eventDate:[2018-04-01T00:00:00Z TO 2018-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-05",
+      "filters": [
+        "eventDate:[2018-05-01T00:00:00Z TO 2018-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-06",
+      "filters": [
+        "eventDate:[2018-06-01T00:00:00Z TO 2018-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-07",
+      "filters": [
+        "eventDate:[2018-07-01T00:00:00Z TO 2018-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-08",
+      "filters": [
+        "eventDate:[2018-08-01T00:00:00Z TO 2018-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-09",
+      "filters": [
+        "eventDate:[2018-09-01T00:00:00Z TO 2018-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-10",
+      "filters": [
+        "eventDate:[2018-10-01T00:00:00Z TO 2018-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-11",
+      "filters": [
+        "eventDate:[2018-11-01T00:00:00Z TO 2018-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2018-12",
+      "filters": [
+        "eventDate:[2018-12-01T00:00:00Z TO 2018-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-01",
+      "filters": [
+        "eventDate:[2019-01-01T00:00:00Z TO 2019-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-02",
+      "filters": [
+        "eventDate:[2019-02-01T00:00:00Z TO 2019-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-03",
+      "filters": [
+        "eventDate:[2019-03-01T00:00:00Z TO 2019-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-04",
+      "filters": [
+        "eventDate:[2019-04-01T00:00:00Z TO 2019-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-05",
+      "filters": [
+        "eventDate:[2019-05-01T00:00:00Z TO 2019-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-06",
+      "filters": [
+        "eventDate:[2019-06-01T00:00:00Z TO 2019-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-07",
+      "filters": [
+        "eventDate:[2019-07-01T00:00:00Z TO 2019-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-08",
+      "filters": [
+        "eventDate:[2019-08-01T00:00:00Z TO 2019-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-09",
+      "filters": [
+        "eventDate:[2019-09-01T00:00:00Z TO 2019-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-10",
+      "filters": [
+        "eventDate:[2019-10-01T00:00:00Z TO 2019-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-11",
+      "filters": [
+        "eventDate:[2019-11-01T00:00:00Z TO 2019-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2019-12",
+      "filters": [
+        "eventDate:[2019-12-01T00:00:00Z TO 2019-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-01",
+      "filters": [
+        "eventDate:[2020-01-01T00:00:00Z TO 2020-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-02",
+      "filters": [
+        "eventDate:[2020-02-01T00:00:00Z TO 2020-02-29T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-03",
+      "filters": [
+        "eventDate:[2020-03-01T00:00:00Z TO 2020-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-04",
+      "filters": [
+        "eventDate:[2020-04-01T00:00:00Z TO 2020-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-05",
+      "filters": [
+        "eventDate:[2020-05-01T00:00:00Z TO 2020-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-06",
+      "filters": [
+        "eventDate:[2020-06-01T00:00:00Z TO 2020-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-07",
+      "filters": [
+        "eventDate:[2020-07-01T00:00:00Z TO 2020-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-08",
+      "filters": [
+        "eventDate:[2020-08-01T00:00:00Z TO 2020-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-09",
+      "filters": [
+        "eventDate:[2020-09-01T00:00:00Z TO 2020-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-10",
+      "filters": [
+        "eventDate:[2020-10-01T00:00:00Z TO 2020-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-11",
+      "filters": [
+        "eventDate:[2020-11-01T00:00:00Z TO 2020-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2020-12",
+      "filters": [
+        "eventDate:[2020-12-01T00:00:00Z TO 2020-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-01",
+      "filters": [
+        "eventDate:[2021-01-01T00:00:00Z TO 2021-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-02",
+      "filters": [
+        "eventDate:[2021-02-01T00:00:00Z TO 2021-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-03",
+      "filters": [
+        "eventDate:[2021-03-01T00:00:00Z TO 2021-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-04",
+      "filters": [
+        "eventDate:[2021-04-01T00:00:00Z TO 2021-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-05",
+      "filters": [
+        "eventDate:[2021-05-01T00:00:00Z TO 2021-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-06",
+      "filters": [
+        "eventDate:[2021-06-01T00:00:00Z TO 2021-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-07",
+      "filters": [
+        "eventDate:[2021-07-01T00:00:00Z TO 2021-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-08",
+      "filters": [
+        "eventDate:[2021-08-01T00:00:00Z TO 2021-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-09",
+      "filters": [
+        "eventDate:[2021-09-01T00:00:00Z TO 2021-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-10",
+      "filters": [
+        "eventDate:[2021-10-01T00:00:00Z TO 2021-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-11",
+      "filters": [
+        "eventDate:[2021-11-01T00:00:00Z TO 2021-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2021-12",
+      "filters": [
+        "eventDate:[2021-12-01T00:00:00Z TO 2021-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-01",
+      "filters": [
+        "eventDate:[2022-01-01T00:00:00Z TO 2022-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-02",
+      "filters": [
+        "eventDate:[2022-02-01T00:00:00Z TO 2022-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-03",
+      "filters": [
+        "eventDate:[2022-03-01T00:00:00Z TO 2022-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-04",
+      "filters": [
+        "eventDate:[2022-04-01T00:00:00Z TO 2022-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-05",
+      "filters": [
+        "eventDate:[2022-05-01T00:00:00Z TO 2022-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-06",
+      "filters": [
+        "eventDate:[2022-06-01T00:00:00Z TO 2022-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-07",
+      "filters": [
+        "eventDate:[2022-07-01T00:00:00Z TO 2022-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-08",
+      "filters": [
+        "eventDate:[2022-08-01T00:00:00Z TO 2022-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-09",
+      "filters": [
+        "eventDate:[2022-09-01T00:00:00Z TO 2022-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-10",
+      "filters": [
+        "eventDate:[2022-10-01T00:00:00Z TO 2022-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-11",
+      "filters": [
+        "eventDate:[2022-11-01T00:00:00Z TO 2022-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2022-12",
+      "filters": [
+        "eventDate:[2022-12-01T00:00:00Z TO 2022-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-01",
+      "filters": [
+        "eventDate:[2023-01-01T00:00:00Z TO 2023-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-02",
+      "filters": [
+        "eventDate:[2023-02-01T00:00:00Z TO 2023-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-03",
+      "filters": [
+        "eventDate:[2023-03-01T00:00:00Z TO 2023-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-04",
+      "filters": [
+        "eventDate:[2023-04-01T00:00:00Z TO 2023-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-05",
+      "filters": [
+        "eventDate:[2023-05-01T00:00:00Z TO 2023-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-06",
+      "filters": [
+        "eventDate:[2023-06-01T00:00:00Z TO 2023-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-07",
+      "filters": [
+        "eventDate:[2023-07-01T00:00:00Z TO 2023-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-08",
+      "filters": [
+        "eventDate:[2023-08-01T00:00:00Z TO 2023-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-09",
+      "filters": [
+        "eventDate:[2023-09-01T00:00:00Z TO 2023-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-10",
+      "filters": [
+        "eventDate:[2023-10-01T00:00:00Z TO 2023-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-11",
+      "filters": [
+        "eventDate:[2023-11-01T00:00:00Z TO 2023-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2023-12",
+      "filters": [
+        "eventDate:[2023-12-01T00:00:00Z TO 2023-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-01",
+      "filters": [
+        "eventDate:[2024-01-01T00:00:00Z TO 2024-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-02",
+      "filters": [
+        "eventDate:[2024-02-01T00:00:00Z TO 2024-02-29T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-03",
+      "filters": [
+        "eventDate:[2024-03-01T00:00:00Z TO 2024-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-04",
+      "filters": [
+        "eventDate:[2024-04-01T00:00:00Z TO 2024-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-05",
+      "filters": [
+        "eventDate:[2024-05-01T00:00:00Z TO 2024-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-06",
+      "filters": [
+        "eventDate:[2024-06-01T00:00:00Z TO 2024-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-07",
+      "filters": [
+        "eventDate:[2024-07-01T00:00:00Z TO 2024-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-08",
+      "filters": [
+        "eventDate:[2024-08-01T00:00:00Z TO 2024-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-09",
+      "filters": [
+        "eventDate:[2024-09-01T00:00:00Z TO 2024-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-10",
+      "filters": [
+        "eventDate:[2024-10-01T00:00:00Z TO 2024-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-11",
+      "filters": [
+        "eventDate:[2024-11-01T00:00:00Z TO 2024-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2024-12",
+      "filters": [
+        "eventDate:[2024-12-01T00:00:00Z TO 2024-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-01",
+      "filters": [
+        "eventDate:[2025-01-01T00:00:00Z TO 2025-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-02",
+      "filters": [
+        "eventDate:[2025-02-01T00:00:00Z TO 2025-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-03",
+      "filters": [
+        "eventDate:[2025-03-01T00:00:00Z TO 2025-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-04",
+      "filters": [
+        "eventDate:[2025-04-01T00:00:00Z TO 2025-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-05",
+      "filters": [
+        "eventDate:[2025-05-01T00:00:00Z TO 2025-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-06",
+      "filters": [
+        "eventDate:[2025-06-01T00:00:00Z TO 2025-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-07",
+      "filters": [
+        "eventDate:[2025-07-01T00:00:00Z TO 2025-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-08",
+      "filters": [
+        "eventDate:[2025-08-01T00:00:00Z TO 2025-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-09",
+      "filters": [
+        "eventDate:[2025-09-01T00:00:00Z TO 2025-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-10",
+      "filters": [
+        "eventDate:[2025-10-01T00:00:00Z TO 2025-10-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-11",
+      "filters": [
+        "eventDate:[2025-11-01T00:00:00Z TO 2025-11-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2025-12",
+      "filters": [
+        "eventDate:[2025-12-01T00:00:00Z TO 2025-12-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-01",
+      "filters": [
+        "eventDate:[2026-01-01T00:00:00Z TO 2026-01-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-02",
+      "filters": [
+        "eventDate:[2026-02-01T00:00:00Z TO 2026-02-28T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-03",
+      "filters": [
+        "eventDate:[2026-03-01T00:00:00Z TO 2026-03-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-04",
+      "filters": [
+        "eventDate:[2026-04-01T00:00:00Z TO 2026-04-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-05",
+      "filters": [
+        "eventDate:[2026-05-01T00:00:00Z TO 2026-05-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-06",
+      "filters": [
+        "eventDate:[2026-06-01T00:00:00Z TO 2026-06-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-07",
+      "filters": [
+        "eventDate:[2026-07-01T00:00:00Z TO 2026-07-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-08",
+      "filters": [
+        "eventDate:[2026-08-01T00:00:00Z TO 2026-08-31T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    },
+    {
+      "sliceKey": "2026-09",
+      "filters": [
+        "eventDate:[2026-09-01T00:00:00Z TO 2026-09-30T23:59:59Z]",
+        "-dataResourceUid:(dr23118 OR dr23125 OR dr23141 OR dr23201 OR dr23204 OR dr31514 OR dr34307 OR dr34308 OR dr34309 OR dr9942)",
+        "class:Amphibia"
+      ],
+      "expectedRecords": 0,
+      "retrievedRecords": 0,
+      "pages": 1
+    }
+  ],
+  "pages": [
+    {
+      "sliceKey": "2015-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 245,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-01-01T00%3A00%3A00Z+TO+2015-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:54.800Z",
+      "durationMs": 139,
+      "attempts": 1,
+      "file": "2015-01--000000.json",
+      "contentHash": "a39524fd3e2225f94e00b0c25b7421ca4d034c3abc50295b62f6b02944892601",
+      "bytes": 26616
+    },
+    {
+      "sliceKey": "2015-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 270,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-02-01T00%3A00%3A00Z+TO+2015-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:55.796Z",
+      "durationMs": 34,
+      "attempts": 1,
+      "file": "2015-02--000000.json",
+      "contentHash": "b6f865476f90a6cba97aaa6ab10330c75bb8dca486fba388cc64757b3a7f7fd3",
+      "bytes": 29165
+    },
+    {
+      "sliceKey": "2015-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 236,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-03-01T00%3A00%3A00Z+TO+2015-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:56.898Z",
+      "durationMs": 34,
+      "attempts": 1,
+      "file": "2015-03--000000.json",
+      "contentHash": "9a1edde05b8e46a86147d54b0d0eaf327e928e5f57bb234158bb82ab1bbd341e",
+      "bytes": 25748
+    },
+    {
+      "sliceKey": "2015-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 278,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-04-01T00%3A00%3A00Z+TO+2015-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:58.025Z",
+      "durationMs": 61,
+      "attempts": 1,
+      "file": "2015-04--000000.json",
+      "contentHash": "59f69bc52c754a7178d4e407b4a106b2d255ce0ba619b70954734a0087d2e9cb",
+      "bytes": 30015
+    },
+    {
+      "sliceKey": "2015-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 197,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-05-01T00%3A00%3A00Z+TO+2015-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:25:59.113Z",
+      "durationMs": 47,
+      "attempts": 1,
+      "file": "2015-05--000000.json",
+      "contentHash": "8ff8cbe991220700e65a6dc912b2739542409d2d1a0e11322b4cd64c31d493e5",
+      "bytes": 21830
+    },
+    {
+      "sliceKey": "2015-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 133,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-06-01T00%3A00%3A00Z+TO+2015-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:00.211Z",
+      "durationMs": 44,
+      "attempts": 1,
+      "file": "2015-06--000000.json",
+      "contentHash": "2751233f6bff7b08253df218701b5936cedb46db374b25d0494fa1bc196e88c7",
+      "bytes": 15377
+    },
+    {
+      "sliceKey": "2015-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 134,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-07-01T00%3A00%3A00Z+TO+2015-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:01.298Z",
+      "durationMs": 30,
+      "attempts": 1,
+      "file": "2015-07--000000.json",
+      "contentHash": "cc72b2c27387c057ac729724104fa0813b7f8c09f01db93300d9f07437318baf",
+      "bytes": 15490
+    },
+    {
+      "sliceKey": "2015-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 139,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-08-01T00%3A00%3A00Z+TO+2015-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:02.404Z",
+      "durationMs": 35,
+      "attempts": 1,
+      "file": "2015-08--000000.json",
+      "contentHash": "612deeadc01f41a35728f99f8301f0000e6842fa524f8578925f2448565e4ead",
+      "bytes": 15983
+    },
+    {
+      "sliceKey": "2015-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 221,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-09-01T00%3A00%3A00Z+TO+2015-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:03.530Z",
+      "durationMs": 59,
+      "attempts": 1,
+      "file": "2015-09--000000.json",
+      "contentHash": "d2da91138de4bac61a4b3e1edd06369a20b910eec733039e3c8d94ac3f9b1e8a",
+      "bytes": 24254
+    },
+    {
+      "sliceKey": "2015-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 329,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-10-01T00%3A00%3A00Z+TO+2015-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:04.600Z",
+      "durationMs": 29,
+      "attempts": 1,
+      "file": "2015-10--000000.json",
+      "contentHash": "891f2cd72e54088e7bac5511a1657d5e518b7b48d8d6c2a31761903250302de6",
+      "bytes": 35115
+    },
+    {
+      "sliceKey": "2015-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 329,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-11-01T00%3A00%3A00Z+TO+2015-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:05.771Z",
+      "durationMs": 99,
+      "attempts": 1,
+      "file": "2015-11--000000.json",
+      "contentHash": "d628608e802b65c7a4acbbfde628f1a475aa1a91f8f592e952063ef3a6d33ab6",
+      "bytes": 35165
+    },
+    {
+      "sliceKey": "2015-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 232,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2015-12-01T00%3A00%3A00Z+TO+2015-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:06.799Z",
+      "durationMs": 27,
+      "attempts": 1,
+      "file": "2015-12--000000.json",
+      "contentHash": "c30fc4e9e5b2c76ea11df37b99f90681aa439276df6f308cff3e7f508c28e4a6",
+      "bytes": 25331
+    },
+    {
+      "sliceKey": "2016-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 276,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-01-01T00%3A00%3A00Z+TO+2016-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:08.037Z",
+      "durationMs": 164,
+      "attempts": 1,
+      "file": "2016-01--000000.json",
+      "contentHash": "0b82fd5dbb796f265460831a3571813ee09ce4b230721c70b635c062ac913618",
+      "bytes": 29794
+    },
+    {
+      "sliceKey": "2016-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 261,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-02-01T00%3A00%3A00Z+TO+2016-02-29T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:09.050Z",
+      "durationMs": 76,
+      "attempts": 1,
+      "file": "2016-02--000000.json",
+      "contentHash": "d3a1191b825835ab2b857ecb3751c5fb9329939e8ac34c2df793ab818d7952f1",
+      "bytes": 28220
+    },
+    {
+      "sliceKey": "2016-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 267,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-03-01T00%3A00%3A00Z+TO+2016-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:10.123Z",
+      "durationMs": 48,
+      "attempts": 1,
+      "file": "2016-03--000000.json",
+      "contentHash": "ecc1498950bb950ae77dcc3720bddf37df634158a6054c5d5470acab2ba7279e",
+      "bytes": 28898
+    },
+    {
+      "sliceKey": "2016-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 264,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-04-01T00%3A00%3A00Z+TO+2016-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:11.204Z",
+      "durationMs": 28,
+      "attempts": 1,
+      "file": "2016-04--000000.json",
+      "contentHash": "20119da4f3bc3190c7594ca67c3a2d4d2060ca5e565feb4a321e69c99fdb3408",
+      "bytes": 28538
+    },
+    {
+      "sliceKey": "2016-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 211,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-05-01T00%3A00%3A00Z+TO+2016-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:12.344Z",
+      "durationMs": 68,
+      "attempts": 1,
+      "file": "2016-05--000000.json",
+      "contentHash": "c74e32fac314b3a08c44d91a6c273c5017a17bd2abcfb1441a0630da4ca9145a",
+      "bytes": 23226
+    },
+    {
+      "sliceKey": "2016-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 169,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-06-01T00%3A00%3A00Z+TO+2016-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:13.405Z",
+      "durationMs": 29,
+      "attempts": 1,
+      "file": "2016-06--000000.json",
+      "contentHash": "634add7f5c1d206da27b4887af7313f4d14b4159b27e3bbcafb5c255c28dac81",
+      "bytes": 18933
+    },
+    {
+      "sliceKey": "2016-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 161,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-07-01T00%3A00%3A00Z+TO+2016-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:14.515Z",
+      "durationMs": 38,
+      "attempts": 1,
+      "file": "2016-07--000000.json",
+      "contentHash": "5db26a82e62f8e225c28c3f3359b5fefb3edb14d89eafebac683857336e569cb",
+      "bytes": 18148
+    },
+    {
+      "sliceKey": "2016-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 240,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-08-01T00%3A00%3A00Z+TO+2016-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:15.618Z",
+      "durationMs": 40,
+      "attempts": 1,
+      "file": "2016-08--000000.json",
+      "contentHash": "22861a34202d4b1e6abc70ac29318ebfa0870cebc5b124dde8e46ea63e1d63d3",
+      "bytes": 26189
+    },
+    {
+      "sliceKey": "2016-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 398,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-09-01T00%3A00%3A00Z+TO+2016-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:16.727Z",
+      "durationMs": 47,
+      "attempts": 1,
+      "file": "2016-09--000000.json",
+      "contentHash": "df7eaab47e2dc65b30d51bbce91ca407f4f19a0fe0a09f5d07bc521603095e10",
+      "bytes": 42066
+    },
+    {
+      "sliceKey": "2016-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 471,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-10-01T00%3A00%3A00Z+TO+2016-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:25.987Z",
+      "durationMs": 8206,
+      "attempts": 1,
+      "file": "2016-10--000000.json",
+      "contentHash": "5aba384f7b4dc91de962cc1e05e42c08234c5ce387897c016b4523e146caa1e6",
+      "bytes": 49403
+    },
+    {
+      "sliceKey": "2016-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 422,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-11-01T00%3A00%3A00Z+TO+2016-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:26.044Z",
+      "durationMs": 54,
+      "attempts": 1,
+      "file": "2016-11--000000.json",
+      "contentHash": "66eff18f0dd4c3cfb33ebde67aef5f6bc431c7f31d3b7e993043d792049b516c",
+      "bytes": 44527
+    },
+    {
+      "sliceKey": "2016-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 335,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2016-12-01T00%3A00%3A00Z+TO+2016-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:27.173Z",
+      "durationMs": 81,
+      "attempts": 1,
+      "file": "2016-12--000000.json",
+      "contentHash": "0b95f52628028cf1dd7a0b811f1da8ab40529342029f2cd4c7746078129615ef",
+      "bytes": 35739
+    },
+    {
+      "sliceKey": "2017-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 319,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-01-01T00%3A00%3A00Z+TO+2017-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:36.492Z",
+      "durationMs": 8299,
+      "attempts": 1,
+      "file": "2017-01--000000.json",
+      "contentHash": "e8c9f729e16b8d385d8a9a347d1018e546657054163f52e77ddc3c6f62f2d260",
+      "bytes": 34051
+    },
+    {
+      "sliceKey": "2017-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 260,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-02-01T00%3A00%3A00Z+TO+2017-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:36.546Z",
+      "durationMs": 52,
+      "attempts": 1,
+      "file": "2017-02--000000.json",
+      "contentHash": "6b604656e1694b0e949422cc0e50cb5caf0e037a2b94c500ed3980765668e67b",
+      "bytes": 28199
+    },
+    {
+      "sliceKey": "2017-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 368,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-03-01T00%3A00%3A00Z+TO+2017-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:37.632Z",
+      "durationMs": 38,
+      "attempts": 1,
+      "file": "2017-03--000000.json",
+      "contentHash": "5dc2095d526281b0de64f3744b5c2ac560b66c2fe8ef29afebe6e641e816fadf",
+      "bytes": 39071
+    },
+    {
+      "sliceKey": "2017-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 356,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-04-01T00%3A00%3A00Z+TO+2017-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:38.742Z",
+      "durationMs": 46,
+      "attempts": 1,
+      "file": "2017-04--000000.json",
+      "contentHash": "8028d37752f0a01092b3c08507c41d3d2491d8484af0a209a44c8b356e6a48ed",
+      "bytes": 37896
+    },
+    {
+      "sliceKey": "2017-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 296,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-05-01T00%3A00%3A00Z+TO+2017-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:39.824Z",
+      "durationMs": 26,
+      "attempts": 1,
+      "file": "2017-05--000000.json",
+      "contentHash": "814c66effccceb3b57310932b13fcf790d5960c77c5c0b529a1b18e99f7d68ba",
+      "bytes": 31746
+    },
+    {
+      "sliceKey": "2017-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 226,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-06-01T00%3A00%3A00Z+TO+2017-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:40.926Z",
+      "durationMs": 27,
+      "attempts": 1,
+      "file": "2017-06--000000.json",
+      "contentHash": "2492449033ff1b239b0fc363bd1f0f8d1dc9243c8e187dd9b359dbd112033c55",
+      "bytes": 24712
+    },
+    {
+      "sliceKey": "2017-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 226,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-07-01T00%3A00%3A00Z+TO+2017-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:42.028Z",
+      "durationMs": 28,
+      "attempts": 1,
+      "file": "2017-07--000000.json",
+      "contentHash": "61a467aa6f16d2728a8c4815cfc53b4ac12a497d4c9fb88ae3fcc4ab7c98744a",
+      "bytes": 24728
+    },
+    {
+      "sliceKey": "2017-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 248,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-08-01T00%3A00%3A00Z+TO+2017-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:43.131Z",
+      "durationMs": 29,
+      "attempts": 1,
+      "file": "2017-08--000000.json",
+      "contentHash": "be2ebdb083af8e53fdec728eaeec462faa2a30fb8d428917e6fe1c268051d0b8",
+      "bytes": 26885
+    },
+    {
+      "sliceKey": "2017-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 346,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-09-01T00%3A00%3A00Z+TO+2017-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:44.229Z",
+      "durationMs": 26,
+      "attempts": 1,
+      "file": "2017-09--000000.json",
+      "contentHash": "3bac9b320e69cad1252fc3198af39b645db99b502d3edfbdffd2dd384c127d91",
+      "bytes": 36838
+    },
+    {
+      "sliceKey": "2017-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 458,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-10-01T00%3A00%3A00Z+TO+2017-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:45.335Z",
+      "durationMs": 32,
+      "attempts": 1,
+      "file": "2017-10--000000.json",
+      "contentHash": "6c252edffb9bb1ff139abf62b1fc4cd83127456ee79b82e77ae9f6b8c9c8078e",
+      "bytes": 48057
+    },
+    {
+      "sliceKey": "2017-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1223,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-11-01T00%3A00%3A00Z+TO+2017-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:46.455Z",
+      "durationMs": 51,
+      "attempts": 1,
+      "file": "2017-11--000000.json",
+      "contentHash": "12a2fa9b8f0f3a2176d532905a7b7bc3897422e275f652ebf499c59030f23447",
+      "bytes": 125555
+    },
+    {
+      "sliceKey": "2017-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1090,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2017-12-01T00%3A00%3A00Z+TO+2017-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:47.561Z",
+      "durationMs": 57,
+      "attempts": 1,
+      "file": "2017-12--000000.json",
+      "contentHash": "4e3854615840584b5358b7e98442a209f54b5c54a231004df3a6b474090adeb2",
+      "bytes": 111981
+    },
+    {
+      "sliceKey": "2018-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 867,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-01-01T00%3A00%3A00Z+TO+2018-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:48.676Z",
+      "durationMs": 70,
+      "attempts": 1,
+      "file": "2018-01--000000.json",
+      "contentHash": "db5b42728e4746a9dc236a2750fd4d0bb243c87bc5873148fe5c5167b962d99a",
+      "bytes": 89416
+    },
+    {
+      "sliceKey": "2018-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 763,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-02-01T00%3A00%3A00Z+TO+2018-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:49.737Z",
+      "durationMs": 30,
+      "attempts": 1,
+      "file": "2018-02--000000.json",
+      "contentHash": "52258f906a5d091ccaad9ace6fe3b517a28aed27d387f4d006979222489f82d9",
+      "bytes": 78975
+    },
+    {
+      "sliceKey": "2018-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 685,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-03-01T00%3A00%3A00Z+TO+2018-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:50.966Z",
+      "durationMs": 158,
+      "attempts": 1,
+      "file": "2018-03--000000.json",
+      "contentHash": "d06bdf176241da6acedaffbee048cae4a401bc412d2cdfb3f88230b7909e0d5a",
+      "bytes": 70918
+    },
+    {
+      "sliceKey": "2018-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 539,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-04-01T00%3A00%3A00Z+TO+2018-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:52.014Z",
+      "durationMs": 104,
+      "attempts": 1,
+      "file": "2018-04--000000.json",
+      "contentHash": "5fa4597dce23820f4c1b169e186b26bce4f86c370c35fb6493ea3b19fbeadbc3",
+      "bytes": 56161
+    },
+    {
+      "sliceKey": "2018-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 568,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-05-01T00%3A00%3A00Z+TO+2018-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:53.086Z",
+      "durationMs": 77,
+      "attempts": 1,
+      "file": "2018-05--000000.json",
+      "contentHash": "d25f16430cfc4b51d83e8fb230059c61ddf68b33ba88f4b705d682c4bb5aba56",
+      "bytes": 59066
+    },
+    {
+      "sliceKey": "2018-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 539,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-06-01T00%3A00%3A00Z+TO+2018-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:54.333Z",
+      "durationMs": 223,
+      "attempts": 1,
+      "file": "2018-06--000000.json",
+      "contentHash": "e76f2815838efb4ceb2defc886a0d9a3080f87b66e5046e4bf1bfe27fda5703a",
+      "bytes": 56259
+    },
+    {
+      "sliceKey": "2018-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 621,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-07-01T00%3A00%3A00Z+TO+2018-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:55.242Z",
+      "durationMs": 31,
+      "attempts": 1,
+      "file": "2018-07--000000.json",
+      "contentHash": "82467cf3662e78f61878e7b5812752ed8c8148146e0dfed63293ce07194acdc5",
+      "bytes": 64487
+    },
+    {
+      "sliceKey": "2018-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 675,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-08-01T00%3A00%3A00Z+TO+2018-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:56.357Z",
+      "durationMs": 44,
+      "attempts": 1,
+      "file": "2018-08--000000.json",
+      "contentHash": "5bb5296183cf555a328a1e3b9b7cd48a7d1a52b62a93db24ad737f29fe8cef8c",
+      "bytes": 70059
+    },
+    {
+      "sliceKey": "2018-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 957,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-09-01T00%3A00%3A00Z+TO+2018-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:57.449Z",
+      "durationMs": 35,
+      "attempts": 1,
+      "file": "2018-09--000000.json",
+      "contentHash": "1fc86aa5b49d30a15e27d0c8b61cd61d3e49582790f0ef90bb835cccc451445f",
+      "bytes": 98475
+    },
+    {
+      "sliceKey": "2018-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1236,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-10-01T00%3A00%3A00Z+TO+2018-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:58.550Z",
+      "durationMs": 36,
+      "attempts": 1,
+      "file": "2018-10--000000.json",
+      "contentHash": "4e078599366985a5d3d9c5c68cdb88af5c4c1d3bcebb1a656b068d4f10a713c4",
+      "bytes": 126833
+    },
+    {
+      "sliceKey": "2018-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1494,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-11-01T00%3A00%3A00Z+TO+2018-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:26:59.654Z",
+      "durationMs": 39,
+      "attempts": 1,
+      "file": "2018-11--000000.json",
+      "contentHash": "2ec71b598c239523bfa6ae710c126a29b4c90c7c7c6a9e292f55848eaf907759",
+      "bytes": 153031
+    },
+    {
+      "sliceKey": "2018-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1213,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2018-12-01T00%3A00%3A00Z+TO+2018-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:00.761Z",
+      "durationMs": 43,
+      "attempts": 1,
+      "file": "2018-12--000000.json",
+      "contentHash": "b23ce994ea8e7daeacf99716a385658067e11440a32f6640b0072a9a0727a342",
+      "bytes": 124530
+    },
+    {
+      "sliceKey": "2019-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 933,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-01-01T00%3A00%3A00Z+TO+2019-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:01.908Z",
+      "durationMs": 89,
+      "attempts": 1,
+      "file": "2019-01--000000.json",
+      "contentHash": "a31c8525cdb6445636c42406b3c8aa1c5e28eaed5d9453b179b36453f4912902",
+      "bytes": 96142
+    },
+    {
+      "sliceKey": "2019-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 697,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-02-01T00%3A00%3A00Z+TO+2019-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:02.949Z",
+      "durationMs": 29,
+      "attempts": 1,
+      "file": "2019-02--000000.json",
+      "contentHash": "b61e804dcadd5e09c4bc927f1abdc5522f09ba8dc6a82144ab40cc346b550ffd",
+      "bytes": 72264
+    },
+    {
+      "sliceKey": "2019-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 758,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-03-01T00%3A00%3A00Z+TO+2019-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:04.081Z",
+      "durationMs": 60,
+      "attempts": 1,
+      "file": "2019-03--000000.json",
+      "contentHash": "cbb9bcb590de6d883af298286f601b464956b3cf2d5388e3dcb4d3bdfee8d478",
+      "bytes": 78402
+    },
+    {
+      "sliceKey": "2019-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 721,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-04-01T00%3A00%3A00Z+TO+2019-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:05.151Z",
+      "durationMs": 28,
+      "attempts": 1,
+      "file": "2019-04--000000.json",
+      "contentHash": "3acec1f90cd622aa303e99952f6f9e71c7b6b565214c59164ec4eaeb3073990c",
+      "bytes": 74582
+    },
+    {
+      "sliceKey": "2019-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 595,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-05-01T00%3A00%3A00Z+TO+2019-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:06.250Z",
+      "durationMs": 26,
+      "attempts": 1,
+      "file": "2019-05--000000.json",
+      "contentHash": "d6e1b731734caf1116356b96c82b5c3d481f5022f2c9a7689a4c5dc3f3b02623",
+      "bytes": 61856
+    },
+    {
+      "sliceKey": "2019-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 613,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-06-01T00%3A00%3A00Z+TO+2019-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:07.364Z",
+      "durationMs": 39,
+      "attempts": 1,
+      "file": "2019-06--000000.json",
+      "contentHash": "44fed3ca9f10080e00ecf042b87c5a2704470b32be85afa3b73ca81152605c4f",
+      "bytes": 63761
+    },
+    {
+      "sliceKey": "2019-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 765,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-07-01T00%3A00%3A00Z+TO+2019-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:08.463Z",
+      "durationMs": 36,
+      "attempts": 1,
+      "file": "2019-07--000000.json",
+      "contentHash": "3343e5a6a6b48935bac7895b6ff711f352c18574b8b8ee0228efd7da4b103cff",
+      "bytes": 79051
+    },
+    {
+      "sliceKey": "2019-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 809,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-08-01T00%3A00%3A00Z+TO+2019-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:09.609Z",
+      "durationMs": 80,
+      "attempts": 1,
+      "file": "2019-08--000000.json",
+      "contentHash": "452e52efe67ba6cee53a6dbc55e6d476cf5fa27b4b40053faeb67f4fadcf3e6a",
+      "bytes": 83582
+    },
+    {
+      "sliceKey": "2019-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1121,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-09-01T00%3A00%3A00Z+TO+2019-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:10.703Z",
+      "durationMs": 73,
+      "attempts": 1,
+      "file": "2019-09--000000.json",
+      "contentHash": "b3e22a712c2f891e6eeecab857168d9b9ac8fd450b781b79f1422f99d604dbf6",
+      "bytes": 115124
+    },
+    {
+      "sliceKey": "2019-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1127,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-10-01T00%3A00%3A00Z+TO+2019-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:11.766Z",
+      "durationMs": 36,
+      "attempts": 1,
+      "file": "2019-10--000000.json",
+      "contentHash": "f9db15bb32e4b15a9eecefaa50062f501d4726084020e1cdb7c481576dff55df",
+      "bytes": 115615
+    },
+    {
+      "sliceKey": "2019-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1177,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-11-01T00%3A00%3A00Z+TO+2019-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:12.870Z",
+      "durationMs": 40,
+      "attempts": 1,
+      "file": "2019-11--000000.json",
+      "contentHash": "a268fa52ef4dd68f77c9a90f1dbda7c93f26b080e23a032a01fdd107b0d3635d",
+      "bytes": 120799
+    },
+    {
+      "sliceKey": "2019-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 811,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2019-12-01T00%3A00%3A00Z+TO+2019-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:14.077Z",
+      "durationMs": 146,
+      "attempts": 1,
+      "file": "2019-12--000000.json",
+      "contentHash": "0b29b5fae814e3c4d141c4a8217297bb6aa6e4cfc78ce9f308381714f5832eec",
+      "bytes": 83687
+    },
+    {
+      "sliceKey": "2020-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1036,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-01-01T00%3A00%3A00Z+TO+2020-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:15.104Z",
+      "durationMs": 71,
+      "attempts": 1,
+      "file": "2020-01--000000.json",
+      "contentHash": "0c373e343f46c61137f22b6446a15f7342fc1a6e8e2296d3f88e171ae6ca6a85",
+      "bytes": 106703
+    },
+    {
+      "sliceKey": "2020-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1276,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-02-01T00%3A00%3A00Z+TO+2020-02-29T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:16.167Z",
+      "durationMs": 34,
+      "attempts": 1,
+      "file": "2020-02--000000.json",
+      "contentHash": "4ac719904612ecc2ab3d8b6cdd95fd6c6f95b7f619f19f1fab00b9ac6fe66b55",
+      "bytes": 130842
+    },
+    {
+      "sliceKey": "2020-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1093,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-03-01T00%3A00%3A00Z+TO+2020-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:17.275Z",
+      "durationMs": 41,
+      "attempts": 1,
+      "file": "2020-03--000000.json",
+      "contentHash": "c6bb74615a5df9a9473e44b367eb2a6c975beae2488db0189b248022bb0d02c2",
+      "bytes": 112450
+    },
+    {
+      "sliceKey": "2020-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 966,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-04-01T00%3A00%3A00Z+TO+2020-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:18.395Z",
+      "durationMs": 59,
+      "attempts": 1,
+      "file": "2020-04--000000.json",
+      "contentHash": "b52cf8a7625c3e3a85db2f93158a5acb7a2ff94c02a7fdd6a6d1f9e8cbf6143b",
+      "bytes": 99437
+    },
+    {
+      "sliceKey": "2020-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 851,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-05-01T00%3A00%3A00Z+TO+2020-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:19.498Z",
+      "durationMs": 61,
+      "attempts": 1,
+      "file": "2020-05--000000.json",
+      "contentHash": "2bcb739a6b8f4fce47cad5c34d68a3a77c1b6ab57930ef21f58460b9f4958ccb",
+      "bytes": 87734
+    },
+    {
+      "sliceKey": "2020-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 891,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-06-01T00%3A00%3A00Z+TO+2020-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:20.572Z",
+      "durationMs": 34,
+      "attempts": 1,
+      "file": "2020-06--000000.json",
+      "contentHash": "6c8bf69788912ef30149295821d805f08300a073c0b505127f4634b8daf306b0",
+      "bytes": 91708
+    },
+    {
+      "sliceKey": "2020-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1046,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-07-01T00%3A00%3A00Z+TO+2020-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:21.680Z",
+      "durationMs": 42,
+      "attempts": 1,
+      "file": "2020-07--000000.json",
+      "contentHash": "6f1713c3f9b2191d651ac5e6a8d4d905dbd545a975616944dc9996e6633734d2",
+      "bytes": 107465
+    },
+    {
+      "sliceKey": "2020-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1354,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-08-01T00%3A00%3A00Z+TO+2020-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:22.804Z",
+      "durationMs": 65,
+      "attempts": 1,
+      "file": "2020-08--000000.json",
+      "contentHash": "25db6f9d54c49086980ff7adcbf5b6de57a6802adf296468d7dee7a66d033198",
+      "bytes": 138510
+    },
+    {
+      "sliceKey": "2020-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1816,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-09-01T00%3A00%3A00Z+TO+2020-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:23.905Z",
+      "durationMs": 65,
+      "attempts": 1,
+      "file": "2020-09--000000.json",
+      "contentHash": "5f467bdaa5c15f7b4eb8cef94d32f8a75f219f87f5daf17488adfc24f4800e8e",
+      "bytes": 185546
+    },
+    {
+      "sliceKey": "2020-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2151,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-10-01T00%3A00%3A00Z+TO+2020-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:25.077Z",
+      "durationMs": 137,
+      "attempts": 1,
+      "file": "2020-10--000000.json",
+      "contentHash": "26e3a3f94c2ce519ca7eb2319a31b0e9defbf5aaff1ab57b2a5d7380e012bd3c",
+      "bytes": 219301
+    },
+    {
+      "sliceKey": "2020-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1964,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-11-01T00%3A00%3A00Z+TO+2020-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:26.104Z",
+      "durationMs": 63,
+      "attempts": 1,
+      "file": "2020-11--000000.json",
+      "contentHash": "231e110b061f06a2e459914ea85b19893ddcb0cea4358dde819bd11137abf62d",
+      "bytes": 200712
+    },
+    {
+      "sliceKey": "2020-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1574,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2020-12-01T00%3A00%3A00Z+TO+2020-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:27.194Z",
+      "durationMs": 52,
+      "attempts": 1,
+      "file": "2020-12--000000.json",
+      "contentHash": "cb1b97c074320742fdbb0832e09f085bc590bdde48bd9bada8cbf1ce011cbc87",
+      "bytes": 161144
+    },
+    {
+      "sliceKey": "2021-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1567,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-01-01T00%3A00%3A00Z+TO+2021-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:28.317Z",
+      "durationMs": 74,
+      "attempts": 1,
+      "file": "2021-01--000000.json",
+      "contentHash": "a22735bc48fb13cd5b293610dbc4939baf0f3faa431e5e233561449cb6b30d77",
+      "bytes": 160293
+    },
+    {
+      "sliceKey": "2021-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1462,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-02-01T00%3A00%3A00Z+TO+2021-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:29.382Z",
+      "durationMs": 37,
+      "attempts": 1,
+      "file": "2021-02--000000.json",
+      "contentHash": "2f352167a852485b3d33a744ee20d5ae707d86c1e07db796cbe5ef663635d0bd",
+      "bytes": 149742
+    },
+    {
+      "sliceKey": "2021-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1639,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-03-01T00%3A00%3A00Z+TO+2021-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:30.482Z",
+      "durationMs": 37,
+      "attempts": 1,
+      "file": "2021-03--000000.json",
+      "contentHash": "839f90a7cbbe76f071ef9f8d6e5770953ede3023dd49d3029d8f4d6e743423d2",
+      "bytes": 167450
+    },
+    {
+      "sliceKey": "2021-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1340,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-04-01T00%3A00%3A00Z+TO+2021-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:31.609Z",
+      "durationMs": 63,
+      "attempts": 1,
+      "file": "2021-04--000000.json",
+      "contentHash": "3a78dc68a231f76c200394f3b44306cb01945d0b0c191862e468b5a6c5e59262",
+      "bytes": 137113
+    },
+    {
+      "sliceKey": "2021-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1150,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-05-01T00%3A00%3A00Z+TO+2021-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:32.679Z",
+      "durationMs": 31,
+      "attempts": 1,
+      "file": "2021-05--000000.json",
+      "contentHash": "7f8652c6a3061ad5d9d4d32d49d0a6004ba737822613b6ac1774470e3445169d",
+      "bytes": 117878
+    },
+    {
+      "sliceKey": "2021-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1187,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-06-01T00%3A00%3A00Z+TO+2021-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:33.779Z",
+      "durationMs": 31,
+      "attempts": 1,
+      "file": "2021-06--000000.json",
+      "contentHash": "47542c199d871e9cb7429ce07cdb213aefd99b4f9fb378b7650ec42b55f9379d",
+      "bytes": 121626
+    },
+    {
+      "sliceKey": "2021-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1310,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-07-01T00%3A00%3A00Z+TO+2021-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:34.912Z",
+      "durationMs": 63,
+      "attempts": 1,
+      "file": "2021-07--000000.json",
+      "contentHash": "4da231e9107eda829950127f56ab1fef5abe8ce4d3be222244e6a0151335718a",
+      "bytes": 134128
+    },
+    {
+      "sliceKey": "2021-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1690,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-08-01T00%3A00%3A00Z+TO+2021-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:36.081Z",
+      "durationMs": 130,
+      "attempts": 1,
+      "file": "2021-08--000000.json",
+      "contentHash": "dafc11eef98c36e1a0c8ba6db720ceea77704a4e6527bb5e66e7aa5d49955058",
+      "bytes": 172515
+    },
+    {
+      "sliceKey": "2021-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1888,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-09-01T00%3A00%3A00Z+TO+2021-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:37.137Z",
+      "durationMs": 83,
+      "attempts": 1,
+      "file": "2021-09--000000.json",
+      "contentHash": "4be6982d6f88b7c4eef89a46cc8a99b2da9364871f9e8424ac24fe7e39158e46",
+      "bytes": 192851
+    },
+    {
+      "sliceKey": "2021-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2208,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-10-01T00%3A00%3A00Z+TO+2021-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:38.278Z",
+      "durationMs": 123,
+      "attempts": 1,
+      "file": "2021-10--000000.json",
+      "contentHash": "42ff1e004f4429cc86f0f43bd6dcf933ddab9fcebb7367fac417a20a5af36a8e",
+      "bytes": 225241
+    },
+    {
+      "sliceKey": "2021-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2957,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-11-01T00%3A00%3A00Z+TO+2021-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:39.300Z",
+      "durationMs": 43,
+      "attempts": 1,
+      "file": "2021-11--000000.json",
+      "contentHash": "72b019919c0fdf97ff4192ec740b75402709fe4e0e523cb709190d2d25c26d6d",
+      "bytes": 301230
+    },
+    {
+      "sliceKey": "2021-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2170,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2021-12-01T00%3A00%3A00Z+TO+2021-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:40.405Z",
+      "durationMs": 48,
+      "attempts": 1,
+      "file": "2021-12--000000.json",
+      "contentHash": "ad3b583d27630608673ff7d6f7430afcec2d97b886e9c50293d8c55dc14a42cd",
+      "bytes": 221456
+    },
+    {
+      "sliceKey": "2022-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2103,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-01-01T00%3A00%3A00Z+TO+2022-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:41.510Z",
+      "durationMs": 53,
+      "attempts": 1,
+      "file": "2022-01--000000.json",
+      "contentHash": "3ee62af17932b4da39af1702aa202b56a9aee5a4f1a93c3db82dbd0dd4cb2aa6",
+      "bytes": 214587
+    },
+    {
+      "sliceKey": "2022-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1621,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-02-01T00%3A00%3A00Z+TO+2022-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:42.593Z",
+      "durationMs": 34,
+      "attempts": 1,
+      "file": "2022-02--000000.json",
+      "contentHash": "dfb3b255bf8d25be2c607599ade1e45dade6c785fe9887d827a3953e0a8c619b",
+      "bytes": 165736
+    },
+    {
+      "sliceKey": "2022-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1637,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-03-01T00%3A00%3A00Z+TO+2022-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:43.716Z",
+      "durationMs": 56,
+      "attempts": 1,
+      "file": "2022-03--000000.json",
+      "contentHash": "52a96f7d29a466427b3332ef2686defddf2e26769e3e271505199dd7563f5098",
+      "bytes": 167119
+    },
+    {
+      "sliceKey": "2022-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1633,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-04-01T00%3A00%3A00Z+TO+2022-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:44.797Z",
+      "durationMs": 37,
+      "attempts": 1,
+      "file": "2022-04--000000.json",
+      "contentHash": "269d9db62021db649eb192ee7817c8a85321f59608f1ccb0bdd4c95989238081",
+      "bytes": 166697
+    },
+    {
+      "sliceKey": "2022-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1561,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-05-01T00%3A00%3A00Z+TO+2022-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:45.902Z",
+      "durationMs": 41,
+      "attempts": 1,
+      "file": "2022-05--000000.json",
+      "contentHash": "b34ca057ebd10df0875c28f925cb4b4b0ac5d23d50baa15e0b917034f2e457cd",
+      "bytes": 159375
+    },
+    {
+      "sliceKey": "2022-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1225,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-06-01T00%3A00%3A00Z+TO+2022-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:46.992Z",
+      "durationMs": 29,
+      "attempts": 1,
+      "file": "2022-06--000000.json",
+      "contentHash": "ebff11d90e515e485ff030e51c3c4817a2545cd8d37a6ff109a611456bc132b2",
+      "bytes": 125571
+    },
+    {
+      "sliceKey": "2022-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1464,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-07-01T00%3A00%3A00Z+TO+2022-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:48.794Z",
+      "durationMs": 731,
+      "attempts": 1,
+      "file": "2022-07--000000.json",
+      "contentHash": "0101851c9e42c2e79c99ca05c5fe4e39b18677ba110f5f4c1860e5431ecc34b2",
+      "bytes": 149535
+    },
+    {
+      "sliceKey": "2022-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1949,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-08-01T00%3A00%3A00Z+TO+2022-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:49.241Z",
+      "durationMs": 77,
+      "attempts": 1,
+      "file": "2022-08--000000.json",
+      "contentHash": "73c2e5889f7ad9a9fec34b0f35ebc62adc8aeaccf105de2decd2c54279f3af4e",
+      "bytes": 198726
+    },
+    {
+      "sliceKey": "2022-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2737,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-09-01T00%3A00%3A00Z+TO+2022-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:50.310Z",
+      "durationMs": 45,
+      "attempts": 1,
+      "file": "2022-09--000000.json",
+      "contentHash": "dc86fcde9284699f2033b72ca19e89516095b194c66684d37fc023fb3dc5f54b",
+      "bytes": 278527
+    },
+    {
+      "sliceKey": "2022-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2888,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-10-01T00%3A00%3A00Z+TO+2022-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:51.418Z",
+      "durationMs": 51,
+      "attempts": 1,
+      "file": "2022-10--000000.json",
+      "contentHash": "c8d98d525449fc48c78a8944ec80928ffaea83062423494790cd4e098c74b359",
+      "bytes": 294099
+    },
+    {
+      "sliceKey": "2022-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2993,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-11-01T00%3A00%3A00Z+TO+2022-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:52.524Z",
+      "durationMs": 56,
+      "attempts": 1,
+      "file": "2022-11--000000.json",
+      "contentHash": "81186ea97e1bbb7fe99d9fb3456a036732d43763cf2720c79728d8d531303d95",
+      "bytes": 304773
+    },
+    {
+      "sliceKey": "2022-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2077,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2022-12-01T00%3A00%3A00Z+TO+2022-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:53.648Z",
+      "durationMs": 79,
+      "attempts": 1,
+      "file": "2022-12--000000.json",
+      "contentHash": "7d20dfa8a5f6b59356a02a83de4e63912718e3c337725b0bd0459851fa69acd8",
+      "bytes": 211788
+    },
+    {
+      "sliceKey": "2023-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1821,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-01-01T00%3A00%3A00Z+TO+2023-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:54.745Z",
+      "durationMs": 76,
+      "attempts": 1,
+      "file": "2023-01--000000.json",
+      "contentHash": "59484e84961c4a73701ebf7cb7b5a6da97c55ee3d9dd4afbe063ab3243007a3f",
+      "bytes": 185941
+    },
+    {
+      "sliceKey": "2023-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1382,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-02-01T00%3A00%3A00Z+TO+2023-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:55.808Z",
+      "durationMs": 38,
+      "attempts": 1,
+      "file": "2023-02--000000.json",
+      "contentHash": "e8c47b9f7d7a2c67b5c10a61b4b0f64f9cc5fe0a7c8bfb0cc221f173f337b886",
+      "bytes": 141493
+    },
+    {
+      "sliceKey": "2023-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1525,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-03-01T00%3A00%3A00Z+TO+2023-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:56.932Z",
+      "durationMs": 61,
+      "attempts": 1,
+      "file": "2023-03--000000.json",
+      "contentHash": "3f6cda19ed631dba3cd07adf6c21f2556e34580f900c854d397e8156036444d3",
+      "bytes": 155944
+    },
+    {
+      "sliceKey": "2023-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1647,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-04-01T00%3A00%3A00Z+TO+2023-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:58.024Z",
+      "durationMs": 51,
+      "attempts": 1,
+      "file": "2023-04--000000.json",
+      "contentHash": "625ebad0e9f3b205a98a2ac2bb250adcf14a706797e662436580e90751a6d0ea",
+      "bytes": 168080
+    },
+    {
+      "sliceKey": "2023-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1184,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-05-01T00%3A00%3A00Z+TO+2023-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:27:59.193Z",
+      "durationMs": 118,
+      "attempts": 1,
+      "file": "2023-05--000000.json",
+      "contentHash": "4652cc0e8e037e1ebbe3ecd7f395b0a462c271046aa82e14a29fab3d6201cb09",
+      "bytes": 121254
+    },
+    {
+      "sliceKey": "2023-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1415,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-06-01T00%3A00%3A00Z+TO+2023-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:00.248Z",
+      "durationMs": 72,
+      "attempts": 1,
+      "file": "2023-06--000000.json",
+      "contentHash": "f17480b6f068ef37b8bb8e42d4b174fe236794bd93fe0945b65bbb7278991698",
+      "bytes": 144746
+    },
+    {
+      "sliceKey": "2023-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1622,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-07-01T00%3A00%3A00Z+TO+2023-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:01.336Z",
+      "durationMs": 57,
+      "attempts": 1,
+      "file": "2023-07--000000.json",
+      "contentHash": "f714b24ab2785965573e8ebaf5ab4d582f388bb5cc7f76ce66420b925fdf2b0b",
+      "bytes": 165643
+    },
+    {
+      "sliceKey": "2023-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1907,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-08-01T00%3A00%3A00Z+TO+2023-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:02.424Z",
+      "durationMs": 45,
+      "attempts": 1,
+      "file": "2023-08--000000.json",
+      "contentHash": "732a4fbd00ca6b862a4ca71ccf839011582fe9008d9b6628348d17a13351877b",
+      "bytes": 194605
+    },
+    {
+      "sliceKey": "2023-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2112,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-09-01T00%3A00%3A00Z+TO+2023-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:03.532Z",
+      "durationMs": 51,
+      "attempts": 1,
+      "file": "2023-09--000000.json",
+      "contentHash": "3d2ee5b5f9cf0c2fc3b49520df62bccdb6d9f53f0770315e6192a11d061aa4ce",
+      "bytes": 215348
+    },
+    {
+      "sliceKey": "2023-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1940,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-10-01T00%3A00%3A00Z+TO+2023-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:04.670Z",
+      "durationMs": 89,
+      "attempts": 1,
+      "file": "2023-10--000000.json",
+      "contentHash": "d944c0183ce95678d8bdf5ba53604a32c5eaad05859871f521193c7fbcf3fa50",
+      "bytes": 197762
+    },
+    {
+      "sliceKey": "2023-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2483,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-11-01T00%3A00%3A00Z+TO+2023-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:05.725Z",
+      "durationMs": 42,
+      "attempts": 1,
+      "file": "2023-11--000000.json",
+      "contentHash": "17501d781988ee7c567fd374d929b284721f8e2f783b9042d3ff906f2817ccbe",
+      "bytes": 253010
+    },
+    {
+      "sliceKey": "2023-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2284,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2023-12-01T00%3A00%3A00Z+TO+2023-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:06.837Z",
+      "durationMs": 53,
+      "attempts": 1,
+      "file": "2023-12--000000.json",
+      "contentHash": "8617066276c098c502c4b6b0d96aed77b360cff1811e259759d66b51953aeb2f",
+      "bytes": 232954
+    },
+    {
+      "sliceKey": "2024-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2219,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-01-01T00%3A00%3A00Z+TO+2024-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:07.926Z",
+      "durationMs": 40,
+      "attempts": 1,
+      "file": "2024-01--000000.json",
+      "contentHash": "6bfb6c3d8f5b808577136327f376b82e106d3c79858e79c2481c8a823c2e8aa3",
+      "bytes": 226436
+    },
+    {
+      "sliceKey": "2024-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1485,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-02-01T00%3A00%3A00Z+TO+2024-02-29T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:09.033Z",
+      "durationMs": 46,
+      "attempts": 1,
+      "file": "2024-02--000000.json",
+      "contentHash": "746cb7d47ef9c6d1d6b06c211b64397633eacc65798ce8e30e375433e816be11",
+      "bytes": 152106
+    },
+    {
+      "sliceKey": "2024-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1496,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-03-01T00%3A00%3A00Z+TO+2024-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:10.134Z",
+      "durationMs": 45,
+      "attempts": 1,
+      "file": "2024-03--000000.json",
+      "contentHash": "6b88a2c072c84ecfe4696745f81ba731b25f3e2a2f1e0302232ed6d902026fd8",
+      "bytes": 153020
+    },
+    {
+      "sliceKey": "2024-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1615,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-04-01T00%3A00%3A00Z+TO+2024-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:11.424Z",
+      "durationMs": 233,
+      "attempts": 1,
+      "file": "2024-04--000000.json",
+      "contentHash": "1019d33ee00621e910ba6be0b31946795eed693cb1c9d24057eb97d9f6e77bf7",
+      "bytes": 164886
+    },
+    {
+      "sliceKey": "2024-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1332,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-05-01T00%3A00%3A00Z+TO+2024-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:12.335Z",
+      "durationMs": 43,
+      "attempts": 1,
+      "file": "2024-05--000000.json",
+      "contentHash": "5df5d957825ee1825c3c09c75c9a5243736c7df24f1dc62c4a1219ab7f48a3fd",
+      "bytes": 136311
+    },
+    {
+      "sliceKey": "2024-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1214,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-06-01T00%3A00%3A00Z+TO+2024-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:13.444Z",
+      "durationMs": 51,
+      "attempts": 1,
+      "file": "2024-06--000000.json",
+      "contentHash": "123eba44fa5ef1fb1f32d35e616e38becdb08cfed1a0c961173b46d9041f8634",
+      "bytes": 124500
+    },
+    {
+      "sliceKey": "2024-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1538,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-07-01T00%3A00%3A00Z+TO+2024-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:14.539Z",
+      "durationMs": 44,
+      "attempts": 1,
+      "file": "2024-07--000000.json",
+      "contentHash": "6395ed3b8361273d61b1077e821d37595ea67d3a524e7cdc124e0f361c019d96",
+      "bytes": 157024
+    },
+    {
+      "sliceKey": "2024-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2145,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-08-01T00%3A00%3A00Z+TO+2024-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:15.644Z",
+      "durationMs": 48,
+      "attempts": 1,
+      "file": "2024-08--000000.json",
+      "contentHash": "3417ae1d31cb3568991d81a3e901d2a1bb3be5860a2be779be1fdc9e3c18909c",
+      "bytes": 218557
+    },
+    {
+      "sliceKey": "2024-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2157,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-09-01T00%3A00%3A00Z+TO+2024-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:16.744Z",
+      "durationMs": 47,
+      "attempts": 1,
+      "file": "2024-09--000000.json",
+      "contentHash": "0131c7f9ca44dab71ec3d17e3c9a1202e4db7a744af90e35e02bbed0a5a80654",
+      "bytes": 219763
+    },
+    {
+      "sliceKey": "2024-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 2318,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-10-01T00%3A00%3A00Z+TO+2024-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:17.869Z",
+      "durationMs": 70,
+      "attempts": 1,
+      "file": "2024-10--000000.json",
+      "contentHash": "fc2f5fd2d89cd113ad603b0a6b9c31a25d6b7900859ff3a9a0104c9b2a480319",
+      "bytes": 236046
+    },
+    {
+      "sliceKey": "2024-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1694,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-11-01T00%3A00%3A00Z+TO+2024-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:18.948Z",
+      "durationMs": 48,
+      "attempts": 1,
+      "file": "2024-11--000000.json",
+      "contentHash": "23a3294df2015a0e942d80006ad95c5ace0d8a418982113680032a4d7595e4bb",
+      "bytes": 173063
+    },
+    {
+      "sliceKey": "2024-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1107,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2024-12-01T00%3A00%3A00Z+TO+2024-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:20.139Z",
+      "durationMs": 137,
+      "attempts": 1,
+      "file": "2024-12--000000.json",
+      "contentHash": "36fe907ccad8986db881f98e04c72e668776b5d66aeada6e24d2cba96a10f117",
+      "bytes": 113682
+    },
+    {
+      "sliceKey": "2025-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1018,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-01-01T00%3A00%3A00Z+TO+2025-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:21.231Z",
+      "durationMs": 129,
+      "attempts": 1,
+      "file": "2025-01--000000.json",
+      "contentHash": "b5ce55f6e6901fb4759f8716e2df1962576f77034f1bdd405e1c35f85b406d51",
+      "bytes": 104610
+    },
+    {
+      "sliceKey": "2025-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 803,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-02-01T00%3A00%3A00Z+TO+2025-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:22.264Z",
+      "durationMs": 61,
+      "attempts": 1,
+      "file": "2025-02--000000.json",
+      "contentHash": "d531a29b7e4ae77c7581d040c70de14a5a284ebe196fae7cefef846b99f611bc",
+      "bytes": 83123
+    },
+    {
+      "sliceKey": "2025-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 902,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-03-01T00%3A00%3A00Z+TO+2025-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:23.334Z",
+      "durationMs": 30,
+      "attempts": 1,
+      "file": "2025-03--000000.json",
+      "contentHash": "488317a759f880e93e0be81c68169f2c5b0ee9733536b7e2e0324ec614e54f10",
+      "bytes": 92963
+    },
+    {
+      "sliceKey": "2025-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 975,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-04-01T00%3A00%3A00Z+TO+2025-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:24.434Z",
+      "durationMs": 28,
+      "attempts": 1,
+      "file": "2025-04--000000.json",
+      "contentHash": "76afb21c1d86be227f3eb7552bdbace342c6dc8b8d9c4f0fc59014d305fdb122",
+      "bytes": 100345
+    },
+    {
+      "sliceKey": "2025-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 688,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-05-01T00%3A00%3A00Z+TO+2025-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:25.571Z",
+      "durationMs": 64,
+      "attempts": 1,
+      "file": "2025-05--000000.json",
+      "contentHash": "7bf9a81226ba310763b2e7989041f215d8a7ee91d53205bf6b97bfa0d328dd40",
+      "bytes": 71358
+    },
+    {
+      "sliceKey": "2025-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 564,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-06-01T00%3A00%3A00Z+TO+2025-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:26.640Z",
+      "durationMs": 33,
+      "attempts": 1,
+      "file": "2025-06--000000.json",
+      "contentHash": "40836aa4a69b7f42f76b4d7b490f67dde46437ca2e80acccf978305eb6322fa1",
+      "bytes": 58760
+    },
+    {
+      "sliceKey": "2025-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 603,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-07-01T00%3A00%3A00Z+TO+2025-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:27.750Z",
+      "durationMs": 41,
+      "attempts": 1,
+      "file": "2025-07--000000.json",
+      "contentHash": "e0b365de3a2caf6afda7b34fdb3ea61e910b5c1e6f1fea4da2e4c0bccf751efb",
+      "bytes": 62712
+    },
+    {
+      "sliceKey": "2025-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 795,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-08-01T00%3A00%3A00Z+TO+2025-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:28.853Z",
+      "durationMs": 44,
+      "attempts": 1,
+      "file": "2025-08--000000.json",
+      "contentHash": "24f97ec2f91eaf648fc7e03f8ce4dd3d8e2ab2a3d902ab3e576c8b47580e7e96",
+      "bytes": 82142
+    },
+    {
+      "sliceKey": "2025-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1107,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-09-01T00%3A00%3A00Z+TO+2025-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:29.965Z",
+      "durationMs": 54,
+      "attempts": 1,
+      "file": "2025-09--000000.json",
+      "contentHash": "b1ba4f958c122dba59bba8b992c3af4a470cd4be7e6c4dfeabc9225de8bb6473",
+      "bytes": 113737
+    },
+    {
+      "sliceKey": "2025-10",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1211,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-10-01T00%3A00%3A00Z+TO+2025-10-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:31.093Z",
+      "durationMs": 81,
+      "attempts": 1,
+      "file": "2025-10--000000.json",
+      "contentHash": "1aa1b1fb098e1927fbd34123d96fcda452083af0692a60859507a59685b72818",
+      "bytes": 124036
+    },
+    {
+      "sliceKey": "2025-11",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1181,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-11-01T00%3A00%3A00Z+TO+2025-11-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:32.143Z",
+      "durationMs": 30,
+      "attempts": 1,
+      "file": "2025-11--000000.json",
+      "contentHash": "5b2c62bb61e8580396c3f8c77912d6151c137f6d2c03cac042af66fd0ea17848",
+      "bytes": 121051
+    },
+    {
+      "sliceKey": "2025-12",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1101,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2025-12-01T00%3A00%3A00Z+TO+2025-12-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:33.254Z",
+      "durationMs": 40,
+      "attempts": 1,
+      "file": "2025-12--000000.json",
+      "contentHash": "7945ba2cef426c6a630eb3a4d98f81b885dc6d958c7b4b621adbaf622f88c779",
+      "bytes": 112994
+    },
+    {
+      "sliceKey": "2026-01",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 987,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-01-01T00%3A00%3A00Z+TO+2026-01-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:34.386Z",
+      "durationMs": 70,
+      "attempts": 1,
+      "file": "2026-01--000000.json",
+      "contentHash": "5e016a9f113c5bf8d0e5b298e717b58fb0986c7aec2cd579fee8162672127aa5",
+      "bytes": 101509
+    },
+    {
+      "sliceKey": "2026-02",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 914,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-02-01T00%3A00%3A00Z+TO+2026-02-28T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:35.447Z",
+      "durationMs": 30,
+      "attempts": 1,
+      "file": "2026-02--000000.json",
+      "contentHash": "9734e59a63fc82e1d510dee56e066e7b373a6539c58c5ed179da7360dd21866e",
+      "bytes": 94067
+    },
+    {
+      "sliceKey": "2026-03",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 1073,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-03-01T00%3A00%3A00Z+TO+2026-03-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:36.551Z",
+      "durationMs": 33,
+      "attempts": 1,
+      "file": "2026-03--000000.json",
+      "contentHash": "7b438ec21241f92d5cbb905151abc6224eb1af4f57fa21975581ba6d3fd188b4",
+      "bytes": 110016
+    },
+    {
+      "sliceKey": "2026-04",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 904,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-04-01T00%3A00%3A00Z+TO+2026-04-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:37.649Z",
+      "durationMs": 30,
+      "attempts": 1,
+      "file": "2026-04--000000.json",
+      "contentHash": "37387b20010200e1faab3e533091d61c40a8c3ee04ad06f4ed1e03ca40b893b9",
+      "bytes": 93093
+    },
+    {
+      "sliceKey": "2026-05",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 832,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-05-01T00%3A00%3A00Z+TO+2026-05-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:38.894Z",
+      "durationMs": 174,
+      "attempts": 1,
+      "file": "2026-05--000000.json",
+      "contentHash": "00b4baf312dd742a1ef17d9c8151fdc5ed49a8ec45b7d7bde4bf7da6fc50adb4",
+      "bytes": 85710
+    },
+    {
+      "sliceKey": "2026-06",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 675,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-06-01T00%3A00%3A00Z+TO+2026-06-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:39.852Z",
+      "durationMs": 32,
+      "attempts": 1,
+      "file": "2026-06--000000.json",
+      "contentHash": "83265e1004a906924c28ef31c8c1b7d6a284a5407715529c8f8aa59a3560996f",
+      "bytes": 70001
+    },
+    {
+      "sliceKey": "2026-07",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 656,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-07-01T00%3A00%3A00Z+TO+2026-07-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:40.948Z",
+      "durationMs": 27,
+      "attempts": 1,
+      "file": "2026-07--000000.json",
+      "contentHash": "5e02c793612601fc2d87842d74d9f0dd108185ba79260d33d1f4b99c4e3ebeef",
+      "bytes": 68061
+    },
+    {
+      "sliceKey": "2026-08",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 764,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-08-01T00%3A00%3A00Z+TO+2026-08-31T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:42.048Z",
+      "durationMs": 26,
+      "attempts": 1,
+      "file": "2026-08--000000.json",
+      "contentHash": "7401b24a30ddf8a6c14f6c7fe7cdf476387b41a797ac3f9bc78f45cafa3c61cf",
+      "bytes": 79015
+    },
+    {
+      "sliceKey": "2026-09",
+      "startIndex": 0,
+      "pageSize": 0,
+      "recordCount": 835,
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=*%3A*&pageSize=0&fq=eventDate%3A%5B2026-09-01T00%3A00%3A00Z+TO+2026-09-30T23%3A59%3A59Z%5D&fq=-dataResourceUid%3A%28dr23118+OR+dr23125+OR+dr23141+OR+dr23201+OR+dr23204+OR+dr31514+OR+dr34307+OR+dr34308+OR+dr34309+OR+dr9942%29&fq=class%3AAmphibia&facets=point-0.1&flimit=-1",
+      "status": 200,
+      "fetchedAt": "2026-10-04T01:28:43.229Z",
+      "durationMs": 106,
+      "attempts": 1,
+      "file": "2026-09--000000.json",
+      "contentHash": "38ceaeef4045c21543c187f2e5f333622463016a5c15de890b8959db9741e752",
+      "bytes": 86067
+    }
+  ],
+  "corpusHash": "9176ba1fe879674355ab2d42b2b80b46e220087e85e48d86f624f4cf63478b4e",
+  "requestCount": 141,
+  "warnings": [
+    "2015-03: 2 of 1571 records in no cell",
+    "2015-04: 3 of 1423 records in no cell",
+    "2015-10: 12 of 1345 records in no cell",
+    "2015-11: 3 of 2691 records in no cell",
+    "2015-12: 1 of 1839 records in no cell",
+    "2016-01: 34 of 1728 records in no cell",
+    "2016-02: 40 of 1586 records in no cell",
+    "2016-03: 11 of 856 records in no cell",
+    "2016-04: 18 of 701 records in no cell",
+    "2016-05: 12 of 1628 records in no cell",
+    "2016-06: 1 of 876 records in no cell",
+    "2016-07: 6 of 825 records in no cell",
+    "2016-08: 110 of 1419 records in no cell",
+    "2016-09: 10 of 2222 records in no cell",
+    "2016-10: 4 of 2836 records in no cell",
+    "2016-11: 44 of 3035 records in no cell",
+    "2016-12: 19 of 3073 records in no cell",
+    "2017-01: 14 of 2489 records in no cell",
+    "2017-02: 25 of 3341 records in no cell",
+    "2017-03: 24 of 7801 records in no cell",
+    "2017-05: 18 of 2047 records in no cell",
+    "2017-06: 3 of 1220 records in no cell",
+    "2017-07: 2 of 1858 records in no cell",
+    "2017-08: 2 of 1777 records in no cell",
+    "2017-10: 21 of 2374 records in no cell",
+    "2017-11: 12 of 10919 records in no cell",
+    "2017-12: 4 of 8258 records in no cell",
+    "2018-01: 1 of 6576 records in no cell",
+    "2018-02: 43 of 6059 records in no cell",
+    "2018-03: 75 of 4361 records in no cell",
+    "2018-04: 1 of 1885 records in no cell",
+    "2018-05: 1 of 3182 records in no cell",
+    "2018-09: 1 of 6632 records in no cell",
+    "2019-01: 38 of 8888 records in no cell",
+    "2019-02: 78 of 6251 records in no cell",
+    "2019-03: 10 of 5138 records in no cell",
+    "2019-04: 57 of 3801 records in no cell",
+    "2019-05: 14 of 2661 records in no cell",
+    "2019-07: 82 of 5569 records in no cell",
+    "2020-02: 46 of 19784 records in no cell",
+    "2020-03: 41 of 10420 records in no cell",
+    "2020-09: 1 of 23409 records in no cell",
+    "2021-02: 42 of 16762 records in no cell",
+    "2021-03: 31 of 18297 records in no cell",
+    "2021-06: 1 of 8081 records in no cell",
+    "2022-02: 34 of 25937 records in no cell",
+    "2022-03: 17 of 15810 records in no cell",
+    "2023-01: 18 of 19644 records in no cell",
+    "2023-02: 15 of 11497 records in no cell",
+    "2023-03: 3 of 9506 records in no cell",
+    "2023-11: 1 of 58833 records in no cell",
+    "2024-02: 42 of 15311 records in no cell",
+    "2024-03: 7 of 9411 records in no cell",
+    "2025-02: 2 of 3184 records in no cell",
+    "2025-04: 70 of 2654 records in no cell"
+  ]
+}
